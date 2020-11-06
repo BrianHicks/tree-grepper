@@ -1,6 +1,6 @@
 use anyhow;
 use clap::Clap;
-use ignore::WalkBuilder;
+use ignore::{WalkBuilder, WalkState};
 use std::path::PathBuf;
 use std::process;
 use thiserror::Error;
@@ -56,7 +56,14 @@ fn real_main(opts: Opts) -> anyhow::Result<()> {
     builder
         .follow_links(opts.follow_links)
         .max_depth(opts.max_depth)
-        .threads(opts.threads);
+        .threads(opts.threads)
+        .build_parallel()
+        .run(|| {
+            Box::new(|path| {
+                println!("{:?}", path);
+                WalkState::Continue
+            })
+        });
 
     Ok(())
 }
