@@ -1,5 +1,6 @@
 use clap::Clap;
 use ignore::{types, WalkBuilder, WalkState};
+use std::fs;
 use std::path::PathBuf;
 use std::process;
 use tree_sitter::{self, Query};
@@ -85,7 +86,12 @@ fn main() {
         .types(types)
         .build_parallel()
         .run(|| {
-            Box::new(|dir_entry_result| match dir_entry_result {
+            let mut parser = match parser(language_elm()) {
+                Ok(p) => p,
+                Err(_) => return Box::new(|_| WalkState::Quit),
+            };
+
+            Box::new(move |dir_entry_result| match dir_entry_result {
                 Err(err) => {
                     eprintln!("Error reading path: {:}", err);
                     WalkState::Quit
@@ -95,7 +101,23 @@ fn main() {
                         return WalkState::Continue;
                     }
 
-                    println!("{:#?}", dir_entry);
+                    let source = match fs::read_to_string(dir_entry.path()) {
+                        Ok(s) => s,
+                        Err(err) => {
+                            eprintln!("Couldn't read source of {:?}: {:}", dir_entry.path(), err);
+                            return WalkState::Quit;
+                        }
+                    };
+
+                    let tree = match parser.parse(&source, None) {
+                        Some(t) => t,
+                        None => {
+                            eprintln!("Couldn't parse source of {:?}", dir_entry.path());
+                            return WalkState::Quit;
+                        }
+                    };
+
+                    println!("{:#?}", tree);
                     WalkState::Continue
                 }
             })
