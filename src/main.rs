@@ -1,13 +1,13 @@
 use anyhow;
 use clap::Clap;
+use ignore::WalkBuilder;
 use std::path::PathBuf;
 use std::process;
 use thiserror::Error;
 use tree_sitter;
-use walkdir::WalkDir;
 
 #[derive(Clap, Debug)]
-#[clap(version = "1.0", author = "Brian Hicks <brian@brianthicks.com>")]
+#[clap(version = "1.0")]
 struct Opts {
     /// Pattern to search for.
     pattern: String,
@@ -16,9 +16,18 @@ struct Opts {
     #[clap(default_value = ".", parse(from_os_str))]
     paths: Vec<PathBuf>,
 
+    /// How deeply to recurse (default: no limit)
+    #[clap(short('d'), long)]
+    max_depth: Option<usize>,
+
     /// Follow symlinks
     #[clap(short('f'), long("follow"))]
     follow_links: bool,
+
+    /// How many threads to use when loading files (default: choose automatically based on heuristics from ripgrep)
+    #[clap(long, default_value = "0")]
+    threads: usize,
+    // TODO: add more options from https://docs.rs/ignore/0.4.16/ignore/struct.WalkBuilder.html
 }
 
 fn main() {
@@ -30,13 +39,25 @@ fn main() {
 }
 
 fn real_main(opts: Opts) -> anyhow::Result<()> {
-    opts.paths
-        .iter()
-        .flat_map(|path| WalkDir::new(path).follow_links(opts.follow_links))
-        .map(|e| println!("{:?}", e))
-        .collect::<Vec<()>>();
+    // I *think* we should be OK to assume that there's at least one path in
+    // this `opts.paths`, since there will be a default set above. This code
+    // is a little incautious as a result, but a future refactor could break
+    // it! Is there a better way? (e.g. making it impossible by construction
+    // like `(a, Vec<a>)`?)
+    let mut builder = WalkBuilder::new(opts.paths[0].clone());
 
-    let _parser = elm_parser();
+    // argh! how do I iterate starting at index 1? Is this the right way?
+    let mut idx = 1;
+    while let Some(path) = opts.paths.get(idx) {
+        builder.add(path);
+        idx += 1;
+    }
+
+    builder
+        .follow_links(opts.follow_links)
+        .max_depth(opts.max_depth)
+        .threads(opts.threads);
+
     Ok(())
 }
 

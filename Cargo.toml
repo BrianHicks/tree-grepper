@@ -9,9 +9,9 @@ edition = "2018"
 [dependencies]
 anyhow = "1.0"
 clap = "3.0.0-beta.2"
+ignore = "0.4"
 thiserror = "1.0"
 tree-sitter = "0.17"
-walkdir = "2.3"
 
 [build-dependencies]
 cc = { version = "*", features = [ "parallel" ] }
