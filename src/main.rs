@@ -4,6 +4,7 @@ use std::path::PathBuf;
 use std::process;
 use thiserror::Error;
 use tree_sitter;
+use walkdir::WalkDir;
 
 #[derive(Clap, Debug)]
 #[clap(version = "1.0", author = "Brian Hicks <brian@brianthicks.com>")]
@@ -11,9 +12,13 @@ struct Opts {
     /// Pattern to search for.
     pattern: String,
 
-    /// Paths to look for files.
+    /// Paths to look for files. Can be files, directories, or a mix of both.
     #[clap(default_value = ".", parse(from_os_str))]
     paths: Vec<PathBuf>,
+
+    /// Follow symlinks
+    #[clap(short('f'), long("follow"))]
+    follow_links: bool,
 }
 
 fn main() {
@@ -25,7 +30,11 @@ fn main() {
 }
 
 fn real_main(opts: Opts) -> anyhow::Result<()> {
-    println!("{:#?}", opts);
+    opts.paths
+        .iter()
+        .flat_map(|path| WalkDir::new(path).follow_links(opts.follow_links))
+        .map(|e| println!("{:?}", e))
+        .collect::<Vec<()>>();
 
     let _parser = elm_parser();
     Ok(())
