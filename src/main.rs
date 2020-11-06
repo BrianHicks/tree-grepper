@@ -81,8 +81,8 @@ fn main() {
     };
 
     builder
-        .follow_links(opts.follow_links)
         .max_depth(opts.max_depth)
+        .follow_links(opts.follow_links)
         .threads(opts.threads)
         .types(types)
         .build_parallel()
