@@ -31,6 +31,10 @@ struct Opts {
     /// How many threads to use when loading files (default: choose automatically based on heuristics from ripgrep)
     #[clap(long, default_value = "0")]
     threads: usize,
+
+    /// Ignore a specific file/glob (can be specified multiple times)
+    #[clap(short, long)]
+    ignore: Vec<PathBuf>,
 }
 
 fn main() {
@@ -65,6 +69,13 @@ fn main() {
     while let Some(path) = opts.paths.get(idx) {
         builder.add(path);
         idx += 1;
+    }
+
+    for ignore in &opts.ignore {
+        if let Some(err) = builder.add_ignore(&ignore) {
+            eprintln!("Problem adding ignore for {:?}: {}", ignore, err);
+            process::exit(1);
+        }
     }
 
     // TODO: move type definitions to another function
