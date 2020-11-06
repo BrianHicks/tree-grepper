@@ -1,9 +1,7 @@
-use anyhow::{self, Context};
 use clap::Clap;
 use ignore::{types, WalkBuilder, WalkState};
 use std::path::PathBuf;
 use std::process;
-use thiserror::Error;
 use tree_sitter::{self, Query};
 
 #[derive(Clap, Debug)]
@@ -32,20 +30,23 @@ struct Opts {
 
 fn main() {
     let opts: Opts = Opts::parse();
-    if let Err(err) = real_main(opts) {
-        eprintln!("{:?}", err);
+
+    // safety checks: can we get a parser?
+    if let Err(err) = parser(language_elm()) {
+        eprintln!(
+            "Couldn't get the parser because of an internal error: {:?}",
+            err
+        );
         process::exit(1);
     }
-}
 
-fn real_main(opts: Opts) -> anyhow::Result<()> {
-    let mut parser = parser(language_elm()).context("couldn't get the parser")?;
-
+    // safety check: is the query acceptable?
     // TODO: this error type has rich enough text to make a really nice error
     // message, but this implementation ends up pretty crappy. Make it better!
-    let query = Query::new(language_elm(), &opts.pattern)
-        .map_err(TreeSitterError::QueryError)
-        .context("invalid pattern")?;
+    if let Err(err) = Query::new(language_elm(), &opts.pattern) {
+        eprintln!("Invalid pattern: {:?}", err);
+        process::exit(1);
+    }
 
     // I *think* we should be OK to assume that there's at least one path in
     // this `opts.paths`, since there will be a default set above. This code
@@ -61,12 +62,21 @@ fn real_main(opts: Opts) -> anyhow::Result<()> {
         idx += 1;
     }
 
+    // TODO: move type definitions to another function
     let mut types_builder = types::TypesBuilder::new();
-    types_builder
-        .add("elm", "*.elm")
-        .context("couldn't add Elm type")?;
+    if let Err(err) = types_builder.add("elm", "*.elm") {
+        eprintln!("Couldn't add Elm type: {:?}", err);
+        process::exit(1);
+    }
     types_builder.select("elm");
-    let types = types_builder.build().context("couldn't build types")?;
+
+    let types = match types_builder.build() {
+        Ok(t) => t,
+        Err(err) => {
+            eprintln!("Couldn't select file types: {:?}", err);
+            process::exit(1);
+        }
+    };
 
     builder
         .follow_links(opts.follow_links)
@@ -90,8 +100,6 @@ fn real_main(opts: Opts) -> anyhow::Result<()> {
                 }
             })
         });
-
-    Ok(())
 }
 
 // tree-sitter setup
@@ -104,21 +112,12 @@ fn language_elm() -> tree_sitter::Language {
     unsafe { tree_sitter_elm() }
 }
 
-fn parser(language: tree_sitter::Language) -> anyhow::Result<tree_sitter::Parser> {
+fn parser(
+    language: tree_sitter::Language,
+) -> Result<tree_sitter::Parser, tree_sitter::LanguageError> {
     let mut parser = tree_sitter::Parser::new();
 
-    parser
-        .set_language(language)
-        .map_err(TreeSitterError::LanguageError)?;
+    parser.set_language(language)?;
 
     Ok(parser)
-}
-
-#[derive(Error, Debug)]
-enum TreeSitterError {
-    #[error("tree sitter language error: {0:?}")]
-    LanguageError(tree_sitter::LanguageError),
-
-    #[error("problem with query: {0:?}")]
-    QueryError(tree_sitter::QueryError),
 }
