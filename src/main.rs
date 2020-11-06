@@ -1,6 +1,6 @@
 use anyhow::{self, Context};
 use clap::Clap;
-use ignore::{WalkBuilder, WalkState};
+use ignore::{types, WalkBuilder, WalkState};
 use std::path::PathBuf;
 use std::process;
 use thiserror::Error;
@@ -59,10 +59,18 @@ fn real_main(opts: Opts) -> anyhow::Result<()> {
         idx += 1;
     }
 
+    let mut types_builder = types::TypesBuilder::new();
+    types_builder
+        .add("elm", "*.elm")
+        .context("couldn't add Elm type")?;
+    types_builder.select("elm");
+    let types = types_builder.build().context("couldn't build types")?;
+
     builder
         .follow_links(opts.follow_links)
         .max_depth(opts.max_depth)
         .threads(opts.threads)
+        .types(types)
         .build_parallel()
         .run(|| {
             Box::new(|path| {
