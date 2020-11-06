@@ -24,6 +24,19 @@ src/main.elm:5:1:Css
 
 The binary name might change in the future if we find a better/shorter name. Stay tuned.
 
+## Some Terrible Benchmarks
+
+On the first possible working version of `tree-grepper`:
+
+| Command                                 | Mean Time (Hyperfine) |
+|-----------------------------------------|----------------------:|
+| `tree-grepper '(import_clause)@import'` | 17.2ms                |
+| `rg -t elm '^import'`                   | 10.3ms                |
+| `grep -rE '^import'`                    | 71.0ms                |
+
+So this is on `rg`'s level of quickness (which makes sense, as this tool uses their tree walking/gitignoring library.)
+This tool may get slower as we add features, or faster as I learn more about how to write good Rust.
+
 ## Roadmap
 
 - [x] be able to do the thing in "Usage" above
