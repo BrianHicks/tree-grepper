@@ -8,6 +8,7 @@ edition = "2018"
 
 [dependencies]
 anyhow = "1.0"
+clap = "3.0.0-beta.2"
 thiserror = "1.0"
 tree-sitter = "0.17"
 

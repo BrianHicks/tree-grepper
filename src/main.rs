@@ -1,16 +1,32 @@
 use anyhow;
+use clap::Clap;
+use std::path::PathBuf;
 use std::process;
 use thiserror::Error;
 use tree_sitter;
 
+#[derive(Clap, Debug)]
+#[clap(version = "1.0", author = "Brian Hicks <brian@brianthicks.com>")]
+struct Opts {
+    /// Pattern to search for.
+    pattern: String,
+
+    /// Paths to look for files.
+    #[clap(default_value = ".", parse(from_os_str))]
+    paths: Vec<PathBuf>,
+}
+
 fn main() {
-    if let Err(err) = real_main() {
+    let opts: Opts = Opts::parse();
+    if let Err(err) = real_main(opts) {
         eprintln!("{:?}", err);
         process::exit(1);
     }
 }
 
-fn real_main() -> anyhow::Result<()> {
+fn real_main(opts: Opts) -> anyhow::Result<()> {
+    println!("{:#?}", opts);
+
     let _parser = elm_parser();
     Ok(())
 }
