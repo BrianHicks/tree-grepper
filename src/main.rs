@@ -75,9 +75,19 @@ fn real_main(opts: Opts) -> anyhow::Result<()> {
         .types(types)
         .build_parallel()
         .run(|| {
-            Box::new(|path| {
-                println!("{:?}", path);
-                WalkState::Continue
+            Box::new(|dir_entry_result| match dir_entry_result {
+                Err(err) => {
+                    eprintln!("Error reading path: {:}", err);
+                    WalkState::Quit
+                }
+                Ok(dir_entry) => {
+                    if dir_entry.path().is_dir() {
+                        return WalkState::Continue;
+                    }
+
+                    println!("{:#?}", dir_entry);
+                    WalkState::Continue
+                }
             })
         });
 
