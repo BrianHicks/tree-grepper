@@ -13,7 +13,7 @@ This isn't available packaged anywhere. That's fine, use [`nix`](https://nixos.o
 Use it like `grep` (or really, more like `ack`/`ag`/`pt`/`rg`.)
 
 ```sh
-$ tg '(import_clause (import) (upper_case_qid))'
+$ tg '(import_clause (import) (upper_case_qid)@name)'
 src/Main.elm:3:1:import Browser
 src/Main.elm:4:1:import Browser.Navigation
 src/main.elm:5:1:import Css
@@ -26,7 +26,7 @@ The binary name might change in the future if we find a better name. Stay tuned.
 
 ## Roadmap
 
-- [ ] be able to do the thing in "Usage" above
+- [x] be able to do the thing in "Usage" above
 - [ ] make capturing sub-matches easy (`@name` in the s-expression syntax)
 - [ ] output JSON to make embedding in other tools nicer
 - [ ] make this tool work on a bunch of languages, not just Elm (which I'm starting with to scratch an itch.)
