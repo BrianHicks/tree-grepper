@@ -13,7 +13,7 @@ This isn't available packaged anywhere. That's fine, use [`nix`](https://nixos.o
 Use it like `grep` (or really, more like `ack`/`ag`/`pt`/`rg`.)
 
 ```sh
-$ tg '(import_clause (import) (upper_case_qid)@name)'
+$ tree-grepper '(import_clause (import) (upper_case_qid)@name)'
 src/Main.elm:3:1:Browser
 src/Main.elm:4:1:Browser.Navigation
 src/main.elm:5:1:Css
@@ -22,7 +22,7 @@ src/main.elm:5:1:Css
 
 `tree-grepper` uses [Tree-sitter's s-expressions](https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries) to find matches.
 
-The binary name might change in the future if we find a better name. Stay tuned.
+The binary name might change in the future if we find a better/shorter name. Stay tuned.
 
 ## Roadmap
 
