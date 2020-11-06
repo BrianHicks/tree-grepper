@@ -14,9 +14,9 @@ Use it like `grep` (or really, more like `ack`/`ag`/`pt`/`rg`.)
 
 ```sh
 $ tg '(import_clause (import) (upper_case_qid)@name)'
-src/Main.elm:3:1:import Browser
-src/Main.elm:4:1:import Browser.Navigation
-src/main.elm:5:1:import Css
+src/Main.elm:3:1:Browser
+src/Main.elm:4:1:Browser.Navigation
+src/main.elm:5:1:Css
 ...
 ```
 
