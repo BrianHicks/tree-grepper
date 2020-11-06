@@ -29,6 +29,7 @@ The binary name might change in the future if we find a better name. Stay tuned.
 - [ ] be able to do the thing in "Usage" above
 - [ ] make capturing sub-matches easy (`@name` in the s-expression syntax)
 - [ ] output JSON to make embedding in other tools nicer
+- [ ] make this tool work on a bunch of languages, not just Elm (which I'm starting with to scratch an itch.)
 - [ ] an option to dump a single file to the s-expression form to make writing matches easier
 - [ ] `man` page, nice help output, etc
 
