@@ -1,10 +1,10 @@
-use anyhow;
+use anyhow::{self, Context};
 use clap::Clap;
 use ignore::{WalkBuilder, WalkState};
 use std::path::PathBuf;
 use std::process;
 use thiserror::Error;
-use tree_sitter;
+use tree_sitter::{self, Query};
 
 #[derive(Clap, Debug)]
 #[clap(version = "1.0")]
@@ -39,6 +39,12 @@ fn main() {
 }
 
 fn real_main(opts: Opts) -> anyhow::Result<()> {
+    let mut parser = parser(language_elm()).context("couldn't get the parser")?;
+
+    let query = Query::new(language_elm(), &opts.pattern)
+        .map_err(TreeSitterError::QueryError)
+        .context("invalid pattern")?;
+
     // I *think* we should be OK to assume that there's at least one path in
     // this `opts.paths`, since there will be a default set above. This code
     // is a little incautious as a result, but a future refactor could break
@@ -83,13 +89,16 @@ fn parser(language: tree_sitter::Language) -> anyhow::Result<tree_sitter::Parser
 
     parser
         .set_language(language)
-        .map_err(LanguageError::LanguageError)?;
+        .map_err(TreeSitterError::LanguageError)?;
 
     Ok(parser)
 }
 
 #[derive(Error, Debug)]
-enum LanguageError {
+enum TreeSitterError {
     #[error("tree sitter language error: {0:?}")]
     LanguageError(tree_sitter::LanguageError),
+
+    #[error("problem with query: {0:?}")]
+    QueryError(tree_sitter::QueryError),
 }
