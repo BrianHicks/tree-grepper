@@ -52,7 +52,7 @@ fn main() {
 
     // I *think* we should be OK to assume that there's at least one path in
     // this `opts.paths`, since there will be a default set above. This code
-    // is a little incautious as a result, but a future refactor could break
+    // is a little incautious as a result, and a future refactor could break
     // it! Is there a better way? (e.g. making it impossible by construction
     // like `(a, Vec<a>)`?)
     let mut builder = WalkBuilder::new(opts.paths[0].clone());
