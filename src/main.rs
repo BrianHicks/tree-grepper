@@ -41,6 +41,8 @@ fn main() {
 fn real_main(opts: Opts) -> anyhow::Result<()> {
     let mut parser = parser(language_elm()).context("couldn't get the parser")?;
 
+    // TODO: this error type has rich enough text to make a really nice error
+    // message, but this implementation ends up pretty crappy. Make it better!
     let query = Query::new(language_elm(), &opts.pattern)
         .map_err(TreeSitterError::QueryError)
         .context("invalid pattern")?;
