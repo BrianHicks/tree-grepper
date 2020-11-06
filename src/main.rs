@@ -71,11 +71,11 @@ fn language_elm() -> tree_sitter::Language {
     unsafe { tree_sitter_elm() }
 }
 
-fn elm_parser() -> anyhow::Result<tree_sitter::Parser> {
+fn parser(language: tree_sitter::Language) -> anyhow::Result<tree_sitter::Parser> {
     let mut parser = tree_sitter::Parser::new();
 
     parser
-        .set_language(language_elm())
+        .set_language(language)
         .map_err(LanguageError::LanguageError)?;
 
     Ok(parser)
