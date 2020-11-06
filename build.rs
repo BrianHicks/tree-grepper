@@ -2,6 +2,8 @@ use std::path::PathBuf;
 
 // https://doc.rust-lang.org/cargo/reference/build-scripts.html
 fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+
     let dir: PathBuf = ["vendor", "tree-sitter-elm", "src"].iter().collect();
 
     println!("cargo:rerun-if-changed=vendor/tree-sitter-elm/src/parser.c");
