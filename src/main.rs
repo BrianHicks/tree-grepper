@@ -24,10 +24,13 @@ struct Opts {
     #[clap(short('f'), long("follow"))]
     follow_links: bool,
 
+    /// Ignore files above this limit
+    #[clap(short('s'), long)]
+    max_filesize: Option<u64>,
+
     /// How many threads to use when loading files (default: choose automatically based on heuristics from ripgrep)
     #[clap(long, default_value = "0")]
     threads: usize,
-    // TODO: add more options from https://docs.rs/ignore/0.4.16/ignore/struct.WalkBuilder.html
 }
 
 fn main() {
@@ -83,6 +86,7 @@ fn main() {
     builder
         .max_depth(opts.max_depth)
         .follow_links(opts.follow_links)
+        .max_filesize(opts.max_filesize)
         .threads(opts.threads)
         .types(types)
         .build_parallel()
