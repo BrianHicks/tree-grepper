@@ -3,7 +3,8 @@ use ignore::{types, WalkBuilder, WalkState};
 use std::fs;
 use std::path::PathBuf;
 use std::process;
-use tree_sitter::{self, Query};
+use std::str::Utf8Error;
+use tree_sitter::{self, Query, QueryCursor};
 
 #[derive(Clap, Debug)]
 #[clap(version = "1.0")]
@@ -91,6 +92,11 @@ fn main() {
                 Err(_) => return Box::new(|_| WalkState::Quit),
             };
 
+            let query = match Query::new(language_elm(), &opts.pattern) {
+                Ok(q) => q,
+                Err(_) => return Box::new(|_| WalkState::Quit),
+            };
+
             Box::new(move |dir_entry_result| match dir_entry_result {
                 Err(err) => {
                     eprintln!("Error reading path: {:}", err);
@@ -117,11 +123,53 @@ fn main() {
                         }
                     };
 
-                    println!("{:#?}", tree);
+                    let matches = QueryCursor::new()
+                        // TODO: what's this third argument? It's called `text_callback` in the docs?
+                        .matches(&query, tree.root_node(), |_| [])
+                        .flat_map(|query_match| query_match.captures)
+                        .map(|capture| {
+                            capture
+                                .node
+                                .utf8_text(source.as_ref())
+                                .map(|capture_source| Match {
+                                    position: capture.node.start_position(),
+                                    source: String::from(capture_source),
+                                })
+                        })
+                        .collect::<Result<Vec<Match>, Utf8Error>>();
+
+                    match matches {
+                        Ok(matches) => {
+                            for match_ in matches {
+                                println!(
+                                    "{:}:{}:{}:{}",
+                                    dir_entry.path().display(),
+                                    match_.position.row,
+                                    match_.position.column,
+                                    match_.source
+                                )
+                            }
+                        }
+                        Err(err) => {
+                            eprintln!(
+                                "Couldn't stringify matches in {:?}: {:?}",
+                                dir_entry.path(),
+                                err
+                            );
+                            return WalkState::Quit;
+                        }
+                    }
+
                     WalkState::Continue
                 }
             })
         });
+}
+
+#[derive(Debug)]
+struct Match {
+    position: tree_sitter::Point,
+    source: String,
 }
 
 // tree-sitter setup
