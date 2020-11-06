@@ -1,0 +1,42 @@
+{
+  "name": "tree-sitter-elm",
+  "version": "4.3.1",
+  "description": "Tree sitter definitions for elm",
+  "main": "index.js",
+  "keywords": [
+    "parser",
+    "lexer"
+  ],
+  "author": "Razze",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.14.2",
+    "prebuild-install": "^6.0.0"
+  },
+  "devDependencies": {
+    "@asgerf/dts-tree-sitter": "^0.1.0",
+    "prebuild": "^10.0.1",
+    "tree-sitter-cli": "^0.17.3"
+  },
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build --debug",
+    "install": "prebuild-install || node-gyp rebuild",
+    "prebuild": "prebuild -r electron --all --strip --verbose",
+    "prebuild:upload": "prebuild --upload-all",
+    "parse-basic": "tree-sitter parse ./examples/Basic.elm",
+    "parse-test": "tree-sitter parse --debug ./examples/test.elm",
+    "test": "tree-sitter test && script/parse-examples",
+    "test-full": "tree-sitter test && script/parse-examples-full",
+    "test-windows": "tree-sitter test",
+    "test-only": "tree-sitter test"
+  },
+  "repository": "https://github.com/razzeee/tree-sitter-elm",
+  "tree-sitter": [
+    {
+      "scope": "source.elm",
+      "file-types": [
+        "elm"
+      ]
+    }
+  ]
+}
