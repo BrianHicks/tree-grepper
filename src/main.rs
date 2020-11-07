@@ -35,6 +35,52 @@ struct Opts {
     /// Ignore a specific file/glob (can be specified multiple times)
     #[clap(short, long)]
     ignore: Vec<PathBuf>,
+
+    /// Don't filter files in the usual ways
+    #[clap(long)]
+    no_standard_filters: bool,
+
+    /// Don't read hidden files
+    #[clap(long)]
+    no_hidden: bool,
+
+    /// Don't read from parent directories
+    #[clap(long)]
+    no_parents: bool,
+
+    /// Don't use .ignore files
+    #[clap(long)]
+    no_dotignore: bool,
+
+    /// Don't use the global .gitignore file
+    #[clap(long)]
+    no_global_gitignore: bool,
+
+    /// Don't use repo-local .gitignore files
+    #[clap(long)]
+    no_gitignore: bool,
+
+    /// Don't use repo-local .git/info/exclude
+    #[clap(long)]
+    no_git_exclude: bool,
+
+    /// Ignore files using global git ignore rules even outside a repository
+    #[clap(long)]
+    no_require_git: bool,
+
+    /// Process ignore files case-insensitively
+    #[clap(long)]
+    ignore_case_insensitive: bool,
+
+    /// Don't cross filesystem boundaries when walking directories
+    #[clap(long)]
+    same_file_system: bool,
+
+    // Skip reading directories that seem like they might be written to by
+    // stdout. Uncommon, but use this if you're writing to a file and the tool
+    // seems to be getting into infinite loops.
+    #[clap(long)]
+    skip_stdout: bool,
 }
 
 fn main() {
@@ -100,6 +146,17 @@ fn main() {
         .max_filesize(opts.max_filesize)
         .threads(opts.threads)
         .types(types)
+        .standard_filters(!opts.no_standard_filters)
+        .hidden(!opts.no_hidden)
+        .parents(!opts.no_parents)
+        .ignore(!opts.no_dotignore)
+        .git_global(!opts.no_global_gitignore)
+        .git_ignore(!opts.no_gitignore)
+        .git_exclude(!opts.no_git_exclude)
+        .require_git(!opts.no_require_git)
+        .ignore_case_insensitive(opts.ignore_case_insensitive)
+        .same_file_system(opts.same_file_system)
+        .skip_stdout(opts.skip_stdout)
         .build_parallel()
         .run(|| {
             let mut parser = match parser(language_elm()) {
