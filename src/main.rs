@@ -98,7 +98,7 @@ fn main() {
     // safety check: is the query acceptable?
     // TODO: this error type has rich enough text to make a really nice error
     // message, but this implementation ends up pretty crappy. Make it better!
-    if let Err(err) = Query::new(language_elm(), &opts.pattern) {
+    if let Err(err) = get_query(&opts.pattern) {
         eprintln!("Invalid pattern: {:?}", err);
         process::exit(1);
     }
@@ -164,7 +164,7 @@ fn main() {
                 Err(_) => return Box::new(|_| WalkState::Quit),
             };
 
-            let query = match Query::new(language_elm(), &opts.pattern) {
+            let query = match get_query(&opts.pattern) {
                 Ok(q) => q,
                 Err(_) => return Box::new(|_| WalkState::Quit),
             };
@@ -242,6 +242,30 @@ fn main() {
 struct Match {
     position: tree_sitter::Point,
     source: String,
+}
+
+// dealing with queries
+
+fn get_query(pattern: &String) -> Result<tree_sitter::Query, QueryError> {
+    let language = language_elm();
+    let query = Query::new(language, &pattern).map_err(QueryError::QueryError)?;
+
+    // I want people to be able to write things like `(import_clause)` to match
+    // the whole string, but tree-sitter will return an empty match in this
+    // case since there are no captures. Easy, we just add an overall capture
+    // group if there are none defined and there's only one pattern. There may
+    // be more cases where this is appropriate, but I don't know about them yet!
+    if query.pattern_count() == 1 && query.capture_names().is_empty() {
+        Query::new(language, &(pattern.to_owned() + "@query")).map_err(QueryError::QueryError)
+    } else {
+        Ok(query)
+    }
+}
+
+#[derive(Debug)]
+enum QueryError {
+    QueryError(tree_sitter::QueryError),
+    OtherError(String),
 }
 
 // tree-sitter setup
