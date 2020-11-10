@@ -98,10 +98,13 @@ fn main() {
     // safety check: is the query acceptable?
     // TODO: this error type has rich enough text to make a really nice error
     // message, but this implementation ends up pretty crappy. Make it better!
-    if let Err(err) = get_query(&opts.pattern) {
-        eprintln!("Invalid pattern: {:?}", err);
-        process::exit(1);
-    }
+    let query = match get_query(&opts.pattern) {
+        Ok(q) => q,
+        Err(err) => {
+            eprintln!("Invalid pattern: {:?}", err);
+            process::exit(1);
+        }
+    };
 
     // I *think* we should be OK to assume that there's at least one path in
     // this `opts.paths`, since there will be a default set above. This code
@@ -164,10 +167,7 @@ fn main() {
                 Err(_) => return Box::new(|_| WalkState::Quit),
             };
 
-            let query = match get_query(&opts.pattern) {
-                Ok(q) => q,
-                Err(_) => return Box::new(|_| WalkState::Quit),
-            };
+            let query = &query;
 
             Box::new(move |dir_entry_result| match dir_entry_result {
                 Err(err) => {
