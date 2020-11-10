@@ -111,13 +111,16 @@ fn main() {
     // is a little incautious as a result, and a future refactor could break
     // it! Is there a better way? (e.g. making it impossible by construction
     // like `(a, Vec<a>)`?)
-    let mut builder = WalkBuilder::new(opts.paths[0].clone());
-
-    // argh! how do I iterate starting at index 1? Is this the right way?
-    let mut idx = 1;
-    while let Some(path) = opts.paths.get(idx) {
+    let mut paths = opts.paths.iter();
+    let mut builder = match paths.next() {
+        Some(path) => WalkBuilder::new(path),
+        None => {
+            eprintln!("There were no paths in the options. This is an internal error, please report it. If you see this in the wild, get around this by specifying paths to search explicitly.");
+            process::exit(1);
+        }
+    };
+    for path in paths {
         builder.add(path);
-        idx += 1;
     }
 
     for ignore in &opts.ignore {
