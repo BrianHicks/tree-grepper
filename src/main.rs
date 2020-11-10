@@ -246,7 +246,7 @@ struct Match {
 
 // dealing with queries
 
-fn get_query(pattern: &String) -> Result<tree_sitter::Query, QueryError> {
+fn get_query(pattern: &str) -> Result<tree_sitter::Query, QueryError> {
     let language = language_elm();
     let query = Query::new(language, &pattern).map_err(QueryError::QueryError)?;
 
@@ -265,7 +265,6 @@ fn get_query(pattern: &String) -> Result<tree_sitter::Query, QueryError> {
 #[derive(Debug)]
 enum QueryError {
     QueryError(tree_sitter::QueryError),
-    OtherError(String),
 }
 
 // tree-sitter setup
