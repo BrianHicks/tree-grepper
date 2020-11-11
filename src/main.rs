@@ -1,4 +1,5 @@
 use clap::Clap;
+use crossbeam::channel;
 use ignore::{self, types, ParallelVisitor, ParallelVisitorBuilder, WalkBuilder, WalkState};
 use std::fmt;
 use std::fmt::Display;
@@ -174,10 +175,25 @@ fn main() {
         .skip_stdout(opts.skip_stdout)
         .build_parallel()
         .visit(&mut visitor_builder);
+
+    // I don't like the knowledge this has of visitor_builder's innards, but
+    // I suppose it's OK... and I can't find another way to do it that both
+    // compiles and works :\
+    drop(visitor_builder.sender);
+    for match_ in visitor_builder.receiver {
+        println!(
+            "{}:{}:{}:{}",
+            match_.path.to_str().unwrap(), // TODO: no panicking!
+            match_.position.row,
+            match_.position.column,
+            match_.source
+        )
+    }
 }
 
 #[derive(Debug)]
 struct Match {
+    path: PathBuf,
     position: tree_sitter::Point,
     source: String,
 }
@@ -186,17 +202,24 @@ struct Match {
 
 struct VisitorBuilder<'a> {
     query: &'a tree_sitter::Query,
+    sender: channel::Sender<Match>,
+    receiver: channel::Receiver<Match>,
 }
 
 impl<'a> VisitorBuilder<'a> {
     fn new(query: &'a tree_sitter::Query) -> VisitorBuilder<'a> {
-        VisitorBuilder { query: query }
+        let (sender, receiver) = channel::unbounded();
+        VisitorBuilder {
+            query: query,
+            sender: sender,
+            receiver: receiver,
+        }
     }
 }
 
 impl<'a> ParallelVisitorBuilder<'a> for VisitorBuilder<'a> {
     fn build(&mut self) -> Box<(dyn ParallelVisitor + 'a)> {
-        let visitor = Visitor::new(self.query);
+        let visitor = Visitor::new(self.sender.clone(), self.query);
 
         Box::new(visitor)
     }
@@ -205,10 +228,11 @@ impl<'a> ParallelVisitorBuilder<'a> for VisitorBuilder<'a> {
 struct Visitor<'a> {
     parser: tree_sitter::Parser,
     query: &'a tree_sitter::Query,
+    sender: channel::Sender<Match>,
 }
 
 impl<'a> Visitor<'a> {
-    fn new(query: &tree_sitter::Query) -> Visitor {
+    fn new(sender: channel::Sender<Match>, query: &tree_sitter::Query) -> Visitor {
         let our_parser = match parser(language_elm()) {
             Ok(p) => p,
             Err(err) => {
@@ -223,6 +247,7 @@ impl<'a> Visitor<'a> {
         Visitor {
             parser: our_parser,
             query: query,
+            sender: sender,
         }
     }
 }
@@ -264,6 +289,7 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                             .node
                             .utf8_text(source.as_ref())
                             .map(|capture_source| Match {
+                                path: dir_entry.path().to_path_buf(),
                                 position: capture.node.start_position(),
                                 source: String::from(capture_source),
                             })
@@ -273,13 +299,10 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                 match matches {
                     Ok(matches) => {
                         for match_ in matches {
-                            println!(
-                                "{:}:{}:{}:{}",
-                                dir_entry.path().display(),
-                                match_.position.row,
-                                match_.position.column,
-                                match_.source
-                            )
+                            if let Err(err) = self.sender.send(match_) {
+                                eprintln!("Couldn't send a match: {:#?}", err);
+                                return WalkState::Quit;
+                            }
                         }
                     }
                     Err(err) => {

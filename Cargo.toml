@@ -8,6 +8,7 @@ edition = "2018"
 
 [dependencies]
 clap = "3.0.0-beta.2"
+crossbeam = "0.8"
 ignore = "0.4"
 tree-sitter = "0.17"
 
