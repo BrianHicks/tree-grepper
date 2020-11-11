@@ -1,8 +1,11 @@
 use clap::Clap;
 use ignore::{types, WalkBuilder, WalkState};
+use std::fmt;
+use std::fmt::Display;
 use std::fs;
 use std::path::PathBuf;
 use std::process;
+use std::str::FromStr;
 use std::str::Utf8Error;
 use tree_sitter::{self, Query, QueryCursor};
 
@@ -15,6 +18,10 @@ struct Opts {
     /// Paths to look for files. Can be files, directories, or a mix of both.
     #[clap(default_value = ".", parse(from_os_str))]
     paths: Vec<PathBuf>,
+
+    /// What format should we output matches in? Possible: lines or json.
+    #[clap(long, default_value = "lines")]
+    format: Format,
 
     /// How deeply to recurse (default: no limit)
     #[clap(short('d'), long)]
@@ -268,6 +275,41 @@ fn get_query(pattern: &str) -> Result<tree_sitter::Query, QueryError> {
 #[derive(Debug)]
 enum QueryError {
     QueryError(tree_sitter::QueryError),
+}
+
+// output formats
+
+#[derive(Debug)]
+enum Format {
+    Lines,
+    JSON,
+}
+
+impl FromStr for Format {
+    type Err = FormatError;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "lines" => Ok(Format::Lines),
+            "json" => Ok(Format::JSON),
+            _ => Err(FormatError::InvalidFormatString),
+        }
+    }
+}
+
+#[derive(Debug)]
+enum FormatError {
+    InvalidFormatString,
+}
+
+impl Display for FormatError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            FormatError::InvalidFormatString => {
+                write!(f, "valid values are \"lines\" and \"json\".")
+            }
+        }
+    }
 }
 
 // tree-sitter setup
