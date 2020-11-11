@@ -1,5 +1,5 @@
 use clap::Clap;
-use ignore::{types, WalkBuilder, WalkState};
+use ignore::{self, types, ParallelVisitor, ParallelVisitorBuilder, WalkBuilder, WalkState};
 use std::fmt;
 use std::fmt::Display;
 use std::fs;
@@ -153,6 +153,8 @@ fn main() {
         }
     };
 
+    let mut visitor_builder = VisitorBuilder::new(&query);
+
     builder
         .max_depth(opts.max_depth)
         .follow_links(opts.follow_links)
@@ -171,87 +173,129 @@ fn main() {
         .same_file_system(opts.same_file_system)
         .skip_stdout(opts.skip_stdout)
         .build_parallel()
-        .run(|| {
-            let mut parser = match parser(language_elm()) {
-                Ok(p) => p,
-                Err(_) => return Box::new(|_| WalkState::Quit),
-            };
-
-            let query = &query;
-
-            Box::new(move |dir_entry_result| match dir_entry_result {
-                Err(err) => {
-                    eprintln!("Error reading path: {:}", err);
-                    WalkState::Quit
-                }
-                Ok(dir_entry) => {
-                    if dir_entry.path().is_dir() {
-                        return WalkState::Continue;
-                    }
-
-                    let source = match fs::read_to_string(dir_entry.path()) {
-                        Ok(s) => s,
-                        Err(err) => {
-                            eprintln!("Couldn't read source of {:?}: {:}", dir_entry.path(), err);
-                            return WalkState::Quit;
-                        }
-                    };
-
-                    let tree = match parser.parse(&source, None) {
-                        Some(t) => t,
-                        None => {
-                            eprintln!("Couldn't parse source of {:?}", dir_entry.path());
-                            return WalkState::Quit;
-                        }
-                    };
-
-                    let matches = QueryCursor::new()
-                        // TODO: what's this third argument? It's called `text_callback` in the docs?
-                        .matches(&query, tree.root_node(), |_| [])
-                        .flat_map(|query_match| query_match.captures)
-                        .map(|capture| {
-                            capture
-                                .node
-                                .utf8_text(source.as_ref())
-                                .map(|capture_source| Match {
-                                    position: capture.node.start_position(),
-                                    source: String::from(capture_source),
-                                })
-                        })
-                        .collect::<Result<Vec<Match>, Utf8Error>>();
-
-                    match matches {
-                        Ok(matches) => {
-                            for match_ in matches {
-                                println!(
-                                    "{:}:{}:{}:{}",
-                                    dir_entry.path().display(),
-                                    match_.position.row,
-                                    match_.position.column,
-                                    match_.source
-                                )
-                            }
-                        }
-                        Err(err) => {
-                            eprintln!(
-                                "Couldn't stringify matches in {:?}: {:?}",
-                                dir_entry.path(),
-                                err
-                            );
-                            return WalkState::Quit;
-                        }
-                    }
-
-                    WalkState::Continue
-                }
-            })
-        });
+        .visit(&mut visitor_builder);
 }
 
 #[derive(Debug)]
 struct Match {
     position: tree_sitter::Point,
     source: String,
+}
+
+// visiting nodes
+
+struct VisitorBuilder<'a> {
+    query: &'a tree_sitter::Query,
+}
+
+impl<'a> VisitorBuilder<'a> {
+    fn new(query: &'a tree_sitter::Query) -> VisitorBuilder<'a> {
+        VisitorBuilder { query: query }
+    }
+}
+
+impl<'a> ParallelVisitorBuilder<'a> for VisitorBuilder<'a> {
+    fn build(&mut self) -> Box<(dyn ParallelVisitor + 'a)> {
+        let visitor = Visitor::new(self.query);
+
+        Box::new(visitor)
+    }
+}
+
+struct Visitor<'a> {
+    parser: tree_sitter::Parser,
+    query: &'a tree_sitter::Query,
+}
+
+impl<'a> Visitor<'a> {
+    fn new(query: &tree_sitter::Query) -> Visitor {
+        let our_parser = match parser(language_elm()) {
+            Ok(p) => p,
+            Err(err) => {
+                eprintln!(
+                    "Couldn't get the parser because of an internal error: {:?}",
+                    err
+                );
+                process::exit(1);
+            }
+        };
+
+        Visitor {
+            parser: our_parser,
+            query: query,
+        }
+    }
+}
+
+impl<'a> ParallelVisitor for Visitor<'a> {
+    fn visit(&mut self, dir_entry_result: Result<ignore::DirEntry, ignore::Error>) -> WalkState {
+        match dir_entry_result {
+            Err(err) => {
+                eprintln!("Error reading path: {:}", err);
+                WalkState::Quit
+            }
+            Ok(dir_entry) => {
+                if dir_entry.path().is_dir() {
+                    return WalkState::Continue;
+                }
+
+                let source = match fs::read_to_string(dir_entry.path()) {
+                    Ok(s) => s,
+                    Err(err) => {
+                        eprintln!("Couldn't read source of {:?}: {:}", dir_entry.path(), err);
+                        return WalkState::Quit;
+                    }
+                };
+
+                let tree = match self.parser.parse(&source, None) {
+                    Some(t) => t,
+                    None => {
+                        eprintln!("Couldn't parse source of {:?}", dir_entry.path());
+                        return WalkState::Quit;
+                    }
+                };
+
+                let matches = QueryCursor::new()
+                    // TODO: what's this third argument? It's called `text_callback` in the docs?
+                    .matches(&self.query, tree.root_node(), |_| [])
+                    .flat_map(|query_match| query_match.captures)
+                    .map(|capture| {
+                        capture
+                            .node
+                            .utf8_text(source.as_ref())
+                            .map(|capture_source| Match {
+                                position: capture.node.start_position(),
+                                source: String::from(capture_source),
+                            })
+                    })
+                    .collect::<Result<Vec<Match>, Utf8Error>>();
+
+                match matches {
+                    Ok(matches) => {
+                        for match_ in matches {
+                            println!(
+                                "{:}:{}:{}:{}",
+                                dir_entry.path().display(),
+                                match_.position.row,
+                                match_.position.column,
+                                match_.source
+                            )
+                        }
+                    }
+                    Err(err) => {
+                        eprintln!(
+                            "Couldn't stringify matches in {:?}: {:?}",
+                            dir_entry.path(),
+                            err
+                        );
+                        return WalkState::Quit;
+                    }
+                }
+
+                WalkState::Continue
+            }
+        }
+    }
 }
 
 // dealing with queries
