@@ -1,6 +1,9 @@
 use clap::Clap;
 use crossbeam::channel;
 use ignore::{self, types, ParallelVisitor, ParallelVisitorBuilder, WalkBuilder, WalkState};
+use serde::ser::{SerializeStruct, Serializer};
+use serde::Serialize;
+use serde_json;
 use std::fmt;
 use std::fmt::Display;
 use std::fs;
@@ -180,11 +183,28 @@ fn main() {
     formatter.format();
 }
 
+// matches
+
 #[derive(Debug)]
+struct Point(tree_sitter::Point);
+
+#[derive(Debug, Serialize)]
 struct Match {
     path: PathBuf,
-    position: tree_sitter::Point,
+    position: Point,
     source: String,
+}
+
+impl Serialize for Point {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        let mut match_ = serializer.serialize_struct("Point", 2)?;
+        match_.serialize_field("row", &self.0.row)?;
+        match_.serialize_field("column", &self.0.column)?;
+        match_.end()
+    }
 }
 
 // visiting nodes
@@ -279,7 +299,7 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                             .utf8_text(source.as_ref())
                             .map(|capture_source| Match {
                                 path: dir_entry.path().to_path_buf(),
-                                position: capture.node.start_position(),
+                                position: Point(capture.node.start_position()),
                                 source: String::from(capture_source),
                             })
                     })
@@ -399,15 +419,19 @@ impl<'a> Formatter<'a> {
                     println!(
                         "{}:{}:{}:{}",
                         match_.path.to_str().unwrap(), // TODO: no panicking!
-                        match_.position.row,
-                        match_.position.column,
+                        match_.position.0.row,
+                        match_.position.0.column,
                         match_.source
                     )
                 }
             }
 
             Format::JSON => {
-                process::exit(1);
+                for match_ in self.gatherer.receiver {
+                    self.matches.push(match_)
+                }
+
+                println!("{}", serde_json::to_string(&self.matches).unwrap()); // TODO: no panicking!
             }
         }
     }
