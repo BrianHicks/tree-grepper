@@ -176,19 +176,8 @@ fn main() {
         .build_parallel()
         .visit(&mut gatherer);
 
-    // I don't like the knowledge this has of gatherer's innards, but I suppose
-    // it's OK... and I can't find another way to do it that both compiles and
-    // works :\
-    drop(gatherer.sender);
-    for match_ in gatherer.receiver {
-        println!(
-            "{}:{}:{}:{}",
-            match_.path.to_str().unwrap(), // TODO: no panicking!
-            match_.position.row,
-            match_.position.column,
-            match_.source
-        )
-    }
+    let formatter = Formatter::new(opts.format, gatherer);
+    formatter.format();
 }
 
 #[derive(Debug)]
@@ -374,6 +363,51 @@ impl Display for FormatError {
         match self {
             FormatError::InvalidFormatString => {
                 write!(f, "valid values are \"lines\" and \"json\".")
+            }
+        }
+    }
+}
+
+struct Formatter<'a> {
+    format: Format,
+    gatherer: Gatherer<'a>,
+    matches: Vec<Match>,
+}
+
+impl<'a> Formatter<'a> {
+    fn new(format: Format, gatherer: Gatherer<'a>) -> Formatter<'a> {
+        Formatter {
+            format: format,
+            gatherer: gatherer,
+            matches: Vec::new(),
+        }
+    }
+
+    fn format(mut self) {
+        // Before we can receive messages, we need to drop the original sender
+        // channel so that the gathering will terminate once all the visitor
+        // threads have finished visiting.
+        //
+        // I don't like the knowledge this has of gatherer's innards, but I
+        // suppose it's OK... and I can't find another way to do it that both
+        // compiles and works :\
+        drop(self.gatherer.sender);
+
+        match self.format {
+            Format::Lines => {
+                for match_ in self.gatherer.receiver {
+                    println!(
+                        "{}:{}:{}:{}",
+                        match_.path.to_str().unwrap(), // TODO: no panicking!
+                        match_.position.row,
+                        match_.position.column,
+                        match_.source
+                    )
+                }
+            }
+
+            Format::JSON => {
+                process::exit(1);
             }
         }
     }
