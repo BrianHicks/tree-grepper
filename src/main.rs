@@ -191,6 +191,7 @@ struct Point(tree_sitter::Point);
 #[derive(Debug, Serialize)]
 struct Match {
     path: PathBuf,
+    name: String,
     position: Point,
     source: String,
 }
@@ -289,6 +290,8 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                     }
                 };
 
+                let match_names = self.query.capture_names();
+
                 let matches = QueryCursor::new()
                     // TODO: what's this third argument? It's called `text_callback` in the docs?
                     .matches(&self.query, tree.root_node(), |_| [])
@@ -299,6 +302,7 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                             .utf8_text(source.as_ref())
                             .map(|capture_source| Match {
                                 path: dir_entry.path().to_path_buf(),
+                                name: match_names[capture.index as usize].clone(),
                                 position: Point(capture.node.start_position()),
                                 source: String::from(capture_source),
                             })
@@ -417,8 +421,9 @@ impl<'a> Formatter<'a> {
             Format::Lines => {
                 for match_ in self.gatherer.receiver {
                     println!(
-                        "{}:{}:{}:{}",
+                        "{}:{}:{}:{}:{}",
                         match_.path.to_str().unwrap(), // TODO: no panicking!
+                        match_.name,
                         match_.position.0.row,
                         match_.position.0.column,
                         match_.source
