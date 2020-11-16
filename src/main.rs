@@ -154,7 +154,7 @@ fn main() {
         }
     };
 
-    let mut visitor_builder = VisitorBuilder::new(&query);
+    let mut gatherer = Gatherer::new(&query);
 
     builder
         .max_depth(opts.max_depth)
@@ -174,13 +174,13 @@ fn main() {
         .same_file_system(opts.same_file_system)
         .skip_stdout(opts.skip_stdout)
         .build_parallel()
-        .visit(&mut visitor_builder);
+        .visit(&mut gatherer);
 
-    // I don't like the knowledge this has of visitor_builder's innards, but
-    // I suppose it's OK... and I can't find another way to do it that both
-    // compiles and works :\
-    drop(visitor_builder.sender);
-    for match_ in visitor_builder.receiver {
+    // I don't like the knowledge this has of gatherer's innards, but I suppose
+    // it's OK... and I can't find another way to do it that both compiles and
+    // works :\
+    drop(gatherer.sender);
+    for match_ in gatherer.receiver {
         println!(
             "{}:{}:{}:{}",
             match_.path.to_str().unwrap(), // TODO: no panicking!
@@ -200,16 +200,16 @@ struct Match {
 
 // visiting nodes
 
-struct VisitorBuilder<'a> {
+struct Gatherer<'a> {
     query: &'a tree_sitter::Query,
     sender: channel::Sender<Match>,
     receiver: channel::Receiver<Match>,
 }
 
-impl<'a> VisitorBuilder<'a> {
-    fn new(query: &'a tree_sitter::Query) -> VisitorBuilder<'a> {
+impl<'a> Gatherer<'a> {
+    fn new(query: &'a tree_sitter::Query) -> Gatherer<'a> {
         let (sender, receiver) = channel::unbounded();
-        VisitorBuilder {
+        Gatherer {
             query: query,
             sender: sender,
             receiver: receiver,
@@ -217,7 +217,7 @@ impl<'a> VisitorBuilder<'a> {
     }
 }
 
-impl<'a> ParallelVisitorBuilder<'a> for VisitorBuilder<'a> {
+impl<'a> ParallelVisitorBuilder<'a> for Gatherer<'a> {
     fn build(&mut self) -> Box<(dyn ParallelVisitor + 'a)> {
         let visitor = Visitor::new(self.sender.clone(), self.query);
 
