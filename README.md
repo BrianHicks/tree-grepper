@@ -40,10 +40,10 @@ This tool may get slower as we add features, or faster as I learn more about how
 ## Roadmap
 
 - [x] be able to do the thing in "Usage" above
-- [ ] output JSON to make embedding in other tools nicer
-- [ ] make capturing sub-matches easy (`@name` in the s-expression syntax)
-- [ ] make this tool work on a bunch of languages, not just Elm (which I'm starting with to scratch an itch.)
+- [x] output JSON to make embedding in other tools nicer
+- [x] make capturing sub-matches easy (`@name` in the s-expression syntax)
 - [ ] an option to dump a single file to the s-expression form to make writing matches easier
+- [ ] make this tool work on a bunch of languages, not just Elm (which I'm starting with to scratch an itch.)
 - [ ] `man` page, nice help output, etc
 
 ## License
