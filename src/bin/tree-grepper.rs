@@ -308,7 +308,7 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                                     name: match_names[capture.index as usize].clone(),
                                     source: String::from(capture_source),
                                     row: position.row + 1,
-                                    column: position.column,
+                                    column: position.column + 1,
                                 }
                             })
                     })
