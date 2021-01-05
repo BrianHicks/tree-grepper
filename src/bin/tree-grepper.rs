@@ -192,8 +192,9 @@ struct Point(tree_sitter::Point);
 struct Match {
     path: PathBuf,
     name: String,
-    position: Point,
     source: String,
+    row: usize,
+    column: usize,
 }
 
 impl Serialize for Point {
@@ -300,11 +301,15 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                         capture
                             .node
                             .utf8_text(source.as_ref())
-                            .map(|capture_source| Match {
-                                path: dir_entry.path().to_path_buf(),
-                                name: match_names[capture.index as usize].clone(),
-                                position: Point(capture.node.start_position()),
-                                source: String::from(capture_source),
+                            .map(|capture_source| {
+                                let position = capture.node.start_position();
+                                Match {
+                                    path: dir_entry.path().to_path_buf(),
+                                    name: match_names[capture.index as usize].clone(),
+                                    source: String::from(capture_source),
+                                    row: position.row + 1,
+                                    column: position.column,
+                                }
                             })
                     })
                     .collect::<Result<Vec<Match>, Utf8Error>>();
@@ -424,8 +429,8 @@ impl<'a> Formatter<'a> {
                         "{}:{}:{}:{}:{}",
                         match_.path.to_str().unwrap(), // TODO: no panicking!
                         match_.name,
-                        match_.position.0.row,
-                        match_.position.0.column,
+                        match_.row,
+                        match_.column,
                         match_.source
                     )
                 }
