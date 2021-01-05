@@ -428,9 +428,9 @@ impl<'a> Formatter<'a> {
                     println!(
                         "{}:{}:{}:{}:{}",
                         match_.path.to_str().unwrap(), // TODO: no panicking!
-                        match_.name,
                         match_.row,
                         match_.column,
+                        match_.name,
                         match_.source
                     )
                 }
