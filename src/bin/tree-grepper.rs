@@ -19,6 +19,10 @@ struct Opts {
     /// Pattern to search for.
     pattern: String,
 
+    /// Try and parse this language
+    #[clap(short('l'), long)]
+    language: Language,
+
     /// Paths to look for files. Can be files, directories, or a mix of both.
     #[clap(default_value = ".", parse(from_os_str))]
     paths: Vec<PathBuf>,
@@ -360,6 +364,41 @@ fn get_query(pattern: &str) -> Result<tree_sitter::Query, QueryError> {
 #[derive(Debug)]
 enum QueryError {
     QueryError(tree_sitter::QueryError),
+}
+
+// languages
+
+#[derive(Debug)]
+enum Language {
+    Elm,
+    Ruby,
+}
+
+impl FromStr for Language {
+    type Err = LanguageError;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "elm" => Ok(Language::Elm),
+            "ruby" => Ok(Language::Ruby),
+            _ => Err(LanguageError::UnknownLanguage),
+        }
+    }
+}
+
+#[derive(Debug)]
+enum LanguageError {
+    UnknownLanguage,
+}
+
+impl Display for LanguageError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            LanguageError::UnknownLanguage => {
+                write!(f, "Unknown language. Try one of \"elm\" or \"ruby\"")
+            }
+        }
+    }
 }
 
 // output formats
