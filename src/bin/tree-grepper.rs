@@ -221,9 +221,9 @@ impl<'a> Gatherer<'a> {
     fn new(query: &'a tree_sitter::Query) -> Gatherer<'a> {
         let (sender, receiver) = channel::unbounded();
         Gatherer {
-            query: query,
-            sender: sender,
-            receiver: receiver,
+            query,
+            sender,
+            receiver,
         }
     }
 }
@@ -257,8 +257,8 @@ impl<'a> Visitor<'a> {
 
         Visitor {
             parser: our_parser,
-            query: query,
-            sender: sender,
+            query,
+            sender,
         }
     }
 }
@@ -406,8 +406,8 @@ struct Formatter<'a> {
 impl<'a> Formatter<'a> {
     fn new(format: Format, gatherer: Gatherer<'a>) -> Formatter<'a> {
         Formatter {
-            format: format,
-            gatherer: gatherer,
+            format,
+            gatherer,
             matches: Vec::new(),
         }
     }
