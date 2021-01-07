@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-elm",
-  "version": "4.3.1",
+  "version": "4.4.1",
   "description": "Tree sitter definitions for elm",
   "main": "index.js",
   "keywords": [
@@ -27,7 +27,6 @@
     "parse-test": "tree-sitter parse --debug ./examples/test.elm",
     "test": "tree-sitter test && script/parse-examples",
     "test-full": "tree-sitter test && script/parse-examples-full",
-    "test-windows": "tree-sitter test",
     "test-only": "tree-sitter test"
   },
   "repository": "https://github.com/razzeee/tree-sitter-elm",
