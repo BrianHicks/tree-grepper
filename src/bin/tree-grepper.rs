@@ -19,7 +19,9 @@ struct Opts {
     /// Pattern to search for.
     pattern: String,
 
-    /// Try and parse this language
+    /// What language should we require? (This is a required flag, but may be
+    /// optional later if we add something that can determine file type or just
+    /// try them all in sequence.)
     #[clap(short('l'), long)]
     language: Language,
 
