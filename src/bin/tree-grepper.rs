@@ -102,7 +102,7 @@ fn main() {
     let opts: Opts = Opts::parse();
 
     // safety checks: can we get a parser?
-    if let Err(err) = parser(language_elm()) {
+    if let Err(err) = opts.language.parser() {
         eprintln!(
             "Couldn't get the parser because of an internal error: {:?}",
             err
@@ -147,11 +147,11 @@ fn main() {
 
     // TODO: move type definitions to another function
     let mut types_builder = types::TypesBuilder::new();
-    if let Err(err) = types_builder.add("elm", "*.elm") {
-        eprintln!("Couldn't add Elm type: {:?}", err);
-        process::exit(1);
-    }
-    types_builder.select("elm");
+    types_builder.add_defaults();
+    match opts.language {
+        Language::Elm => types_builder.select("elm"),
+        Language::Ruby => types_builder.select("ruby"),
+    };
 
     let types = match types_builder.build() {
         Ok(t) => t,
@@ -161,7 +161,7 @@ fn main() {
         }
     };
 
-    let mut gatherer = Gatherer::new(&query);
+    let mut gatherer = Gatherer::new(&opts.language, &query);
 
     builder
         .max_depth(opts.max_depth)
@@ -216,15 +216,17 @@ impl Serialize for Point {
 // visiting nodes
 
 struct Gatherer<'a> {
+    language: &'a Language,
     query: &'a tree_sitter::Query,
     sender: channel::Sender<Match>,
     receiver: channel::Receiver<Match>,
 }
 
 impl<'a> Gatherer<'a> {
-    fn new(query: &'a tree_sitter::Query) -> Gatherer<'a> {
+    fn new(language: &'a Language, query: &'a tree_sitter::Query) -> Gatherer<'a> {
         let (sender, receiver) = channel::unbounded();
         Gatherer {
+            language,
             query,
             sender,
             receiver,
@@ -234,7 +236,7 @@ impl<'a> Gatherer<'a> {
 
 impl<'a> ParallelVisitorBuilder<'a> for Gatherer<'a> {
     fn build(&mut self) -> Box<(dyn ParallelVisitor + 'a)> {
-        let visitor = Visitor::new(self.sender.clone(), self.query);
+        let visitor = Visitor::new(self.language, self.sender.clone(), self.query);
 
         Box::new(visitor)
     }
@@ -247,8 +249,12 @@ struct Visitor<'a> {
 }
 
 impl<'a> Visitor<'a> {
-    fn new(sender: channel::Sender<Match>, query: &tree_sitter::Query) -> Visitor {
-        let our_parser = match parser(language_elm()) {
+    fn new(
+        language: &Language,
+        sender: channel::Sender<Match>,
+        query: &'a tree_sitter::Query,
+    ) -> Visitor<'a> {
+        let our_parser = match language.parser() {
             Ok(p) => p,
             Err(err) => {
                 eprintln!(
@@ -386,6 +392,19 @@ impl FromStr for Language {
     }
 }
 
+impl Language {
+    fn parser(&self) -> Result<tree_sitter::Parser, tree_sitter::LanguageError> {
+        let mut parser = tree_sitter::Parser::new();
+
+        parser.set_language(match self {
+            Language::Elm => language_elm(),
+            Language::Ruby => language_ruby(),
+        })?;
+
+        Ok(parser)
+    }
+}
+
 #[derive(Debug)]
 enum LanguageError {
     UnknownLanguage,
@@ -490,18 +509,13 @@ impl<'a> Formatter<'a> {
 
 extern "C" {
     fn tree_sitter_elm() -> tree_sitter::Language;
+    fn tree_sitter_ruby() -> tree_sitter::Language;
 }
 
 fn language_elm() -> tree_sitter::Language {
     unsafe { tree_sitter_elm() }
 }
 
-fn parser(
-    language: tree_sitter::Language,
-) -> Result<tree_sitter::Parser, tree_sitter::LanguageError> {
-    let mut parser = tree_sitter::Parser::new();
-
-    parser.set_language(language)?;
-
-    Ok(parser)
+fn language_ruby() -> tree_sitter::Language {
+    unsafe { tree_sitter_ruby() }
 }
