@@ -306,8 +306,9 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                 let match_names = self.query.capture_names();
 
                 let matches = QueryCursor::new()
-                    // TODO: what's this third argument? It's called `text_callback` in the docs?
-                    .matches(&self.query, tree.root_node(), |_| [])
+                    .matches(&self.query, tree.root_node(), |node| {
+                        node.utf8_text(source.as_ref()).unwrap_or("")
+                    })
                     .flat_map(|query_match| query_match.captures)
                     .map(|capture| {
                         capture
