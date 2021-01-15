@@ -115,7 +115,7 @@ fn main() {
     // safety check: is the query acceptable?
     // TODO: this error type has rich enough text to make a really nice error
     // message, but this implementation ends up pretty crappy. Make it better!
-    let query = match get_query(&opts.pattern) {
+    let query = match get_query(opts.language.language(), &opts.pattern) {
         Ok(q) => q,
         Err(err) => {
             eprintln!("Invalid pattern: {:?}", err);
@@ -354,8 +354,10 @@ impl<'a> ParallelVisitor for Visitor<'a> {
 
 // dealing with queries
 
-fn get_query(pattern: &str) -> Result<tree_sitter::Query, QueryError> {
-    let language = language_elm();
+fn get_query(
+    language: tree_sitter::Language,
+    pattern: &str,
+) -> Result<tree_sitter::Query, QueryError> {
     let query = Query::new(language, &pattern).map_err(QueryError::QueryError)?;
 
     // I want people to be able to write things like `(import_clause)` to match
@@ -396,13 +398,17 @@ impl FromStr for Language {
 }
 
 impl Language {
+    fn language(&self) -> tree_sitter::Language {
+        match self {
+            Language::Elm => language_elm(),
+            Language::Ruby => language_ruby(),
+        }
+    }
+
     fn parser(&self) -> Result<tree_sitter::Parser, tree_sitter::LanguageError> {
         let mut parser = tree_sitter::Parser::new();
 
-        parser.set_language(match self {
-            Language::Elm => language_elm(),
-            Language::Ruby => language_ruby(),
-        })?;
+        parser.set_language(self.language())?;
 
         Ok(parser)
     }
