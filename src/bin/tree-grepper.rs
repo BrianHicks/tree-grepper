@@ -302,7 +302,7 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                         let mut captures = Vec::new();
                         for capture in query_match.captures {
                             let name = match_names[capture.index as usize].clone();
-                            if name.starts_with("_") {
+                            if name.starts_with('_') {
                                 continue;
                             }
 
