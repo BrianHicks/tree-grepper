@@ -152,7 +152,7 @@ fn main() {
     match opts.language {
         Language::Elm => types_builder.select("elm"),
         Language::Ruby => types_builder.select("ruby"),
-        Language::JavaScript => types_builder.select("javascript"),
+        Language::JavaScript => types_builder.select("js"),
     };
 
     let types = match types_builder.build() {
