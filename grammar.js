@@ -38,7 +38,7 @@ module.exports = grammar({
     $._line_break,
 
     // Delimited literals
-    $._simple_symbol,
+    $.simple_symbol,
     $._string_start,
     $._symbol_start,
     $._subshell_start,
@@ -60,7 +60,10 @@ module.exports = grammar({
     $._binary_minus,
     $._binary_star,
     $._singleton_class_left_angle_left_langle,
-    $._identifier_hash_key
+    $.hash_key_symbol,
+    $._hash_splat_star_star,
+    $._binary_star_star,
+    $._element_reference_bracket,
   ],
 
   extras: $ => [
@@ -208,7 +211,7 @@ module.exports = grammar({
     class: $ => seq(
       'class',
       field('name', choice($.constant, $.scope_resolution)),
-      optional($.superclass),
+      field('superclass', optional($.superclass)),
       $._terminator,
       $._body_statement
     ),
@@ -429,7 +432,8 @@ module.exports = grammar({
       $.symbol_array,
       $.hash,
       $.subshell,
-      $.symbol,
+      $.simple_symbol,
+      $.delimited_symbol,
       $.integer,
       $.float,
       $.complex,
@@ -466,7 +470,7 @@ module.exports = grammar({
 
     element_reference: $ => prec.left(1, seq(
       field('object', $._primary),
-      token.immediate('['),
+      alias($._element_reference_bracket, '['),
       optional($._argument_list_with_trailing_comma),
       ']'
     )),
@@ -559,7 +563,7 @@ module.exports = grammar({
     )),
 
     splat_argument: $ => seq(alias($._splat_star, '*'), $._arg),
-    hash_splat_argument: $ => seq('**', $._arg),
+    hash_splat_argument: $ => seq(alias($._hash_splat_star_star, '**'), $._arg),
     block_argument: $ => seq(alias($._block_ampersand, '&'), $._arg),
 
     do_block: $ => seq(
@@ -638,7 +642,7 @@ module.exports = grammar({
         [prec.left, PREC.ADDITIVE, choice('+', alias($._binary_minus, '-'))],
         [prec.left, PREC.MULTIPLICATIVE, choice('/', '%', alias($._binary_star, '*'))],
         [prec.right, PREC.RELATIONAL, choice('==', '!=', '===', '<=>', '=~', '!~')],
-        [prec.right, PREC.EXPONENTIAL, '**'],
+        [prec.right, PREC.EXPONENTIAL, alias($._binary_star_star, '**')],
       ];
 
       return choice(...operators.map(([fn, precedence, operator]) => fn(precedence, seq(
@@ -731,7 +735,8 @@ module.exports = grammar({
       $.identifier,
       $.constant,
       $.setter,
-      $.symbol,
+      $.simple_symbol,
+      $.delimited_symbol,
       $.operator,
       $.instance_variable,
       $.class_variable,
@@ -780,7 +785,7 @@ module.exports = grammar({
 
     chained_string: $ => seq($.string, repeat1($.string)),
 
-    character: $ => /\?(\\\S({[0-9]*}|[0-9]*|-\S([MC]-\S)?)?|\S)/,
+    character: $ => /\?(\\\S({[0-9A-Fa-f]*}|[0-9A-Fa-f]*|-\S([MC]-\S)?)?|\S)/,
 
     interpolation: $ => seq(
       '#{', optional($._statement),'}'
@@ -814,11 +819,11 @@ module.exports = grammar({
       alias($._string_end, ')')
     ),
 
-    symbol: $ => choice($._simple_symbol, seq(
+    delimited_symbol: $ => seq(
       alias($._symbol_start, ':"'),
       optional($._literal_contents),
       alias($._string_end, '"')
-    )),
+    ),
 
     regex: $ => seq(
       alias($._regex_start, '/'),
@@ -877,9 +882,9 @@ module.exports = grammar({
       ),
       seq(
         field('key', choice(
-          alias($._identifier_hash_key, $.symbol),
-          alias($.identifier, $.symbol),
-          alias($.constant, $.symbol),
+          $.hash_key_symbol,
+          alias($.identifier, $.hash_key_symbol),
+          alias($.constant, $.hash_key_symbol),
           $.string
         )),
         token.immediate(':'),

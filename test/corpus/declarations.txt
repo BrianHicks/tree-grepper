@@ -378,12 +378,12 @@ end
 
 (program (class
   name: (constant)
-  (superclass (call
+  superclass: (superclass (call
     receiver: (constant)
     method: (identifier)
     arguments: (argument_list
-      (symbol)
-      (symbol))))))
+      (simple_symbol)
+      (simple_symbol))))))
 
 ===============
 class with body
@@ -519,7 +519,7 @@ end
           (identifier))
         (identifier))))
 
-    (call (identifier) (argument_list (symbol)))
+    (call (identifier) (argument_list (simple_symbol)))
 
     (comment)
     (method (identifier) (identifier))
