@@ -1,7 +1,6 @@
 use clap::Clap;
 use crossbeam::channel;
 use ignore::{self, types, ParallelVisitor, ParallelVisitorBuilder, WalkBuilder, WalkState};
-use serde::ser::{SerializeStruct, Serializer};
 use serde::Serialize;
 use serde_json;
 use std::fmt;
@@ -191,8 +190,6 @@ fn main() {
 
 // matches
 
-#[derive(Debug)]
-struct Point(tree_sitter::Point);
 
 #[derive(Debug, Serialize)]
 struct Match {
@@ -201,18 +198,6 @@ struct Match {
     source: String,
     row: usize,
     column: usize,
-}
-
-impl Serialize for Point {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        let mut match_ = serializer.serialize_struct("Point", 2)?;
-        match_.serialize_field("row", &self.0.row)?;
-        match_.serialize_field("column", &self.0.column)?;
-        match_.end()
-    }
 }
 
 // visiting nodes
