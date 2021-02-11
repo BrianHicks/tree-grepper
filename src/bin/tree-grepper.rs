@@ -301,11 +301,16 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                     .map(|query_match| {
                         let mut captures = Vec::new();
                         for capture in query_match.captures {
+                            let name = match_names[capture.index as usize].clone();
+                            if name.starts_with("_") {
+                                continue;
+                            }
+
                             let capture_source = capture.node.utf8_text(source.as_ref())?;
                             let position = capture.node.start_position();
 
                             captures.push(Capture {
-                                name: match_names[capture.index as usize].clone(),
+                                name,
                                 source: String::from(capture_source),
                                 row: position.row + 1,
                                 column: position.column + 1,
