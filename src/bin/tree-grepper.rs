@@ -190,10 +190,14 @@ fn main() {
 
 // matches
 
-
 #[derive(Debug, Serialize)]
 struct Match {
     path: PathBuf,
+    captures: Vec<Capture>,
+}
+
+#[derive(Debug, Serialize)]
+struct Capture {
     name: String,
     source: String,
     row: usize,
@@ -294,21 +298,24 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                     .matches(&self.query, tree.root_node(), |node| {
                         node.utf8_text(source.as_ref()).unwrap_or("")
                     })
-                    .flat_map(|query_match| query_match.captures)
-                    .map(|capture| {
-                        capture
-                            .node
-                            .utf8_text(source.as_ref())
-                            .map(|capture_source| {
-                                let position = capture.node.start_position();
-                                Match {
-                                    path: dir_entry.path().to_path_buf(),
-                                    name: match_names[capture.index as usize].clone(),
-                                    source: String::from(capture_source),
-                                    row: position.row + 1,
-                                    column: position.column + 1,
-                                }
+                    .map(|query_match| {
+                        let mut captures = Vec::new();
+                        for capture in query_match.captures {
+                            let capture_source = capture.node.utf8_text(source.as_ref())?;
+                            let position = capture.node.start_position();
+
+                            captures.push(Capture {
+                                name: match_names[capture.index as usize].clone(),
+                                source: String::from(capture_source),
+                                row: position.row + 1,
+                                column: position.column + 1,
                             })
+                        }
+
+                        Ok(Match {
+                            path: dir_entry.path().to_path_buf(),
+                            captures,
+                        })
                     })
                     .collect::<Result<Vec<Match>, Utf8Error>>();
 
@@ -477,14 +484,16 @@ impl<'a> Formatter<'a> {
         match self.format {
             Format::Lines => {
                 for match_ in self.gatherer.receiver {
-                    println!(
-                        "{}:{}:{}:{}:{}",
-                        match_.path.to_str().unwrap(), // TODO: no panicking!
-                        match_.row,
-                        match_.column,
-                        match_.name,
-                        match_.source
-                    )
+                    for capture in match_.captures {
+                        println!(
+                            "{}:{}:{}:{}:{}",
+                            match_.path.to_str().unwrap(), // TODO: no panicking!
+                            capture.row,
+                            capture.column,
+                            capture.name,
+                            capture.source
+                        )
+                    }
                 }
             }
 
