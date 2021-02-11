@@ -63,6 +63,7 @@ fn main() {
 enum Language {
     Elm,
     Ruby,
+    JavaScript,
 }
 
 impl FromStr for Language {
@@ -72,6 +73,7 @@ impl FromStr for Language {
         match s {
             "elm" => Ok(Language::Elm),
             "ruby" => Ok(Language::Ruby),
+            "javascript" => Ok(Language::JavaScript),
             _ => Err(LanguageError::UnknownLanguage),
         }
     }
@@ -84,6 +86,7 @@ impl Language {
         parser.set_language(match self {
             Language::Elm => language_elm(),
             Language::Ruby => language_ruby(),
+            Language::JavaScript => language_javascript(),
         })?;
 
         Ok(parser)
@@ -93,6 +96,7 @@ impl Language {
 extern "C" {
     fn tree_sitter_elm() -> tree_sitter::Language;
     fn tree_sitter_ruby() -> tree_sitter::Language;
+    fn tree_sitter_javascript() -> tree_sitter::Language;
 }
 
 fn language_elm() -> tree_sitter::Language {
@@ -100,6 +104,10 @@ fn language_elm() -> tree_sitter::Language {
 }
 fn language_ruby() -> tree_sitter::Language {
     unsafe { tree_sitter_ruby() }
+}
+
+fn language_javascript() -> tree_sitter::Language {
+    unsafe { tree_sitter_javascript() }
 }
 
 #[derive(Debug)]

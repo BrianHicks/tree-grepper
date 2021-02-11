@@ -35,4 +35,19 @@ fn main() {
         .cpp(true)
         .file(ruby_dir.join("scanner.cc"))
         .compile("tree_sitter_ruby_scanner");
+
+    // javascript
+    let javascript_dir: PathBuf = ["vendor", "tree-sitter-javascript", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-javascript/src/parser.c");
+    cc::Build::new()
+        .include(&javascript_dir)
+        .file(javascript_dir.join("parser.c"))
+        .compile("tree-sitter-javascript");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-javascript/src/scanner.c");
+    cc::Build::new()
+        .include(&javascript_dir)
+        .file(javascript_dir.join("scanner.c"))
+        .compile("tree_sitter_javascript_scanner");
 }
