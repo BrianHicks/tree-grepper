@@ -35,7 +35,10 @@ enum TokenType {
   BINARY_MINUS,
   BINARY_STAR,
   SINGLETON_CLASS_LEFT_ANGLE_LEFT_ANGLE,
-  IDENTIFIER_HASH_KEY,
+  HASH_KEY_SYMBOL,
+  HASH_SPLAT_STAR_STAR,
+  BINARY_STAR_STAR,
+  ELEMENT_REFERENCE_BRACKET,
 
   NONE
 };
@@ -222,7 +225,7 @@ struct Scanner {
           }
           break;
         default:
-          if (crossed_newline && lexer->lookahead != '.' && lexer->lookahead != '&') {
+          if (crossed_newline && lexer->lookahead != '.' && lexer->lookahead != '&' && lexer->lookahead != '#') {
             lexer->result_symbol = LINE_BREAK;
           }
           return true;
@@ -278,16 +281,21 @@ struct Scanner {
         }
         return false;
 
-      // &, ^, |, ~, /, %, !,`
+      // &, ^, |, ~, /, %`
       case '&':
       case '^':
       case '|':
       case '~':
       case '/':
       case '%':
-      case '!':
       case '`':
         advance(lexer);
+        return true;
+
+      // !, !=, !~
+      case '!':
+        advance(lexer);
+        if (lexer->lookahead == '=' || lexer->lookahead == '~') advance(lexer);
         return true;
 
       // *, **
@@ -773,20 +781,42 @@ struct Scanner {
         break;
 
       case '*':
-        if (valid_symbols[SPLAT_STAR] || valid_symbols[BINARY_STAR]) {
+        if (valid_symbols[SPLAT_STAR] || valid_symbols[BINARY_STAR] ||
+            valid_symbols[HASH_SPLAT_STAR_STAR] || valid_symbols[BINARY_STAR_STAR]) {
           advance(lexer);
-          if (lexer->lookahead == '*' || lexer->lookahead == '=') return false;
-          if (valid_symbols[SPLAT_STAR] && !iswspace(lexer->lookahead)) {
-            lexer->result_symbol = SPLAT_STAR;
-            return true;
-          } else if (valid_symbols[BINARY_STAR]) {
-            lexer->result_symbol = BINARY_STAR;
-            return true;
-          } else if (valid_symbols[SPLAT_STAR]) {
-            lexer->result_symbol = SPLAT_STAR;
-            return true;
+          if (lexer->lookahead == '=') return false;
+          if (lexer->lookahead == '*') {
+            if (valid_symbols[HASH_SPLAT_STAR_STAR] || valid_symbols[BINARY_STAR_STAR]) {
+              advance(lexer);
+              if (lexer->lookahead == '=') return false;
+              if (valid_symbols[HASH_SPLAT_STAR_STAR] && !iswspace(lexer->lookahead)) {
+                lexer->result_symbol = HASH_SPLAT_STAR_STAR;
+                return true;
+              } else if (valid_symbols[BINARY_STAR_STAR]) {
+                lexer->result_symbol = BINARY_STAR_STAR;
+                return true;
+              } else if (valid_symbols[HASH_SPLAT_STAR_STAR]) {
+                lexer->result_symbol = HASH_SPLAT_STAR_STAR;
+                return true;
+              } else  {
+                return false;
+              }
+            } else {
+              return false;
+            }
           } else {
-            return false;
+            if (valid_symbols[SPLAT_STAR] && !iswspace(lexer->lookahead)) {
+              lexer->result_symbol = SPLAT_STAR;
+              return true;
+            } else if (valid_symbols[BINARY_STAR]) {
+              lexer->result_symbol = BINARY_STAR;
+              return true;
+            } else if (valid_symbols[SPLAT_STAR]) {
+              lexer->result_symbol = SPLAT_STAR;
+              return true;
+            } else {
+              return false;
+            }
           }
         }
         break;
@@ -846,12 +876,26 @@ struct Scanner {
         }
         break;
 
+      case '[':
+        // Treat a square bracket as an element reference if either:
+        // * the bracket is not preceded by any whitespace
+        // * an arbitrary expression is not valid at the current position.
+        if (valid_symbols[ELEMENT_REFERENCE_BRACKET] && (
+          !has_leading_whitespace ||
+          !valid_symbols[STRING_START]
+        )) {
+          advance(lexer);
+          lexer->result_symbol = ELEMENT_REFERENCE_BRACKET;
+          return true;
+        }
+        break;
+
       default:
         break;
     }
 
     // Open delimiters for literals
-    if (valid_symbols[IDENTIFIER_HASH_KEY]
+    if (valid_symbols[HASH_KEY_SYMBOL]
         && (iswalpha(lexer->lookahead) || lexer->lookahead == '_')) {
       while (iswalnum(lexer->lookahead) || lexer->lookahead == '_') {
         advance(lexer);
@@ -861,7 +905,7 @@ struct Scanner {
       if (lexer->lookahead == ':') {
         advance(lexer);
         if (lexer->lookahead != ':') {
-          lexer->result_symbol = IDENTIFIER_HASH_KEY;
+          lexer->result_symbol = HASH_KEY_SYMBOL;
           return true;
         }
       }
