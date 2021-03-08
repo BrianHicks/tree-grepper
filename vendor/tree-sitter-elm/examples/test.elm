@@ -1,4 +1,0 @@
-view model =
-    div []
-        [ model.
-        ]
