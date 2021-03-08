@@ -10,6 +10,9 @@ stdenv.mkDerivation {
     niv.niv
     git
 
+    # tree-sitter C deps
+    pkgs.libiconv
+
     # rust tools
     cargo
     cargo-watch
