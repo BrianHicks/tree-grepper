@@ -50,4 +50,20 @@ fn main() {
         .include(&javascript_dir)
         .file(javascript_dir.join("scanner.c"))
         .compile("tree_sitter_javascript_scanner");
+
+    // haskell
+    let haskell_dir: PathBuf = ["vendor", "tree-sitter-haskell", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-haskell/src/parser.c");
+    cc::Build::new()
+        .include(&haskell_dir)
+        .file(haskell_dir.join("parser.c"))
+        .compile("tree-sitter-haskell");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-haskell/src/scanner.cc");
+    cc::Build::new()
+        .include(&haskell_dir)
+        .cpp(true)
+        .file(haskell_dir.join("scanner.cc"))
+        .compile("tree_sitter_haskell_scanner");
 }
