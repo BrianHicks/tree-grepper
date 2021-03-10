@@ -66,4 +66,19 @@ fn main() {
         .cpp(true)
         .file(haskell_dir.join("scanner.cc"))
         .compile("tree_sitter_haskell_scanner");
+
+    // rust
+    let rust_dir: PathBuf = ["vendor", "tree-sitter-rust", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-rust/src/parser.c");
+    cc::Build::new()
+        .include(&rust_dir)
+        .file(rust_dir.join("parser.c"))
+        .compile("tree-sitter-rust");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-rust/src/scanner.c");
+    cc::Build::new()
+        .include(&rust_dir)
+        .file(rust_dir.join("scanner.c"))
+        .compile("tree_sitter_rust_scanner");
 }

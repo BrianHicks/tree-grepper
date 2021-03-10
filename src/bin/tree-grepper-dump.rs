@@ -65,6 +65,7 @@ enum Language {
     Ruby,
     JavaScript,
     Haskell,
+    Rust,
 }
 
 impl FromStr for Language {
@@ -76,6 +77,7 @@ impl FromStr for Language {
             "ruby" => Ok(Language::Ruby),
             "javascript" => Ok(Language::JavaScript),
             "haskell" => Ok(Language::Haskell),
+            "rust" => Ok(Language::Rust),
             _ => Err(LanguageError::UnknownLanguage),
         }
     }
@@ -90,6 +92,7 @@ impl Language {
             Language::Ruby => language_ruby(),
             Language::JavaScript => language_javascript(),
             Language::Haskell => language_haskell(),
+            Language::Rust => language_rust(),
         })?;
 
         Ok(parser)
@@ -101,6 +104,7 @@ extern "C" {
     fn tree_sitter_ruby() -> tree_sitter::Language;
     fn tree_sitter_javascript() -> tree_sitter::Language;
     fn tree_sitter_haskell() -> tree_sitter::Language;
+    fn tree_sitter_rust() -> tree_sitter::Language;
 }
 
 fn language_elm() -> tree_sitter::Language {
@@ -117,6 +121,10 @@ fn language_javascript() -> tree_sitter::Language {
 
 fn language_haskell() -> tree_sitter::Language {
     unsafe { tree_sitter_haskell() }
+}
+
+fn language_rust() -> tree_sitter::Language {
+    unsafe { tree_sitter_rust() }
 }
 
 #[derive(Debug)]
