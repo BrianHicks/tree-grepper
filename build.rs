@@ -42,12 +42,14 @@ fn main() {
     println!("cargo:rerun-if-changed=vendor/tree-sitter-javascript/src/parser.c");
     cc::Build::new()
         .include(&javascript_dir)
+        .warnings(false) // lots of unused parameters
         .file(javascript_dir.join("parser.c"))
         .compile("tree-sitter-javascript");
 
     println!("cargo:rerun-if-changed=vendor/tree-sitter-javascript/src/scanner.c");
     cc::Build::new()
         .include(&javascript_dir)
+        .warnings(false) // lots of unused parameters
         .file(javascript_dir.join("scanner.c"))
         .compile("tree_sitter_javascript_scanner");
 
@@ -63,6 +65,7 @@ fn main() {
     println!("cargo:rerun-if-changed=vendor/tree-sitter-haskell/src/scanner.cc");
     cc::Build::new()
         .include(&haskell_dir)
+        .warnings(false) // lots of unused parameters
         .cpp(true)
         .file(haskell_dir.join("scanner.cc"))
         .compile("tree_sitter_haskell_scanner");
@@ -79,6 +82,7 @@ fn main() {
     println!("cargo:rerun-if-changed=vendor/tree-sitter-rust/src/scanner.c");
     cc::Build::new()
         .include(&rust_dir)
+        .warnings(false) // lots of unused parameters
         .file(rust_dir.join("scanner.c"))
         .compile("tree_sitter_rust_scanner");
 }
