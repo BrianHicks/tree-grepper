@@ -205,6 +205,7 @@ struct Capture {
     source: String,
     row: usize,
     column: usize,
+    node_kind: String,
 }
 
 // visiting nodes
@@ -317,6 +318,7 @@ impl<'a> ParallelVisitor for Visitor<'a> {
                                 source: String::from(capture_source),
                                 row: position.row + 1,
                                 column: position.column + 1,
+                                node_kind: capture.node.kind().to_string(),
                             })
                         }
 
