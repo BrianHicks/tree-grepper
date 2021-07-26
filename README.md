@@ -52,4 +52,4 @@ This tool may get slower as we add features, or faster as I learn more about how
 
 ## License
 
-TODO
+See LICENSE in the source.
