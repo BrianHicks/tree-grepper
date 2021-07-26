@@ -42,10 +42,9 @@ This tool may get slower as we add features, or faster as I learn more about how
 - [x] be able to do the thing in "Usage" above
 - [x] output JSON to make embedding in other tools nicer
 - [x] make capturing sub-matches easy (`@name` in the s-expression syntax)
-- [ ] make this tool work on a bunch of languages, not just Elm (which I'm starting with to scratch an itch.)
-- [ ] get conditionals working (`#eq?`, `#match?` from the tree-sitter docs don't work yet)
+- [x] make this tool work on a bunch of languages, not just Elm (which I'm starting with to scratch an itch.)
+- [x] get conditionals working (`#eq?`, `#match?` from the tree-sitter docs don't work yet)
 - [ ] add tests
-- [ ] an option to dump a single file to the s-expression form to make writing matches easier
 - [ ] `man` page, nice help output, etc
 - [ ] produce a query from a language's syntax instead of having to write s-expressions directly
 - [ ] real/reproducible benchmarks
