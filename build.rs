@@ -85,4 +85,20 @@ fn main() {
         .warnings(false) // lots of unused parameters
         .file(rust_dir.join("scanner.c"))
         .compile("tree_sitter_rust_scanner");
+
+    // typescript
+    let typescript_dir: PathBuf = ["vendor", "tree-sitter-typescript", "typescript", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-typescript/typescript/src/parser.c");
+    cc::Build::new()
+        .include(&typescript_dir)
+        .file(typescript_dir.join("parser.c"))
+        .compile("tree-sitter-typescript");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-typescript/typescript/src/scanner.c");
+    cc::Build::new()
+        .include(&typescript_dir)
+        .warnings(false) // lots of unused parameters
+        .file(typescript_dir.join("scanner.c"))
+        .compile("tree_sitter_typescript_scanner");
 }

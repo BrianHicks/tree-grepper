@@ -155,6 +155,7 @@ fn main() {
         Language::JavaScript => types_builder.select("js"),
         Language::Haskell => types_builder.select("haskell"),
         Language::Rust => types_builder.select("rust"),
+        Language::Typescript => types_builder.select("ts"),
     };
 
     let types = match types_builder.build() {
@@ -388,6 +389,7 @@ enum Language {
     JavaScript,
     Haskell,
     Rust,
+    Typescript,
 }
 
 impl FromStr for Language {
@@ -400,6 +402,7 @@ impl FromStr for Language {
             "javascript" => Ok(Language::JavaScript),
             "haskell" => Ok(Language::Haskell),
             "rust" => Ok(Language::Rust),
+            "typescript" => Ok(Language::Typescript),
             _ => Err(LanguageError::UnknownLanguage),
         }
     }
@@ -413,6 +416,7 @@ impl Language {
             Language::JavaScript => language_javascript(),
             Language::Haskell => language_haskell(),
             Language::Rust => language_rust(),
+            Language::Typescript => language_typescript(),
         }
     }
 
@@ -535,6 +539,7 @@ extern "C" {
     fn tree_sitter_javascript() -> tree_sitter::Language;
     fn tree_sitter_haskell() -> tree_sitter::Language;
     fn tree_sitter_rust() -> tree_sitter::Language;
+    fn tree_sitter_typescript() -> tree_sitter::Language;
 }
 
 fn language_elm() -> tree_sitter::Language {
@@ -555,4 +560,8 @@ fn language_haskell() -> tree_sitter::Language {
 
 fn language_rust() -> tree_sitter::Language {
     unsafe { tree_sitter_rust() }
+}
+
+fn language_typescript() -> tree_sitter::Language {
+    unsafe { tree_sitter_typescript() }
 }

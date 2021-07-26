@@ -13,3 +13,6 @@
 [submodule "vendor/tree-sitter-rust"]
 	path = vendor/tree-sitter-rust
 	url = https://github.com/tree-sitter/tree-sitter-rust
+[submodule "vendor/tree-sitter-typescript"]
+	path = vendor/tree-sitter-typescript
+	url = https://github.com/tree-sitter/tree-sitter-typescript.git
