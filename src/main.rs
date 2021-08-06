@@ -1,5 +1,9 @@
+use anyhow::Result;
 use clap::{crate_authors, crate_version, Clap};
 use std::path::PathBuf;
+
+mod files;
+use files::Files;
 
 #[derive(Clap, Debug)]
 #[clap(version = crate_version!(), author=crate_authors!())]
@@ -14,7 +18,16 @@ struct Opts {
 }
 
 fn main() {
+    if let Err(error) = try_main() {
+        eprintln!("{:?}", error);
+        std::process::exit(1);
+    }
+}
+
+fn try_main() -> Result<()> {
     let opts = Opts::parse();
 
-    println!("{:?}", opts);
+    Files::new(opts.paths).for_each(|path| println!("{:?}", path));
+
+    Ok(())
 }
