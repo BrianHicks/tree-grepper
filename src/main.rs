@@ -1,5 +1,6 @@
 use anyhow::Result;
 use clap::{crate_authors, crate_version, Clap};
+use rayon::iter::{ParallelBridge, ParallelIterator};
 use std::path::PathBuf;
 
 mod files;
@@ -27,7 +28,9 @@ fn main() {
 fn try_main() -> Result<()> {
     let opts = Opts::parse();
 
-    Files::new(opts.paths).for_each(|path| println!("{:?}", path));
+    Files::new(opts.paths)
+        .par_bridge()
+        .for_each(|path| println!("{:?}", path));
 
     Ok(())
 }
