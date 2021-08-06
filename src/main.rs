@@ -1,4 +1,4 @@
-use clap::Clap;
+use clap::{crate_authors, crate_version, Clap};
 use crossbeam::channel;
 use ignore::{self, types, ParallelVisitor, ParallelVisitorBuilder, WalkBuilder, WalkState};
 use serde::Serialize;
@@ -13,7 +13,7 @@ use std::str::Utf8Error;
 use tree_sitter::{self, Query, QueryCursor};
 
 #[derive(Clap, Debug)]
-#[clap(version = "1.0")]
+#[clap(version = crate_version!(), author = crate_authors!())]
 struct Opts {
     /// Pattern to search for.
     pattern: String,
