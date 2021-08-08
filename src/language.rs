@@ -3,7 +3,7 @@ use std::fmt::{Display, Formatter};
 use std::str::FromStr;
 
 #[derive(PartialEq, Debug)]
-enum Language {
+pub enum Language {
     Elm,
 }
 

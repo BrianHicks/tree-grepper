@@ -7,10 +7,14 @@ mod files;
 mod language;
 
 use files::Files;
+use language::Language;
 
 #[derive(Clap, Debug)]
 #[clap(version = crate_version!(), author=crate_authors!())]
 struct Opts {
+    /// What language are we matching against?
+    language: Language,
+
     /// The tree-sitter s-expression query to search for. See the tree sitter
     /// docs on how to make these at https://tree-sitter.github.io
     pattern: String,
