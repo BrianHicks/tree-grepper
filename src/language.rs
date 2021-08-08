@@ -25,7 +25,15 @@ impl FromStr for Language {
     fn from_str(s: &str) -> Result<Self> {
         match s {
             "elm" => Ok(Language::Elm),
-            _ => bail!("unknown language {}", s),
+            _ => bail!(
+                "unknown language {}. Try one of: {}",
+                s,
+                Language::all()
+                    .into_iter()
+                    .map(|l| l.to_string())
+                    .collect::<Vec<String>>()
+                    .join(", ")
+            ),
         }
     }
 }
