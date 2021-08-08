@@ -36,7 +36,8 @@ fn try_main() -> Result<()> {
 
     Files::new(opts.paths)
         .par_bridge()
-        .for_each(|path| println!("{:?}", path));
+        .flat_map(|path_result| path_result)
+        .for_each(|path| println!("{:?}", path.unwrap().0));
 
     Ok(())
 }
