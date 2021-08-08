@@ -4,6 +4,8 @@ use rayon::iter::{ParallelBridge, ParallelIterator};
 use std::path::PathBuf;
 
 mod files;
+mod language;
+
 use files::Files;
 
 #[derive(Clap, Debug)]
