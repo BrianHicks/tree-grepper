@@ -16,7 +16,7 @@ fn main() {
 }
 
 fn try_main() -> Result<()> {
-    get_opts()?;
+    get_opts().context("couldn't get a valid configuration from the command-line options")?;
 
     Ok(())
 }
@@ -53,9 +53,9 @@ fn get_opts() -> Result<()> {
 
     // queries
     let queries = match matches.values_of("additional-query") {
-        Some(values) => values.tuples().map(|(raw_lang, raw_query)| {
-            let lang = Language::from_str(raw_lang).context("could not parse a language from the command line")?;
-            let query = lang.parse_query(raw_query).context("could not parse a query from the command line")?;
+        Some(values) => values.tuples().enumerate().map(|(nth, (raw_lang, raw_query))| {
+            let lang = Language::from_str(raw_lang).with_context(|| format!("could not parse query #{}", nth + 1))?;
+            let query = lang.parse_query(raw_query).with_context(|| format!("could not parse query #{}", nth + 1))?;
 
             Ok((lang, query))
         }).collect::<Result<Vec<(Language, tree_sitter::Query)>>>()?,
