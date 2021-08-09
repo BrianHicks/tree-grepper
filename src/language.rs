@@ -5,16 +5,18 @@ use std::str::FromStr;
 #[derive(PartialEq, Debug)]
 pub enum Language {
     Elm,
+    Rust,
 }
 
 impl Language {
     fn all() -> Vec<Language> {
-        vec![Language::Elm]
+        vec![Language::Elm, Language::Rust]
     }
 
     fn language(&self) -> tree_sitter::Language {
         match self {
             Language::Elm => language_elm(),
+            Language::Rust => language_rust(),
         }
     }
 }
@@ -25,6 +27,7 @@ impl FromStr for Language {
     fn from_str(s: &str) -> Result<Self> {
         match s {
             "elm" => Ok(Language::Elm),
+            "rust" => Ok(Language::Rust),
             _ => bail!(
                 "unknown language {}. Try one of: {}",
                 s,
@@ -42,6 +45,7 @@ impl Display for Language {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self {
             Language::Elm => f.write_str("elm"),
+            Language::Rust => f.write_str("rust"),
         }
     }
 }
@@ -62,8 +66,13 @@ mod tests {
 
 extern "C" {
     fn tree_sitter_elm() -> tree_sitter::Language;
+    fn tree_sitter_rust() -> tree_sitter::Language;
 }
 
 fn language_elm() -> tree_sitter::Language {
     unsafe { tree_sitter_elm() }
+}
+
+fn language_rust() -> tree_sitter::Language {
+    unsafe { tree_sitter_rust() }
 }
