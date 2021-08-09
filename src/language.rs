@@ -66,6 +66,25 @@ mod tests {
             .into_iter()
             .for_each(|lang| assert_eq!(Language::from_str(&lang.to_string()).unwrap(), lang))
     }
+
+    #[test]
+    fn parse_query_smoke_test() {
+        assert_eq!(true, Language::Elm.parse_query("(_)").is_ok());
+    }
+
+    #[test]
+    fn parse_query_problem() {
+        // tree-grepper 1.0 just printed the error struct when problems like
+        // this happened. This test is just here to make sure we take a slightly
+        // friendlier approach for 2.0.
+        assert_eq!(
+            String::from("Query error at 1:2. Invalid node type node_that_doesnt_exist"),
+            Language::Elm
+                .parse_query("(node_that_doesnt_exist)")
+                .unwrap_err()
+                .to_string(),
+        )
+    }
 }
 
 extern "C" {
