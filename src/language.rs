@@ -1,4 +1,4 @@
-use anyhow::{bail, Error, Result};
+use anyhow::{anyhow, bail, Error, Result};
 use std::fmt::{Display, Formatter};
 use std::str::FromStr;
 
@@ -18,6 +18,10 @@ impl Language {
             Language::Elm => language_elm(),
             Language::Rust => language_rust(),
         }
+    }
+
+    pub fn parse_query(&self, raw: &str) -> Result<tree_sitter::Query> {
+        tree_sitter::Query::new(self.language(), raw).map_err(|err| anyhow!("{}", err))
     }
 }
 

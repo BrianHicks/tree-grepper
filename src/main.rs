@@ -55,8 +55,9 @@ fn get_opts() -> Result<()> {
     let queries = match matches.values_of("additional-query") {
         Some(values) => values.tuples().map(|(raw_lang, raw_query)| {
             let lang = Language::from_str(raw_lang).context("could not parse a language from the command line")?;
+            let query = lang.parse_query(raw_query).context("could not parse a query from the command line")?;
 
-            bail!("I haven't done raw_query yet");
+            Ok((lang, query))
         }).collect::<Result<Vec<(Language, tree_sitter::Query)>>>()?,
         None => bail!("additional-query was required. This is probably an internal error and you should report it!"),
     };
