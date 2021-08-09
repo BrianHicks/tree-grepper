@@ -1,12 +1,9 @@
-use anyhow::Result;
+use anyhow::{bail, Result};
 use clap::{crate_authors, crate_version, Clap};
 use rayon::iter::{ParallelBridge, ParallelIterator};
 use std::path::PathBuf;
 
-mod files;
 mod language;
-
-use files::Files;
 use language::Language;
 
 #[derive(Clap, Debug)]
@@ -34,10 +31,27 @@ fn main() {
 fn try_main() -> Result<()> {
     let opts = Opts::parse();
 
-    Files::new(opts.paths)
+    walker(&opts)?
         .par_bridge()
-        .flat_map(|path_result| path_result)
-        .for_each(|path| println!("{:?}", path.unwrap().0));
+        .for_each(|entry| println!("{:?}", entry));
 
     Ok(())
+}
+
+fn walker(opts: &Opts) -> Result<ignore::Walk> {
+    let builder = match opts.paths.split_first() {
+        Some((first, rest)) => {
+            let mut builder = ignore::WalkBuilder::new(first);
+            for path in rest {
+                builder.add(path);
+            }
+
+            builder
+        }
+        None => bail!("I need at least one file or directory to walk!"),
+    };
+
+    // TODO: git ignore, file matching, et cetera
+
+    Ok(builder.build())
 }
