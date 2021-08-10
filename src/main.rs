@@ -20,7 +20,10 @@ fn try_main() -> Result<()> {
     build_walker(&opts)
         .context("couldn't build a filesystem walker")?
         .par_bridge()
-        .for_each(|p| println!("{:?}", p));
+        .for_each(|entry_result| match entry_result {
+            Ok(entry) => println!("{:?}", entry.path()),
+            Err(err) => println!("{:?}", err),
+        });
 
     Ok(())
 }
