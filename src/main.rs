@@ -42,5 +42,6 @@ fn build_walker(opts: &Opts) -> Result<ignore::Walk> {
         .git_ignore(opts.git_ignore)
         .git_exclude(opts.git_ignore)
         .git_global(opts.git_ignore)
+        .types(opts.filetype_matcher()?)
         .build())
 }

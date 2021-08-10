@@ -1,6 +1,7 @@
 use crate::language::Language;
 use anyhow::{bail, Context, Result};
 use clap::{crate_authors, crate_version, App, Arg, ArgMatches};
+use ignore::types;
 use itertools::Itertools;
 use std::path::PathBuf;
 use std::str::FromStr;
@@ -84,5 +85,17 @@ impl Opts {
 
             None => bail!("at least one path was required but not provided. This indicates an internal errors and you should report it!"),
         }
+    }
+
+    pub fn filetype_matcher(&self) -> Result<types::Types> {
+        let mut types_builder = types::TypesBuilder::new();
+        types_builder.add_defaults();
+        for (lang, _) in &self.queries {
+            types_builder.select(&lang.to_string());
+        }
+
+        types_builder
+            .build()
+            .context("could not build a filetype matcher")
     }
 }
