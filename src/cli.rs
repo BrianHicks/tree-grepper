@@ -56,7 +56,7 @@ impl Opts {
                 Ok((lang, query))
             }).collect(),
 
-            None => bail!("additional-query was required but not provided. This is probably an internal error and you should report it!"),
+            None => bail!("queries were required but not provided. This indicates an internal error and you should report it!"),
         }
     }
 }
