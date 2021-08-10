@@ -2,12 +2,14 @@ use crate::language::Language;
 use anyhow::{bail, Context, Result};
 use clap::{crate_authors, crate_version, App, Arg, ArgMatches};
 use itertools::Itertools;
+use std::path::PathBuf;
 use std::str::FromStr;
 use tree_sitter::Query;
 
 #[derive(Debug)]
 pub struct Opts {
     pub queries: Vec<(Language, Query)>,
+    pub paths: Vec<PathBuf>,
 }
 
 impl Opts {
@@ -44,6 +46,7 @@ impl Opts {
 
         Ok(Opts {
             queries: Opts::queries(&matches)?,
+            paths: Opts::paths(&matches)?,
         })
     }
 
@@ -57,6 +60,17 @@ impl Opts {
             }).collect(),
 
             None => bail!("queries were required but not provided. This indicates an internal error and you should report it!"),
+        }
+    }
+
+    fn paths(matches: &ArgMatches) -> Result<Vec<PathBuf>> {
+        match matches.values_of("PATHS") {
+            Some(values) =>
+                values
+                    .map(|raw_path| PathBuf::from_str(raw_path).with_context(|| format!("could not parse a path from {}", raw_path)))
+                    .collect(),
+
+            None => bail!("at least one path was required but not provided. This indicates an internal errors and you should report it!"),
         }
     }
 }
