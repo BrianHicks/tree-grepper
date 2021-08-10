@@ -1,6 +1,6 @@
 use crate::language::Language;
 use anyhow::{bail, Context, Result};
-use clap::{crate_authors, crate_version, App, Arg};
+use clap::{crate_authors, crate_version, App, Arg, ArgMatches};
 use itertools::Itertools;
 use std::str::FromStr;
 use tree_sitter::Query;
@@ -42,17 +42,21 @@ impl Opts {
         .arg(Arg::new("PATHS").default_value(".").multiple(true))
         .get_matches();
 
-        // queries
-        let queries = match matches.values_of("additional-query") {
+        Ok(Opts {
+            queries: Opts::queries(&matches)?,
+        })
+    }
+
+    fn queries(matches: &ArgMatches) -> Result<Vec<(Language, Query)>> {
+        match matches.values_of("additional-query") {
             Some(values) => values.tuples().enumerate().map(|(nth, (raw_lang, raw_query))| {
                 let lang = Language::from_str(raw_lang).with_context(|| format!("could not parse query #{}", nth + 1))?;
                 let query = lang.parse_query(raw_query).with_context(|| format!("could not parse query #{}", nth + 1))?;
 
                 Ok((lang, query))
-            }).collect::<Result<Vec<(Language, tree_sitter::Query)>>>()?,
-            None => bail!("additional-query was required but not provided. This is probably an internal error and you should report it!"),
-        };
+            }).collect(),
 
-        Ok(Opts { queries })
+            None => bail!("additional-query was required but not provided. This is probably an internal error and you should report it!"),
+        }
     }
 }
