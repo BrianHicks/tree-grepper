@@ -28,7 +28,8 @@ fn try_main() -> Result<()> {
                 } else {
                     Some(
                         fs::read_to_string(entry.path())
-                            .with_context(|| format!("could not read {}", entry.path().display())),
+                            .with_context(|| format!("could not read {}", entry.path().display()))
+                            .map(|text| (entry, text)),
                     )
                 }
             }
