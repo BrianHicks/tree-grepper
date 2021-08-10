@@ -39,9 +39,14 @@ impl Opts {
                 .number_of_values(2)
                 .value_names(&["LANGUAGE", "QUERY"])
                 .required(true)
-                .multiple(true),
+                .multiple(true)
         )
-        .arg(Arg::new("PATHS").default_value(".").multiple(true))
+        .arg(
+            Arg::new("PATHS")
+                .default_value(".")
+                .about("places to search for matches")
+                .multiple(true)
+        )
         .get_matches();
 
         Ok(Opts {
