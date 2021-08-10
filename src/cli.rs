@@ -10,6 +10,7 @@ use tree_sitter::Query;
 pub struct Opts {
     pub queries: Vec<(Language, Query)>,
     pub paths: Vec<PathBuf>,
+    pub git_ignore: bool,
 }
 
 impl Opts {
@@ -42,6 +43,11 @@ impl Opts {
                 .multiple(true)
         )
         .arg(
+            Arg::new("no-gitignore")
+                .long("no-gitignore")
+                .about("don't use git's ignore and exclude files to filter files")
+        )
+        .arg(
             Arg::new("PATHS")
                 .default_value(".")
                 .about("places to search for matches")
@@ -52,6 +58,7 @@ impl Opts {
         Ok(Opts {
             queries: Opts::queries(&matches)?,
             paths: Opts::paths(&matches)?,
+            git_ignore: !matches.is_present("no-gitignore"),
         })
     }
 

@@ -26,7 +26,7 @@ fn try_main() -> Result<()> {
 }
 
 fn build_walker(opts: &Opts) -> Result<ignore::Walk> {
-    let builder = match opts.paths.split_first() {
+    let mut builder = match opts.paths.split_first() {
         Some((first, rest)) => {
             let mut builder = ignore::WalkBuilder::new(first);
             for path in rest {
@@ -38,7 +38,9 @@ fn build_walker(opts: &Opts) -> Result<ignore::Walk> {
         None => bail!("I need at least one file or directory to walk!"),
     };
 
-    // TODO: git ignore, file matching, et cetera
-
-    Ok(builder.build())
+    Ok(builder
+        .git_ignore(opts.git_ignore)
+        .git_exclude(opts.git_ignore)
+        .git_global(opts.git_ignore)
+        .build())
 }
