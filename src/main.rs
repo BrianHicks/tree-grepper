@@ -34,6 +34,10 @@ fn try_main() -> Result<()> {
                 let matched = matcher.matched(entry.path(), is_dir);
                 println!("{:?}", matched);
 
+                if !matched.is_whitelist() {
+                    return None;
+                }
+
                 Some(Ok(entry))
             }
             Err(err) => Some(Err(err).context("could not walk a path")),
@@ -64,8 +68,5 @@ fn build_walker(opts: &Opts) -> Result<ignore::Walk> {
         .git_ignore(opts.git_ignore)
         .git_exclude(opts.git_ignore)
         .git_global(opts.git_ignore)
-        // TODO: profile to see if construction the filetype matcher twice is
-        // expensive and maybe don't.
-        .types(opts.filetype_matcher()?)
         .build())
 }
