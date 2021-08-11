@@ -1,6 +1,5 @@
 use anyhow::{bail, Context, Result};
 use rayon::iter::{ParallelBridge, ParallelIterator};
-use std::fs;
 
 mod cli;
 mod language;
@@ -26,11 +25,7 @@ fn try_main() -> Result<()> {
                 if entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true) {
                     None
                 } else {
-                    Some(
-                        fs::read_to_string(entry.path())
-                            .with_context(|| format!("could not read {}", entry.path().display()))
-                            .map(|text| (entry, text)),
-                    )
+                    Some(Ok(entry))
                 }
             }
             Err(err) => Some(Err(err).context("could not walk a path")),
