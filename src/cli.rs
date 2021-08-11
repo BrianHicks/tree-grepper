@@ -3,13 +3,14 @@ use anyhow::{bail, Context, Result};
 use clap::{crate_authors, crate_version, App, Arg, ArgMatches};
 use ignore::types;
 use itertools::Itertools;
+use std::collections::HashMap;
 use std::path::PathBuf;
 use std::str::FromStr;
 use tree_sitter::Query;
 
 #[derive(Debug)]
 pub struct Opts {
-    pub queries: Vec<(Language, Query)>,
+    pub queries: HashMap<Language, Query>,
     pub paths: Vec<PathBuf>,
     pub git_ignore: bool,
 }
@@ -63,25 +64,46 @@ impl Opts {
         })
     }
 
-    fn queries(matches: &ArgMatches) -> Result<Vec<(Language, Query)>> {
+    fn queries(matches: &ArgMatches) -> Result<HashMap<Language, Query>> {
         let values = match matches.values_of("additional-query") {
             Some(values) => values,
             None => bail!("queries were required but not provided. This indicates an internal error and you should report it!"),
         };
 
-        values
-            .tuples()
-            .enumerate()
-            .map(|(nth, (raw_lang, raw_query))| {
-                let lang = Language::from_str(raw_lang)
-                    .with_context(|| format!("could not parse query #{}", nth + 1))?;
-                let query = lang
-                    .parse_query(raw_query)
-                    .with_context(|| format!("could not parse query #{}", nth + 1))?;
+        // the most common case is going to be one query, so let's allocate
+        // that immediately...
+        let mut query_strings: HashMap<Language, String> = HashMap::with_capacity(1);
 
-                Ok((lang, query))
-            })
-            .collect()
+        // If you have two tree-sitter queries `(one)` and `(two)`, you can
+        // join them together in a single string like `(one)(two)`. In that
+        // case, the resulting query will act like an OR and match any of the
+        // queries inside. Doing this automatically gives us an advantage:
+        // for however many queries we get on the command line, we will only
+        // ever have to run one per file, since we can combine them and you
+        // can't specify queries across multiple languages! Nobody should ever
+        // notice, except that they won't see as much of a slowdown for adding
+        // new queries to an invocation as they might expect. (Well, hopefully!)
+        for (raw_lang, raw_query) in values.tuples() {
+            let lang = Language::from_str(raw_lang).context("could not parse language")?;
+
+            if let Some(existing) = query_strings.get_mut(&lang) {
+                existing.push_str(raw_query);
+            } else {
+                query_strings.insert(lang, String::from(raw_query));
+            }
+        }
+
+        let mut out: HashMap<Language, Query> = HashMap::with_capacity(query_strings.len());
+
+        for (lang, raw_query) in query_strings {
+            let query = lang
+                .parse_query(&raw_query)
+                .context("could not parse combined query")?;
+
+            out.insert(lang, query);
+        }
+
+        Ok(out)
     }
 
     fn paths(matches: &ArgMatches) -> Result<Vec<PathBuf>> {
@@ -98,7 +120,7 @@ impl Opts {
     pub fn filetype_matcher(&self) -> Result<types::Types> {
         let mut types_builder = types::TypesBuilder::new();
         types_builder.add_defaults();
-        for (lang, _) in &self.queries {
+        for lang in self.queries.keys() {
             types_builder.select(&lang.to_string());
         }
 

@@ -2,7 +2,7 @@ use anyhow::{anyhow, bail, Error, Result};
 use std::fmt::{Display, Formatter};
 use std::str::FromStr;
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Eq, Hash, Debug)]
 pub enum Language {
     Elm,
     Rust,
