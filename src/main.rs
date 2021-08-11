@@ -17,20 +17,27 @@ fn try_main() -> Result<()> {
     let opts = Opts::from_args()
         .context("couldn't get a valid configuration from the command-line options")?;
 
+    let matcher = opts
+        .filetype_matcher()
+        .context("couldn't construct a filetype matcher")?;
+
     build_walker(&opts)
         .context("couldn't build a filesystem walker")?
         .par_bridge()
         .filter_map(|entry_result| match entry_result {
             Ok(entry) => {
-                if entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true) {
-                    None
-                } else {
-                    Some(Ok(entry))
+                let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
+                if is_dir {
+                    return None;
                 }
+
+                let matched = matcher.matched(entry.path(), is_dir);
+                println!("{:?}", matched);
+
+                Some(Ok(entry))
             }
             Err(err) => Some(Err(err).context("could not walk a path")),
         })
-        // remove directories and read files
         // parse files according to query
         .for_each(|entry_result| match entry_result {
             Ok(entry) => println!("Read source: {:?}", entry),
