@@ -1,5 +1,5 @@
 use anyhow::{bail, Context, Result};
-use rayon::iter::{ParallelBridge, ParallelIterator};
+use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 
 mod cli;
 mod language;
@@ -17,36 +17,37 @@ fn try_main() -> Result<()> {
     let opts = Opts::from_args()
         .context("couldn't get a valid configuration from the command-line options")?;
 
+    // You might think "why not use ParallelBridge here?" Well, the quick answer
+    // is that I benchmarked it and having things separated here and handling
+    // their own errors actually speeds up this part of the code by like 20%!
+    let items: Vec<ignore::DirEntry> = build_walker(&opts)
+        .context("couldn't build a filesystem walker")?
+        .collect::<Result<Vec<ignore::DirEntry>, ignore::Error>>()
+        .context("had a problem while walking the filesystem")?;
+
     let matcher = opts
         .filetype_matcher()
         .context("couldn't construct a filetype matcher")?;
 
-    build_walker(&opts)
-        .context("couldn't build a filesystem walker")?
-        .par_bridge()
-        .filter_map(|entry_result| match entry_result {
-            Ok(entry) => {
-                let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
-                if is_dir {
-                    return None;
-                }
-
-                let matched = matcher.matched(entry.path(), is_dir);
-                println!("{:?}", matched);
-
-                if !matched.is_whitelist() {
-                    return None;
-                }
-
-                Some(Ok(entry))
+    items
+        .par_iter()
+        .filter_map(|entry| {
+            let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
+            if is_dir {
+                return None;
             }
-            Err(err) => Some(Err(err).context("could not walk a path")),
+
+            let matched = matcher.matched(entry.path(), is_dir);
+            // println!("{:?}", matched);
+
+            if !matched.is_whitelist() {
+                return None;
+            }
+
+            Some(entry)
         })
         // parse files according to query
-        .for_each(|entry_result| match entry_result {
-            Ok(entry) => println!("Read source: {:?}", entry),
-            Err(err) => println!("Problem: {:?}", err),
-        });
+        .for_each(|entry| println!("Read source: {:?}", entry));
 
     Ok(())
 }
