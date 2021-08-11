@@ -64,16 +64,24 @@ impl Opts {
     }
 
     fn queries(matches: &ArgMatches) -> Result<Vec<(Language, Query)>> {
-        match matches.values_of("additional-query") {
-            Some(values) => values.tuples().enumerate().map(|(nth, (raw_lang, raw_query))| {
-                let lang = Language::from_str(raw_lang).with_context(|| format!("could not parse query #{}", nth + 1))?;
-                let query = lang.parse_query(raw_query).with_context(|| format!("could not parse query #{}", nth + 1))?;
+        let values = match matches.values_of("additional-query") {
+            Some(values) => values,
+            None => bail!("queries were required but not provided. This indicates an internal error and you should report it!"),
+        };
+
+        values
+            .tuples()
+            .enumerate()
+            .map(|(nth, (raw_lang, raw_query))| {
+                let lang = Language::from_str(raw_lang)
+                    .with_context(|| format!("could not parse query #{}", nth + 1))?;
+                let query = lang
+                    .parse_query(raw_query)
+                    .with_context(|| format!("could not parse query #{}", nth + 1))?;
 
                 Ok((lang, query))
-            }).collect(),
-
-            None => bail!("queries were required but not provided. This indicates an internal error and you should report it!"),
-        }
+            })
+            .collect()
     }
 
     fn paths(matches: &ArgMatches) -> Result<Vec<PathBuf>> {
