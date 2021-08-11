@@ -1,10 +1,12 @@
 use anyhow::{bail, Context, Result};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
+use std::str::FromStr;
 
 mod cli;
 mod language;
 
 use cli::Opts;
+use language::Language;
 
 fn main() {
     if let Err(error) = try_main() {
@@ -42,6 +44,14 @@ fn try_main() -> Result<()> {
 
             if !matched.is_whitelist() {
                 return None;
+            }
+
+            if let Some(_) = matched
+                .inner()
+                .and_then(|glob| glob.file_type_def())
+                .and_then(|def| Language::from_str(def.name()).ok())
+            {
+                todo!("probably all this should go in a matcher struct of some kind")
             }
 
             Some(entry)
