@@ -2,7 +2,7 @@ use crate::language::Language;
 use anyhow::{Context, Result};
 use std::fs;
 use std::path::Path;
-use tree_sitter::{Parser, Query};
+use tree_sitter::{Parser, Query, QueryCursor};
 
 #[derive(Debug)]
 pub struct Extractor {
@@ -20,8 +20,8 @@ impl Extractor {
     }
 
     pub fn extract_from_file(&self, path: &Path) -> Result<()> {
-        let source = fs::read_to_string(path)
-            .with_context(|| format!("could not read {}", path.display()))?;
+        let source =
+            fs::read(path).with_context(|| format!("could not read {}", path.display()))?;
 
         // TODO: this is going to allocate a new parser for every single matched
         // file. Is this something that we want? Parsers are not thread-safe,
@@ -34,9 +34,16 @@ impl Extractor {
             .set_language(self.language.language())
             .context("could not set language")?;
 
-        let tree = parser.parse(source, None);
+        let tree = parser
+            .parse(&source, None)
+            .with_context(|| format!("could not parse {}", path.display()))?;
 
-        println!("{:?}", tree);
+        let mut cursor = QueryCursor::new();
+        cursor
+            .captures(&self.query, tree.root_node(), |node| {
+                node.utf8_text(&source).unwrap_or("")
+            })
+            .for_each(|m| println!("{:?}", m));
 
         Ok(())
     }
