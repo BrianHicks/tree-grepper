@@ -3,7 +3,6 @@ use crate::extractor_chooser::{ExtractorChooser, MultipleChoices};
 use crate::language::Language;
 use anyhow::{bail, Context, Result};
 use clap::{crate_authors, crate_version, App, Arg, ArgMatches};
-use ignore::types;
 use itertools::Itertools;
 use std::collections::HashMap;
 use std::path::PathBuf;

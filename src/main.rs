@@ -1,6 +1,5 @@
 use anyhow::{bail, Context, Result};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
-use std::str::FromStr;
 
 mod cli;
 mod extractor;
@@ -9,7 +8,6 @@ mod language;
 
 use cli::Opts;
 use extractor_chooser::ExtractorChooser;
-use language::Language;
 
 fn main() {
     if let Err(error) = try_main() {

@@ -15,7 +15,7 @@ pub struct MultipleChoices<'extractor> {
 }
 
 impl<'extractor> MultipleChoices<'extractor> {
-    pub fn from_extractors(extractors: &Vec<Extractor>) -> Result<MultipleChoices> {
+    pub fn from_extractors(extractors: &[Extractor]) -> Result<MultipleChoices> {
         let mut types_builder = TypesBuilder::new();
         types_builder.add_defaults();
 
