@@ -34,7 +34,7 @@ impl<'extractor> MultipleChoices<'extractor> {
         Ok(MultipleChoices {
             matcher: types_builder
                 .build()
-                .context("could not build a filetype matcher using provided languages")?,
+                .context("could not build a filetype matcher using provided extractors")?,
             extractors: names_to_extractors,
         })
     }
