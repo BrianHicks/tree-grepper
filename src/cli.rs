@@ -1,4 +1,5 @@
 use crate::extractor::Extractor;
+use crate::extractor_chooser::{ExtractorChooser, MultipleChoices};
 use crate::language::Language;
 use anyhow::{bail, Context, Result};
 use clap::{crate_authors, crate_version, App, Arg, ArgMatches};
@@ -116,15 +117,7 @@ impl Opts {
         }
     }
 
-    pub fn filetype_matcher(&self) -> Result<types::Types> {
-        let mut types_builder = types::TypesBuilder::new();
-        types_builder.add_defaults();
-        for extractor in &self.extractors {
-            types_builder.select(&extractor.language().to_string());
-        }
-
-        types_builder
-            .build()
-            .context("could not build a filetype matcher")
+    pub fn extractor_chooser(&self) -> Result<impl ExtractorChooser + '_> {
+        MultipleChoices::from_extractors(&self.extractors)
     }
 }

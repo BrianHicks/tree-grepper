@@ -4,9 +4,11 @@ use std::str::FromStr;
 
 mod cli;
 mod extractor;
+mod extractor_chooser;
 mod language;
 
 use cli::Opts;
+use extractor_chooser::ExtractorChooser;
 use language::Language;
 
 fn main() {
@@ -28,35 +30,13 @@ fn try_main() -> Result<()> {
         .collect::<Result<Vec<ignore::DirEntry>, ignore::Error>>()
         .context("had a problem while walking the filesystem")?;
 
-    let matcher = opts
-        .filetype_matcher()
+    let chooser = opts
+        .extractor_chooser()
         .context("couldn't construct a filetype matcher")?;
 
     items
         .par_iter()
-        .filter_map(|entry| {
-            let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
-            if is_dir {
-                return None;
-            }
-
-            let matched = matcher.matched(entry.path(), is_dir);
-            // println!("{:?}", matched);
-
-            if !matched.is_whitelist() {
-                return None;
-            }
-
-            if let Some(thingy) = matched
-                .inner()
-                .and_then(|glob| glob.file_type_def())
-                .and_then(|def| Language::from_str(def.name()).ok())
-            {
-                println!("{:?}", thingy);
-            }
-
-            Some(entry)
-        })
+        .filter_map(|entry| chooser.extractor_for(entry))
         // parse files according to query
         .for_each(|entry| println!("Read source: {:?}", entry));
 
