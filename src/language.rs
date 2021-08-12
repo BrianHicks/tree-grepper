@@ -13,7 +13,7 @@ impl Language {
         vec![Language::Elm, Language::Rust]
     }
 
-    fn language(&self) -> tree_sitter::Language {
+    pub fn language(&self) -> tree_sitter::Language {
         match self {
             Language::Elm => language_elm(),
             Language::Rust => language_rust(),

@@ -33,8 +33,11 @@ fn try_main() -> Result<()> {
 
     items
         .par_iter()
-        .filter_map(|entry| chooser.extractor_for(entry))
-        // parse files according to query
+        .filter_map(|entry| {
+            chooser
+                .extractor_for(entry)
+                .map(|e| e.extract_from_file(entry.path()))
+        })
         .for_each(|entry| println!("Read source: {:?}", entry));
 
     Ok(())
