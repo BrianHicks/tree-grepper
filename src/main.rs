@@ -7,7 +7,6 @@ mod extractor_chooser;
 mod language;
 
 use cli::Opts;
-use extractor_chooser::ExtractorChooser;
 
 fn main() {
     if let Err(error) = try_main() {

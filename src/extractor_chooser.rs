@@ -4,50 +4,13 @@ use ignore::types::{Types, TypesBuilder};
 use ignore::DirEntry;
 use std::collections::HashMap;
 
-pub trait ExtractorChooser {
-    fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor>;
-}
-
-pub struct SingleChoice<'extractor> {
-    matcher: Types,
-    extractor: &'extractor Extractor,
-}
-
-impl<'extractor> SingleChoice<'extractor> {
-    pub fn from_extractor(extractor: &'extractor Extractor) -> Result<SingleChoice<'extractor>> {
-        let mut types_builder = TypesBuilder::new();
-        types_builder.add_defaults();
-        types_builder.select(&extractor.language().to_string());
-
-        Ok(SingleChoice {
-            matcher: types_builder
-                .build()
-                .context("could not build a filetype matcher using the provided extractor")?,
-            extractor: extractor,
-        })
-    }
-}
-
-impl<'extractor> ExtractorChooser for SingleChoice<'extractor> {
-    fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor> {
-        let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
-        let matched = self.matcher.matched(entry.path(), is_dir);
-
-        if !matched.is_whitelist() {
-            return None;
-        }
-
-        Some(self.extractor)
-    }
-}
-
-pub struct MultipleChoices<'extractor> {
+pub struct ExtractorChooser<'extractor> {
     matcher: Types,
     extractors: HashMap<String, &'extractor Extractor>,
 }
 
-impl<'extractor> MultipleChoices<'extractor> {
-    pub fn from_extractors(extractors: &[Extractor]) -> Result<MultipleChoices> {
+impl<'extractor> ExtractorChooser<'extractor> {
+    pub fn from_extractors(extractors: &[Extractor]) -> Result<ExtractorChooser> {
         let mut types_builder = TypesBuilder::new();
         types_builder.add_defaults();
 
@@ -64,17 +27,15 @@ impl<'extractor> MultipleChoices<'extractor> {
             }
         }
 
-        Ok(MultipleChoices {
+        Ok(ExtractorChooser {
             matcher: types_builder
                 .build()
                 .context("could not build a filetype matcher using provided extractors")?,
             extractors: names_to_extractors,
         })
     }
-}
 
-impl<'extractor> ExtractorChooser for MultipleChoices<'extractor> {
-    fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor> {
+    pub fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor> {
         let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
         let matched = self.matcher.matched(entry.path(), is_dir);
 

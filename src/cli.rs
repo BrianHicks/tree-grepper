@@ -1,5 +1,5 @@
 use crate::extractor::Extractor;
-use crate::extractor_chooser::{ExtractorChooser, MultipleChoices};
+use crate::extractor_chooser::ExtractorChooser;
 use crate::language::Language;
 use anyhow::{bail, Context, Result};
 use clap::{crate_authors, crate_version, App, Arg, ArgMatches};
@@ -116,7 +116,7 @@ impl Opts {
         }
     }
 
-    pub fn extractor_chooser(&self) -> Result<impl ExtractorChooser + '_> {
-        MultipleChoices::from_extractors(&self.extractors)
+    pub fn extractor_chooser(&self) -> Result<ExtractorChooser> {
+        ExtractorChooser::from_extractors(&self.extractors)
     }
 }
