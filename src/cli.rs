@@ -99,6 +99,8 @@ impl Opts {
                 .parse_query(&raw_query)
                 .context("could not parse (combined) query")?;
 
+            // TODO: test if we have any capture names and add an @query or [stuff]@query if so
+
             out.push(Extractor::new(lang, query))
         }
 
