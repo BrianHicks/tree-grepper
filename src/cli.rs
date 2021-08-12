@@ -31,31 +31,31 @@ impl Opts {
         //
         // TODO: would the above be better in a lazy_static?
         let matches = App::new("tree-grepper")
-        .version(crate_version!())
-        .author(crate_authors!())
-        .arg(
-            Arg::new("additional-query")
-                .short('q')
-                .long("query")
-                .about("a language and query to perform")
-                .long_about("a language and query to perform. See https://tree-sitter.github.io for information on writing queries. TODO: add a mode to list languages.")
-                .number_of_values(2)
-                .value_names(&["LANGUAGE", "QUERY"])
-                .required(true)
-                .multiple(true)
-        )
-        .arg(
-            Arg::new("no-gitignore")
-                .long("no-gitignore")
-                .about("don't use git's ignore and exclude files to filter files")
-        )
-        .arg(
-            Arg::new("PATHS")
-                .default_value(".")
-                .about("places to search for matches")
-                .multiple(true)
-        )
-        .get_matches();
+            .version(crate_version!())
+            .author(crate_authors!())
+            .arg(
+                Arg::new("additional-query")
+                    .short('q')
+                    .long("query")
+                    .about("a language and query to perform")
+                    .long_about("a language and query to perform. See https://tree-sitter.github.io for information on writing queries. TODO: add a mode to list languages.")
+                    .number_of_values(2)
+                    .value_names(&["LANGUAGE", "QUERY"])
+                    .required(true)
+                    .multiple(true)
+            )
+            .arg(
+                Arg::new("no-gitignore")
+                    .long("no-gitignore")
+                    .about("don't use git's ignore and exclude files to filter files")
+            )
+            .arg(
+                Arg::new("PATHS")
+                    .default_value(".")
+                    .about("places to search for matches")
+                    .multiple(true)
+            )
+            .get_matches();
 
         Ok(Opts {
             extractors: Opts::extractors(&matches)?,
