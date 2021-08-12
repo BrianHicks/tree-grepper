@@ -8,6 +8,40 @@ pub trait ExtractorChooser {
     fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor>;
 }
 
+pub struct SingleChoice<'extractor> {
+    matcher: Types,
+    extractor: &'extractor Extractor,
+}
+
+impl<'extractor> SingleChoice<'extractor> {
+    pub fn from_extractor(extractor: &'extractor Extractor) -> Result<SingleChoice<'extractor>> {
+        let mut types_builder = TypesBuilder::new();
+        types_builder.add_defaults();
+        types_builder.select(&extractor.language().to_string());
+
+        Ok(SingleChoice {
+            matcher: types_builder
+                .build()
+                .context("could not build a filetype matcher using the provided extractor")?,
+            extractor: extractor,
+        })
+    }
+}
+
+impl<'extractor> ExtractorChooser for SingleChoice<'extractor> {
+    fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor> {
+        let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
+
+        let matched = self.matcher.matched(entry.path(), is_dir);
+
+        if !matched.is_whitelist() {
+            return None;
+        }
+
+        Some(self.extractor)
+    }
+}
+
 pub struct MultipleChoices<'extractor> {
     matcher: Types,
     extractors: HashMap<String, &'extractor Extractor>,
