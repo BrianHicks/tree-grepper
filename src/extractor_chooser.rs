@@ -43,25 +43,17 @@ impl<'extractor> MultipleChoices<'extractor> {
 impl<'extractor> ExtractorChooser for MultipleChoices<'extractor> {
     fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor> {
         let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
-        // if is_dir {
-        //     return None;
-        // }
 
         let matched = self.matcher.matched(entry.path(), is_dir);
-        println!("{:?}", matched);
 
-        // if !matched.is_whitelist() {
-        //     return None;
-        // }
+        if !matched.is_whitelist() {
+            return None;
+        }
 
-        // if let Some(_) = matched
-        //     .inner()
-        //     .and_then(|glob| glob.file_type_def())
-        //     .and_then(|def| Language::from_str(def.name()).ok())
-        // {
-        //     todo!("probably all this should go in a matcher struct of some kind")
-        // }
-
-        None
+        matched
+            .inner()
+            .and_then(|glob| glob.file_type_def())
+            .and_then(|def| self.extractors.get(def.name()))
+            .map(|extractor_ref| *extractor_ref)
     }
 }
