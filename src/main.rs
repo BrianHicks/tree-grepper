@@ -47,12 +47,12 @@ fn try_main() -> Result<()> {
                 return None;
             }
 
-            if let Some(_) = matched
+            if let Some(thingy) = matched
                 .inner()
                 .and_then(|glob| glob.file_type_def())
                 .and_then(|def| Language::from_str(def.name()).ok())
             {
-                todo!("probably all this should go in a matcher struct of some kind")
+                println!("{:?}", thingy);
             }
 
             Some(entry)
