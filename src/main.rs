@@ -3,6 +3,7 @@ use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use std::str::FromStr;
 
 mod cli;
+mod extractor;
 mod language;
 
 use cli::Opts;

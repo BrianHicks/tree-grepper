@@ -1,3 +1,4 @@
+use crate::extractor::Extractor;
 use crate::language::Language;
 use anyhow::{bail, Context, Result};
 use clap::{crate_authors, crate_version, App, Arg, ArgMatches};
@@ -6,11 +7,10 @@ use itertools::Itertools;
 use std::collections::HashMap;
 use std::path::PathBuf;
 use std::str::FromStr;
-use tree_sitter::Query;
 
 #[derive(Debug)]
 pub struct Opts {
-    pub queries: HashMap<Language, Query>,
+    pub extractors: Vec<Extractor>,
     pub paths: Vec<PathBuf>,
     pub git_ignore: bool,
 }
@@ -58,13 +58,13 @@ impl Opts {
         .get_matches();
 
         Ok(Opts {
-            queries: Opts::queries(&matches)?,
+            extractors: Opts::extractors(&matches)?,
             paths: Opts::paths(&matches)?,
             git_ignore: !matches.is_present("no-gitignore"),
         })
     }
 
-    fn queries(matches: &ArgMatches) -> Result<HashMap<Language, Query>> {
+    fn extractors(matches: &ArgMatches) -> Result<Vec<Extractor>> {
         let values = match matches.values_of("additional-query") {
             Some(values) => values,
             None => bail!("queries were required but not provided. This indicates an internal error and you should report it!"),
@@ -93,14 +93,13 @@ impl Opts {
             }
         }
 
-        let mut out: HashMap<Language, Query> = HashMap::with_capacity(query_strings.len());
-
+        let mut out = Vec::with_capacity(query_strings.len());
         for (lang, raw_query) in query_strings {
             let query = lang
                 .parse_query(&raw_query)
-                .context("could not parse combined query")?;
+                .context("could not parse (combined) query")?;
 
-            out.insert(lang, query);
+            out.push(Extractor::new(lang, query))
         }
 
         Ok(out)
@@ -120,8 +119,8 @@ impl Opts {
     pub fn filetype_matcher(&self) -> Result<types::Types> {
         let mut types_builder = types::TypesBuilder::new();
         types_builder.add_defaults();
-        for lang in self.queries.keys() {
-            types_builder.select(&lang.to_string());
+        for extractor in &self.extractors {
+            types_builder.select(&extractor.language().to_string());
         }
 
         types_builder
