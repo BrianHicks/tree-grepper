@@ -31,7 +31,6 @@ impl<'extractor> SingleChoice<'extractor> {
 impl<'extractor> ExtractorChooser for SingleChoice<'extractor> {
     fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor> {
         let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
-
         let matched = self.matcher.matched(entry.path(), is_dir);
 
         if !matched.is_whitelist() {
@@ -77,7 +76,6 @@ impl<'extractor> MultipleChoices<'extractor> {
 impl<'extractor> ExtractorChooser for MultipleChoices<'extractor> {
     fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor> {
         let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
-
         let matched = self.matcher.matched(entry.path(), is_dir);
 
         if !matched.is_whitelist() {
