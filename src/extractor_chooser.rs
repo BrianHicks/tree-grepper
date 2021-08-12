@@ -5,8 +5,7 @@ use ignore::DirEntry;
 use std::collections::HashMap;
 
 pub trait ExtractorChooser {
-    // TODO: might need to return a borrow in the Option
-    fn extractor_for(&self, entry: &DirEntry) -> Option<Extractor>;
+    fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor>;
 }
 
 pub struct MultipleChoices<'extractor> {
@@ -42,7 +41,7 @@ impl<'extractor> MultipleChoices<'extractor> {
 }
 
 impl<'extractor> ExtractorChooser for MultipleChoices<'extractor> {
-    fn extractor_for(&self, entry: &DirEntry) -> Option<Extractor> {
+    fn extractor_for(&self, entry: &DirEntry) -> Option<&Extractor> {
         let is_dir = entry.file_type().map(|ft| ft.is_dir()).unwrap_or(true);
         // if is_dir {
         //     return None;
