@@ -52,7 +52,7 @@ fn try_main() -> Result<()> {
         .context("couldn't extract matches from files")?;
 
     for extracted_file in extracted_files {
-        println!("{}", extracted_file);
+        print!("{}", extracted_file);
     }
 
     Ok(())
