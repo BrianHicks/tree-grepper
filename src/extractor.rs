@@ -2,7 +2,7 @@ use crate::language::Language;
 use anyhow::{Context, Result};
 use std::fs;
 use std::path::{Path, PathBuf};
-use tree_sitter::{Parser, Query, QueryCursor};
+use tree_sitter::{Parser, Point, Query, QueryCursor};
 
 #[derive(Debug)]
 pub struct Extractor {
@@ -43,12 +43,16 @@ impl Extractor {
                 })
                 .flat_map(|query_match| query_match.captures)
                 .map(|capture| {
+                    let node = capture.node;
+
                     Ok(ExtractedMatch {
-                        text: capture
-                            .node
+                        text: node
                             .utf8_text(&source)
                             .map(|unowned| unowned.to_string())
                             .context("could not extract text from capture")?,
+                        start: node.start_position(),
+                        end: node.end_position(),
+                        kind: node.kind(),
                     })
                 })
                 .collect::<Result<Vec<ExtractedMatch>>>()?,
@@ -65,4 +69,7 @@ pub struct ExtractedFile {
 #[derive(Debug)]
 pub struct ExtractedMatch {
     text: String,
+    start: Point,
+    end: Point,
+    kind: &'static str,
 }
