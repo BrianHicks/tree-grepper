@@ -1,9 +1,11 @@
 use crate::language::Language;
 use anyhow::{Context, Result};
+use serde::ser::{SerializeStruct, Serializer};
+use serde::Serialize;
 use std::fmt::{self, Display};
 use std::fs;
 use std::path::{Path, PathBuf};
-use tree_sitter::{Parser, Point, Query, QueryCursor};
+use tree_sitter::{Parser, Query, QueryCursor};
 
 #[derive(Debug)]
 pub struct Extractor {
@@ -71,8 +73,8 @@ impl Extractor {
                         .utf8_text(&source)
                         .map(|unowned| unowned.to_string())
                         .context("could not extract text from capture")?,
-                    start: node.start_position(),
-                    end: node.end_position(),
+                    start: Point(node.start_position()),
+                    end: Point(node.end_position()),
                     kind: node.kind(),
                     // note: the cast here could potentially break if run
                     // on a 16-bit microcontroller. I don't think this is
@@ -97,7 +99,7 @@ impl Extractor {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct ExtractedFile {
     file: PathBuf,
     matches: Vec<ExtractedMatch>,
@@ -110,8 +112,8 @@ impl Display for ExtractedFile {
                 f,
                 "{}:{}:{}:{}:{}\n",
                 self.file.display(),
-                extraction.start.row,
-                extraction.start.column,
+                extraction.start.0.row,
+                extraction.start.0.column,
                 extraction.name,
                 extraction.text
             )?
@@ -121,11 +123,26 @@ impl Display for ExtractedFile {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct ExtractedMatch {
-    start: Point,
-    end: Point,
     kind: &'static str,
     name: String,
     text: String,
+    start: Point,
+    end: Point,
+}
+
+#[derive(Debug)]
+struct Point(tree_sitter::Point);
+
+impl Serialize for Point {
+    fn serialize<S>(&self, sz: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        let mut out = sz.serialize_struct("Point", 2)?;
+        out.serialize_field("row", &self.0.row)?;
+        out.serialize_field("column", &self.0.column)?;
+        out.end()
+    }
 }

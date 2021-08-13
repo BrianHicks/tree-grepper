@@ -10,6 +10,8 @@ clap = "3.0.0-beta.2"
 ignore = "0.4.18"
 itertools = "0.10.1"
 rayon = "1.5.1"
+serde = { version = "1.0.127", features = ["derive"] }
+serde_json = "1.0.66"
 tree-sitter = "0.19.5"
 
 [build-dependencies]

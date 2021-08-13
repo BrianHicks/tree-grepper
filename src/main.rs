@@ -1,5 +1,6 @@
 use anyhow::{bail, Context, Result};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
+use std::io;
 use tree_sitter::Parser;
 
 mod cli;
@@ -59,7 +60,8 @@ fn try_main() -> Result<()> {
         }
 
         Format::JSON => {
-            todo!("json formatting")
+            serde_json::to_writer(io::stdout(), &extracted_files)
+                .context("could not write JSON output")?;
         }
     }
 
