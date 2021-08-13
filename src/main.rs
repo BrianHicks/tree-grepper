@@ -7,7 +7,7 @@ mod extractor;
 mod extractor_chooser;
 mod language;
 
-use cli::Opts;
+use cli::{Format, Opts};
 
 fn main() {
     if let Err(error) = try_main() {
@@ -51,8 +51,16 @@ fn try_main() -> Result<()> {
         .collect::<Result<Vec<extractor::ExtractedFile>>>()
         .context("couldn't extract matches from files")?;
 
-    for extracted_file in extracted_files {
-        print!("{}", extracted_file);
+    match opts.format {
+        Format::Lines => {
+            for extracted_file in extracted_files {
+                print!("{}", extracted_file);
+            }
+        }
+
+        Format::JSON => {
+            todo!("json formatting")
+        }
     }
 
     Ok(())

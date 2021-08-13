@@ -1,7 +1,7 @@
 use crate::extractor::Extractor;
 use crate::extractor_chooser::ExtractorChooser;
 use crate::language::Language;
-use anyhow::{bail, Context, Result};
+use anyhow::{bail, Context, Error, Result};
 use clap::{crate_authors, crate_version, App, Arg, ArgMatches};
 use itertools::Itertools;
 use std::collections::HashMap;
@@ -13,6 +13,7 @@ pub struct Opts {
     pub extractors: Vec<Extractor>,
     pub paths: Vec<PathBuf>,
     pub git_ignore: bool,
+    pub format: Format,
 }
 
 impl Opts {
@@ -55,12 +56,22 @@ impl Opts {
                     .about("places to search for matches")
                     .multiple(true)
             )
+            .arg(
+                Arg::new("format")
+                .long("format")
+                .short('f')
+                .possible_values(&["lines", "json"])
+                .default_value("lines")
+                .about("what format should we output lines in?")
+            )
             .get_matches();
 
         Ok(Opts {
             extractors: Opts::extractors(&matches)?,
             paths: Opts::paths(&matches)?,
             git_ignore: !matches.is_present("no-gitignore"),
+            format: Format::from_str(matches.value_of("format").context("format not provided")?)
+                .context("could not set format")?,
         })
     }
 
@@ -120,5 +131,23 @@ impl Opts {
 
     pub fn extractor_chooser(&self) -> Result<ExtractorChooser> {
         ExtractorChooser::from_extractors(&self.extractors)
+    }
+}
+
+#[derive(Debug)]
+pub enum Format {
+    Lines,
+    JSON,
+}
+
+impl FromStr for Format {
+    type Err = Error;
+
+    fn from_str(s: &str) -> Result<Self> {
+        match s {
+            "lines" => Ok(Format::Lines),
+            "json" => Ok(Format::JSON),
+            _ => bail!("unknown format. See --help for valid formats."),
+        }
     }
 }
