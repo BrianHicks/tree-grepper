@@ -1,7 +1,7 @@
 use crate::language::Language;
 use anyhow::{Context, Result};
 use std::fs;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use tree_sitter::{Parser, Query, QueryCursor};
 
 #[derive(Debug)]
@@ -19,7 +19,7 @@ impl Extractor {
         &self.language
     }
 
-    pub fn extract_from_file(&self, path: &Path) -> Result<()> {
+    pub fn extract_from_file(&self, path: &Path) -> Result<Extraction> {
         let source =
             fs::read(path).with_context(|| format!("could not read {}", path.display()))?;
 
@@ -39,12 +39,28 @@ impl Extractor {
             .with_context(|| format!("could not parse {}", path.display()))?;
 
         let mut cursor = QueryCursor::new();
-        cursor
-            .captures(&self.query, tree.root_node(), |node| {
-                node.utf8_text(&source).unwrap_or("")
-            })
-            .for_each(|m| println!("{:?}", m));
 
-        Ok(())
+        Ok(Extraction {
+            file: path.to_path_buf(),
+            matches: cursor
+                .matches(&self.query, tree.root_node(), |node| {
+                    node.utf8_text(&source).unwrap_or("")
+                })
+                .flat_map(|query_match| query_match.captures)
+                .map(|capture| {
+                    capture
+                        .node
+                        .utf8_text(&source)
+                        .map(|str_| str_.to_string())
+                        .context("could not extract text from capture")
+                })
+                .collect::<Result<Vec<String>>>()?,
+        })
     }
+}
+
+#[derive(Debug)]
+pub struct Extraction {
+    file: PathBuf,
+    matches: Vec<String>,
 }
