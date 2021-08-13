@@ -19,7 +19,7 @@ impl Extractor {
         &self.language
     }
 
-    pub fn extract_from_file(&self, path: &Path, parser: &mut Parser) -> Result<Extraction> {
+    pub fn extract_from_file(&self, path: &Path, parser: &mut Parser) -> Result<ExtractedFile> {
         let source =
             fs::read(path).with_context(|| format!("could not read {}", path.display()))?;
 
@@ -35,7 +35,7 @@ impl Extractor {
 
         let mut cursor = QueryCursor::new();
 
-        Ok(Extraction {
+        Ok(ExtractedFile {
             file: path.to_path_buf(),
             matches: cursor
                 .matches(&self.query, tree.root_node(), |node| {
@@ -43,19 +43,26 @@ impl Extractor {
                 })
                 .flat_map(|query_match| query_match.captures)
                 .map(|capture| {
-                    capture
-                        .node
-                        .utf8_text(&source)
-                        .map(|str_| str_.to_string())
-                        .context("could not extract text from capture")
+                    Ok(ExtractedMatch {
+                        text: capture
+                            .node
+                            .utf8_text(&source)
+                            .map(|unowned| unowned.to_string())
+                            .context("could not extract text from capture")?,
+                    })
                 })
-                .collect::<Result<Vec<String>>>()?,
+                .collect::<Result<Vec<ExtractedMatch>>>()?,
         })
     }
 }
 
 #[derive(Debug)]
-pub struct Extraction {
+pub struct ExtractedFile {
     file: PathBuf,
-    matches: Vec<String>,
+    matches: Vec<ExtractedMatch>,
+}
+
+#[derive(Debug)]
+pub struct ExtractedMatch {
+    text: String,
 }
