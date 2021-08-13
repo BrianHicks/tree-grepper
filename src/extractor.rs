@@ -1,5 +1,6 @@
 use crate::language::Language;
 use anyhow::{Context, Result};
+use std::fmt::{self, Display};
 use std::fs;
 use std::path::{Path, PathBuf};
 use tree_sitter::{Parser, Point, Query, QueryCursor};
@@ -80,7 +81,7 @@ impl Extractor {
                     // 20 matches. Nowhere close to 2^16!
                     //
                     // TODO: is the clone going to be acceptably fast here?
-                    capture: self.captures[capture.index as usize].clone(),
+                    name: self.captures[capture.index as usize].clone(),
                 })
             })
             .collect::<Result<Vec<ExtractedMatch>>>()?;
@@ -102,11 +103,29 @@ pub struct ExtractedFile {
     matches: Vec<ExtractedMatch>,
 }
 
+impl Display for ExtractedFile {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        for extraction in &self.matches {
+            write!(
+                f,
+                "{}:{}:{}:{}:{}\n",
+                self.file.display(),
+                extraction.start.row,
+                extraction.start.column,
+                extraction.name,
+                extraction.text
+            )?
+        }
+
+        Ok(())
+    }
+}
+
 #[derive(Debug)]
 pub struct ExtractedMatch {
-    text: String,
     start: Point,
     end: Point,
     kind: &'static str,
-    capture: String,
+    name: String,
+    text: String,
 }

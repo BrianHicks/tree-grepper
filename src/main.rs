@@ -32,7 +32,7 @@ fn try_main() -> Result<()> {
         .extractor_chooser()
         .context("couldn't construct a filetype matcher")?;
 
-    items
+    let extracted_files = items
         .par_iter()
         .filter_map(|entry| {
             chooser
@@ -43,7 +43,17 @@ fn try_main() -> Result<()> {
             || Parser::new(),
             |parser, (entry, extractor)| extractor.extract_from_file(entry.path(), parser),
         )
-        .for_each(|entry| println!("Read source: {:?}", entry));
+        .filter_map(|result_containing_option| match result_containing_option {
+            Ok(None) => None,
+            Ok(Some(extraction)) => Some(Ok(extraction)),
+            Err(err) => Some(Err(err)),
+        })
+        .collect::<Result<Vec<extractor::ExtractedFile>>>()
+        .context("couldn't extract matches from files")?;
+
+    for extracted_file in extracted_files {
+        println!("{}", extracted_file);
+    }
 
     Ok(())
 }
