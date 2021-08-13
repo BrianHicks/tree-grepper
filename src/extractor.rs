@@ -43,7 +43,16 @@ impl Extractor {
 
         let tree = parser
             .parse(&source, None)
-            .with_context(|| format!("could not parse {}", path.display()))?;
+            // note: this could be a timeout or cancellation, but we don't set
+            // that so we know it's always a language error. Buuuut we also
+            // always set the language above so if this happens we also know
+            // it's an internal error.
+            .with_context(|| {
+                format!(
+                    "could not parse {}. This is an internal error and should be reported.",
+                    path.display()
+                )
+            })?;
 
         let mut cursor = QueryCursor::new();
 
