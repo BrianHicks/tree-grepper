@@ -5,7 +5,7 @@ use serde::Serialize;
 use std::fmt::{self, Display};
 use std::fs;
 use std::path::{Path, PathBuf};
-use tree_sitter::{Parser, Query, QueryCursor};
+use tree_sitter::{Parser, Point, Query, QueryCursor};
 
 #[derive(Debug)]
 pub struct Extractor {
@@ -82,8 +82,8 @@ impl Extractor {
                         .utf8_text(&source)
                         .map(|unowned| unowned.to_string())
                         .context("could not extract text from capture")?,
-                    start: Point(node.start_position()),
-                    end: Point(node.end_position()),
+                    start: node.start_position(),
+                    end: node.end_position(),
                 })
             })
             .collect::<Result<Vec<ExtractedMatch>>>()?;
@@ -112,8 +112,8 @@ impl Display for ExtractedFile {
                 f,
                 "{}:{}:{}:{}:{}\n",
                 self.file.display(),
-                extraction.start.0.row,
-                extraction.start.0.column,
+                extraction.start.row,
+                extraction.start.column,
                 extraction.name,
                 extraction.text
             )?
@@ -128,21 +128,18 @@ pub struct ExtractedMatch {
     kind: &'static str,
     name: String,
     text: String,
+    #[serde(serialize_with = "serialize_point")]
     start: Point,
+    #[serde(serialize_with = "serialize_point")]
     end: Point,
 }
 
-#[derive(Debug)]
-struct Point(tree_sitter::Point);
-
-impl Serialize for Point {
-    fn serialize<S>(&self, sz: S) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        let mut out = sz.serialize_struct("Point", 2)?;
-        out.serialize_field("row", &self.0.row)?;
-        out.serialize_field("column", &self.0.column)?;
-        out.end()
-    }
+fn serialize_point<S>(point: &Point, sz: S) -> Result<S::Ok, S::Error>
+where
+    S: Serializer,
+{
+    let mut out = sz.serialize_struct("Point", 2)?;
+    out.serialize_field("row", &point.row)?;
+    out.serialize_field("column", &point.column)?;
+    out.end()
 }
