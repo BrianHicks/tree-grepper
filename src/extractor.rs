@@ -69,12 +69,6 @@ impl Extractor {
                 let node = capture.node;
 
                 Ok(ExtractedMatch {
-                    text: node
-                        .utf8_text(&source)
-                        .map(|unowned| unowned.to_string())
-                        .context("could not extract text from capture")?,
-                    start: Point(node.start_position()),
-                    end: Point(node.end_position()),
                     kind: node.kind(),
                     // note: the cast here could potentially break if run
                     // on a 16-bit microcontroller. I don't think this is
@@ -84,6 +78,12 @@ impl Extractor {
                     //
                     // TODO: is the clone going to be acceptably fast here?
                     name: self.captures[capture.index as usize].clone(),
+                    text: node
+                        .utf8_text(&source)
+                        .map(|unowned| unowned.to_string())
+                        .context("could not extract text from capture")?,
+                    start: Point(node.start_position()),
+                    end: Point(node.end_position()),
                 })
             })
             .collect::<Result<Vec<ExtractedMatch>>>()?;
