@@ -1,5 +1,6 @@
 use anyhow::{bail, Context, Result};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
+use tree_sitter::Parser;
 
 mod cli;
 mod extractor;
@@ -36,8 +37,12 @@ fn try_main() -> Result<()> {
         .filter_map(|entry| {
             chooser
                 .extractor_for(entry)
-                .map(|e| e.extract_from_file(entry.path()))
+                .map(|extractor| (entry, extractor))
         })
+        .map_init(
+            || Parser::new(),
+            |parser, (entry, extractor)| extractor.extract_from_file(entry.path(), parser),
+        )
         .for_each(|entry| println!("Read source: {:?}", entry));
 
     Ok(())
