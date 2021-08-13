@@ -8,11 +8,19 @@ use tree_sitter::{Parser, Point, Query, QueryCursor};
 pub struct Extractor {
     language: Language,
     query: Query,
+    captures: Vec<String>,
 }
 
 impl Extractor {
     pub fn new(language: Language, query: Query) -> Extractor {
-        Extractor { language, query }
+        // TODO: disable capturing names that start with _ so it's easier to
+        // make temporary matches for use in `#eq?` and stuff.
+
+        Extractor {
+            language,
+            captures: query.capture_names().to_vec(),
+            query,
+        }
     }
 
     pub fn language(&self) -> &Language {
@@ -53,6 +61,14 @@ impl Extractor {
                         start: node.start_position(),
                         end: node.end_position(),
                         kind: node.kind(),
+                        // note: the cast here could potentially break if run
+                        // on a 16-bit microcontroller. I don't think this is
+                        // a huge problem, though, since even the gnarliest
+                        // queries I've written have something on the order of
+                        // 20 matches. Nowhere close to 2^16!
+                        //
+                        // TODO: is the clone going to be acceptably fast here?
+                        capture: self.captures[capture.index as usize].clone(),
                     })
                 })
                 .collect::<Result<Vec<ExtractedMatch>>>()?,
@@ -72,4 +88,5 @@ pub struct ExtractedMatch {
     start: Point,
     end: Point,
     kind: &'static str,
+    capture: String,
 }
