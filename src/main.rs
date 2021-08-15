@@ -1,14 +1,13 @@
-use anyhow::{bail, Context, Result};
-use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
-use std::io;
-use tree_sitter::Parser;
-
 mod cli;
 mod extractor;
 mod extractor_chooser;
 mod language;
 
+use anyhow::{bail, Context, Result};
 use cli::{Format, Opts};
+use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
+use std::io;
+use tree_sitter::Parser;
 
 fn main() {
     if let Err(error) = try_main() {
