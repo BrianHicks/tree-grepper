@@ -9,6 +9,9 @@ use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use std::io;
 use tree_sitter::Parser;
 
+#[global_allocator]
+static ALLOCATOR: bump_alloc::BumpAlloc = bump_alloc::BumpAlloc::new();
+
 fn main() {
     if let Err(error) = try_main() {
         eprintln!("{:?}", error);
