@@ -16,8 +16,6 @@ pub struct Extractor {
 
 impl Extractor {
     pub fn new(language: Language, query: Query) -> Extractor {
-        // TODO: disable capturing names that start with _ so it's easier to
-        // make temporary matches for use in `#eq?` and stuff.
 
         Extractor {
             language,
@@ -65,26 +63,36 @@ impl Extractor {
                 node.utf8_text(&source).unwrap_or("")
             })
             .flat_map(|query_match| query_match.captures)
-            .map(|capture| {
+            .filter_map(|capture| {
+                // note: the cast here could potentially break if run on a 16-bit
+                // microcontroller. I don't think this is a huge problem, though,
+                // since even the gnarliest queries I've written have something
+                // on the order of 20 matches. Nowhere close to 2^16!
+                //
+                // TODO: is the clone going to be acceptably fast here?
+                let name = self.captures[capture.index as usize].clone();
+                if name.starts_with("_") {
+                    return None;
+                }
+
                 let node = capture.node;
 
-                Ok(ExtractedMatch {
+                let text = match node
+                    .utf8_text(&source)
+                    .map(|unowned| unowned.to_string())
+                    .context("could not extract text from capture")
+                {
+                    Ok(text) => text,
+                    Err(problem) => return Some(Err(problem)),
+                };
+
+                Some(Ok(ExtractedMatch {
                     kind: node.kind(),
-                    // note: the cast here could potentially break if run
-                    // on a 16-bit microcontroller. I don't think this is
-                    // a huge problem, though, since even the gnarliest
-                    // queries I've written have something on the order of
-                    // 20 matches. Nowhere close to 2^16!
-                    //
-                    // TODO: is the clone going to be acceptably fast here?
-                    name: self.captures[capture.index as usize].clone(),
-                    text: node
-                        .utf8_text(&source)
-                        .map(|unowned| unowned.to_string())
-                        .context("could not extract text from capture")?,
+                    name: name,
+                    text: text,
                     start: node.start_position(),
                     end: node.end_position(),
-                })
+                }))
             })
             .collect::<Result<Vec<ExtractedMatch>>>()?;
 
