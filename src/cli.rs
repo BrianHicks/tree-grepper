@@ -58,7 +58,7 @@ impl Opts {
                     .multiple(true)
             )
             .arg(
-                Arg::new("format")
+                Arg::new("FORMAT")
                 .long("format")
                 .short('f')
                 .possible_values(&["lines", "json"])
@@ -71,7 +71,7 @@ impl Opts {
             extractors: Opts::extractors(&matches)?,
             paths: Opts::paths(&matches)?,
             git_ignore: !matches.is_present("no-gitignore"),
-            format: Format::from_str(matches.value_of("format").context("format not provided")?)
+            format: Format::from_str(matches.value_of("FORMAT").context("format not provided")?)
                 .context("could not set format")?,
         })
     }
