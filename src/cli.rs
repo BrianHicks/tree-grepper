@@ -29,8 +29,6 @@ impl Opts {
         // Check
         // https://users.rust-lang.org/t/grep-like-argument-parsing-with-clap/63392
         // for where I asked about this in public.
-        //
-        // TODO: would the above be better in a lazy_static?
         let matches = App::new("tree-grepper")
             .version(crate_version!())
             .author(crate_authors!())
