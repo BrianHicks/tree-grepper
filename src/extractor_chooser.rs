@@ -6,7 +6,7 @@ use std::collections::HashMap;
 
 pub struct ExtractorChooser<'extractor> {
     matcher: Types,
-    extractors: HashMap<String, &'extractor Extractor>,
+    extractors: HashMap<&'extractor str, &'extractor Extractor>,
 }
 
 impl<'extractor> ExtractorChooser<'extractor> {
@@ -17,8 +17,8 @@ impl<'extractor> ExtractorChooser<'extractor> {
         let mut names_to_extractors = HashMap::with_capacity(extractors.len());
 
         for extractor in extractors {
-            let name = extractor.language().to_string();
-            types_builder.select(&name);
+            let name = extractor.name();
+            types_builder.select(name);
 
             // a little reminder: insert returns the old value if the key was
             // already present
