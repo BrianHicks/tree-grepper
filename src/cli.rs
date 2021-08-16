@@ -97,10 +97,20 @@ impl Opts {
         for (raw_lang, raw_query) in values.tuples() {
             let lang = Language::from_str(raw_lang).context("could not parse language")?;
 
+            let mut query_out = String::from(raw_query);
+
+            let temp_query = lang
+                .parse_query(&raw_query)
+                .context("could not parse query")?;
+
+            if temp_query.capture_names().is_empty() {
+                query_out.push_str("@query");
+            }
+
             if let Some(existing) = query_strings.get_mut(&lang) {
-                existing.push_str(raw_query);
+                existing.push_str(&query_out);
             } else {
-                query_strings.insert(lang, String::from(raw_query));
+                query_strings.insert(lang, String::from(query_out));
             }
         }
 
@@ -108,9 +118,7 @@ impl Opts {
         for (lang, raw_query) in query_strings {
             let query = lang
                 .parse_query(&raw_query)
-                .context("could not parse (combined) query")?;
-
-            // TODO: test if we have any capture names and add an @query or [stuff]@query if so
+                .context("could not parse combined query")?;
 
             out.push(Extractor::new(lang, query))
         }
