@@ -37,7 +37,10 @@ impl Opts {
                     .short('q')
                     .long("query")
                     .about("a language and query to perform")
-                    .long_about("a language and query to perform. See https://tree-sitter.github.io for information on writing queries. TODO: add a mode to list languages.")
+                    .long_about(&format!(
+                        "a language and query to perform (at least one is required.) See https://tree-sitter.github.io for information on writing queries. [possible LANGUAGE values: {}]",
+                        Language::all().iter().map(|l| l.to_string()).collect::<Vec<String>>().join(", ")
+                    ))
                     .number_of_values(2)
                     .value_names(&["LANGUAGE", "QUERY"])
                     .required(true)

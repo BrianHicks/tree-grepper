@@ -9,7 +9,7 @@ pub enum Language {
 }
 
 impl Language {
-    fn all() -> Vec<Language> {
+    pub fn all() -> Vec<Language> {
         vec![Language::Elm, Language::Rust]
     }
 
