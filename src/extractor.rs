@@ -66,7 +66,6 @@ impl Extractor {
 
         let extracted_matches = cursor
             .matches(&self.query, tree.root_node(), |node| {
-                // TODO: do this conditionally if there are no matchers?
                 node.utf8_text(&source).unwrap_or("")
             })
             .flat_map(|query_match| query_match.captures)
