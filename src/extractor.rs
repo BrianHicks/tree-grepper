@@ -10,6 +10,7 @@ use tree_sitter::{Parser, Point, Query, QueryCursor};
 #[derive(Debug)]
 pub struct Extractor {
     language: Language,
+    ts_language: tree_sitter::Language,
     query: Query,
     captures: Vec<String>,
 }
@@ -25,6 +26,7 @@ impl Extractor {
         }
 
         Extractor {
+            ts_language: language.language(),
             language,
             query,
             captures,
@@ -43,10 +45,8 @@ impl Extractor {
         let source =
             fs::read(path).with_context(|| format!("could not read {}", path.display()))?;
 
-        // TODO: do we need to avoid calling self.language.language()
-        // repeatedly? Is this something we can move to the init somehow?
         parser
-            .set_language(self.language.language())
+            .set_language(self.ts_language)
             .context("could not set language")?;
 
         let tree = parser
