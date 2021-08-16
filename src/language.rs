@@ -60,8 +60,9 @@ mod tests {
 
     #[test]
     fn to_str_reflects_from_str() {
-        // TODO: how do we aggregate failures here instead of failing early if
-        // one doesn't match?
+        // Note: this will hide results if there are multiple failures. It's
+        // something that could be worked around but I don't think it is right
+        // now. If it bothers you in the future, feel free to take a stab at it!
         Language::all()
             .into_iter()
             .for_each(|lang| assert_eq!(Language::from_str(&lang.to_string()).unwrap(), lang))
