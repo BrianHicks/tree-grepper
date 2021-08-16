@@ -4,51 +4,62 @@ Works like `grep`, but uses `tree-sitter` to search for structure instead of str
 
 ## Installing
 
-This isn't available packaged anywhere. That's fine, use [`nix`](https://nixos.org/download.html):
+This isn't available packaged anywhere.
+That's fine, use [`nix`](https://nixos.org/download.html):
 
-`nix-env -if https://git.bytes.zone/brian/tree-grepper/archive/main.tar.gz`
+```
+nix-env -if https://github.com/BrianHicks/tree-grepper/archive/refs/heads/main.tar.gz
+```
+
+If you have a Rust toolchain set up, you can also clone this repo and run `cargo build`.
+
+(Warning: this repo use submodules.
+I'm currently pretty unhappy with the consequences of that decision, and will likely change it soon!)
 
 ## Usage
 
 Use it like `grep` (or really, more like `ack`/`ag`/`pt`/`rg`.)
 
 ```sh
-$ tree-grepper '(import_clause (import) (upper_case_qid)@name)'
-src/Main.elm:3:1:Browser
-src/Main.elm:4:1:Browser.Navigation
-src/main.elm:5:1:Css
+$ tree-grepper -q elm '(import_clause (import) (upper_case_qid)@name)'
+./src/Main.elm:4:7:name:Browser
+./src/Main.elm:6:7:name:Html
+./src/Main.elm:8:7:name:Html.Events
 ...
 ```
 
+By default, `tree-grepper` will output one match per (newline-delimited) line.
+The columns here are filename, row, column, match name, and match text.
+
+Note, however, that if your query includes a match with newlines in the text they will be included in the output!
+If this causes problems for your use case, try asking for JSON output (`-f json`) instead.
+
 `tree-grepper` uses [Tree-sitter's s-expressions](https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries) to find matches.
+See the docs there for what all you can do with it.
 
-The binary name might change in the future if we find a better/shorter name. Stay tuned.
+You can get more info (the match end and the node kind) by asking for JSON output with `-f json`.
+This is handy for discovery: if you just need node names for your language, try something like `tree-grepper -q rust '(_)' -f json`.
 
-## Some Terrible Benchmarks
+## Supported Languages
 
-On the first possible working version of `tree-grepper`:
+- Elm
+- Haskell
+- JavaScript
+- Ruby
+- Rust
+- TypeScript
 
-| Command                                 | Mean Time (Hyperfine) |
-|-----------------------------------------|----------------------:|
-| `tree-grepper '(import_clause)@import'` | 17.2ms                |
-| `rg -t elm '^import'`                   | 10.3ms                |
-| `grep -rE '^import'`                    | 71.0ms                |
+... and your favorite?
+We're open to PRs for adding whatever language you'd like!
 
-So this is on `rg`'s level of quickness (which makes sense, as this tool uses their tree walking/gitignoring library.)
-This tool may get slower as we add features, or faster as I learn more about how to write good Rust.
+For development, there's a nix-shell setup that'll get you everything you need.
+Set up [nix](https://nixos.org/download.html) (just Nix, not NixOS) and then run `nix-shell` in the root of this repository.
 
-## Roadmap
+After that, you just need to add a tree-sitter grammar to the project.
+[The tree-sitter project keeps an up-to-date list](https://tree-sitter.github.io/tree-sitter/), so you may not even need to write your own!
 
-- [x] be able to do the thing in "Usage" above
-- [x] output JSON to make embedding in other tools nicer
-- [x] make capturing sub-matches easy (`@name` in the s-expression syntax)
-- [x] make this tool work on a bunch of languages, not just Elm (which I'm starting with to scratch an itch.)
-- [x] get conditionals working (`#eq?`, `#match?` from the tree-sitter docs don't work yet)
-- [ ] add tests
-- [ ] `man` page, nice help output, etc
-- [ ] produce a query from a language's syntax instead of having to write s-expressions directly
-- [ ] real/reproducible benchmarks
+Add your grammar as a submodule to this repo, then follow the pattern in [`build.rs`](./build.rs) and [`src/language.rs`](./src/language.rs) to hook it up to the matching machinery.
 
 ## License
 
-See LICENSE in the source.
+See [LICENSE](./LICENSE) in the source.
