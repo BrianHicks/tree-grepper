@@ -2,7 +2,6 @@ use crate::language::Language;
 use anyhow::{Context, Result};
 use serde::ser::{SerializeStruct, Serializer};
 use serde::Serialize;
-use std::collections::HashSet;
 use std::fmt::{self, Display};
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -13,25 +12,22 @@ pub struct Extractor {
     language: Language,
     query: Query,
     captures: Vec<String>,
-    drop: HashSet<usize>,
 }
 
 impl Extractor {
-    pub fn new(language: Language, query: Query) -> Extractor {
+    pub fn new(language: Language, mut query: Query) -> Extractor {
         let captures = query.capture_names().to_vec();
 
-        let mut drop = HashSet::with_capacity(captures.len());
-        captures.iter().enumerate().for_each(|(i, name)| {
+        for name in &captures {
             if name.starts_with("_") {
-                drop.insert(i);
+                query.disable_capture(&name);
             }
-        });
+        }
 
         Extractor {
             language,
-            captures,
             query,
-            drop,
+            captures,
         }
     }
 
@@ -81,10 +77,6 @@ impl Extractor {
                 // on the order of 20 matches. Nowhere close to 2^16!
                 //
                 // TODO: is the clone going to be acceptably fast here?
-                if self.drop.contains(&(capture.index as usize)) {
-                    return None;
-                }
-
                 let name = self.captures[capture.index as usize].clone();
                 let node = capture.node;
                 let text = match node
