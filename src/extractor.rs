@@ -74,9 +74,7 @@ impl Extractor {
                 // microcontroller. I don't think this is a huge problem, though,
                 // since even the gnarliest queries I've written have something
                 // on the order of 20 matches. Nowhere close to 2^16!
-                //
-                // TODO: is the clone going to be acceptably fast here?
-                let name = self.captures[capture.index as usize].clone();
+                let name = &self.captures[capture.index as usize];
                 let node = capture.node;
                 let text = match node
                     .utf8_text(&source)
@@ -109,12 +107,12 @@ impl Extractor {
 }
 
 #[derive(Debug, Serialize)]
-pub struct ExtractedFile {
+pub struct ExtractedFile<'query> {
     file: PathBuf,
-    matches: Vec<ExtractedMatch>,
+    matches: Vec<ExtractedMatch<'query>>,
 }
 
-impl Display for ExtractedFile {
+impl<'query> Display for ExtractedFile<'query> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         for extraction in &self.matches {
             write!(
@@ -133,9 +131,9 @@ impl Display for ExtractedFile {
 }
 
 #[derive(Debug, Serialize)]
-pub struct ExtractedMatch {
+pub struct ExtractedMatch<'query> {
     kind: &'static str,
-    name: String,
+    name: &'query str,
     text: String,
     #[serde(serialize_with = "serialize_point")]
     start: Point,
