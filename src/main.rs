@@ -6,6 +6,7 @@ mod language;
 use anyhow::{bail, Context, Result};
 use cli::{Format, Opts};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
+use std::env;
 use std::io::{self, Write};
 use tree_sitter::Parser;
 
@@ -13,14 +14,20 @@ use tree_sitter::Parser;
 static ALLOCATOR: bump_alloc::BumpAlloc = bump_alloc::BumpAlloc::new();
 
 fn main() {
-    if let Err(error) = try_main(&io::stdout()) {
-        eprintln!("{:?}", error);
+    if let Err(error) = try_main(env::args().collect(), &io::stdout()) {
+        // Clap errors (--help or misuse) are already well-formatted, so we
+        // don't have to do any additional work.
+        if let Some(clap_error) = error.downcast_ref::<clap::Error>() {
+            eprintln!("{}", clap_error);
+        } else {
+            eprintln!("{:?}", error);
+        }
         std::process::exit(1);
     }
 }
 
-fn try_main(mut out: impl Write) -> Result<()> {
-    let opts = Opts::from_args()
+fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
+    let opts = Opts::from_args(args)
         .context("couldn't get a valid configuration from the command-line options")?;
 
     // You might think "why not use ParallelBridge here?" Well, the quick answer

@@ -17,7 +17,7 @@ pub struct Opts {
 }
 
 impl Opts {
-    pub fn from_args() -> Result<Opts> {
+    pub fn from_args(args: Vec<String>) -> Result<Opts> {
         // I'm not super happy with this! I would love for LANGUAGE and QUERY to
         // be taken positionally when there is just one so we don't always have
         // to specify `-q`. However, I also want to get working on the rest of
@@ -65,7 +65,8 @@ impl Opts {
                 .default_value("lines")
                 .about("what format should we output lines in?")
             )
-            .get_matches();
+            .try_get_matches_from(args)
+            .context("could not parse args")?;
 
         Ok(Opts {
             extractors: Opts::extractors(&matches)?,
