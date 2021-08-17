@@ -68,12 +68,12 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
         }
 
         Format::Json => {
-            serde_json::to_writer(out, &extracted_files).context("could not write Json output")?;
+            serde_json::to_writer(out, &extracted_files).context("could not write JSON output")?;
         }
 
         Format::PrettyJson => {
             serde_json::to_writer_pretty(out, &extracted_files)
-                .context("could not write Json output")?;
+                .context("could not write JSON output")?;
         }
     }
 
