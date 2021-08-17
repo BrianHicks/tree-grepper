@@ -65,6 +65,11 @@ fn try_main() -> Result<()> {
             serde_json::to_writer(io::stdout(), &extracted_files)
                 .context("could not write JSON output")?;
         }
+
+        Format::PrettyJSON => {
+            serde_json::to_writer_pretty(io::stdout(), &extracted_files)
+                .context("could not write JSON output")?;
+        }
     }
 
     Ok(())

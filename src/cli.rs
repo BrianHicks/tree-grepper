@@ -61,7 +61,7 @@ impl Opts {
                 Arg::new("FORMAT")
                 .long("format")
                 .short('f')
-                .possible_values(&["lines", "json"])
+                .possible_values(&["lines", "json", "pretty-json"])
                 .default_value("lines")
                 .about("what format should we output lines in?")
             )
@@ -147,6 +147,7 @@ impl Opts {
 pub enum Format {
     Lines,
     JSON,
+    PrettyJSON,
 }
 
 impl FromStr for Format {
@@ -156,6 +157,7 @@ impl FromStr for Format {
         match s {
             "lines" => Ok(Format::Lines),
             "json" => Ok(Format::JSON),
+            "pretty-json" => Ok(Format::PrettyJSON),
             _ => bail!("unknown format. See --help for valid formats."),
         }
     }
