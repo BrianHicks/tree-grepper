@@ -55,7 +55,7 @@ Set up [nix](https://nixos.org/download.html) (just Nix, not NixOS) and then run
 After that, you just need to add a tree-sitter grammar to the project.
 [The tree-sitter project keeps an up-to-date list](https://tree-sitter.github.io/tree-sitter/), so you may not even need to write your own!
 
-1. Add your grammar as a subtree to this repo: `git subtree add --prefix vendor/tree-sitter-LANGUAGE https://github.com/ORG/tree-sitter-LANG BRANCH` (where `BRANCH` is whatever main branch the project uses)
+1. Add your grammar as a subtree to this repo: `git subtree add --squash --prefix vendor/tree-sitter-LANGUAGE https://github.com/ORG/tree-sitter-LANG BRANCH` (where `BRANCH` is whatever main branch the project uses)
    Add the update command to [`script/update-subtrees.sh`](./script/update-subtrees.sh) as well!
 2. Set up compilation in [`build.rs`](./build.rs) by following the pattern there.
 3. Set up a new target in [`src/language.rs`](./src/language.rs) by following the patterns there.
