@@ -226,4 +226,23 @@ mod tests {
             "vendor/tree-sitter-rust",
         ]))
     }
+
+    #[test]
+    fn all_typescript() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "typescript",
+            "(_)",
+            "-f",
+            "pretty-json",
+            // similar to JavaScript, there is one particular test file in this
+            // grammar that's *huge*. It seems to be a comprehensive listing of
+            // all the typescript syntax, maybe? Regardless, it makes this test
+            // unacceptably slow, so we just look at one particular file. If
+            // we see uncaught regressions in this function, we probably will
+            // make our own test file with the things we care about.
+            "vendor/tree-sitter-typescript/typescript/test.ts",
+        ]))
+    }
 }

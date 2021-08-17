@@ -1,0 +1,207 @@
+---
+source: src/main.rs
+expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"-f\", \"pretty-json\",\n       \"vendor/tree-sitter-typescript/typescript/test.ts\"])"
+
+---
+[
+  {
+    "file": "vendor/tree-sitter-typescript/typescript/test.ts",
+    "matches": [
+      {
+        "kind": "program",
+        "name": "query",
+        "text": "type a = readonly b[][];\n",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 1,
+          "column": 0
+        }
+      },
+      {
+        "kind": "type_alias_declaration",
+        "name": "query",
+        "text": "type a = readonly b[][];",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 24
+        }
+      },
+      {
+        "kind": "type",
+        "name": "query",
+        "text": "type",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 4
+        }
+      },
+      {
+        "kind": "type_identifier",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 0,
+          "column": 5
+        },
+        "end": {
+          "row": 0,
+          "column": 6
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 0,
+          "column": 7
+        },
+        "end": {
+          "row": 0,
+          "column": 8
+        }
+      },
+      {
+        "kind": "readonly_type",
+        "name": "query",
+        "text": "readonly b[][]",
+        "start": {
+          "row": 0,
+          "column": 9
+        },
+        "end": {
+          "row": 0,
+          "column": 23
+        }
+      },
+      {
+        "kind": "readonly",
+        "name": "query",
+        "text": "readonly",
+        "start": {
+          "row": 0,
+          "column": 9
+        },
+        "end": {
+          "row": 0,
+          "column": 17
+        }
+      },
+      {
+        "kind": "array_type",
+        "name": "query",
+        "text": "b[][]",
+        "start": {
+          "row": 0,
+          "column": 18
+        },
+        "end": {
+          "row": 0,
+          "column": 23
+        }
+      },
+      {
+        "kind": "array_type",
+        "name": "query",
+        "text": "b[]",
+        "start": {
+          "row": 0,
+          "column": 18
+        },
+        "end": {
+          "row": 0,
+          "column": 21
+        }
+      },
+      {
+        "kind": "type_identifier",
+        "name": "query",
+        "text": "b",
+        "start": {
+          "row": 0,
+          "column": 18
+        },
+        "end": {
+          "row": 0,
+          "column": 19
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 0,
+          "column": 19
+        },
+        "end": {
+          "row": 0,
+          "column": 20
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 0,
+          "column": 20
+        },
+        "end": {
+          "row": 0,
+          "column": 21
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 0,
+          "column": 21
+        },
+        "end": {
+          "row": 0,
+          "column": 22
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 0,
+          "column": 22
+        },
+        "end": {
+          "row": 0,
+          "column": 23
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 0,
+          "column": 23
+        },
+        "end": {
+          "row": 0,
+          "column": 24
+        }
+      }
+    ]
+  }
+]
