@@ -7,14 +7,16 @@ use anyhow::{bail, Context, Result};
 use cli::{Format, Opts};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use std::env;
-use std::io::{self, Write};
+use std::io::{self, BufWriter, Write};
 use tree_sitter::Parser;
 
 #[global_allocator]
 static ALLOCATOR: bump_alloc::BumpAlloc = bump_alloc::BumpAlloc::new();
 
 fn main() {
-    if let Err(error) = try_main(env::args().collect(), &io::stdout()) {
+    let mut buffer = BufWriter::new(io::stdout());
+
+    if let Err(error) = try_main(env::args().collect(), &mut buffer) {
         // Clap errors (--help or misuse) are already well-formatted, so we
         // don't have to do any additional work.
         if let Some(clap_error) = error.downcast_ref::<clap::Error>() {
@@ -24,6 +26,8 @@ fn main() {
         }
         std::process::exit(1);
     }
+
+    buffer.flush().expect("failed to flush buffer!");
 }
 
 fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
