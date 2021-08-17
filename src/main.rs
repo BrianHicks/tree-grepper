@@ -118,6 +118,25 @@ mod tests {
 
     #[test]
     fn lines_output() {
-        insta::assert_snapshot!(call(&["tree-grepper", "-q", "elm", "(import_clause)"]))
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "elm",
+            "(import_clause)",
+            "-f",
+            "lines"
+        ]))
+    }
+
+    #[test]
+    fn json_output() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "elm",
+            "(import_clause)",
+            "-f",
+            "json"
+        ]))
     }
 }

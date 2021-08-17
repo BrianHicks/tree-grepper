@@ -1,6 +1,6 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"-f\", \"lines\"])"
 
 ---
 ./vendor/tree-sitter-elm/test/highlight/basic.elm:4:0:query:import Browser
