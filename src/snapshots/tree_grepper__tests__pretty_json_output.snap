@@ -1,11 +1,11 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"-f\", \"pretty-json\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"-f\", \"pretty-json\",\n       \"vendor/tree-sitter-elm\"])"
 
 ---
 [
   {
-    "file": "./vendor/tree-sitter-elm/test/highlight/basic.elm",
+    "file": "vendor/tree-sitter-elm/test/highlight/basic.elm",
     "matches": [
       {
         "kind": "import_clause",

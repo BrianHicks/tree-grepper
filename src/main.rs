@@ -123,7 +123,8 @@ mod tests {
             "elm",
             "(import_clause)",
             "-f",
-            "lines"
+            "lines",
+            "vendor/tree-sitter-elm",
         ]))
     }
 
@@ -135,7 +136,8 @@ mod tests {
             "elm",
             "(import_clause)",
             "-f",
-            "json"
+            "json",
+            "vendor/tree-sitter-elm",
         ]))
     }
 
@@ -147,7 +149,8 @@ mod tests {
             "elm",
             "(import_clause)",
             "-f",
-            "pretty-json"
+            "pretty-json",
+            "vendor/tree-sitter-elm",
         ]))
     }
 
@@ -162,7 +165,8 @@ mod tests {
             "elm",
             "(_)",
             "-f",
-            "pretty-json"
+            "pretty-json",
+            "vendor/tree-sitter-elm",
         ]))
     }
 
@@ -174,7 +178,26 @@ mod tests {
             "haskell",
             "(_)",
             "-f",
-            "pretty-json"
+            "pretty-json",
+            "vendor/tree-sitter-haskell",
+        ]))
+    }
+
+    #[test]
+    fn all_javascript() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "javascript",
+            "(_)",
+            "-f",
+            "pretty-json",
+            // note that this doesn't include the entire vendor
+            // directory. tree-sitter-javascript vendors a couple of libraries
+            // to test things and it makes this test run unacceptably long. I
+            // think the slowdown is due to the diffing step; the tree-grepper
+            // code completes in a reasonable amount of time.
+            "vendor/tree-sitter-javascript/test",
         ]))
     }
 }

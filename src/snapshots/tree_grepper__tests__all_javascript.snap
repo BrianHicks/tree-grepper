@@ -1,0 +1,5526 @@
+---
+source: src/main.rs
+expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"-f\", \"pretty-json\",\n       \"vendor/tree-sitter-javascript/test\"])"
+
+---
+[
+  {
+    "file": "vendor/tree-sitter-javascript/test/highlight/keywords.js",
+    "matches": [
+      {
+        "kind": "program",
+        "name": "query",
+        "text": "do {} while (a);\n// <- keyword\n//     ^ keyword\n\ntry {} catch (e) {} finally {}\n// <- keyword\n//     ^ keyword\n//                  ^ keyword\n\nthrow e\n// <- keyword\n//    ^ variable\n",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 12,
+          "column": 0
+        }
+      },
+      {
+        "kind": "do_statement",
+        "name": "query",
+        "text": "do {} while (a);",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 16
+        }
+      },
+      {
+        "kind": "do",
+        "name": "query",
+        "text": "do",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 2
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 0,
+          "column": 3
+        },
+        "end": {
+          "row": 0,
+          "column": 5
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 0,
+          "column": 3
+        },
+        "end": {
+          "row": 0,
+          "column": 4
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 0,
+          "column": 4
+        },
+        "end": {
+          "row": 0,
+          "column": 5
+        }
+      },
+      {
+        "kind": "while",
+        "name": "query",
+        "text": "while",
+        "start": {
+          "row": 0,
+          "column": 6
+        },
+        "end": {
+          "row": 0,
+          "column": 11
+        }
+      },
+      {
+        "kind": "parenthesized_expression",
+        "name": "query",
+        "text": "(a)",
+        "start": {
+          "row": 0,
+          "column": 12
+        },
+        "end": {
+          "row": 0,
+          "column": 15
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 0,
+          "column": 12
+        },
+        "end": {
+          "row": 0,
+          "column": 13
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 0,
+          "column": 13
+        },
+        "end": {
+          "row": 0,
+          "column": 14
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 0,
+          "column": 14
+        },
+        "end": {
+          "row": 0,
+          "column": 15
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 0,
+          "column": 15
+        },
+        "end": {
+          "row": 0,
+          "column": 16
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// <- keyword",
+        "start": {
+          "row": 1,
+          "column": 0
+        },
+        "end": {
+          "row": 1,
+          "column": 13
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//     ^ keyword",
+        "start": {
+          "row": 2,
+          "column": 0
+        },
+        "end": {
+          "row": 2,
+          "column": 16
+        }
+      },
+      {
+        "kind": "try_statement",
+        "name": "query",
+        "text": "try {} catch (e) {} finally {}",
+        "start": {
+          "row": 4,
+          "column": 0
+        },
+        "end": {
+          "row": 4,
+          "column": 30
+        }
+      },
+      {
+        "kind": "try",
+        "name": "query",
+        "text": "try",
+        "start": {
+          "row": 4,
+          "column": 0
+        },
+        "end": {
+          "row": 4,
+          "column": 3
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 4,
+          "column": 4
+        },
+        "end": {
+          "row": 4,
+          "column": 6
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 4,
+          "column": 4
+        },
+        "end": {
+          "row": 4,
+          "column": 5
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 4,
+          "column": 5
+        },
+        "end": {
+          "row": 4,
+          "column": 6
+        }
+      },
+      {
+        "kind": "catch_clause",
+        "name": "query",
+        "text": "catch (e) {}",
+        "start": {
+          "row": 4,
+          "column": 7
+        },
+        "end": {
+          "row": 4,
+          "column": 19
+        }
+      },
+      {
+        "kind": "catch",
+        "name": "query",
+        "text": "catch",
+        "start": {
+          "row": 4,
+          "column": 7
+        },
+        "end": {
+          "row": 4,
+          "column": 12
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 4,
+          "column": 13
+        },
+        "end": {
+          "row": 4,
+          "column": 14
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "e",
+        "start": {
+          "row": 4,
+          "column": 14
+        },
+        "end": {
+          "row": 4,
+          "column": 15
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 4,
+          "column": 15
+        },
+        "end": {
+          "row": 4,
+          "column": 16
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 4,
+          "column": 17
+        },
+        "end": {
+          "row": 4,
+          "column": 19
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 4,
+          "column": 17
+        },
+        "end": {
+          "row": 4,
+          "column": 18
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 4,
+          "column": 18
+        },
+        "end": {
+          "row": 4,
+          "column": 19
+        }
+      },
+      {
+        "kind": "finally_clause",
+        "name": "query",
+        "text": "finally {}",
+        "start": {
+          "row": 4,
+          "column": 20
+        },
+        "end": {
+          "row": 4,
+          "column": 30
+        }
+      },
+      {
+        "kind": "finally",
+        "name": "query",
+        "text": "finally",
+        "start": {
+          "row": 4,
+          "column": 20
+        },
+        "end": {
+          "row": 4,
+          "column": 27
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 4,
+          "column": 28
+        },
+        "end": {
+          "row": 4,
+          "column": 30
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 4,
+          "column": 28
+        },
+        "end": {
+          "row": 4,
+          "column": 29
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 4,
+          "column": 29
+        },
+        "end": {
+          "row": 4,
+          "column": 30
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// <- keyword",
+        "start": {
+          "row": 5,
+          "column": 0
+        },
+        "end": {
+          "row": 5,
+          "column": 13
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//     ^ keyword",
+        "start": {
+          "row": 6,
+          "column": 0
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                  ^ keyword",
+        "start": {
+          "row": 7,
+          "column": 0
+        },
+        "end": {
+          "row": 7,
+          "column": 29
+        }
+      },
+      {
+        "kind": "throw_statement",
+        "name": "query",
+        "text": "throw e",
+        "start": {
+          "row": 9,
+          "column": 0
+        },
+        "end": {
+          "row": 9,
+          "column": 7
+        }
+      },
+      {
+        "kind": "throw",
+        "name": "query",
+        "text": "throw",
+        "start": {
+          "row": 9,
+          "column": 0
+        },
+        "end": {
+          "row": 9,
+          "column": 5
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "e",
+        "start": {
+          "row": 9,
+          "column": 6
+        },
+        "end": {
+          "row": 9,
+          "column": 7
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// <- keyword",
+        "start": {
+          "row": 10,
+          "column": 0
+        },
+        "end": {
+          "row": 10,
+          "column": 13
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//    ^ variable",
+        "start": {
+          "row": 11,
+          "column": 0
+        },
+        "end": {
+          "row": 11,
+          "column": 16
+        }
+      }
+    ]
+  },
+  {
+    "file": "vendor/tree-sitter-javascript/test/highlight/variables.js",
+    "matches": [
+      {
+        "kind": "program",
+        "name": "query",
+        "text": "class A {}\n//    ^ constructor\nconst ABC = 1\n//     ^ constant\nconst AB_C1 = 2\n//    ^ constant\nconst {AB_C2_D3} = x\n//      ^ constant\n\nmodule.exports = function(one, two) {\n  // <- variable.builtin\n  //                      ^ variable.parameter\n\n  if (something()) {\n    let module = null, one = 1;\n    //  ^ variable\n    //                 ^ variable\n\n    console.log(module, one, two);\n    // ^ variable.builtin\n    //            ^ variable\n    //                   ^ variable\n    //                        ^ variable.parameter\n  }\n\n  console.log(module, one, two);\n  // ^ variable.builtin\n  //            ^ variable.builtin\n  //                   ^ variable.parameter\n  //                        ^ variable.parameter\n};\n\nconsole.log(module, one, two);\n// ^ variable.builtin\n//            ^ variable.builtin\n//                   ^ variable\n//                        ^ variable\n\nfunction one({two: three}, [four]) {\n  //          ^ property\n  //               ^ variable.parameter\n  //                         ^ variable.parameter\n\n  console.log(two, three, four)\n  //           ^ variable\n  //                ^ variable.parameter\n  //                       ^ variable.parameter\n}\n",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 48,
+          "column": 0
+        }
+      },
+      {
+        "kind": "class_declaration",
+        "name": "query",
+        "text": "class A {}",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 10
+        }
+      },
+      {
+        "kind": "class",
+        "name": "query",
+        "text": "class",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 5
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 0,
+          "column": 6
+        },
+        "end": {
+          "row": 0,
+          "column": 7
+        }
+      },
+      {
+        "kind": "class_body",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 0,
+          "column": 8
+        },
+        "end": {
+          "row": 0,
+          "column": 10
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 0,
+          "column": 8
+        },
+        "end": {
+          "row": 0,
+          "column": 9
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 0,
+          "column": 9
+        },
+        "end": {
+          "row": 0,
+          "column": 10
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//    ^ constructor",
+        "start": {
+          "row": 1,
+          "column": 0
+        },
+        "end": {
+          "row": 1,
+          "column": 19
+        }
+      },
+      {
+        "kind": "lexical_declaration",
+        "name": "query",
+        "text": "const ABC = 1",
+        "start": {
+          "row": 2,
+          "column": 0
+        },
+        "end": {
+          "row": 2,
+          "column": 13
+        }
+      },
+      {
+        "kind": "const",
+        "name": "query",
+        "text": "const",
+        "start": {
+          "row": 2,
+          "column": 0
+        },
+        "end": {
+          "row": 2,
+          "column": 5
+        }
+      },
+      {
+        "kind": "variable_declarator",
+        "name": "query",
+        "text": "ABC = 1",
+        "start": {
+          "row": 2,
+          "column": 6
+        },
+        "end": {
+          "row": 2,
+          "column": 13
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "ABC",
+        "start": {
+          "row": 2,
+          "column": 6
+        },
+        "end": {
+          "row": 2,
+          "column": 9
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 2,
+          "column": 10
+        },
+        "end": {
+          "row": 2,
+          "column": 11
+        }
+      },
+      {
+        "kind": "number",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 2,
+          "column": 12
+        },
+        "end": {
+          "row": 2,
+          "column": 13
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//     ^ constant",
+        "start": {
+          "row": 3,
+          "column": 0
+        },
+        "end": {
+          "row": 3,
+          "column": 17
+        }
+      },
+      {
+        "kind": "lexical_declaration",
+        "name": "query",
+        "text": "const AB_C1 = 2",
+        "start": {
+          "row": 4,
+          "column": 0
+        },
+        "end": {
+          "row": 4,
+          "column": 15
+        }
+      },
+      {
+        "kind": "const",
+        "name": "query",
+        "text": "const",
+        "start": {
+          "row": 4,
+          "column": 0
+        },
+        "end": {
+          "row": 4,
+          "column": 5
+        }
+      },
+      {
+        "kind": "variable_declarator",
+        "name": "query",
+        "text": "AB_C1 = 2",
+        "start": {
+          "row": 4,
+          "column": 6
+        },
+        "end": {
+          "row": 4,
+          "column": 15
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "AB_C1",
+        "start": {
+          "row": 4,
+          "column": 6
+        },
+        "end": {
+          "row": 4,
+          "column": 11
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 4,
+          "column": 12
+        },
+        "end": {
+          "row": 4,
+          "column": 13
+        }
+      },
+      {
+        "kind": "number",
+        "name": "query",
+        "text": "2",
+        "start": {
+          "row": 4,
+          "column": 14
+        },
+        "end": {
+          "row": 4,
+          "column": 15
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//    ^ constant",
+        "start": {
+          "row": 5,
+          "column": 0
+        },
+        "end": {
+          "row": 5,
+          "column": 16
+        }
+      },
+      {
+        "kind": "lexical_declaration",
+        "name": "query",
+        "text": "const {AB_C2_D3} = x",
+        "start": {
+          "row": 6,
+          "column": 0
+        },
+        "end": {
+          "row": 6,
+          "column": 20
+        }
+      },
+      {
+        "kind": "const",
+        "name": "query",
+        "text": "const",
+        "start": {
+          "row": 6,
+          "column": 0
+        },
+        "end": {
+          "row": 6,
+          "column": 5
+        }
+      },
+      {
+        "kind": "variable_declarator",
+        "name": "query",
+        "text": "{AB_C2_D3} = x",
+        "start": {
+          "row": 6,
+          "column": 6
+        },
+        "end": {
+          "row": 6,
+          "column": 20
+        }
+      },
+      {
+        "kind": "object_pattern",
+        "name": "query",
+        "text": "{AB_C2_D3}",
+        "start": {
+          "row": 6,
+          "column": 6
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 6,
+          "column": 6
+        },
+        "end": {
+          "row": 6,
+          "column": 7
+        }
+      },
+      {
+        "kind": "shorthand_property_identifier_pattern",
+        "name": "query",
+        "text": "AB_C2_D3",
+        "start": {
+          "row": 6,
+          "column": 7
+        },
+        "end": {
+          "row": 6,
+          "column": 15
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 6,
+          "column": 15
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 6,
+          "column": 17
+        },
+        "end": {
+          "row": 6,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "x",
+        "start": {
+          "row": 6,
+          "column": 19
+        },
+        "end": {
+          "row": 6,
+          "column": 20
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//      ^ constant",
+        "start": {
+          "row": 7,
+          "column": 0
+        },
+        "end": {
+          "row": 7,
+          "column": 18
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "module.exports = function(one, two) {\n  // <- variable.builtin\n  //                      ^ variable.parameter\n\n  if (something()) {\n    let module = null, one = 1;\n    //  ^ variable\n    //                 ^ variable\n\n    console.log(module, one, two);\n    // ^ variable.builtin\n    //            ^ variable\n    //                   ^ variable\n    //                        ^ variable.parameter\n  }\n\n  console.log(module, one, two);\n  // ^ variable.builtin\n  //            ^ variable.builtin\n  //                   ^ variable.parameter\n  //                        ^ variable.parameter\n};",
+        "start": {
+          "row": 9,
+          "column": 0
+        },
+        "end": {
+          "row": 30,
+          "column": 2
+        }
+      },
+      {
+        "kind": "assignment_expression",
+        "name": "query",
+        "text": "module.exports = function(one, two) {\n  // <- variable.builtin\n  //                      ^ variable.parameter\n\n  if (something()) {\n    let module = null, one = 1;\n    //  ^ variable\n    //                 ^ variable\n\n    console.log(module, one, two);\n    // ^ variable.builtin\n    //            ^ variable\n    //                   ^ variable\n    //                        ^ variable.parameter\n  }\n\n  console.log(module, one, two);\n  // ^ variable.builtin\n  //            ^ variable.builtin\n  //                   ^ variable.parameter\n  //                        ^ variable.parameter\n}",
+        "start": {
+          "row": 9,
+          "column": 0
+        },
+        "end": {
+          "row": 30,
+          "column": 1
+        }
+      },
+      {
+        "kind": "member_expression",
+        "name": "query",
+        "text": "module.exports",
+        "start": {
+          "row": 9,
+          "column": 0
+        },
+        "end": {
+          "row": 9,
+          "column": 14
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 9,
+          "column": 0
+        },
+        "end": {
+          "row": 9,
+          "column": 6
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 9,
+          "column": 6
+        },
+        "end": {
+          "row": 9,
+          "column": 7
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "exports",
+        "start": {
+          "row": 9,
+          "column": 7
+        },
+        "end": {
+          "row": 9,
+          "column": 14
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 9,
+          "column": 15
+        },
+        "end": {
+          "row": 9,
+          "column": 16
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function(one, two) {\n  // <- variable.builtin\n  //                      ^ variable.parameter\n\n  if (something()) {\n    let module = null, one = 1;\n    //  ^ variable\n    //                 ^ variable\n\n    console.log(module, one, two);\n    // ^ variable.builtin\n    //            ^ variable\n    //                   ^ variable\n    //                        ^ variable.parameter\n  }\n\n  console.log(module, one, two);\n  // ^ variable.builtin\n  //            ^ variable.builtin\n  //                   ^ variable.parameter\n  //                        ^ variable.parameter\n}",
+        "start": {
+          "row": 9,
+          "column": 17
+        },
+        "end": {
+          "row": 30,
+          "column": 1
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function",
+        "start": {
+          "row": 9,
+          "column": 17
+        },
+        "end": {
+          "row": 9,
+          "column": 25
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "(one, two)",
+        "start": {
+          "row": 9,
+          "column": 25
+        },
+        "end": {
+          "row": 9,
+          "column": 35
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 9,
+          "column": 25
+        },
+        "end": {
+          "row": 9,
+          "column": 26
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "one",
+        "start": {
+          "row": 9,
+          "column": 26
+        },
+        "end": {
+          "row": 9,
+          "column": 29
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 9,
+          "column": 29
+        },
+        "end": {
+          "row": 9,
+          "column": 30
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "two",
+        "start": {
+          "row": 9,
+          "column": 31
+        },
+        "end": {
+          "row": 9,
+          "column": 34
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 9,
+          "column": 34
+        },
+        "end": {
+          "row": 9,
+          "column": 35
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{\n  // <- variable.builtin\n  //                      ^ variable.parameter\n\n  if (something()) {\n    let module = null, one = 1;\n    //  ^ variable\n    //                 ^ variable\n\n    console.log(module, one, two);\n    // ^ variable.builtin\n    //            ^ variable\n    //                   ^ variable\n    //                        ^ variable.parameter\n  }\n\n  console.log(module, one, two);\n  // ^ variable.builtin\n  //            ^ variable.builtin\n  //                   ^ variable.parameter\n  //                        ^ variable.parameter\n}",
+        "start": {
+          "row": 9,
+          "column": 36
+        },
+        "end": {
+          "row": 30,
+          "column": 1
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 9,
+          "column": 36
+        },
+        "end": {
+          "row": 9,
+          "column": 37
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// <- variable.builtin",
+        "start": {
+          "row": 10,
+          "column": 2
+        },
+        "end": {
+          "row": 10,
+          "column": 24
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                      ^ variable.parameter",
+        "start": {
+          "row": 11,
+          "column": 2
+        },
+        "end": {
+          "row": 11,
+          "column": 46
+        }
+      },
+      {
+        "kind": "if_statement",
+        "name": "query",
+        "text": "if (something()) {\n    let module = null, one = 1;\n    //  ^ variable\n    //                 ^ variable\n\n    console.log(module, one, two);\n    // ^ variable.builtin\n    //            ^ variable\n    //                   ^ variable\n    //                        ^ variable.parameter\n  }",
+        "start": {
+          "row": 13,
+          "column": 2
+        },
+        "end": {
+          "row": 23,
+          "column": 3
+        }
+      },
+      {
+        "kind": "if",
+        "name": "query",
+        "text": "if",
+        "start": {
+          "row": 13,
+          "column": 2
+        },
+        "end": {
+          "row": 13,
+          "column": 4
+        }
+      },
+      {
+        "kind": "parenthesized_expression",
+        "name": "query",
+        "text": "(something())",
+        "start": {
+          "row": 13,
+          "column": 5
+        },
+        "end": {
+          "row": 13,
+          "column": 18
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 13,
+          "column": 5
+        },
+        "end": {
+          "row": 13,
+          "column": 6
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "something()",
+        "start": {
+          "row": 13,
+          "column": 6
+        },
+        "end": {
+          "row": 13,
+          "column": 17
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "something",
+        "start": {
+          "row": 13,
+          "column": 6
+        },
+        "end": {
+          "row": 13,
+          "column": 15
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 13,
+          "column": 15
+        },
+        "end": {
+          "row": 13,
+          "column": 17
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 13,
+          "column": 15
+        },
+        "end": {
+          "row": 13,
+          "column": 16
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 13,
+          "column": 16
+        },
+        "end": {
+          "row": 13,
+          "column": 17
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 13,
+          "column": 17
+        },
+        "end": {
+          "row": 13,
+          "column": 18
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{\n    let module = null, one = 1;\n    //  ^ variable\n    //                 ^ variable\n\n    console.log(module, one, two);\n    // ^ variable.builtin\n    //            ^ variable\n    //                   ^ variable\n    //                        ^ variable.parameter\n  }",
+        "start": {
+          "row": 13,
+          "column": 19
+        },
+        "end": {
+          "row": 23,
+          "column": 3
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 13,
+          "column": 19
+        },
+        "end": {
+          "row": 13,
+          "column": 20
+        }
+      },
+      {
+        "kind": "lexical_declaration",
+        "name": "query",
+        "text": "let module = null, one = 1;",
+        "start": {
+          "row": 14,
+          "column": 4
+        },
+        "end": {
+          "row": 14,
+          "column": 31
+        }
+      },
+      {
+        "kind": "let",
+        "name": "query",
+        "text": "let",
+        "start": {
+          "row": 14,
+          "column": 4
+        },
+        "end": {
+          "row": 14,
+          "column": 7
+        }
+      },
+      {
+        "kind": "variable_declarator",
+        "name": "query",
+        "text": "module = null",
+        "start": {
+          "row": 14,
+          "column": 8
+        },
+        "end": {
+          "row": 14,
+          "column": 21
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 14,
+          "column": 8
+        },
+        "end": {
+          "row": 14,
+          "column": 14
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 14,
+          "column": 15
+        },
+        "end": {
+          "row": 14,
+          "column": 16
+        }
+      },
+      {
+        "kind": "null",
+        "name": "query",
+        "text": "null",
+        "start": {
+          "row": 14,
+          "column": 17
+        },
+        "end": {
+          "row": 14,
+          "column": 21
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 14,
+          "column": 21
+        },
+        "end": {
+          "row": 14,
+          "column": 22
+        }
+      },
+      {
+        "kind": "variable_declarator",
+        "name": "query",
+        "text": "one = 1",
+        "start": {
+          "row": 14,
+          "column": 23
+        },
+        "end": {
+          "row": 14,
+          "column": 30
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "one",
+        "start": {
+          "row": 14,
+          "column": 23
+        },
+        "end": {
+          "row": 14,
+          "column": 26
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 14,
+          "column": 27
+        },
+        "end": {
+          "row": 14,
+          "column": 28
+        }
+      },
+      {
+        "kind": "number",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 14,
+          "column": 29
+        },
+        "end": {
+          "row": 14,
+          "column": 30
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 14,
+          "column": 30
+        },
+        "end": {
+          "row": 14,
+          "column": 31
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//  ^ variable",
+        "start": {
+          "row": 15,
+          "column": 4
+        },
+        "end": {
+          "row": 15,
+          "column": 18
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                 ^ variable",
+        "start": {
+          "row": 16,
+          "column": 4
+        },
+        "end": {
+          "row": 16,
+          "column": 33
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "console.log(module, one, two);",
+        "start": {
+          "row": 18,
+          "column": 4
+        },
+        "end": {
+          "row": 18,
+          "column": 34
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "console.log(module, one, two)",
+        "start": {
+          "row": 18,
+          "column": 4
+        },
+        "end": {
+          "row": 18,
+          "column": 33
+        }
+      },
+      {
+        "kind": "member_expression",
+        "name": "query",
+        "text": "console.log",
+        "start": {
+          "row": 18,
+          "column": 4
+        },
+        "end": {
+          "row": 18,
+          "column": 15
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "console",
+        "start": {
+          "row": 18,
+          "column": 4
+        },
+        "end": {
+          "row": 18,
+          "column": 11
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 18,
+          "column": 11
+        },
+        "end": {
+          "row": 18,
+          "column": 12
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "log",
+        "start": {
+          "row": 18,
+          "column": 12
+        },
+        "end": {
+          "row": 18,
+          "column": 15
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(module, one, two)",
+        "start": {
+          "row": 18,
+          "column": 15
+        },
+        "end": {
+          "row": 18,
+          "column": 33
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 18,
+          "column": 15
+        },
+        "end": {
+          "row": 18,
+          "column": 16
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 18,
+          "column": 16
+        },
+        "end": {
+          "row": 18,
+          "column": 22
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 18,
+          "column": 22
+        },
+        "end": {
+          "row": 18,
+          "column": 23
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "one",
+        "start": {
+          "row": 18,
+          "column": 24
+        },
+        "end": {
+          "row": 18,
+          "column": 27
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 18,
+          "column": 27
+        },
+        "end": {
+          "row": 18,
+          "column": 28
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "two",
+        "start": {
+          "row": 18,
+          "column": 29
+        },
+        "end": {
+          "row": 18,
+          "column": 32
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 18,
+          "column": 32
+        },
+        "end": {
+          "row": 18,
+          "column": 33
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 18,
+          "column": 33
+        },
+        "end": {
+          "row": 18,
+          "column": 34
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// ^ variable.builtin",
+        "start": {
+          "row": 19,
+          "column": 4
+        },
+        "end": {
+          "row": 19,
+          "column": 25
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//            ^ variable",
+        "start": {
+          "row": 20,
+          "column": 4
+        },
+        "end": {
+          "row": 20,
+          "column": 28
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                   ^ variable",
+        "start": {
+          "row": 21,
+          "column": 4
+        },
+        "end": {
+          "row": 21,
+          "column": 35
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                        ^ variable.parameter",
+        "start": {
+          "row": 22,
+          "column": 4
+        },
+        "end": {
+          "row": 22,
+          "column": 50
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 23,
+          "column": 2
+        },
+        "end": {
+          "row": 23,
+          "column": 3
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "console.log(module, one, two);",
+        "start": {
+          "row": 25,
+          "column": 2
+        },
+        "end": {
+          "row": 25,
+          "column": 32
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "console.log(module, one, two)",
+        "start": {
+          "row": 25,
+          "column": 2
+        },
+        "end": {
+          "row": 25,
+          "column": 31
+        }
+      },
+      {
+        "kind": "member_expression",
+        "name": "query",
+        "text": "console.log",
+        "start": {
+          "row": 25,
+          "column": 2
+        },
+        "end": {
+          "row": 25,
+          "column": 13
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "console",
+        "start": {
+          "row": 25,
+          "column": 2
+        },
+        "end": {
+          "row": 25,
+          "column": 9
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 25,
+          "column": 9
+        },
+        "end": {
+          "row": 25,
+          "column": 10
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "log",
+        "start": {
+          "row": 25,
+          "column": 10
+        },
+        "end": {
+          "row": 25,
+          "column": 13
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(module, one, two)",
+        "start": {
+          "row": 25,
+          "column": 13
+        },
+        "end": {
+          "row": 25,
+          "column": 31
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 25,
+          "column": 13
+        },
+        "end": {
+          "row": 25,
+          "column": 14
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 25,
+          "column": 14
+        },
+        "end": {
+          "row": 25,
+          "column": 20
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 25,
+          "column": 20
+        },
+        "end": {
+          "row": 25,
+          "column": 21
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "one",
+        "start": {
+          "row": 25,
+          "column": 22
+        },
+        "end": {
+          "row": 25,
+          "column": 25
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 25,
+          "column": 25
+        },
+        "end": {
+          "row": 25,
+          "column": 26
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "two",
+        "start": {
+          "row": 25,
+          "column": 27
+        },
+        "end": {
+          "row": 25,
+          "column": 30
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 25,
+          "column": 30
+        },
+        "end": {
+          "row": 25,
+          "column": 31
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 25,
+          "column": 31
+        },
+        "end": {
+          "row": 25,
+          "column": 32
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// ^ variable.builtin",
+        "start": {
+          "row": 26,
+          "column": 2
+        },
+        "end": {
+          "row": 26,
+          "column": 23
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//            ^ variable.builtin",
+        "start": {
+          "row": 27,
+          "column": 2
+        },
+        "end": {
+          "row": 27,
+          "column": 34
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                   ^ variable.parameter",
+        "start": {
+          "row": 28,
+          "column": 2
+        },
+        "end": {
+          "row": 28,
+          "column": 43
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                        ^ variable.parameter",
+        "start": {
+          "row": 29,
+          "column": 2
+        },
+        "end": {
+          "row": 29,
+          "column": 48
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 30,
+          "column": 0
+        },
+        "end": {
+          "row": 30,
+          "column": 1
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 30,
+          "column": 1
+        },
+        "end": {
+          "row": 30,
+          "column": 2
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "console.log(module, one, two);",
+        "start": {
+          "row": 32,
+          "column": 0
+        },
+        "end": {
+          "row": 32,
+          "column": 30
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "console.log(module, one, two)",
+        "start": {
+          "row": 32,
+          "column": 0
+        },
+        "end": {
+          "row": 32,
+          "column": 29
+        }
+      },
+      {
+        "kind": "member_expression",
+        "name": "query",
+        "text": "console.log",
+        "start": {
+          "row": 32,
+          "column": 0
+        },
+        "end": {
+          "row": 32,
+          "column": 11
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "console",
+        "start": {
+          "row": 32,
+          "column": 0
+        },
+        "end": {
+          "row": 32,
+          "column": 7
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 32,
+          "column": 7
+        },
+        "end": {
+          "row": 32,
+          "column": 8
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "log",
+        "start": {
+          "row": 32,
+          "column": 8
+        },
+        "end": {
+          "row": 32,
+          "column": 11
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(module, one, two)",
+        "start": {
+          "row": 32,
+          "column": 11
+        },
+        "end": {
+          "row": 32,
+          "column": 29
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 32,
+          "column": 11
+        },
+        "end": {
+          "row": 32,
+          "column": 12
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 32,
+          "column": 12
+        },
+        "end": {
+          "row": 32,
+          "column": 18
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 32,
+          "column": 18
+        },
+        "end": {
+          "row": 32,
+          "column": 19
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "one",
+        "start": {
+          "row": 32,
+          "column": 20
+        },
+        "end": {
+          "row": 32,
+          "column": 23
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 32,
+          "column": 23
+        },
+        "end": {
+          "row": 32,
+          "column": 24
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "two",
+        "start": {
+          "row": 32,
+          "column": 25
+        },
+        "end": {
+          "row": 32,
+          "column": 28
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 32,
+          "column": 28
+        },
+        "end": {
+          "row": 32,
+          "column": 29
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 32,
+          "column": 29
+        },
+        "end": {
+          "row": 32,
+          "column": 30
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// ^ variable.builtin",
+        "start": {
+          "row": 33,
+          "column": 0
+        },
+        "end": {
+          "row": 33,
+          "column": 21
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//            ^ variable.builtin",
+        "start": {
+          "row": 34,
+          "column": 0
+        },
+        "end": {
+          "row": 34,
+          "column": 32
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                   ^ variable",
+        "start": {
+          "row": 35,
+          "column": 0
+        },
+        "end": {
+          "row": 35,
+          "column": 31
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                        ^ variable",
+        "start": {
+          "row": 36,
+          "column": 0
+        },
+        "end": {
+          "row": 36,
+          "column": 36
+        }
+      },
+      {
+        "kind": "function_declaration",
+        "name": "query",
+        "text": "function one({two: three}, [four]) {\n  //          ^ property\n  //               ^ variable.parameter\n  //                         ^ variable.parameter\n\n  console.log(two, three, four)\n  //           ^ variable\n  //                ^ variable.parameter\n  //                       ^ variable.parameter\n}",
+        "start": {
+          "row": 38,
+          "column": 0
+        },
+        "end": {
+          "row": 47,
+          "column": 1
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function",
+        "start": {
+          "row": 38,
+          "column": 0
+        },
+        "end": {
+          "row": 38,
+          "column": 8
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "one",
+        "start": {
+          "row": 38,
+          "column": 9
+        },
+        "end": {
+          "row": 38,
+          "column": 12
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "({two: three}, [four])",
+        "start": {
+          "row": 38,
+          "column": 12
+        },
+        "end": {
+          "row": 38,
+          "column": 34
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 38,
+          "column": 12
+        },
+        "end": {
+          "row": 38,
+          "column": 13
+        }
+      },
+      {
+        "kind": "object_pattern",
+        "name": "query",
+        "text": "{two: three}",
+        "start": {
+          "row": 38,
+          "column": 13
+        },
+        "end": {
+          "row": 38,
+          "column": 25
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 38,
+          "column": 13
+        },
+        "end": {
+          "row": 38,
+          "column": 14
+        }
+      },
+      {
+        "kind": "pair_pattern",
+        "name": "query",
+        "text": "two: three",
+        "start": {
+          "row": 38,
+          "column": 14
+        },
+        "end": {
+          "row": 38,
+          "column": 24
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "two",
+        "start": {
+          "row": 38,
+          "column": 14
+        },
+        "end": {
+          "row": 38,
+          "column": 17
+        }
+      },
+      {
+        "kind": ":",
+        "name": "query",
+        "text": ":",
+        "start": {
+          "row": 38,
+          "column": 17
+        },
+        "end": {
+          "row": 38,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "three",
+        "start": {
+          "row": 38,
+          "column": 19
+        },
+        "end": {
+          "row": 38,
+          "column": 24
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 38,
+          "column": 24
+        },
+        "end": {
+          "row": 38,
+          "column": 25
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 38,
+          "column": 25
+        },
+        "end": {
+          "row": 38,
+          "column": 26
+        }
+      },
+      {
+        "kind": "array_pattern",
+        "name": "query",
+        "text": "[four]",
+        "start": {
+          "row": 38,
+          "column": 27
+        },
+        "end": {
+          "row": 38,
+          "column": 33
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 38,
+          "column": 27
+        },
+        "end": {
+          "row": 38,
+          "column": 28
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "four",
+        "start": {
+          "row": 38,
+          "column": 28
+        },
+        "end": {
+          "row": 38,
+          "column": 32
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 38,
+          "column": 32
+        },
+        "end": {
+          "row": 38,
+          "column": 33
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 38,
+          "column": 33
+        },
+        "end": {
+          "row": 38,
+          "column": 34
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{\n  //          ^ property\n  //               ^ variable.parameter\n  //                         ^ variable.parameter\n\n  console.log(two, three, four)\n  //           ^ variable\n  //                ^ variable.parameter\n  //                       ^ variable.parameter\n}",
+        "start": {
+          "row": 38,
+          "column": 35
+        },
+        "end": {
+          "row": 47,
+          "column": 1
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 38,
+          "column": 35
+        },
+        "end": {
+          "row": 38,
+          "column": 36
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//          ^ property",
+        "start": {
+          "row": 39,
+          "column": 2
+        },
+        "end": {
+          "row": 39,
+          "column": 24
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//               ^ variable.parameter",
+        "start": {
+          "row": 40,
+          "column": 2
+        },
+        "end": {
+          "row": 40,
+          "column": 39
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                         ^ variable.parameter",
+        "start": {
+          "row": 41,
+          "column": 2
+        },
+        "end": {
+          "row": 41,
+          "column": 49
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "console.log(two, three, four)",
+        "start": {
+          "row": 43,
+          "column": 2
+        },
+        "end": {
+          "row": 43,
+          "column": 31
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "console.log(two, three, four)",
+        "start": {
+          "row": 43,
+          "column": 2
+        },
+        "end": {
+          "row": 43,
+          "column": 31
+        }
+      },
+      {
+        "kind": "member_expression",
+        "name": "query",
+        "text": "console.log",
+        "start": {
+          "row": 43,
+          "column": 2
+        },
+        "end": {
+          "row": 43,
+          "column": 13
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "console",
+        "start": {
+          "row": 43,
+          "column": 2
+        },
+        "end": {
+          "row": 43,
+          "column": 9
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 43,
+          "column": 9
+        },
+        "end": {
+          "row": 43,
+          "column": 10
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "log",
+        "start": {
+          "row": 43,
+          "column": 10
+        },
+        "end": {
+          "row": 43,
+          "column": 13
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(two, three, four)",
+        "start": {
+          "row": 43,
+          "column": 13
+        },
+        "end": {
+          "row": 43,
+          "column": 31
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 43,
+          "column": 13
+        },
+        "end": {
+          "row": 43,
+          "column": 14
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "two",
+        "start": {
+          "row": 43,
+          "column": 14
+        },
+        "end": {
+          "row": 43,
+          "column": 17
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 43,
+          "column": 17
+        },
+        "end": {
+          "row": 43,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "three",
+        "start": {
+          "row": 43,
+          "column": 19
+        },
+        "end": {
+          "row": 43,
+          "column": 24
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 43,
+          "column": 24
+        },
+        "end": {
+          "row": 43,
+          "column": 25
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "four",
+        "start": {
+          "row": 43,
+          "column": 26
+        },
+        "end": {
+          "row": 43,
+          "column": 30
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 43,
+          "column": 30
+        },
+        "end": {
+          "row": 43,
+          "column": 31
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//           ^ variable",
+        "start": {
+          "row": 44,
+          "column": 2
+        },
+        "end": {
+          "row": 44,
+          "column": 25
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                ^ variable.parameter",
+        "start": {
+          "row": 45,
+          "column": 2
+        },
+        "end": {
+          "row": 45,
+          "column": 40
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//                       ^ variable.parameter",
+        "start": {
+          "row": 46,
+          "column": 2
+        },
+        "end": {
+          "row": 46,
+          "column": 47
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 47,
+          "column": 0
+        },
+        "end": {
+          "row": 47,
+          "column": 1
+        }
+      }
+    ]
+  },
+  {
+    "file": "vendor/tree-sitter-javascript/test/highlight/injection.js",
+    "matches": [
+      {
+        "kind": "program",
+        "name": "query",
+        "text": "eval(js `var foo`)\n// <- function\n//    ^ function\n//        ^ keyword\n//            ^ variable\n",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 5,
+          "column": 0
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "eval(js `var foo`)",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 18
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "eval(js `var foo`)",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "eval",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 4
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(js `var foo`)",
+        "start": {
+          "row": 0,
+          "column": 4
+        },
+        "end": {
+          "row": 0,
+          "column": 18
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 0,
+          "column": 4
+        },
+        "end": {
+          "row": 0,
+          "column": 5
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "js `var foo`",
+        "start": {
+          "row": 0,
+          "column": 5
+        },
+        "end": {
+          "row": 0,
+          "column": 17
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "js",
+        "start": {
+          "row": 0,
+          "column": 5
+        },
+        "end": {
+          "row": 0,
+          "column": 7
+        }
+      },
+      {
+        "kind": "template_string",
+        "name": "query",
+        "text": "`var foo`",
+        "start": {
+          "row": 0,
+          "column": 8
+        },
+        "end": {
+          "row": 0,
+          "column": 17
+        }
+      },
+      {
+        "kind": "`",
+        "name": "query",
+        "text": "`",
+        "start": {
+          "row": 0,
+          "column": 8
+        },
+        "end": {
+          "row": 0,
+          "column": 9
+        }
+      },
+      {
+        "kind": "`",
+        "name": "query",
+        "text": "`",
+        "start": {
+          "row": 0,
+          "column": 16
+        },
+        "end": {
+          "row": 0,
+          "column": 17
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 0,
+          "column": 17
+        },
+        "end": {
+          "row": 0,
+          "column": 18
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// <- function",
+        "start": {
+          "row": 1,
+          "column": 0
+        },
+        "end": {
+          "row": 1,
+          "column": 14
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//    ^ function",
+        "start": {
+          "row": 2,
+          "column": 0
+        },
+        "end": {
+          "row": 2,
+          "column": 16
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//        ^ keyword",
+        "start": {
+          "row": 3,
+          "column": 0
+        },
+        "end": {
+          "row": 3,
+          "column": 19
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//            ^ variable",
+        "start": {
+          "row": 4,
+          "column": 0
+        },
+        "end": {
+          "row": 4,
+          "column": 24
+        }
+      }
+    ]
+  },
+  {
+    "file": "vendor/tree-sitter-javascript/test/highlight/functions.js",
+    "matches": [
+      {
+        "kind": "program",
+        "name": "query",
+        "text": "var a = 'a';\n//  ^ variable\n\nvar b = function() {};\n//  ^ function\n\nvar c = () => {};\n//  ^ function\n\nvar d = async () => {};\n//  ^ function\n\nmodule.e = 'e';\n//     ^ property\n\nmodule.f = function() {};\n//     ^ function.method\n\nmodule.g = async function() {};\n//     ^ function.method\n\nmodule.h = () => {};\n//     ^ function.method\n\nfunction i() {\n  //     ^ function\n}\n\nclass Person {\n  static foo = bar;\n  //      ^ property\n\n  getName() {\n    // ^ function.method\n  }\n}\n\nfoo(function callback() {\n  // ^ keyword\n  //         ^ function\n})\n\n\nc();\n// <- function\n\nmodule.e();\n//     ^ function.method\n",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 48,
+          "column": 0
+        }
+      },
+      {
+        "kind": "variable_declaration",
+        "name": "query",
+        "text": "var a = 'a';",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 12
+        }
+      },
+      {
+        "kind": "var",
+        "name": "query",
+        "text": "var",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 3
+        }
+      },
+      {
+        "kind": "variable_declarator",
+        "name": "query",
+        "text": "a = 'a'",
+        "start": {
+          "row": 0,
+          "column": 4
+        },
+        "end": {
+          "row": 0,
+          "column": 11
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 0,
+          "column": 4
+        },
+        "end": {
+          "row": 0,
+          "column": 5
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 0,
+          "column": 6
+        },
+        "end": {
+          "row": 0,
+          "column": 7
+        }
+      },
+      {
+        "kind": "string",
+        "name": "query",
+        "text": "'a'",
+        "start": {
+          "row": 0,
+          "column": 8
+        },
+        "end": {
+          "row": 0,
+          "column": 11
+        }
+      },
+      {
+        "kind": "'",
+        "name": "query",
+        "text": "'",
+        "start": {
+          "row": 0,
+          "column": 8
+        },
+        "end": {
+          "row": 0,
+          "column": 9
+        }
+      },
+      {
+        "kind": "'",
+        "name": "query",
+        "text": "'",
+        "start": {
+          "row": 0,
+          "column": 10
+        },
+        "end": {
+          "row": 0,
+          "column": 11
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 0,
+          "column": 11
+        },
+        "end": {
+          "row": 0,
+          "column": 12
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//  ^ variable",
+        "start": {
+          "row": 1,
+          "column": 0
+        },
+        "end": {
+          "row": 1,
+          "column": 14
+        }
+      },
+      {
+        "kind": "variable_declaration",
+        "name": "query",
+        "text": "var b = function() {};",
+        "start": {
+          "row": 3,
+          "column": 0
+        },
+        "end": {
+          "row": 3,
+          "column": 22
+        }
+      },
+      {
+        "kind": "var",
+        "name": "query",
+        "text": "var",
+        "start": {
+          "row": 3,
+          "column": 0
+        },
+        "end": {
+          "row": 3,
+          "column": 3
+        }
+      },
+      {
+        "kind": "variable_declarator",
+        "name": "query",
+        "text": "b = function() {}",
+        "start": {
+          "row": 3,
+          "column": 4
+        },
+        "end": {
+          "row": 3,
+          "column": 21
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "b",
+        "start": {
+          "row": 3,
+          "column": 4
+        },
+        "end": {
+          "row": 3,
+          "column": 5
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 3,
+          "column": 6
+        },
+        "end": {
+          "row": 3,
+          "column": 7
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function() {}",
+        "start": {
+          "row": 3,
+          "column": 8
+        },
+        "end": {
+          "row": 3,
+          "column": 21
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function",
+        "start": {
+          "row": 3,
+          "column": 8
+        },
+        "end": {
+          "row": 3,
+          "column": 16
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 3,
+          "column": 16
+        },
+        "end": {
+          "row": 3,
+          "column": 18
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 3,
+          "column": 16
+        },
+        "end": {
+          "row": 3,
+          "column": 17
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 3,
+          "column": 17
+        },
+        "end": {
+          "row": 3,
+          "column": 18
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 3,
+          "column": 19
+        },
+        "end": {
+          "row": 3,
+          "column": 21
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 3,
+          "column": 19
+        },
+        "end": {
+          "row": 3,
+          "column": 20
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 3,
+          "column": 20
+        },
+        "end": {
+          "row": 3,
+          "column": 21
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 3,
+          "column": 21
+        },
+        "end": {
+          "row": 3,
+          "column": 22
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//  ^ function",
+        "start": {
+          "row": 4,
+          "column": 0
+        },
+        "end": {
+          "row": 4,
+          "column": 14
+        }
+      },
+      {
+        "kind": "variable_declaration",
+        "name": "query",
+        "text": "var c = () => {};",
+        "start": {
+          "row": 6,
+          "column": 0
+        },
+        "end": {
+          "row": 6,
+          "column": 17
+        }
+      },
+      {
+        "kind": "var",
+        "name": "query",
+        "text": "var",
+        "start": {
+          "row": 6,
+          "column": 0
+        },
+        "end": {
+          "row": 6,
+          "column": 3
+        }
+      },
+      {
+        "kind": "variable_declarator",
+        "name": "query",
+        "text": "c = () => {}",
+        "start": {
+          "row": 6,
+          "column": 4
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "c",
+        "start": {
+          "row": 6,
+          "column": 4
+        },
+        "end": {
+          "row": 6,
+          "column": 5
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 6,
+          "column": 6
+        },
+        "end": {
+          "row": 6,
+          "column": 7
+        }
+      },
+      {
+        "kind": "arrow_function",
+        "name": "query",
+        "text": "() => {}",
+        "start": {
+          "row": 6,
+          "column": 8
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 6,
+          "column": 8
+        },
+        "end": {
+          "row": 6,
+          "column": 10
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 6,
+          "column": 8
+        },
+        "end": {
+          "row": 6,
+          "column": 9
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 6,
+          "column": 9
+        },
+        "end": {
+          "row": 6,
+          "column": 10
+        }
+      },
+      {
+        "kind": "=>",
+        "name": "query",
+        "text": "=>",
+        "start": {
+          "row": 6,
+          "column": 11
+        },
+        "end": {
+          "row": 6,
+          "column": 13
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 6,
+          "column": 14
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 6,
+          "column": 14
+        },
+        "end": {
+          "row": 6,
+          "column": 15
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 6,
+          "column": 15
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 6,
+          "column": 16
+        },
+        "end": {
+          "row": 6,
+          "column": 17
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//  ^ function",
+        "start": {
+          "row": 7,
+          "column": 0
+        },
+        "end": {
+          "row": 7,
+          "column": 14
+        }
+      },
+      {
+        "kind": "variable_declaration",
+        "name": "query",
+        "text": "var d = async () => {};",
+        "start": {
+          "row": 9,
+          "column": 0
+        },
+        "end": {
+          "row": 9,
+          "column": 23
+        }
+      },
+      {
+        "kind": "var",
+        "name": "query",
+        "text": "var",
+        "start": {
+          "row": 9,
+          "column": 0
+        },
+        "end": {
+          "row": 9,
+          "column": 3
+        }
+      },
+      {
+        "kind": "variable_declarator",
+        "name": "query",
+        "text": "d = async () => {}",
+        "start": {
+          "row": 9,
+          "column": 4
+        },
+        "end": {
+          "row": 9,
+          "column": 22
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "d",
+        "start": {
+          "row": 9,
+          "column": 4
+        },
+        "end": {
+          "row": 9,
+          "column": 5
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 9,
+          "column": 6
+        },
+        "end": {
+          "row": 9,
+          "column": 7
+        }
+      },
+      {
+        "kind": "arrow_function",
+        "name": "query",
+        "text": "async () => {}",
+        "start": {
+          "row": 9,
+          "column": 8
+        },
+        "end": {
+          "row": 9,
+          "column": 22
+        }
+      },
+      {
+        "kind": "async",
+        "name": "query",
+        "text": "async",
+        "start": {
+          "row": 9,
+          "column": 8
+        },
+        "end": {
+          "row": 9,
+          "column": 13
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 9,
+          "column": 14
+        },
+        "end": {
+          "row": 9,
+          "column": 16
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 9,
+          "column": 14
+        },
+        "end": {
+          "row": 9,
+          "column": 15
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 9,
+          "column": 15
+        },
+        "end": {
+          "row": 9,
+          "column": 16
+        }
+      },
+      {
+        "kind": "=>",
+        "name": "query",
+        "text": "=>",
+        "start": {
+          "row": 9,
+          "column": 17
+        },
+        "end": {
+          "row": 9,
+          "column": 19
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 9,
+          "column": 20
+        },
+        "end": {
+          "row": 9,
+          "column": 22
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 9,
+          "column": 20
+        },
+        "end": {
+          "row": 9,
+          "column": 21
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 9,
+          "column": 21
+        },
+        "end": {
+          "row": 9,
+          "column": 22
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 9,
+          "column": 22
+        },
+        "end": {
+          "row": 9,
+          "column": 23
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//  ^ function",
+        "start": {
+          "row": 10,
+          "column": 0
+        },
+        "end": {
+          "row": 10,
+          "column": 14
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "module.e = 'e';",
+        "start": {
+          "row": 12,
+          "column": 0
+        },
+        "end": {
+          "row": 12,
+          "column": 15
+        }
+      },
+      {
+        "kind": "assignment_expression",
+        "name": "query",
+        "text": "module.e = 'e'",
+        "start": {
+          "row": 12,
+          "column": 0
+        },
+        "end": {
+          "row": 12,
+          "column": 14
+        }
+      },
+      {
+        "kind": "member_expression",
+        "name": "query",
+        "text": "module.e",
+        "start": {
+          "row": 12,
+          "column": 0
+        },
+        "end": {
+          "row": 12,
+          "column": 8
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 12,
+          "column": 0
+        },
+        "end": {
+          "row": 12,
+          "column": 6
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 12,
+          "column": 6
+        },
+        "end": {
+          "row": 12,
+          "column": 7
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "e",
+        "start": {
+          "row": 12,
+          "column": 7
+        },
+        "end": {
+          "row": 12,
+          "column": 8
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 12,
+          "column": 9
+        },
+        "end": {
+          "row": 12,
+          "column": 10
+        }
+      },
+      {
+        "kind": "string",
+        "name": "query",
+        "text": "'e'",
+        "start": {
+          "row": 12,
+          "column": 11
+        },
+        "end": {
+          "row": 12,
+          "column": 14
+        }
+      },
+      {
+        "kind": "'",
+        "name": "query",
+        "text": "'",
+        "start": {
+          "row": 12,
+          "column": 11
+        },
+        "end": {
+          "row": 12,
+          "column": 12
+        }
+      },
+      {
+        "kind": "'",
+        "name": "query",
+        "text": "'",
+        "start": {
+          "row": 12,
+          "column": 13
+        },
+        "end": {
+          "row": 12,
+          "column": 14
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 12,
+          "column": 14
+        },
+        "end": {
+          "row": 12,
+          "column": 15
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//     ^ property",
+        "start": {
+          "row": 13,
+          "column": 0
+        },
+        "end": {
+          "row": 13,
+          "column": 17
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "module.f = function() {};",
+        "start": {
+          "row": 15,
+          "column": 0
+        },
+        "end": {
+          "row": 15,
+          "column": 25
+        }
+      },
+      {
+        "kind": "assignment_expression",
+        "name": "query",
+        "text": "module.f = function() {}",
+        "start": {
+          "row": 15,
+          "column": 0
+        },
+        "end": {
+          "row": 15,
+          "column": 24
+        }
+      },
+      {
+        "kind": "member_expression",
+        "name": "query",
+        "text": "module.f",
+        "start": {
+          "row": 15,
+          "column": 0
+        },
+        "end": {
+          "row": 15,
+          "column": 8
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 15,
+          "column": 0
+        },
+        "end": {
+          "row": 15,
+          "column": 6
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 15,
+          "column": 6
+        },
+        "end": {
+          "row": 15,
+          "column": 7
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "f",
+        "start": {
+          "row": 15,
+          "column": 7
+        },
+        "end": {
+          "row": 15,
+          "column": 8
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 15,
+          "column": 9
+        },
+        "end": {
+          "row": 15,
+          "column": 10
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function() {}",
+        "start": {
+          "row": 15,
+          "column": 11
+        },
+        "end": {
+          "row": 15,
+          "column": 24
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function",
+        "start": {
+          "row": 15,
+          "column": 11
+        },
+        "end": {
+          "row": 15,
+          "column": 19
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 15,
+          "column": 19
+        },
+        "end": {
+          "row": 15,
+          "column": 21
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 15,
+          "column": 19
+        },
+        "end": {
+          "row": 15,
+          "column": 20
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 15,
+          "column": 20
+        },
+        "end": {
+          "row": 15,
+          "column": 21
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 15,
+          "column": 22
+        },
+        "end": {
+          "row": 15,
+          "column": 24
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 15,
+          "column": 22
+        },
+        "end": {
+          "row": 15,
+          "column": 23
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 15,
+          "column": 23
+        },
+        "end": {
+          "row": 15,
+          "column": 24
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 15,
+          "column": 24
+        },
+        "end": {
+          "row": 15,
+          "column": 25
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//     ^ function.method",
+        "start": {
+          "row": 16,
+          "column": 0
+        },
+        "end": {
+          "row": 16,
+          "column": 24
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "module.g = async function() {};",
+        "start": {
+          "row": 18,
+          "column": 0
+        },
+        "end": {
+          "row": 18,
+          "column": 31
+        }
+      },
+      {
+        "kind": "assignment_expression",
+        "name": "query",
+        "text": "module.g = async function() {}",
+        "start": {
+          "row": 18,
+          "column": 0
+        },
+        "end": {
+          "row": 18,
+          "column": 30
+        }
+      },
+      {
+        "kind": "member_expression",
+        "name": "query",
+        "text": "module.g",
+        "start": {
+          "row": 18,
+          "column": 0
+        },
+        "end": {
+          "row": 18,
+          "column": 8
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 18,
+          "column": 0
+        },
+        "end": {
+          "row": 18,
+          "column": 6
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 18,
+          "column": 6
+        },
+        "end": {
+          "row": 18,
+          "column": 7
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "g",
+        "start": {
+          "row": 18,
+          "column": 7
+        },
+        "end": {
+          "row": 18,
+          "column": 8
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 18,
+          "column": 9
+        },
+        "end": {
+          "row": 18,
+          "column": 10
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "async function() {}",
+        "start": {
+          "row": 18,
+          "column": 11
+        },
+        "end": {
+          "row": 18,
+          "column": 30
+        }
+      },
+      {
+        "kind": "async",
+        "name": "query",
+        "text": "async",
+        "start": {
+          "row": 18,
+          "column": 11
+        },
+        "end": {
+          "row": 18,
+          "column": 16
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function",
+        "start": {
+          "row": 18,
+          "column": 17
+        },
+        "end": {
+          "row": 18,
+          "column": 25
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 18,
+          "column": 25
+        },
+        "end": {
+          "row": 18,
+          "column": 27
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 18,
+          "column": 25
+        },
+        "end": {
+          "row": 18,
+          "column": 26
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 18,
+          "column": 26
+        },
+        "end": {
+          "row": 18,
+          "column": 27
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 18,
+          "column": 28
+        },
+        "end": {
+          "row": 18,
+          "column": 30
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 18,
+          "column": 28
+        },
+        "end": {
+          "row": 18,
+          "column": 29
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 18,
+          "column": 29
+        },
+        "end": {
+          "row": 18,
+          "column": 30
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 18,
+          "column": 30
+        },
+        "end": {
+          "row": 18,
+          "column": 31
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//     ^ function.method",
+        "start": {
+          "row": 19,
+          "column": 0
+        },
+        "end": {
+          "row": 19,
+          "column": 24
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "module.h = () => {};",
+        "start": {
+          "row": 21,
+          "column": 0
+        },
+        "end": {
+          "row": 21,
+          "column": 20
+        }
+      },
+      {
+        "kind": "assignment_expression",
+        "name": "query",
+        "text": "module.h = () => {}",
+        "start": {
+          "row": 21,
+          "column": 0
+        },
+        "end": {
+          "row": 21,
+          "column": 19
+        }
+      },
+      {
+        "kind": "member_expression",
+        "name": "query",
+        "text": "module.h",
+        "start": {
+          "row": 21,
+          "column": 0
+        },
+        "end": {
+          "row": 21,
+          "column": 8
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 21,
+          "column": 0
+        },
+        "end": {
+          "row": 21,
+          "column": 6
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 21,
+          "column": 6
+        },
+        "end": {
+          "row": 21,
+          "column": 7
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "h",
+        "start": {
+          "row": 21,
+          "column": 7
+        },
+        "end": {
+          "row": 21,
+          "column": 8
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 21,
+          "column": 9
+        },
+        "end": {
+          "row": 21,
+          "column": 10
+        }
+      },
+      {
+        "kind": "arrow_function",
+        "name": "query",
+        "text": "() => {}",
+        "start": {
+          "row": 21,
+          "column": 11
+        },
+        "end": {
+          "row": 21,
+          "column": 19
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 21,
+          "column": 11
+        },
+        "end": {
+          "row": 21,
+          "column": 13
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 21,
+          "column": 11
+        },
+        "end": {
+          "row": 21,
+          "column": 12
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 21,
+          "column": 12
+        },
+        "end": {
+          "row": 21,
+          "column": 13
+        }
+      },
+      {
+        "kind": "=>",
+        "name": "query",
+        "text": "=>",
+        "start": {
+          "row": 21,
+          "column": 14
+        },
+        "end": {
+          "row": 21,
+          "column": 16
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{}",
+        "start": {
+          "row": 21,
+          "column": 17
+        },
+        "end": {
+          "row": 21,
+          "column": 19
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 21,
+          "column": 17
+        },
+        "end": {
+          "row": 21,
+          "column": 18
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 21,
+          "column": 18
+        },
+        "end": {
+          "row": 21,
+          "column": 19
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 21,
+          "column": 19
+        },
+        "end": {
+          "row": 21,
+          "column": 20
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//     ^ function.method",
+        "start": {
+          "row": 22,
+          "column": 0
+        },
+        "end": {
+          "row": 22,
+          "column": 24
+        }
+      },
+      {
+        "kind": "function_declaration",
+        "name": "query",
+        "text": "function i() {\n  //     ^ function\n}",
+        "start": {
+          "row": 24,
+          "column": 0
+        },
+        "end": {
+          "row": 26,
+          "column": 1
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function",
+        "start": {
+          "row": 24,
+          "column": 0
+        },
+        "end": {
+          "row": 24,
+          "column": 8
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "i",
+        "start": {
+          "row": 24,
+          "column": 9
+        },
+        "end": {
+          "row": 24,
+          "column": 10
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 24,
+          "column": 10
+        },
+        "end": {
+          "row": 24,
+          "column": 12
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 24,
+          "column": 10
+        },
+        "end": {
+          "row": 24,
+          "column": 11
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 24,
+          "column": 11
+        },
+        "end": {
+          "row": 24,
+          "column": 12
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{\n  //     ^ function\n}",
+        "start": {
+          "row": 24,
+          "column": 13
+        },
+        "end": {
+          "row": 26,
+          "column": 1
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 24,
+          "column": 13
+        },
+        "end": {
+          "row": 24,
+          "column": 14
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//     ^ function",
+        "start": {
+          "row": 25,
+          "column": 2
+        },
+        "end": {
+          "row": 25,
+          "column": 19
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 26,
+          "column": 0
+        },
+        "end": {
+          "row": 26,
+          "column": 1
+        }
+      },
+      {
+        "kind": "class_declaration",
+        "name": "query",
+        "text": "class Person {\n  static foo = bar;\n  //      ^ property\n\n  getName() {\n    // ^ function.method\n  }\n}",
+        "start": {
+          "row": 28,
+          "column": 0
+        },
+        "end": {
+          "row": 35,
+          "column": 1
+        }
+      },
+      {
+        "kind": "class",
+        "name": "query",
+        "text": "class",
+        "start": {
+          "row": 28,
+          "column": 0
+        },
+        "end": {
+          "row": 28,
+          "column": 5
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "Person",
+        "start": {
+          "row": 28,
+          "column": 6
+        },
+        "end": {
+          "row": 28,
+          "column": 12
+        }
+      },
+      {
+        "kind": "class_body",
+        "name": "query",
+        "text": "{\n  static foo = bar;\n  //      ^ property\n\n  getName() {\n    // ^ function.method\n  }\n}",
+        "start": {
+          "row": 28,
+          "column": 13
+        },
+        "end": {
+          "row": 35,
+          "column": 1
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 28,
+          "column": 13
+        },
+        "end": {
+          "row": 28,
+          "column": 14
+        }
+      },
+      {
+        "kind": "field_definition",
+        "name": "query",
+        "text": "static foo = bar",
+        "start": {
+          "row": 29,
+          "column": 2
+        },
+        "end": {
+          "row": 29,
+          "column": 18
+        }
+      },
+      {
+        "kind": "static",
+        "name": "query",
+        "text": "static",
+        "start": {
+          "row": 29,
+          "column": 2
+        },
+        "end": {
+          "row": 29,
+          "column": 8
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "foo",
+        "start": {
+          "row": 29,
+          "column": 9
+        },
+        "end": {
+          "row": 29,
+          "column": 12
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 29,
+          "column": 13
+        },
+        "end": {
+          "row": 29,
+          "column": 14
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "bar",
+        "start": {
+          "row": 29,
+          "column": 15
+        },
+        "end": {
+          "row": 29,
+          "column": 18
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 29,
+          "column": 18
+        },
+        "end": {
+          "row": 29,
+          "column": 19
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//      ^ property",
+        "start": {
+          "row": 30,
+          "column": 2
+        },
+        "end": {
+          "row": 30,
+          "column": 20
+        }
+      },
+      {
+        "kind": "method_definition",
+        "name": "query",
+        "text": "getName() {\n    // ^ function.method\n  }",
+        "start": {
+          "row": 32,
+          "column": 2
+        },
+        "end": {
+          "row": 34,
+          "column": 3
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "getName",
+        "start": {
+          "row": 32,
+          "column": 2
+        },
+        "end": {
+          "row": 32,
+          "column": 9
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 32,
+          "column": 9
+        },
+        "end": {
+          "row": 32,
+          "column": 11
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 32,
+          "column": 9
+        },
+        "end": {
+          "row": 32,
+          "column": 10
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 32,
+          "column": 10
+        },
+        "end": {
+          "row": 32,
+          "column": 11
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{\n    // ^ function.method\n  }",
+        "start": {
+          "row": 32,
+          "column": 12
+        },
+        "end": {
+          "row": 34,
+          "column": 3
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 32,
+          "column": 12
+        },
+        "end": {
+          "row": 32,
+          "column": 13
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// ^ function.method",
+        "start": {
+          "row": 33,
+          "column": 4
+        },
+        "end": {
+          "row": 33,
+          "column": 24
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 34,
+          "column": 2
+        },
+        "end": {
+          "row": 34,
+          "column": 3
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 35,
+          "column": 0
+        },
+        "end": {
+          "row": 35,
+          "column": 1
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "foo(function callback() {\n  // ^ keyword\n  //         ^ function\n})",
+        "start": {
+          "row": 37,
+          "column": 0
+        },
+        "end": {
+          "row": 40,
+          "column": 2
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "foo(function callback() {\n  // ^ keyword\n  //         ^ function\n})",
+        "start": {
+          "row": 37,
+          "column": 0
+        },
+        "end": {
+          "row": 40,
+          "column": 2
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "foo",
+        "start": {
+          "row": 37,
+          "column": 0
+        },
+        "end": {
+          "row": 37,
+          "column": 3
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(function callback() {\n  // ^ keyword\n  //         ^ function\n})",
+        "start": {
+          "row": 37,
+          "column": 3
+        },
+        "end": {
+          "row": 40,
+          "column": 2
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 37,
+          "column": 3
+        },
+        "end": {
+          "row": 37,
+          "column": 4
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function callback() {\n  // ^ keyword\n  //         ^ function\n}",
+        "start": {
+          "row": 37,
+          "column": 4
+        },
+        "end": {
+          "row": 40,
+          "column": 1
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "function",
+        "start": {
+          "row": 37,
+          "column": 4
+        },
+        "end": {
+          "row": 37,
+          "column": 12
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "callback",
+        "start": {
+          "row": 37,
+          "column": 13
+        },
+        "end": {
+          "row": 37,
+          "column": 21
+        }
+      },
+      {
+        "kind": "formal_parameters",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 37,
+          "column": 21
+        },
+        "end": {
+          "row": 37,
+          "column": 23
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 37,
+          "column": 21
+        },
+        "end": {
+          "row": 37,
+          "column": 22
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 37,
+          "column": 22
+        },
+        "end": {
+          "row": 37,
+          "column": 23
+        }
+      },
+      {
+        "kind": "statement_block",
+        "name": "query",
+        "text": "{\n  // ^ keyword\n  //         ^ function\n}",
+        "start": {
+          "row": 37,
+          "column": 24
+        },
+        "end": {
+          "row": 40,
+          "column": 1
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 37,
+          "column": 24
+        },
+        "end": {
+          "row": 37,
+          "column": 25
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// ^ keyword",
+        "start": {
+          "row": 38,
+          "column": 2
+        },
+        "end": {
+          "row": 38,
+          "column": 14
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//         ^ function",
+        "start": {
+          "row": 39,
+          "column": 2
+        },
+        "end": {
+          "row": 39,
+          "column": 23
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 40,
+          "column": 0
+        },
+        "end": {
+          "row": 40,
+          "column": 1
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 40,
+          "column": 1
+        },
+        "end": {
+          "row": 40,
+          "column": 2
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "c();",
+        "start": {
+          "row": 43,
+          "column": 0
+        },
+        "end": {
+          "row": 43,
+          "column": 4
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "c()",
+        "start": {
+          "row": 43,
+          "column": 0
+        },
+        "end": {
+          "row": 43,
+          "column": 3
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "c",
+        "start": {
+          "row": 43,
+          "column": 0
+        },
+        "end": {
+          "row": 43,
+          "column": 1
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 43,
+          "column": 1
+        },
+        "end": {
+          "row": 43,
+          "column": 3
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 43,
+          "column": 1
+        },
+        "end": {
+          "row": 43,
+          "column": 2
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 43,
+          "column": 2
+        },
+        "end": {
+          "row": 43,
+          "column": 3
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 43,
+          "column": 3
+        },
+        "end": {
+          "row": 43,
+          "column": 4
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "// <- function",
+        "start": {
+          "row": 44,
+          "column": 0
+        },
+        "end": {
+          "row": 44,
+          "column": 14
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "module.e();",
+        "start": {
+          "row": 46,
+          "column": 0
+        },
+        "end": {
+          "row": 46,
+          "column": 11
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "module.e()",
+        "start": {
+          "row": 46,
+          "column": 0
+        },
+        "end": {
+          "row": 46,
+          "column": 10
+        }
+      },
+      {
+        "kind": "member_expression",
+        "name": "query",
+        "text": "module.e",
+        "start": {
+          "row": 46,
+          "column": 0
+        },
+        "end": {
+          "row": 46,
+          "column": 8
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 46,
+          "column": 0
+        },
+        "end": {
+          "row": 46,
+          "column": 6
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 46,
+          "column": 6
+        },
+        "end": {
+          "row": 46,
+          "column": 7
+        }
+      },
+      {
+        "kind": "property_identifier",
+        "name": "query",
+        "text": "e",
+        "start": {
+          "row": 46,
+          "column": 7
+        },
+        "end": {
+          "row": 46,
+          "column": 8
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 46,
+          "column": 8
+        },
+        "end": {
+          "row": 46,
+          "column": 10
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 46,
+          "column": 8
+        },
+        "end": {
+          "row": 46,
+          "column": 9
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 46,
+          "column": 9
+        },
+        "end": {
+          "row": 46,
+          "column": 10
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 46,
+          "column": 10
+        },
+        "end": {
+          "row": 46,
+          "column": 11
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "//     ^ function.method",
+        "start": {
+          "row": 47,
+          "column": 0
+        },
+        "end": {
+          "row": 47,
+          "column": 24
+        }
+      }
+    ]
+  }
+]

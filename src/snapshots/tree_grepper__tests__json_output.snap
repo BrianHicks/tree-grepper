@@ -1,6 +1,6 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"-f\", \"json\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"-f\", \"json\",\n       \"vendor/tree-sitter-elm\"])"
 
 ---
-[{"file":"./vendor/tree-sitter-elm/test/highlight/basic.elm","matches":[{"kind":"import_clause","name":"query","text":"import Browser","start":{"row":4,"column":0},"end":{"row":4,"column":14}},{"kind":"import_clause","name":"query","text":"import Html exposing (Html, button, div, text)","start":{"row":6,"column":0},"end":{"row":6,"column":46}},{"kind":"import_clause","name":"query","text":"import Html.Events exposing (onClick)","start":{"row":8,"column":0},"end":{"row":8,"column":37}}]}]
+[{"file":"vendor/tree-sitter-elm/test/highlight/basic.elm","matches":[{"kind":"import_clause","name":"query","text":"import Browser","start":{"row":4,"column":0},"end":{"row":4,"column":14}},{"kind":"import_clause","name":"query","text":"import Html exposing (Html, button, div, text)","start":{"row":6,"column":0},"end":{"row":6,"column":46}},{"kind":"import_clause","name":"query","text":"import Html.Events exposing (onClick)","start":{"row":8,"column":0},"end":{"row":8,"column":37}}]}]

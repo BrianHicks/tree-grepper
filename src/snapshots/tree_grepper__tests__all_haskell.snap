@@ -1,11 +1,11 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"-f\", \"pretty-json\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"-f\", \"pretty-json\",\n       \"vendor/tree-sitter-haskell\"])"
 
 ---
 [
   {
-    "file": "./vendor/tree-sitter-haskell/test/highlight/Basic.hs",
+    "file": "vendor/tree-sitter-haskell/test/highlight/Basic.hs",
     "matches": [
       {
         "kind": "haskell",
@@ -816,7 +816,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"-f\", \"pr
     ]
   },
   {
-    "file": "./vendor/tree-sitter-haskell/test/edit/Test.hs",
+    "file": "vendor/tree-sitter-haskell/test/edit/Test.hs",
     "matches": [
       {
         "kind": "haskell",
