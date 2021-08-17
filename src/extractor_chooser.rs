@@ -1,4 +1,5 @@
 use crate::extractor::Extractor;
+use crate::language::Language;
 use anyhow::{bail, Context, Result};
 use ignore::types::{Types, TypesBuilder};
 use ignore::DirEntry;
@@ -17,7 +18,14 @@ impl<'extractor> ExtractorChooser<'extractor> {
         let mut names_to_extractors = HashMap::with_capacity(extractors.len());
 
         for extractor in extractors {
-            let name = extractor.name();
+            let name = match extractor.language() {
+                Language::Elm => "elm",
+                Language::Haskell => "haskell",
+                Language::JavaScript => "js",
+                Language::Ruby => "ruby",
+                Language::Rust => "rust",
+                Language::TypeScript => "typescript",
+            };
             types_builder.select(name);
 
             // a little reminder: insert returns the old value if the key was

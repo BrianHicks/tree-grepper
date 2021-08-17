@@ -9,8 +9,8 @@ use tree_sitter::{Parser, Point, Query, QueryCursor};
 
 #[derive(Debug)]
 pub struct Extractor {
-    name: String,
-    language: tree_sitter::Language,
+    language: Language,
+    ts_language: tree_sitter::Language,
     query: Query,
     captures: Vec<String>,
 }
@@ -26,15 +26,15 @@ impl Extractor {
         }
 
         Extractor {
-            name: language.to_string(),
-            language: language.language(),
+            ts_language: (&language).language(),
+            language: language,
             query,
             captures,
         }
     }
 
-    pub fn name(&self) -> &str {
-        &self.name
+    pub fn language(&self) -> &Language {
+        &self.language
     }
 
     pub fn extract_from_file(
@@ -46,7 +46,7 @@ impl Extractor {
             fs::read(path).with_context(|| format!("could not read {}", path.display()))?;
 
         parser
-            .set_language(self.language)
+            .set_language(self.ts_language)
             .context("could not set language")?;
 
         let tree = parser
