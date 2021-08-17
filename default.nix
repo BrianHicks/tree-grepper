@@ -7,4 +7,5 @@ let
 in naersk.buildPackage {
   src = gitignore.gitignoreSource ./.;
   buildInputs = [ pkgs.libiconv ] ++ darwinInputs;
+  doCheck = true;
 }
