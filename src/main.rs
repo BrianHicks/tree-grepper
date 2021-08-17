@@ -139,4 +139,16 @@ mod tests {
             "json"
         ]))
     }
+
+    #[test]
+    fn pretty_json_output() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "elm",
+            "(import_clause)",
+            "-f",
+            "pretty-json"
+        ]))
+    }
 }
