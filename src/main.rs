@@ -200,4 +200,17 @@ mod tests {
             "vendor/tree-sitter-javascript/test",
         ]))
     }
+
+    #[test]
+    fn all_ruby() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "ruby",
+            "(_)",
+            "-f",
+            "pretty-json",
+            "vendor/tree-sitter-ruby",
+        ]))
+    }
 }
