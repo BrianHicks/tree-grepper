@@ -42,7 +42,7 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
         .extractor_chooser()
         .context("couldn't construct a filetype matcher")?;
 
-    let extracted_files = items
+    let mut extracted_files = items
         .par_iter()
         .filter_map(|entry| {
             chooser
@@ -59,6 +59,10 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
         })
         .collect::<Result<Vec<extractor::ExtractedFile>>>()
         .context("couldn't extract matches from files")?;
+
+    if opts.sort {
+        extracted_files.sort()
+    }
 
     match opts.format {
         Format::Lines => {
