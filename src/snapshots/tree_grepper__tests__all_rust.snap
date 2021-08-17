@@ -1,9 +1,2601 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"-f\", \"pretty-json\",\n       \"vendor/tree-sitter-rust\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"vendor/tree-sitter-rust\"])"
 
 ---
 [
+  {
+    "file": "vendor/tree-sitter-rust/bindings/rust/build.rs",
+    "matches": [
+      {
+        "kind": "source_file",
+        "name": "query",
+        "text": "fn main() {\n    let src_dir = std::path::Path::new(\"src\");\n    let mut config = cc::Build::new();\n    config.include(&src_dir);\n    config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")\n        .flag_if_supported(\"-Wno-trigraphs\");\n    let parser_path = src_dir.join(\"parser.c\");\n    let scanner_path = src_dir.join(\"scanner.c\");\n    println!(\"cargo:rerun-if-changed={}\", parser_path.to_str().unwrap());\n    println!(\"cargo:rerun-if-changed={}\", scanner_path.to_str().unwrap());\n    config.file(&parser_path);\n    config.file(&scanner_path);\n    config.compile(\"parser-scanner\");\n}\n",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 16,
+          "column": 0
+        }
+      },
+      {
+        "kind": "function_item",
+        "name": "query",
+        "text": "fn main() {\n    let src_dir = std::path::Path::new(\"src\");\n    let mut config = cc::Build::new();\n    config.include(&src_dir);\n    config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")\n        .flag_if_supported(\"-Wno-trigraphs\");\n    let parser_path = src_dir.join(\"parser.c\");\n    let scanner_path = src_dir.join(\"scanner.c\");\n    println!(\"cargo:rerun-if-changed={}\", parser_path.to_str().unwrap());\n    println!(\"cargo:rerun-if-changed={}\", scanner_path.to_str().unwrap());\n    config.file(&parser_path);\n    config.file(&scanner_path);\n    config.compile(\"parser-scanner\");\n}",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 15,
+          "column": 1
+        }
+      },
+      {
+        "kind": "fn",
+        "name": "query",
+        "text": "fn",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 2
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "main",
+        "start": {
+          "row": 0,
+          "column": 3
+        },
+        "end": {
+          "row": 0,
+          "column": 7
+        }
+      },
+      {
+        "kind": "parameters",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 0,
+          "column": 7
+        },
+        "end": {
+          "row": 0,
+          "column": 9
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 0,
+          "column": 7
+        },
+        "end": {
+          "row": 0,
+          "column": 8
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 0,
+          "column": 8
+        },
+        "end": {
+          "row": 0,
+          "column": 9
+        }
+      },
+      {
+        "kind": "block",
+        "name": "query",
+        "text": "{\n    let src_dir = std::path::Path::new(\"src\");\n    let mut config = cc::Build::new();\n    config.include(&src_dir);\n    config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")\n        .flag_if_supported(\"-Wno-trigraphs\");\n    let parser_path = src_dir.join(\"parser.c\");\n    let scanner_path = src_dir.join(\"scanner.c\");\n    println!(\"cargo:rerun-if-changed={}\", parser_path.to_str().unwrap());\n    println!(\"cargo:rerun-if-changed={}\", scanner_path.to_str().unwrap());\n    config.file(&parser_path);\n    config.file(&scanner_path);\n    config.compile(\"parser-scanner\");\n}",
+        "start": {
+          "row": 0,
+          "column": 10
+        },
+        "end": {
+          "row": 15,
+          "column": 1
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 0,
+          "column": 10
+        },
+        "end": {
+          "row": 0,
+          "column": 11
+        }
+      },
+      {
+        "kind": "let_declaration",
+        "name": "query",
+        "text": "let src_dir = std::path::Path::new(\"src\");",
+        "start": {
+          "row": 1,
+          "column": 4
+        },
+        "end": {
+          "row": 1,
+          "column": 46
+        }
+      },
+      {
+        "kind": "let",
+        "name": "query",
+        "text": "let",
+        "start": {
+          "row": 1,
+          "column": 4
+        },
+        "end": {
+          "row": 1,
+          "column": 7
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "src_dir",
+        "start": {
+          "row": 1,
+          "column": 8
+        },
+        "end": {
+          "row": 1,
+          "column": 15
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 1,
+          "column": 16
+        },
+        "end": {
+          "row": 1,
+          "column": 17
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "std::path::Path::new(\"src\")",
+        "start": {
+          "row": 1,
+          "column": 18
+        },
+        "end": {
+          "row": 1,
+          "column": 45
+        }
+      },
+      {
+        "kind": "scoped_identifier",
+        "name": "query",
+        "text": "std::path::Path::new",
+        "start": {
+          "row": 1,
+          "column": 18
+        },
+        "end": {
+          "row": 1,
+          "column": 38
+        }
+      },
+      {
+        "kind": "scoped_identifier",
+        "name": "query",
+        "text": "std::path::Path",
+        "start": {
+          "row": 1,
+          "column": 18
+        },
+        "end": {
+          "row": 1,
+          "column": 33
+        }
+      },
+      {
+        "kind": "scoped_identifier",
+        "name": "query",
+        "text": "std::path",
+        "start": {
+          "row": 1,
+          "column": 18
+        },
+        "end": {
+          "row": 1,
+          "column": 27
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "std",
+        "start": {
+          "row": 1,
+          "column": 18
+        },
+        "end": {
+          "row": 1,
+          "column": 21
+        }
+      },
+      {
+        "kind": "::",
+        "name": "query",
+        "text": "::",
+        "start": {
+          "row": 1,
+          "column": 21
+        },
+        "end": {
+          "row": 1,
+          "column": 23
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "path",
+        "start": {
+          "row": 1,
+          "column": 23
+        },
+        "end": {
+          "row": 1,
+          "column": 27
+        }
+      },
+      {
+        "kind": "::",
+        "name": "query",
+        "text": "::",
+        "start": {
+          "row": 1,
+          "column": 27
+        },
+        "end": {
+          "row": 1,
+          "column": 29
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "Path",
+        "start": {
+          "row": 1,
+          "column": 29
+        },
+        "end": {
+          "row": 1,
+          "column": 33
+        }
+      },
+      {
+        "kind": "::",
+        "name": "query",
+        "text": "::",
+        "start": {
+          "row": 1,
+          "column": 33
+        },
+        "end": {
+          "row": 1,
+          "column": 35
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "new",
+        "start": {
+          "row": 1,
+          "column": 35
+        },
+        "end": {
+          "row": 1,
+          "column": 38
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(\"src\")",
+        "start": {
+          "row": 1,
+          "column": 38
+        },
+        "end": {
+          "row": 1,
+          "column": 45
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 1,
+          "column": 38
+        },
+        "end": {
+          "row": 1,
+          "column": 39
+        }
+      },
+      {
+        "kind": "string_literal",
+        "name": "query",
+        "text": "\"src\"",
+        "start": {
+          "row": 1,
+          "column": 39
+        },
+        "end": {
+          "row": 1,
+          "column": 44
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 1,
+          "column": 39
+        },
+        "end": {
+          "row": 1,
+          "column": 40
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 1,
+          "column": 43
+        },
+        "end": {
+          "row": 1,
+          "column": 44
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 1,
+          "column": 44
+        },
+        "end": {
+          "row": 1,
+          "column": 45
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 1,
+          "column": 45
+        },
+        "end": {
+          "row": 1,
+          "column": 46
+        }
+      },
+      {
+        "kind": "let_declaration",
+        "name": "query",
+        "text": "let mut config = cc::Build::new();",
+        "start": {
+          "row": 2,
+          "column": 4
+        },
+        "end": {
+          "row": 2,
+          "column": 38
+        }
+      },
+      {
+        "kind": "let",
+        "name": "query",
+        "text": "let",
+        "start": {
+          "row": 2,
+          "column": 4
+        },
+        "end": {
+          "row": 2,
+          "column": 7
+        }
+      },
+      {
+        "kind": "mutable_specifier",
+        "name": "query",
+        "text": "mut",
+        "start": {
+          "row": 2,
+          "column": 8
+        },
+        "end": {
+          "row": 2,
+          "column": 11
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "config",
+        "start": {
+          "row": 2,
+          "column": 12
+        },
+        "end": {
+          "row": 2,
+          "column": 18
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 2,
+          "column": 19
+        },
+        "end": {
+          "row": 2,
+          "column": 20
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "cc::Build::new()",
+        "start": {
+          "row": 2,
+          "column": 21
+        },
+        "end": {
+          "row": 2,
+          "column": 37
+        }
+      },
+      {
+        "kind": "scoped_identifier",
+        "name": "query",
+        "text": "cc::Build::new",
+        "start": {
+          "row": 2,
+          "column": 21
+        },
+        "end": {
+          "row": 2,
+          "column": 35
+        }
+      },
+      {
+        "kind": "scoped_identifier",
+        "name": "query",
+        "text": "cc::Build",
+        "start": {
+          "row": 2,
+          "column": 21
+        },
+        "end": {
+          "row": 2,
+          "column": 30
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "cc",
+        "start": {
+          "row": 2,
+          "column": 21
+        },
+        "end": {
+          "row": 2,
+          "column": 23
+        }
+      },
+      {
+        "kind": "::",
+        "name": "query",
+        "text": "::",
+        "start": {
+          "row": 2,
+          "column": 23
+        },
+        "end": {
+          "row": 2,
+          "column": 25
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "Build",
+        "start": {
+          "row": 2,
+          "column": 25
+        },
+        "end": {
+          "row": 2,
+          "column": 30
+        }
+      },
+      {
+        "kind": "::",
+        "name": "query",
+        "text": "::",
+        "start": {
+          "row": 2,
+          "column": 30
+        },
+        "end": {
+          "row": 2,
+          "column": 32
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "new",
+        "start": {
+          "row": 2,
+          "column": 32
+        },
+        "end": {
+          "row": 2,
+          "column": 35
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 2,
+          "column": 35
+        },
+        "end": {
+          "row": 2,
+          "column": 37
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 2,
+          "column": 35
+        },
+        "end": {
+          "row": 2,
+          "column": 36
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 2,
+          "column": 36
+        },
+        "end": {
+          "row": 2,
+          "column": 37
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 2,
+          "column": 37
+        },
+        "end": {
+          "row": 2,
+          "column": 38
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "config.include(&src_dir)",
+        "start": {
+          "row": 3,
+          "column": 4
+        },
+        "end": {
+          "row": 3,
+          "column": 28
+        }
+      },
+      {
+        "kind": "field_expression",
+        "name": "query",
+        "text": "config.include",
+        "start": {
+          "row": 3,
+          "column": 4
+        },
+        "end": {
+          "row": 3,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "config",
+        "start": {
+          "row": 3,
+          "column": 4
+        },
+        "end": {
+          "row": 3,
+          "column": 10
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 3,
+          "column": 10
+        },
+        "end": {
+          "row": 3,
+          "column": 11
+        }
+      },
+      {
+        "kind": "field_identifier",
+        "name": "query",
+        "text": "include",
+        "start": {
+          "row": 3,
+          "column": 11
+        },
+        "end": {
+          "row": 3,
+          "column": 18
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(&src_dir)",
+        "start": {
+          "row": 3,
+          "column": 18
+        },
+        "end": {
+          "row": 3,
+          "column": 28
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 3,
+          "column": 18
+        },
+        "end": {
+          "row": 3,
+          "column": 19
+        }
+      },
+      {
+        "kind": "reference_expression",
+        "name": "query",
+        "text": "&src_dir",
+        "start": {
+          "row": 3,
+          "column": 19
+        },
+        "end": {
+          "row": 3,
+          "column": 27
+        }
+      },
+      {
+        "kind": "&",
+        "name": "query",
+        "text": "&",
+        "start": {
+          "row": 3,
+          "column": 19
+        },
+        "end": {
+          "row": 3,
+          "column": 20
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "src_dir",
+        "start": {
+          "row": 3,
+          "column": 20
+        },
+        "end": {
+          "row": 3,
+          "column": 27
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 3,
+          "column": 27
+        },
+        "end": {
+          "row": 3,
+          "column": 28
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 3,
+          "column": 28
+        },
+        "end": {
+          "row": 3,
+          "column": 29
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")\n        .flag_if_supported(\"-Wno-trigraphs\")",
+        "start": {
+          "row": 4,
+          "column": 4
+        },
+        "end": {
+          "row": 7,
+          "column": 44
+        }
+      },
+      {
+        "kind": "field_expression",
+        "name": "query",
+        "text": "config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")\n        .flag_if_supported",
+        "start": {
+          "row": 4,
+          "column": 4
+        },
+        "end": {
+          "row": 7,
+          "column": 26
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")",
+        "start": {
+          "row": 4,
+          "column": 4
+        },
+        "end": {
+          "row": 6,
+          "column": 58
+        }
+      },
+      {
+        "kind": "field_expression",
+        "name": "query",
+        "text": "config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported",
+        "start": {
+          "row": 4,
+          "column": 4
+        },
+        "end": {
+          "row": 6,
+          "column": 26
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "config\n        .flag_if_supported(\"-Wno-unused-parameter\")",
+        "start": {
+          "row": 4,
+          "column": 4
+        },
+        "end": {
+          "row": 5,
+          "column": 51
+        }
+      },
+      {
+        "kind": "field_expression",
+        "name": "query",
+        "text": "config\n        .flag_if_supported",
+        "start": {
+          "row": 4,
+          "column": 4
+        },
+        "end": {
+          "row": 5,
+          "column": 26
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "config",
+        "start": {
+          "row": 4,
+          "column": 4
+        },
+        "end": {
+          "row": 4,
+          "column": 10
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 5,
+          "column": 8
+        },
+        "end": {
+          "row": 5,
+          "column": 9
+        }
+      },
+      {
+        "kind": "field_identifier",
+        "name": "query",
+        "text": "flag_if_supported",
+        "start": {
+          "row": 5,
+          "column": 9
+        },
+        "end": {
+          "row": 5,
+          "column": 26
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(\"-Wno-unused-parameter\")",
+        "start": {
+          "row": 5,
+          "column": 26
+        },
+        "end": {
+          "row": 5,
+          "column": 51
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 5,
+          "column": 26
+        },
+        "end": {
+          "row": 5,
+          "column": 27
+        }
+      },
+      {
+        "kind": "string_literal",
+        "name": "query",
+        "text": "\"-Wno-unused-parameter\"",
+        "start": {
+          "row": 5,
+          "column": 27
+        },
+        "end": {
+          "row": 5,
+          "column": 50
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 5,
+          "column": 27
+        },
+        "end": {
+          "row": 5,
+          "column": 28
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 5,
+          "column": 49
+        },
+        "end": {
+          "row": 5,
+          "column": 50
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 5,
+          "column": 50
+        },
+        "end": {
+          "row": 5,
+          "column": 51
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 6,
+          "column": 8
+        },
+        "end": {
+          "row": 6,
+          "column": 9
+        }
+      },
+      {
+        "kind": "field_identifier",
+        "name": "query",
+        "text": "flag_if_supported",
+        "start": {
+          "row": 6,
+          "column": 9
+        },
+        "end": {
+          "row": 6,
+          "column": 26
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(\"-Wno-unused-but-set-variable\")",
+        "start": {
+          "row": 6,
+          "column": 26
+        },
+        "end": {
+          "row": 6,
+          "column": 58
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 6,
+          "column": 26
+        },
+        "end": {
+          "row": 6,
+          "column": 27
+        }
+      },
+      {
+        "kind": "string_literal",
+        "name": "query",
+        "text": "\"-Wno-unused-but-set-variable\"",
+        "start": {
+          "row": 6,
+          "column": 27
+        },
+        "end": {
+          "row": 6,
+          "column": 57
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 6,
+          "column": 27
+        },
+        "end": {
+          "row": 6,
+          "column": 28
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 6,
+          "column": 56
+        },
+        "end": {
+          "row": 6,
+          "column": 57
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 6,
+          "column": 57
+        },
+        "end": {
+          "row": 6,
+          "column": 58
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 7,
+          "column": 8
+        },
+        "end": {
+          "row": 7,
+          "column": 9
+        }
+      },
+      {
+        "kind": "field_identifier",
+        "name": "query",
+        "text": "flag_if_supported",
+        "start": {
+          "row": 7,
+          "column": 9
+        },
+        "end": {
+          "row": 7,
+          "column": 26
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(\"-Wno-trigraphs\")",
+        "start": {
+          "row": 7,
+          "column": 26
+        },
+        "end": {
+          "row": 7,
+          "column": 44
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 7,
+          "column": 26
+        },
+        "end": {
+          "row": 7,
+          "column": 27
+        }
+      },
+      {
+        "kind": "string_literal",
+        "name": "query",
+        "text": "\"-Wno-trigraphs\"",
+        "start": {
+          "row": 7,
+          "column": 27
+        },
+        "end": {
+          "row": 7,
+          "column": 43
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 7,
+          "column": 27
+        },
+        "end": {
+          "row": 7,
+          "column": 28
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 7,
+          "column": 42
+        },
+        "end": {
+          "row": 7,
+          "column": 43
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 7,
+          "column": 43
+        },
+        "end": {
+          "row": 7,
+          "column": 44
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 7,
+          "column": 44
+        },
+        "end": {
+          "row": 7,
+          "column": 45
+        }
+      },
+      {
+        "kind": "let_declaration",
+        "name": "query",
+        "text": "let parser_path = src_dir.join(\"parser.c\");",
+        "start": {
+          "row": 8,
+          "column": 4
+        },
+        "end": {
+          "row": 8,
+          "column": 47
+        }
+      },
+      {
+        "kind": "let",
+        "name": "query",
+        "text": "let",
+        "start": {
+          "row": 8,
+          "column": 4
+        },
+        "end": {
+          "row": 8,
+          "column": 7
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "parser_path",
+        "start": {
+          "row": 8,
+          "column": 8
+        },
+        "end": {
+          "row": 8,
+          "column": 19
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 8,
+          "column": 20
+        },
+        "end": {
+          "row": 8,
+          "column": 21
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "src_dir.join(\"parser.c\")",
+        "start": {
+          "row": 8,
+          "column": 22
+        },
+        "end": {
+          "row": 8,
+          "column": 46
+        }
+      },
+      {
+        "kind": "field_expression",
+        "name": "query",
+        "text": "src_dir.join",
+        "start": {
+          "row": 8,
+          "column": 22
+        },
+        "end": {
+          "row": 8,
+          "column": 34
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "src_dir",
+        "start": {
+          "row": 8,
+          "column": 22
+        },
+        "end": {
+          "row": 8,
+          "column": 29
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 8,
+          "column": 29
+        },
+        "end": {
+          "row": 8,
+          "column": 30
+        }
+      },
+      {
+        "kind": "field_identifier",
+        "name": "query",
+        "text": "join",
+        "start": {
+          "row": 8,
+          "column": 30
+        },
+        "end": {
+          "row": 8,
+          "column": 34
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(\"parser.c\")",
+        "start": {
+          "row": 8,
+          "column": 34
+        },
+        "end": {
+          "row": 8,
+          "column": 46
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 8,
+          "column": 34
+        },
+        "end": {
+          "row": 8,
+          "column": 35
+        }
+      },
+      {
+        "kind": "string_literal",
+        "name": "query",
+        "text": "\"parser.c\"",
+        "start": {
+          "row": 8,
+          "column": 35
+        },
+        "end": {
+          "row": 8,
+          "column": 45
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 8,
+          "column": 35
+        },
+        "end": {
+          "row": 8,
+          "column": 36
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 8,
+          "column": 44
+        },
+        "end": {
+          "row": 8,
+          "column": 45
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 8,
+          "column": 45
+        },
+        "end": {
+          "row": 8,
+          "column": 46
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 8,
+          "column": 46
+        },
+        "end": {
+          "row": 8,
+          "column": 47
+        }
+      },
+      {
+        "kind": "let_declaration",
+        "name": "query",
+        "text": "let scanner_path = src_dir.join(\"scanner.c\");",
+        "start": {
+          "row": 9,
+          "column": 4
+        },
+        "end": {
+          "row": 9,
+          "column": 49
+        }
+      },
+      {
+        "kind": "let",
+        "name": "query",
+        "text": "let",
+        "start": {
+          "row": 9,
+          "column": 4
+        },
+        "end": {
+          "row": 9,
+          "column": 7
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "scanner_path",
+        "start": {
+          "row": 9,
+          "column": 8
+        },
+        "end": {
+          "row": 9,
+          "column": 20
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 9,
+          "column": 21
+        },
+        "end": {
+          "row": 9,
+          "column": 22
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "src_dir.join(\"scanner.c\")",
+        "start": {
+          "row": 9,
+          "column": 23
+        },
+        "end": {
+          "row": 9,
+          "column": 48
+        }
+      },
+      {
+        "kind": "field_expression",
+        "name": "query",
+        "text": "src_dir.join",
+        "start": {
+          "row": 9,
+          "column": 23
+        },
+        "end": {
+          "row": 9,
+          "column": 35
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "src_dir",
+        "start": {
+          "row": 9,
+          "column": 23
+        },
+        "end": {
+          "row": 9,
+          "column": 30
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 9,
+          "column": 30
+        },
+        "end": {
+          "row": 9,
+          "column": 31
+        }
+      },
+      {
+        "kind": "field_identifier",
+        "name": "query",
+        "text": "join",
+        "start": {
+          "row": 9,
+          "column": 31
+        },
+        "end": {
+          "row": 9,
+          "column": 35
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(\"scanner.c\")",
+        "start": {
+          "row": 9,
+          "column": 35
+        },
+        "end": {
+          "row": 9,
+          "column": 48
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 9,
+          "column": 35
+        },
+        "end": {
+          "row": 9,
+          "column": 36
+        }
+      },
+      {
+        "kind": "string_literal",
+        "name": "query",
+        "text": "\"scanner.c\"",
+        "start": {
+          "row": 9,
+          "column": 36
+        },
+        "end": {
+          "row": 9,
+          "column": 47
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 9,
+          "column": 36
+        },
+        "end": {
+          "row": 9,
+          "column": 37
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 9,
+          "column": 46
+        },
+        "end": {
+          "row": 9,
+          "column": 47
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 9,
+          "column": 47
+        },
+        "end": {
+          "row": 9,
+          "column": 48
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 9,
+          "column": 48
+        },
+        "end": {
+          "row": 9,
+          "column": 49
+        }
+      },
+      {
+        "kind": "macro_invocation",
+        "name": "query",
+        "text": "println!(\"cargo:rerun-if-changed={}\", parser_path.to_str().unwrap())",
+        "start": {
+          "row": 10,
+          "column": 4
+        },
+        "end": {
+          "row": 10,
+          "column": 72
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "println",
+        "start": {
+          "row": 10,
+          "column": 4
+        },
+        "end": {
+          "row": 10,
+          "column": 11
+        }
+      },
+      {
+        "kind": "!",
+        "name": "query",
+        "text": "!",
+        "start": {
+          "row": 10,
+          "column": 11
+        },
+        "end": {
+          "row": 10,
+          "column": 12
+        }
+      },
+      {
+        "kind": "token_tree",
+        "name": "query",
+        "text": "(\"cargo:rerun-if-changed={}\", parser_path.to_str().unwrap())",
+        "start": {
+          "row": 10,
+          "column": 12
+        },
+        "end": {
+          "row": 10,
+          "column": 72
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 10,
+          "column": 12
+        },
+        "end": {
+          "row": 10,
+          "column": 13
+        }
+      },
+      {
+        "kind": "string_literal",
+        "name": "query",
+        "text": "\"cargo:rerun-if-changed={}\"",
+        "start": {
+          "row": 10,
+          "column": 13
+        },
+        "end": {
+          "row": 10,
+          "column": 40
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 10,
+          "column": 13
+        },
+        "end": {
+          "row": 10,
+          "column": 14
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 10,
+          "column": 39
+        },
+        "end": {
+          "row": 10,
+          "column": 40
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "parser_path",
+        "start": {
+          "row": 10,
+          "column": 42
+        },
+        "end": {
+          "row": 10,
+          "column": 53
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "to_str",
+        "start": {
+          "row": 10,
+          "column": 54
+        },
+        "end": {
+          "row": 10,
+          "column": 60
+        }
+      },
+      {
+        "kind": "token_tree",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 10,
+          "column": 60
+        },
+        "end": {
+          "row": 10,
+          "column": 62
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 10,
+          "column": 60
+        },
+        "end": {
+          "row": 10,
+          "column": 61
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 10,
+          "column": 61
+        },
+        "end": {
+          "row": 10,
+          "column": 62
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "unwrap",
+        "start": {
+          "row": 10,
+          "column": 63
+        },
+        "end": {
+          "row": 10,
+          "column": 69
+        }
+      },
+      {
+        "kind": "token_tree",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 10,
+          "column": 69
+        },
+        "end": {
+          "row": 10,
+          "column": 71
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 10,
+          "column": 69
+        },
+        "end": {
+          "row": 10,
+          "column": 70
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 10,
+          "column": 70
+        },
+        "end": {
+          "row": 10,
+          "column": 71
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 10,
+          "column": 71
+        },
+        "end": {
+          "row": 10,
+          "column": 72
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 10,
+          "column": 72
+        },
+        "end": {
+          "row": 10,
+          "column": 73
+        }
+      },
+      {
+        "kind": "macro_invocation",
+        "name": "query",
+        "text": "println!(\"cargo:rerun-if-changed={}\", scanner_path.to_str().unwrap())",
+        "start": {
+          "row": 11,
+          "column": 4
+        },
+        "end": {
+          "row": 11,
+          "column": 73
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "println",
+        "start": {
+          "row": 11,
+          "column": 4
+        },
+        "end": {
+          "row": 11,
+          "column": 11
+        }
+      },
+      {
+        "kind": "!",
+        "name": "query",
+        "text": "!",
+        "start": {
+          "row": 11,
+          "column": 11
+        },
+        "end": {
+          "row": 11,
+          "column": 12
+        }
+      },
+      {
+        "kind": "token_tree",
+        "name": "query",
+        "text": "(\"cargo:rerun-if-changed={}\", scanner_path.to_str().unwrap())",
+        "start": {
+          "row": 11,
+          "column": 12
+        },
+        "end": {
+          "row": 11,
+          "column": 73
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 11,
+          "column": 12
+        },
+        "end": {
+          "row": 11,
+          "column": 13
+        }
+      },
+      {
+        "kind": "string_literal",
+        "name": "query",
+        "text": "\"cargo:rerun-if-changed={}\"",
+        "start": {
+          "row": 11,
+          "column": 13
+        },
+        "end": {
+          "row": 11,
+          "column": 40
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 11,
+          "column": 13
+        },
+        "end": {
+          "row": 11,
+          "column": 14
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 11,
+          "column": 39
+        },
+        "end": {
+          "row": 11,
+          "column": 40
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "scanner_path",
+        "start": {
+          "row": 11,
+          "column": 42
+        },
+        "end": {
+          "row": 11,
+          "column": 54
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "to_str",
+        "start": {
+          "row": 11,
+          "column": 55
+        },
+        "end": {
+          "row": 11,
+          "column": 61
+        }
+      },
+      {
+        "kind": "token_tree",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 11,
+          "column": 61
+        },
+        "end": {
+          "row": 11,
+          "column": 63
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 11,
+          "column": 61
+        },
+        "end": {
+          "row": 11,
+          "column": 62
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 11,
+          "column": 62
+        },
+        "end": {
+          "row": 11,
+          "column": 63
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "unwrap",
+        "start": {
+          "row": 11,
+          "column": 64
+        },
+        "end": {
+          "row": 11,
+          "column": 70
+        }
+      },
+      {
+        "kind": "token_tree",
+        "name": "query",
+        "text": "()",
+        "start": {
+          "row": 11,
+          "column": 70
+        },
+        "end": {
+          "row": 11,
+          "column": 72
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 11,
+          "column": 70
+        },
+        "end": {
+          "row": 11,
+          "column": 71
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 11,
+          "column": 71
+        },
+        "end": {
+          "row": 11,
+          "column": 72
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 11,
+          "column": 72
+        },
+        "end": {
+          "row": 11,
+          "column": 73
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 11,
+          "column": 73
+        },
+        "end": {
+          "row": 11,
+          "column": 74
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "config.file(&parser_path)",
+        "start": {
+          "row": 12,
+          "column": 4
+        },
+        "end": {
+          "row": 12,
+          "column": 29
+        }
+      },
+      {
+        "kind": "field_expression",
+        "name": "query",
+        "text": "config.file",
+        "start": {
+          "row": 12,
+          "column": 4
+        },
+        "end": {
+          "row": 12,
+          "column": 15
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "config",
+        "start": {
+          "row": 12,
+          "column": 4
+        },
+        "end": {
+          "row": 12,
+          "column": 10
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 12,
+          "column": 10
+        },
+        "end": {
+          "row": 12,
+          "column": 11
+        }
+      },
+      {
+        "kind": "field_identifier",
+        "name": "query",
+        "text": "file",
+        "start": {
+          "row": 12,
+          "column": 11
+        },
+        "end": {
+          "row": 12,
+          "column": 15
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(&parser_path)",
+        "start": {
+          "row": 12,
+          "column": 15
+        },
+        "end": {
+          "row": 12,
+          "column": 29
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 12,
+          "column": 15
+        },
+        "end": {
+          "row": 12,
+          "column": 16
+        }
+      },
+      {
+        "kind": "reference_expression",
+        "name": "query",
+        "text": "&parser_path",
+        "start": {
+          "row": 12,
+          "column": 16
+        },
+        "end": {
+          "row": 12,
+          "column": 28
+        }
+      },
+      {
+        "kind": "&",
+        "name": "query",
+        "text": "&",
+        "start": {
+          "row": 12,
+          "column": 16
+        },
+        "end": {
+          "row": 12,
+          "column": 17
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "parser_path",
+        "start": {
+          "row": 12,
+          "column": 17
+        },
+        "end": {
+          "row": 12,
+          "column": 28
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 12,
+          "column": 28
+        },
+        "end": {
+          "row": 12,
+          "column": 29
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 12,
+          "column": 29
+        },
+        "end": {
+          "row": 12,
+          "column": 30
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "config.file(&scanner_path)",
+        "start": {
+          "row": 13,
+          "column": 4
+        },
+        "end": {
+          "row": 13,
+          "column": 30
+        }
+      },
+      {
+        "kind": "field_expression",
+        "name": "query",
+        "text": "config.file",
+        "start": {
+          "row": 13,
+          "column": 4
+        },
+        "end": {
+          "row": 13,
+          "column": 15
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "config",
+        "start": {
+          "row": 13,
+          "column": 4
+        },
+        "end": {
+          "row": 13,
+          "column": 10
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 13,
+          "column": 10
+        },
+        "end": {
+          "row": 13,
+          "column": 11
+        }
+      },
+      {
+        "kind": "field_identifier",
+        "name": "query",
+        "text": "file",
+        "start": {
+          "row": 13,
+          "column": 11
+        },
+        "end": {
+          "row": 13,
+          "column": 15
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(&scanner_path)",
+        "start": {
+          "row": 13,
+          "column": 15
+        },
+        "end": {
+          "row": 13,
+          "column": 30
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 13,
+          "column": 15
+        },
+        "end": {
+          "row": 13,
+          "column": 16
+        }
+      },
+      {
+        "kind": "reference_expression",
+        "name": "query",
+        "text": "&scanner_path",
+        "start": {
+          "row": 13,
+          "column": 16
+        },
+        "end": {
+          "row": 13,
+          "column": 29
+        }
+      },
+      {
+        "kind": "&",
+        "name": "query",
+        "text": "&",
+        "start": {
+          "row": 13,
+          "column": 16
+        },
+        "end": {
+          "row": 13,
+          "column": 17
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "scanner_path",
+        "start": {
+          "row": 13,
+          "column": 17
+        },
+        "end": {
+          "row": 13,
+          "column": 29
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 13,
+          "column": 29
+        },
+        "end": {
+          "row": 13,
+          "column": 30
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 13,
+          "column": 30
+        },
+        "end": {
+          "row": 13,
+          "column": 31
+        }
+      },
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "config.compile(\"parser-scanner\")",
+        "start": {
+          "row": 14,
+          "column": 4
+        },
+        "end": {
+          "row": 14,
+          "column": 36
+        }
+      },
+      {
+        "kind": "field_expression",
+        "name": "query",
+        "text": "config.compile",
+        "start": {
+          "row": 14,
+          "column": 4
+        },
+        "end": {
+          "row": 14,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "config",
+        "start": {
+          "row": 14,
+          "column": 4
+        },
+        "end": {
+          "row": 14,
+          "column": 10
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 14,
+          "column": 10
+        },
+        "end": {
+          "row": 14,
+          "column": 11
+        }
+      },
+      {
+        "kind": "field_identifier",
+        "name": "query",
+        "text": "compile",
+        "start": {
+          "row": 14,
+          "column": 11
+        },
+        "end": {
+          "row": 14,
+          "column": 18
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(\"parser-scanner\")",
+        "start": {
+          "row": 14,
+          "column": 18
+        },
+        "end": {
+          "row": 14,
+          "column": 36
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 14,
+          "column": 18
+        },
+        "end": {
+          "row": 14,
+          "column": 19
+        }
+      },
+      {
+        "kind": "string_literal",
+        "name": "query",
+        "text": "\"parser-scanner\"",
+        "start": {
+          "row": 14,
+          "column": 19
+        },
+        "end": {
+          "row": 14,
+          "column": 35
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 14,
+          "column": 19
+        },
+        "end": {
+          "row": 14,
+          "column": 20
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 14,
+          "column": 34
+        },
+        "end": {
+          "row": 14,
+          "column": 35
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 14,
+          "column": 35
+        },
+        "end": {
+          "row": 14,
+          "column": 36
+        }
+      },
+      {
+        "kind": ";",
+        "name": "query",
+        "text": ";",
+        "start": {
+          "row": 14,
+          "column": 36
+        },
+        "end": {
+          "row": 14,
+          "column": 37
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 15,
+          "column": 0
+        },
+        "end": {
+          "row": 15,
+          "column": 1
+        }
+      }
+    ]
+  },
   {
     "file": "vendor/tree-sitter-rust/bindings/rust/lib.rs",
     "matches": [
@@ -2903,2598 +5495,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"-f\", \"prett
         },
         "end": {
           "row": 65,
-          "column": 1
-        }
-      }
-    ]
-  },
-  {
-    "file": "vendor/tree-sitter-rust/bindings/rust/build.rs",
-    "matches": [
-      {
-        "kind": "source_file",
-        "name": "query",
-        "text": "fn main() {\n    let src_dir = std::path::Path::new(\"src\");\n    let mut config = cc::Build::new();\n    config.include(&src_dir);\n    config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")\n        .flag_if_supported(\"-Wno-trigraphs\");\n    let parser_path = src_dir.join(\"parser.c\");\n    let scanner_path = src_dir.join(\"scanner.c\");\n    println!(\"cargo:rerun-if-changed={}\", parser_path.to_str().unwrap());\n    println!(\"cargo:rerun-if-changed={}\", scanner_path.to_str().unwrap());\n    config.file(&parser_path);\n    config.file(&scanner_path);\n    config.compile(\"parser-scanner\");\n}\n",
-        "start": {
-          "row": 0,
-          "column": 0
-        },
-        "end": {
-          "row": 16,
-          "column": 0
-        }
-      },
-      {
-        "kind": "function_item",
-        "name": "query",
-        "text": "fn main() {\n    let src_dir = std::path::Path::new(\"src\");\n    let mut config = cc::Build::new();\n    config.include(&src_dir);\n    config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")\n        .flag_if_supported(\"-Wno-trigraphs\");\n    let parser_path = src_dir.join(\"parser.c\");\n    let scanner_path = src_dir.join(\"scanner.c\");\n    println!(\"cargo:rerun-if-changed={}\", parser_path.to_str().unwrap());\n    println!(\"cargo:rerun-if-changed={}\", scanner_path.to_str().unwrap());\n    config.file(&parser_path);\n    config.file(&scanner_path);\n    config.compile(\"parser-scanner\");\n}",
-        "start": {
-          "row": 0,
-          "column": 0
-        },
-        "end": {
-          "row": 15,
-          "column": 1
-        }
-      },
-      {
-        "kind": "fn",
-        "name": "query",
-        "text": "fn",
-        "start": {
-          "row": 0,
-          "column": 0
-        },
-        "end": {
-          "row": 0,
-          "column": 2
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "main",
-        "start": {
-          "row": 0,
-          "column": 3
-        },
-        "end": {
-          "row": 0,
-          "column": 7
-        }
-      },
-      {
-        "kind": "parameters",
-        "name": "query",
-        "text": "()",
-        "start": {
-          "row": 0,
-          "column": 7
-        },
-        "end": {
-          "row": 0,
-          "column": 9
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 0,
-          "column": 7
-        },
-        "end": {
-          "row": 0,
-          "column": 8
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 0,
-          "column": 8
-        },
-        "end": {
-          "row": 0,
-          "column": 9
-        }
-      },
-      {
-        "kind": "block",
-        "name": "query",
-        "text": "{\n    let src_dir = std::path::Path::new(\"src\");\n    let mut config = cc::Build::new();\n    config.include(&src_dir);\n    config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")\n        .flag_if_supported(\"-Wno-trigraphs\");\n    let parser_path = src_dir.join(\"parser.c\");\n    let scanner_path = src_dir.join(\"scanner.c\");\n    println!(\"cargo:rerun-if-changed={}\", parser_path.to_str().unwrap());\n    println!(\"cargo:rerun-if-changed={}\", scanner_path.to_str().unwrap());\n    config.file(&parser_path);\n    config.file(&scanner_path);\n    config.compile(\"parser-scanner\");\n}",
-        "start": {
-          "row": 0,
-          "column": 10
-        },
-        "end": {
-          "row": 15,
-          "column": 1
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 0,
-          "column": 10
-        },
-        "end": {
-          "row": 0,
-          "column": 11
-        }
-      },
-      {
-        "kind": "let_declaration",
-        "name": "query",
-        "text": "let src_dir = std::path::Path::new(\"src\");",
-        "start": {
-          "row": 1,
-          "column": 4
-        },
-        "end": {
-          "row": 1,
-          "column": 46
-        }
-      },
-      {
-        "kind": "let",
-        "name": "query",
-        "text": "let",
-        "start": {
-          "row": 1,
-          "column": 4
-        },
-        "end": {
-          "row": 1,
-          "column": 7
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "src_dir",
-        "start": {
-          "row": 1,
-          "column": 8
-        },
-        "end": {
-          "row": 1,
-          "column": 15
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 1,
-          "column": 16
-        },
-        "end": {
-          "row": 1,
-          "column": 17
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "std::path::Path::new(\"src\")",
-        "start": {
-          "row": 1,
-          "column": 18
-        },
-        "end": {
-          "row": 1,
-          "column": 45
-        }
-      },
-      {
-        "kind": "scoped_identifier",
-        "name": "query",
-        "text": "std::path::Path::new",
-        "start": {
-          "row": 1,
-          "column": 18
-        },
-        "end": {
-          "row": 1,
-          "column": 38
-        }
-      },
-      {
-        "kind": "scoped_identifier",
-        "name": "query",
-        "text": "std::path::Path",
-        "start": {
-          "row": 1,
-          "column": 18
-        },
-        "end": {
-          "row": 1,
-          "column": 33
-        }
-      },
-      {
-        "kind": "scoped_identifier",
-        "name": "query",
-        "text": "std::path",
-        "start": {
-          "row": 1,
-          "column": 18
-        },
-        "end": {
-          "row": 1,
-          "column": 27
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "std",
-        "start": {
-          "row": 1,
-          "column": 18
-        },
-        "end": {
-          "row": 1,
-          "column": 21
-        }
-      },
-      {
-        "kind": "::",
-        "name": "query",
-        "text": "::",
-        "start": {
-          "row": 1,
-          "column": 21
-        },
-        "end": {
-          "row": 1,
-          "column": 23
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "path",
-        "start": {
-          "row": 1,
-          "column": 23
-        },
-        "end": {
-          "row": 1,
-          "column": 27
-        }
-      },
-      {
-        "kind": "::",
-        "name": "query",
-        "text": "::",
-        "start": {
-          "row": 1,
-          "column": 27
-        },
-        "end": {
-          "row": 1,
-          "column": 29
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "Path",
-        "start": {
-          "row": 1,
-          "column": 29
-        },
-        "end": {
-          "row": 1,
-          "column": 33
-        }
-      },
-      {
-        "kind": "::",
-        "name": "query",
-        "text": "::",
-        "start": {
-          "row": 1,
-          "column": 33
-        },
-        "end": {
-          "row": 1,
-          "column": 35
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "new",
-        "start": {
-          "row": 1,
-          "column": 35
-        },
-        "end": {
-          "row": 1,
-          "column": 38
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "(\"src\")",
-        "start": {
-          "row": 1,
-          "column": 38
-        },
-        "end": {
-          "row": 1,
-          "column": 45
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 1,
-          "column": 38
-        },
-        "end": {
-          "row": 1,
-          "column": 39
-        }
-      },
-      {
-        "kind": "string_literal",
-        "name": "query",
-        "text": "\"src\"",
-        "start": {
-          "row": 1,
-          "column": 39
-        },
-        "end": {
-          "row": 1,
-          "column": 44
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 1,
-          "column": 39
-        },
-        "end": {
-          "row": 1,
-          "column": 40
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 1,
-          "column": 43
-        },
-        "end": {
-          "row": 1,
-          "column": 44
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 1,
-          "column": 44
-        },
-        "end": {
-          "row": 1,
-          "column": 45
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 1,
-          "column": 45
-        },
-        "end": {
-          "row": 1,
-          "column": 46
-        }
-      },
-      {
-        "kind": "let_declaration",
-        "name": "query",
-        "text": "let mut config = cc::Build::new();",
-        "start": {
-          "row": 2,
-          "column": 4
-        },
-        "end": {
-          "row": 2,
-          "column": 38
-        }
-      },
-      {
-        "kind": "let",
-        "name": "query",
-        "text": "let",
-        "start": {
-          "row": 2,
-          "column": 4
-        },
-        "end": {
-          "row": 2,
-          "column": 7
-        }
-      },
-      {
-        "kind": "mutable_specifier",
-        "name": "query",
-        "text": "mut",
-        "start": {
-          "row": 2,
-          "column": 8
-        },
-        "end": {
-          "row": 2,
-          "column": 11
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "config",
-        "start": {
-          "row": 2,
-          "column": 12
-        },
-        "end": {
-          "row": 2,
-          "column": 18
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 2,
-          "column": 19
-        },
-        "end": {
-          "row": 2,
-          "column": 20
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "cc::Build::new()",
-        "start": {
-          "row": 2,
-          "column": 21
-        },
-        "end": {
-          "row": 2,
-          "column": 37
-        }
-      },
-      {
-        "kind": "scoped_identifier",
-        "name": "query",
-        "text": "cc::Build::new",
-        "start": {
-          "row": 2,
-          "column": 21
-        },
-        "end": {
-          "row": 2,
-          "column": 35
-        }
-      },
-      {
-        "kind": "scoped_identifier",
-        "name": "query",
-        "text": "cc::Build",
-        "start": {
-          "row": 2,
-          "column": 21
-        },
-        "end": {
-          "row": 2,
-          "column": 30
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "cc",
-        "start": {
-          "row": 2,
-          "column": 21
-        },
-        "end": {
-          "row": 2,
-          "column": 23
-        }
-      },
-      {
-        "kind": "::",
-        "name": "query",
-        "text": "::",
-        "start": {
-          "row": 2,
-          "column": 23
-        },
-        "end": {
-          "row": 2,
-          "column": 25
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "Build",
-        "start": {
-          "row": 2,
-          "column": 25
-        },
-        "end": {
-          "row": 2,
-          "column": 30
-        }
-      },
-      {
-        "kind": "::",
-        "name": "query",
-        "text": "::",
-        "start": {
-          "row": 2,
-          "column": 30
-        },
-        "end": {
-          "row": 2,
-          "column": 32
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "new",
-        "start": {
-          "row": 2,
-          "column": 32
-        },
-        "end": {
-          "row": 2,
-          "column": 35
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "()",
-        "start": {
-          "row": 2,
-          "column": 35
-        },
-        "end": {
-          "row": 2,
-          "column": 37
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 2,
-          "column": 35
-        },
-        "end": {
-          "row": 2,
-          "column": 36
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 2,
-          "column": 36
-        },
-        "end": {
-          "row": 2,
-          "column": 37
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 2,
-          "column": 37
-        },
-        "end": {
-          "row": 2,
-          "column": 38
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "config.include(&src_dir)",
-        "start": {
-          "row": 3,
-          "column": 4
-        },
-        "end": {
-          "row": 3,
-          "column": 28
-        }
-      },
-      {
-        "kind": "field_expression",
-        "name": "query",
-        "text": "config.include",
-        "start": {
-          "row": 3,
-          "column": 4
-        },
-        "end": {
-          "row": 3,
-          "column": 18
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "config",
-        "start": {
-          "row": 3,
-          "column": 4
-        },
-        "end": {
-          "row": 3,
-          "column": 10
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 3,
-          "column": 10
-        },
-        "end": {
-          "row": 3,
-          "column": 11
-        }
-      },
-      {
-        "kind": "field_identifier",
-        "name": "query",
-        "text": "include",
-        "start": {
-          "row": 3,
-          "column": 11
-        },
-        "end": {
-          "row": 3,
-          "column": 18
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "(&src_dir)",
-        "start": {
-          "row": 3,
-          "column": 18
-        },
-        "end": {
-          "row": 3,
-          "column": 28
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 3,
-          "column": 18
-        },
-        "end": {
-          "row": 3,
-          "column": 19
-        }
-      },
-      {
-        "kind": "reference_expression",
-        "name": "query",
-        "text": "&src_dir",
-        "start": {
-          "row": 3,
-          "column": 19
-        },
-        "end": {
-          "row": 3,
-          "column": 27
-        }
-      },
-      {
-        "kind": "&",
-        "name": "query",
-        "text": "&",
-        "start": {
-          "row": 3,
-          "column": 19
-        },
-        "end": {
-          "row": 3,
-          "column": 20
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "src_dir",
-        "start": {
-          "row": 3,
-          "column": 20
-        },
-        "end": {
-          "row": 3,
-          "column": 27
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 3,
-          "column": 27
-        },
-        "end": {
-          "row": 3,
-          "column": 28
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 3,
-          "column": 28
-        },
-        "end": {
-          "row": 3,
-          "column": 29
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")\n        .flag_if_supported(\"-Wno-trigraphs\")",
-        "start": {
-          "row": 4,
-          "column": 4
-        },
-        "end": {
-          "row": 7,
-          "column": 44
-        }
-      },
-      {
-        "kind": "field_expression",
-        "name": "query",
-        "text": "config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")\n        .flag_if_supported",
-        "start": {
-          "row": 4,
-          "column": 4
-        },
-        "end": {
-          "row": 7,
-          "column": 26
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported(\"-Wno-unused-but-set-variable\")",
-        "start": {
-          "row": 4,
-          "column": 4
-        },
-        "end": {
-          "row": 6,
-          "column": 58
-        }
-      },
-      {
-        "kind": "field_expression",
-        "name": "query",
-        "text": "config\n        .flag_if_supported(\"-Wno-unused-parameter\")\n        .flag_if_supported",
-        "start": {
-          "row": 4,
-          "column": 4
-        },
-        "end": {
-          "row": 6,
-          "column": 26
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "config\n        .flag_if_supported(\"-Wno-unused-parameter\")",
-        "start": {
-          "row": 4,
-          "column": 4
-        },
-        "end": {
-          "row": 5,
-          "column": 51
-        }
-      },
-      {
-        "kind": "field_expression",
-        "name": "query",
-        "text": "config\n        .flag_if_supported",
-        "start": {
-          "row": 4,
-          "column": 4
-        },
-        "end": {
-          "row": 5,
-          "column": 26
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "config",
-        "start": {
-          "row": 4,
-          "column": 4
-        },
-        "end": {
-          "row": 4,
-          "column": 10
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 5,
-          "column": 8
-        },
-        "end": {
-          "row": 5,
-          "column": 9
-        }
-      },
-      {
-        "kind": "field_identifier",
-        "name": "query",
-        "text": "flag_if_supported",
-        "start": {
-          "row": 5,
-          "column": 9
-        },
-        "end": {
-          "row": 5,
-          "column": 26
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "(\"-Wno-unused-parameter\")",
-        "start": {
-          "row": 5,
-          "column": 26
-        },
-        "end": {
-          "row": 5,
-          "column": 51
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 5,
-          "column": 26
-        },
-        "end": {
-          "row": 5,
-          "column": 27
-        }
-      },
-      {
-        "kind": "string_literal",
-        "name": "query",
-        "text": "\"-Wno-unused-parameter\"",
-        "start": {
-          "row": 5,
-          "column": 27
-        },
-        "end": {
-          "row": 5,
-          "column": 50
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 5,
-          "column": 27
-        },
-        "end": {
-          "row": 5,
-          "column": 28
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 5,
-          "column": 49
-        },
-        "end": {
-          "row": 5,
-          "column": 50
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 5,
-          "column": 50
-        },
-        "end": {
-          "row": 5,
-          "column": 51
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 6,
-          "column": 8
-        },
-        "end": {
-          "row": 6,
-          "column": 9
-        }
-      },
-      {
-        "kind": "field_identifier",
-        "name": "query",
-        "text": "flag_if_supported",
-        "start": {
-          "row": 6,
-          "column": 9
-        },
-        "end": {
-          "row": 6,
-          "column": 26
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "(\"-Wno-unused-but-set-variable\")",
-        "start": {
-          "row": 6,
-          "column": 26
-        },
-        "end": {
-          "row": 6,
-          "column": 58
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 6,
-          "column": 26
-        },
-        "end": {
-          "row": 6,
-          "column": 27
-        }
-      },
-      {
-        "kind": "string_literal",
-        "name": "query",
-        "text": "\"-Wno-unused-but-set-variable\"",
-        "start": {
-          "row": 6,
-          "column": 27
-        },
-        "end": {
-          "row": 6,
-          "column": 57
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 6,
-          "column": 27
-        },
-        "end": {
-          "row": 6,
-          "column": 28
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 6,
-          "column": 56
-        },
-        "end": {
-          "row": 6,
-          "column": 57
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 6,
-          "column": 57
-        },
-        "end": {
-          "row": 6,
-          "column": 58
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 7,
-          "column": 8
-        },
-        "end": {
-          "row": 7,
-          "column": 9
-        }
-      },
-      {
-        "kind": "field_identifier",
-        "name": "query",
-        "text": "flag_if_supported",
-        "start": {
-          "row": 7,
-          "column": 9
-        },
-        "end": {
-          "row": 7,
-          "column": 26
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "(\"-Wno-trigraphs\")",
-        "start": {
-          "row": 7,
-          "column": 26
-        },
-        "end": {
-          "row": 7,
-          "column": 44
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 7,
-          "column": 26
-        },
-        "end": {
-          "row": 7,
-          "column": 27
-        }
-      },
-      {
-        "kind": "string_literal",
-        "name": "query",
-        "text": "\"-Wno-trigraphs\"",
-        "start": {
-          "row": 7,
-          "column": 27
-        },
-        "end": {
-          "row": 7,
-          "column": 43
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 7,
-          "column": 27
-        },
-        "end": {
-          "row": 7,
-          "column": 28
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 7,
-          "column": 42
-        },
-        "end": {
-          "row": 7,
-          "column": 43
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 7,
-          "column": 43
-        },
-        "end": {
-          "row": 7,
-          "column": 44
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 7,
-          "column": 44
-        },
-        "end": {
-          "row": 7,
-          "column": 45
-        }
-      },
-      {
-        "kind": "let_declaration",
-        "name": "query",
-        "text": "let parser_path = src_dir.join(\"parser.c\");",
-        "start": {
-          "row": 8,
-          "column": 4
-        },
-        "end": {
-          "row": 8,
-          "column": 47
-        }
-      },
-      {
-        "kind": "let",
-        "name": "query",
-        "text": "let",
-        "start": {
-          "row": 8,
-          "column": 4
-        },
-        "end": {
-          "row": 8,
-          "column": 7
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "parser_path",
-        "start": {
-          "row": 8,
-          "column": 8
-        },
-        "end": {
-          "row": 8,
-          "column": 19
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 8,
-          "column": 20
-        },
-        "end": {
-          "row": 8,
-          "column": 21
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "src_dir.join(\"parser.c\")",
-        "start": {
-          "row": 8,
-          "column": 22
-        },
-        "end": {
-          "row": 8,
-          "column": 46
-        }
-      },
-      {
-        "kind": "field_expression",
-        "name": "query",
-        "text": "src_dir.join",
-        "start": {
-          "row": 8,
-          "column": 22
-        },
-        "end": {
-          "row": 8,
-          "column": 34
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "src_dir",
-        "start": {
-          "row": 8,
-          "column": 22
-        },
-        "end": {
-          "row": 8,
-          "column": 29
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 8,
-          "column": 29
-        },
-        "end": {
-          "row": 8,
-          "column": 30
-        }
-      },
-      {
-        "kind": "field_identifier",
-        "name": "query",
-        "text": "join",
-        "start": {
-          "row": 8,
-          "column": 30
-        },
-        "end": {
-          "row": 8,
-          "column": 34
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "(\"parser.c\")",
-        "start": {
-          "row": 8,
-          "column": 34
-        },
-        "end": {
-          "row": 8,
-          "column": 46
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 8,
-          "column": 34
-        },
-        "end": {
-          "row": 8,
-          "column": 35
-        }
-      },
-      {
-        "kind": "string_literal",
-        "name": "query",
-        "text": "\"parser.c\"",
-        "start": {
-          "row": 8,
-          "column": 35
-        },
-        "end": {
-          "row": 8,
-          "column": 45
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 8,
-          "column": 35
-        },
-        "end": {
-          "row": 8,
-          "column": 36
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 8,
-          "column": 44
-        },
-        "end": {
-          "row": 8,
-          "column": 45
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 8,
-          "column": 45
-        },
-        "end": {
-          "row": 8,
-          "column": 46
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 8,
-          "column": 46
-        },
-        "end": {
-          "row": 8,
-          "column": 47
-        }
-      },
-      {
-        "kind": "let_declaration",
-        "name": "query",
-        "text": "let scanner_path = src_dir.join(\"scanner.c\");",
-        "start": {
-          "row": 9,
-          "column": 4
-        },
-        "end": {
-          "row": 9,
-          "column": 49
-        }
-      },
-      {
-        "kind": "let",
-        "name": "query",
-        "text": "let",
-        "start": {
-          "row": 9,
-          "column": 4
-        },
-        "end": {
-          "row": 9,
-          "column": 7
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "scanner_path",
-        "start": {
-          "row": 9,
-          "column": 8
-        },
-        "end": {
-          "row": 9,
-          "column": 20
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 9,
-          "column": 21
-        },
-        "end": {
-          "row": 9,
-          "column": 22
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "src_dir.join(\"scanner.c\")",
-        "start": {
-          "row": 9,
-          "column": 23
-        },
-        "end": {
-          "row": 9,
-          "column": 48
-        }
-      },
-      {
-        "kind": "field_expression",
-        "name": "query",
-        "text": "src_dir.join",
-        "start": {
-          "row": 9,
-          "column": 23
-        },
-        "end": {
-          "row": 9,
-          "column": 35
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "src_dir",
-        "start": {
-          "row": 9,
-          "column": 23
-        },
-        "end": {
-          "row": 9,
-          "column": 30
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 9,
-          "column": 30
-        },
-        "end": {
-          "row": 9,
-          "column": 31
-        }
-      },
-      {
-        "kind": "field_identifier",
-        "name": "query",
-        "text": "join",
-        "start": {
-          "row": 9,
-          "column": 31
-        },
-        "end": {
-          "row": 9,
-          "column": 35
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "(\"scanner.c\")",
-        "start": {
-          "row": 9,
-          "column": 35
-        },
-        "end": {
-          "row": 9,
-          "column": 48
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 9,
-          "column": 35
-        },
-        "end": {
-          "row": 9,
-          "column": 36
-        }
-      },
-      {
-        "kind": "string_literal",
-        "name": "query",
-        "text": "\"scanner.c\"",
-        "start": {
-          "row": 9,
-          "column": 36
-        },
-        "end": {
-          "row": 9,
-          "column": 47
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 9,
-          "column": 36
-        },
-        "end": {
-          "row": 9,
-          "column": 37
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 9,
-          "column": 46
-        },
-        "end": {
-          "row": 9,
-          "column": 47
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 9,
-          "column": 47
-        },
-        "end": {
-          "row": 9,
-          "column": 48
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 9,
-          "column": 48
-        },
-        "end": {
-          "row": 9,
-          "column": 49
-        }
-      },
-      {
-        "kind": "macro_invocation",
-        "name": "query",
-        "text": "println!(\"cargo:rerun-if-changed={}\", parser_path.to_str().unwrap())",
-        "start": {
-          "row": 10,
-          "column": 4
-        },
-        "end": {
-          "row": 10,
-          "column": 72
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "println",
-        "start": {
-          "row": 10,
-          "column": 4
-        },
-        "end": {
-          "row": 10,
-          "column": 11
-        }
-      },
-      {
-        "kind": "!",
-        "name": "query",
-        "text": "!",
-        "start": {
-          "row": 10,
-          "column": 11
-        },
-        "end": {
-          "row": 10,
-          "column": 12
-        }
-      },
-      {
-        "kind": "token_tree",
-        "name": "query",
-        "text": "(\"cargo:rerun-if-changed={}\", parser_path.to_str().unwrap())",
-        "start": {
-          "row": 10,
-          "column": 12
-        },
-        "end": {
-          "row": 10,
-          "column": 72
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 10,
-          "column": 12
-        },
-        "end": {
-          "row": 10,
-          "column": 13
-        }
-      },
-      {
-        "kind": "string_literal",
-        "name": "query",
-        "text": "\"cargo:rerun-if-changed={}\"",
-        "start": {
-          "row": 10,
-          "column": 13
-        },
-        "end": {
-          "row": 10,
-          "column": 40
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 10,
-          "column": 13
-        },
-        "end": {
-          "row": 10,
-          "column": 14
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 10,
-          "column": 39
-        },
-        "end": {
-          "row": 10,
-          "column": 40
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "parser_path",
-        "start": {
-          "row": 10,
-          "column": 42
-        },
-        "end": {
-          "row": 10,
-          "column": 53
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "to_str",
-        "start": {
-          "row": 10,
-          "column": 54
-        },
-        "end": {
-          "row": 10,
-          "column": 60
-        }
-      },
-      {
-        "kind": "token_tree",
-        "name": "query",
-        "text": "()",
-        "start": {
-          "row": 10,
-          "column": 60
-        },
-        "end": {
-          "row": 10,
-          "column": 62
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 10,
-          "column": 60
-        },
-        "end": {
-          "row": 10,
-          "column": 61
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 10,
-          "column": 61
-        },
-        "end": {
-          "row": 10,
-          "column": 62
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "unwrap",
-        "start": {
-          "row": 10,
-          "column": 63
-        },
-        "end": {
-          "row": 10,
-          "column": 69
-        }
-      },
-      {
-        "kind": "token_tree",
-        "name": "query",
-        "text": "()",
-        "start": {
-          "row": 10,
-          "column": 69
-        },
-        "end": {
-          "row": 10,
-          "column": 71
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 10,
-          "column": 69
-        },
-        "end": {
-          "row": 10,
-          "column": 70
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 10,
-          "column": 70
-        },
-        "end": {
-          "row": 10,
-          "column": 71
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 10,
-          "column": 71
-        },
-        "end": {
-          "row": 10,
-          "column": 72
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 10,
-          "column": 72
-        },
-        "end": {
-          "row": 10,
-          "column": 73
-        }
-      },
-      {
-        "kind": "macro_invocation",
-        "name": "query",
-        "text": "println!(\"cargo:rerun-if-changed={}\", scanner_path.to_str().unwrap())",
-        "start": {
-          "row": 11,
-          "column": 4
-        },
-        "end": {
-          "row": 11,
-          "column": 73
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "println",
-        "start": {
-          "row": 11,
-          "column": 4
-        },
-        "end": {
-          "row": 11,
-          "column": 11
-        }
-      },
-      {
-        "kind": "!",
-        "name": "query",
-        "text": "!",
-        "start": {
-          "row": 11,
-          "column": 11
-        },
-        "end": {
-          "row": 11,
-          "column": 12
-        }
-      },
-      {
-        "kind": "token_tree",
-        "name": "query",
-        "text": "(\"cargo:rerun-if-changed={}\", scanner_path.to_str().unwrap())",
-        "start": {
-          "row": 11,
-          "column": 12
-        },
-        "end": {
-          "row": 11,
-          "column": 73
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 11,
-          "column": 12
-        },
-        "end": {
-          "row": 11,
-          "column": 13
-        }
-      },
-      {
-        "kind": "string_literal",
-        "name": "query",
-        "text": "\"cargo:rerun-if-changed={}\"",
-        "start": {
-          "row": 11,
-          "column": 13
-        },
-        "end": {
-          "row": 11,
-          "column": 40
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 11,
-          "column": 13
-        },
-        "end": {
-          "row": 11,
-          "column": 14
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 11,
-          "column": 39
-        },
-        "end": {
-          "row": 11,
-          "column": 40
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "scanner_path",
-        "start": {
-          "row": 11,
-          "column": 42
-        },
-        "end": {
-          "row": 11,
-          "column": 54
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "to_str",
-        "start": {
-          "row": 11,
-          "column": 55
-        },
-        "end": {
-          "row": 11,
-          "column": 61
-        }
-      },
-      {
-        "kind": "token_tree",
-        "name": "query",
-        "text": "()",
-        "start": {
-          "row": 11,
-          "column": 61
-        },
-        "end": {
-          "row": 11,
-          "column": 63
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 11,
-          "column": 61
-        },
-        "end": {
-          "row": 11,
-          "column": 62
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 11,
-          "column": 62
-        },
-        "end": {
-          "row": 11,
-          "column": 63
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "unwrap",
-        "start": {
-          "row": 11,
-          "column": 64
-        },
-        "end": {
-          "row": 11,
-          "column": 70
-        }
-      },
-      {
-        "kind": "token_tree",
-        "name": "query",
-        "text": "()",
-        "start": {
-          "row": 11,
-          "column": 70
-        },
-        "end": {
-          "row": 11,
-          "column": 72
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 11,
-          "column": 70
-        },
-        "end": {
-          "row": 11,
-          "column": 71
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 11,
-          "column": 71
-        },
-        "end": {
-          "row": 11,
-          "column": 72
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 11,
-          "column": 72
-        },
-        "end": {
-          "row": 11,
-          "column": 73
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 11,
-          "column": 73
-        },
-        "end": {
-          "row": 11,
-          "column": 74
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "config.file(&parser_path)",
-        "start": {
-          "row": 12,
-          "column": 4
-        },
-        "end": {
-          "row": 12,
-          "column": 29
-        }
-      },
-      {
-        "kind": "field_expression",
-        "name": "query",
-        "text": "config.file",
-        "start": {
-          "row": 12,
-          "column": 4
-        },
-        "end": {
-          "row": 12,
-          "column": 15
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "config",
-        "start": {
-          "row": 12,
-          "column": 4
-        },
-        "end": {
-          "row": 12,
-          "column": 10
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 12,
-          "column": 10
-        },
-        "end": {
-          "row": 12,
-          "column": 11
-        }
-      },
-      {
-        "kind": "field_identifier",
-        "name": "query",
-        "text": "file",
-        "start": {
-          "row": 12,
-          "column": 11
-        },
-        "end": {
-          "row": 12,
-          "column": 15
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "(&parser_path)",
-        "start": {
-          "row": 12,
-          "column": 15
-        },
-        "end": {
-          "row": 12,
-          "column": 29
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 12,
-          "column": 15
-        },
-        "end": {
-          "row": 12,
-          "column": 16
-        }
-      },
-      {
-        "kind": "reference_expression",
-        "name": "query",
-        "text": "&parser_path",
-        "start": {
-          "row": 12,
-          "column": 16
-        },
-        "end": {
-          "row": 12,
-          "column": 28
-        }
-      },
-      {
-        "kind": "&",
-        "name": "query",
-        "text": "&",
-        "start": {
-          "row": 12,
-          "column": 16
-        },
-        "end": {
-          "row": 12,
-          "column": 17
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "parser_path",
-        "start": {
-          "row": 12,
-          "column": 17
-        },
-        "end": {
-          "row": 12,
-          "column": 28
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 12,
-          "column": 28
-        },
-        "end": {
-          "row": 12,
-          "column": 29
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 12,
-          "column": 29
-        },
-        "end": {
-          "row": 12,
-          "column": 30
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "config.file(&scanner_path)",
-        "start": {
-          "row": 13,
-          "column": 4
-        },
-        "end": {
-          "row": 13,
-          "column": 30
-        }
-      },
-      {
-        "kind": "field_expression",
-        "name": "query",
-        "text": "config.file",
-        "start": {
-          "row": 13,
-          "column": 4
-        },
-        "end": {
-          "row": 13,
-          "column": 15
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "config",
-        "start": {
-          "row": 13,
-          "column": 4
-        },
-        "end": {
-          "row": 13,
-          "column": 10
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 13,
-          "column": 10
-        },
-        "end": {
-          "row": 13,
-          "column": 11
-        }
-      },
-      {
-        "kind": "field_identifier",
-        "name": "query",
-        "text": "file",
-        "start": {
-          "row": 13,
-          "column": 11
-        },
-        "end": {
-          "row": 13,
-          "column": 15
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "(&scanner_path)",
-        "start": {
-          "row": 13,
-          "column": 15
-        },
-        "end": {
-          "row": 13,
-          "column": 30
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 13,
-          "column": 15
-        },
-        "end": {
-          "row": 13,
-          "column": 16
-        }
-      },
-      {
-        "kind": "reference_expression",
-        "name": "query",
-        "text": "&scanner_path",
-        "start": {
-          "row": 13,
-          "column": 16
-        },
-        "end": {
-          "row": 13,
-          "column": 29
-        }
-      },
-      {
-        "kind": "&",
-        "name": "query",
-        "text": "&",
-        "start": {
-          "row": 13,
-          "column": 16
-        },
-        "end": {
-          "row": 13,
-          "column": 17
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "scanner_path",
-        "start": {
-          "row": 13,
-          "column": 17
-        },
-        "end": {
-          "row": 13,
-          "column": 29
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 13,
-          "column": 29
-        },
-        "end": {
-          "row": 13,
-          "column": 30
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 13,
-          "column": 30
-        },
-        "end": {
-          "row": 13,
-          "column": 31
-        }
-      },
-      {
-        "kind": "call_expression",
-        "name": "query",
-        "text": "config.compile(\"parser-scanner\")",
-        "start": {
-          "row": 14,
-          "column": 4
-        },
-        "end": {
-          "row": 14,
-          "column": 36
-        }
-      },
-      {
-        "kind": "field_expression",
-        "name": "query",
-        "text": "config.compile",
-        "start": {
-          "row": 14,
-          "column": 4
-        },
-        "end": {
-          "row": 14,
-          "column": 18
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "config",
-        "start": {
-          "row": 14,
-          "column": 4
-        },
-        "end": {
-          "row": 14,
-          "column": 10
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 14,
-          "column": 10
-        },
-        "end": {
-          "row": 14,
-          "column": 11
-        }
-      },
-      {
-        "kind": "field_identifier",
-        "name": "query",
-        "text": "compile",
-        "start": {
-          "row": 14,
-          "column": 11
-        },
-        "end": {
-          "row": 14,
-          "column": 18
-        }
-      },
-      {
-        "kind": "arguments",
-        "name": "query",
-        "text": "(\"parser-scanner\")",
-        "start": {
-          "row": 14,
-          "column": 18
-        },
-        "end": {
-          "row": 14,
-          "column": 36
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 14,
-          "column": 18
-        },
-        "end": {
-          "row": 14,
-          "column": 19
-        }
-      },
-      {
-        "kind": "string_literal",
-        "name": "query",
-        "text": "\"parser-scanner\"",
-        "start": {
-          "row": 14,
-          "column": 19
-        },
-        "end": {
-          "row": 14,
-          "column": 35
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 14,
-          "column": 19
-        },
-        "end": {
-          "row": 14,
-          "column": 20
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 14,
-          "column": 34
-        },
-        "end": {
-          "row": 14,
-          "column": 35
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 14,
-          "column": 35
-        },
-        "end": {
-          "row": 14,
-          "column": 36
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 14,
-          "column": 36
-        },
-        "end": {
-          "row": 14,
-          "column": 37
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 15,
-          "column": 0
-        },
-        "end": {
-          "row": 15,
           "column": 1
         }
       }

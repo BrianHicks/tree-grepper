@@ -128,6 +128,7 @@ mod tests {
             "(import_clause)",
             "-f",
             "lines",
+            "--sort",
             "vendor/tree-sitter-elm",
         ]))
     }
@@ -141,6 +142,7 @@ mod tests {
             "(import_clause)",
             "-f",
             "json",
+            "--sort",
             "vendor/tree-sitter-elm",
         ]))
     }
@@ -152,8 +154,8 @@ mod tests {
             "-q",
             "elm",
             "(import_clause)",
-            "-f",
-            "pretty-json",
+            "--format=pretty-json",
+            "--sort",
             "vendor/tree-sitter-elm",
         ]))
     }
@@ -168,8 +170,8 @@ mod tests {
             "-q",
             "elm",
             "(_)",
-            "-f",
-            "pretty-json",
+            "--format=pretty-json",
+            "--sort",
             "vendor/tree-sitter-elm",
         ]))
     }
@@ -181,8 +183,8 @@ mod tests {
             "-q",
             "haskell",
             "(_)",
-            "-f",
-            "pretty-json",
+            "--format=pretty-json",
+            "--sort",
             "vendor/tree-sitter-haskell",
         ]))
     }
@@ -194,8 +196,8 @@ mod tests {
             "-q",
             "javascript",
             "(_)",
-            "-f",
-            "pretty-json",
+            "--format=pretty-json",
+            "--sort",
             // note that this doesn't include the entire vendor
             // directory. tree-sitter-javascript vendors a couple of libraries
             // to test things and it makes this test run unacceptably long. I
@@ -212,8 +214,8 @@ mod tests {
             "-q",
             "ruby",
             "(_)",
-            "-f",
-            "pretty-json",
+            "--format=pretty-json",
+            "--sort",
             "vendor/tree-sitter-ruby",
         ]))
     }
@@ -225,8 +227,8 @@ mod tests {
             "-q",
             "rust",
             "(_)",
-            "-f",
-            "pretty-json",
+            "--format=pretty-json",
+            "--sort",
             "vendor/tree-sitter-rust",
         ]))
     }
@@ -238,8 +240,8 @@ mod tests {
             "-q",
             "typescript",
             "(_)",
-            "-f",
-            "pretty-json",
+            "--format=pretty-json",
+            "--sort",
             // similar to JavaScript, there is one particular test file in this
             // grammar that's *huge*. It seems to be a comprehensive listing of
             // all the typescript syntax, maybe? Regardless, it makes this test
