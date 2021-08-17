@@ -3169,6 +3169,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"-f\", \
         }
       },
       {
+        "kind": "string_fragment",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 0,
+          "column": 9
+        },
+        "end": {
+          "row": 0,
+          "column": 10
+        }
+      },
+      {
         "kind": "'",
         "name": "query",
         "text": "'",
@@ -3920,6 +3933,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"-f\", \
         "end": {
           "row": 12,
           "column": 12
+        }
+      },
+      {
+        "kind": "string_fragment",
+        "name": "query",
+        "text": "e",
+        "start": {
+          "row": 12,
+          "column": 12
+        },
+        "end": {
+          "row": 12,
+          "column": 13
         }
       },
       {

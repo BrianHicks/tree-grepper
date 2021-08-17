@@ -10,7 +10,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty
       {
         "kind": "file",
         "name": "query",
-        "text": "module Main exposing (Msg(..), main, update, view)\n-- ^ keyword.other.elm\n--              ^ keyword.other.elm\n\nimport Browser\n-- ^ meta.import.elm\nimport Html exposing (Html, button, div, text)\n-- ^ meta.import.elm\nimport Html.Events exposing (onClick)\n-- ^ meta.import.elm\n\n\nmain =\n    Browser.sandbox { init = 0, update = update, view = view }\n\n\ntype Msg\n-- <- @keyword.type.elm\n--    ^ @storage.type.elm\n    = Increment\n    -- ^ constant.type-constructor.elm\n    | Decrement\n    -- ^ constant.type-constructor.elm\n\nupdate : Msg -> Model\n-- <- entity.name.function.elm\n--     ^ keyword.other.elm\n--            ^ keyword.operator.arrow.elm\n\nupdate msg model =\n    case msg of\n    --       ^ keyword.control.elm\n        Increment ->\n                -- ^ keyword.operator.arrow.elm\n            model + 1\n            --    ^ keyword.operator.elm\n\n        Decrement ->\n            model - 1\n            --      ^ constant.numeric.elm\n\nview model =\n    --     ^ keyword.operator.assignment.elm\n    div []\n        [ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ punctuation.definition.string.begin.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]\n",
+        "text": "module Main exposing (Msg(..), main, update, view)\n-- ^ keyword.other.elm\n--              ^ keyword.other.elm\n\nimport Browser\n-- ^ meta.import.elm\nimport Html exposing (Html, button, div, text)\n-- ^ meta.import.elm\nimport Html.Events exposing (onClick)\n-- ^ meta.import.elm\n\n\nmain =\n    Browser.sandbox { init = 0, update = update, view = view }\n\n\ntype Msg\n-- <- @keyword.type.elm\n--    ^ @storage.type.elm\n    = Increment\n    -- ^ union.elm\n    | Decrement\n    -- ^ union.elm\n\nupdate : Msg -> Model\n-- <- function.elm\n--     ^ keyword.other.elm\n--            ^ keyword.operator.arrow.elm\n\nupdate msg model =\n    case msg of\n    --       ^ keyword.control.elm\n        Increment ->\n                -- ^ keyword.operator.arrow.elm\n            model + 1\n            --    ^ keyword.operator.elm\n\n        Decrement ->\n            model - 1\n            --      ^ constant.numeric.elm\n\nview model =\n    --     ^ keyword.operator.assignment.elm\n    div []\n        [ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ string.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]\n",
         "start": {
           "row": 0,
           "column": 0
@@ -1258,7 +1258,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty
       {
         "kind": "type_declaration",
         "name": "query",
-        "text": "type Msg\n-- <- @keyword.type.elm\n--    ^ @storage.type.elm\n    = Increment\n    -- ^ constant.type-constructor.elm\n    | Decrement",
+        "text": "type Msg\n-- <- @keyword.type.elm\n--    ^ @storage.type.elm\n    = Increment\n    -- ^ union.elm\n    | Decrement",
         "start": {
           "row": 16,
           "column": 0
@@ -1362,14 +1362,14 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty
       {
         "kind": "line_comment",
         "name": "query",
-        "text": "-- ^ constant.type-constructor.elm",
+        "text": "-- ^ union.elm",
         "start": {
           "row": 20,
           "column": 4
         },
         "end": {
           "row": 20,
-          "column": 38
+          "column": 18
         }
       },
       {
@@ -1414,14 +1414,14 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty
       {
         "kind": "line_comment",
         "name": "query",
-        "text": "-- ^ constant.type-constructor.elm",
+        "text": "-- ^ union.elm",
         "start": {
           "row": 22,
           "column": 4
         },
         "end": {
           "row": 22,
-          "column": 38
+          "column": 18
         }
       },
       {
@@ -1570,14 +1570,14 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty
       {
         "kind": "line_comment",
         "name": "query",
-        "text": "-- <- entity.name.function.elm",
+        "text": "-- <- function.elm",
         "start": {
           "row": 25,
           "column": 0
         },
         "end": {
           "row": 25,
-          "column": 30
+          "column": 18
         }
       },
       {
@@ -2233,7 +2233,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty
       {
         "kind": "value_declaration",
         "name": "query",
-        "text": "view model =\n    --     ^ keyword.operator.assignment.elm\n    div []\n        [ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ punctuation.definition.string.begin.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]",
+        "text": "view model =\n    --     ^ keyword.operator.assignment.elm\n    div []\n        [ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ string.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]",
         "start": {
           "row": 41,
           "column": 0
@@ -2324,7 +2324,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty
       {
         "kind": "function_call_expr",
         "name": "query",
-        "text": "div []\n        [ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ punctuation.definition.string.begin.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]",
+        "text": "div []\n        [ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ string.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]",
         "start": {
           "row": 43,
           "column": 4
@@ -2415,7 +2415,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty
       {
         "kind": "list_expr",
         "name": "query",
-        "text": "[ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ punctuation.definition.string.begin.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]",
+        "text": "[ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ string.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]",
         "start": {
           "row": 44,
           "column": 8
@@ -2766,14 +2766,14 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty
       {
         "kind": "line_comment",
         "name": "query",
-        "text": "--                                    ^ punctuation.definition.string.begin.elm",
+        "text": "--                                    ^ string.elm",
         "start": {
           "row": 45,
           "column": 8
         },
         "end": {
           "row": 45,
-          "column": 87
+          "column": 58
         }
       },
       {
