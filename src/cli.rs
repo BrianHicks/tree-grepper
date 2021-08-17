@@ -112,7 +112,7 @@ impl Opts {
             if let Some(existing) = query_strings.get_mut(&lang) {
                 existing.push_str(&query_out);
             } else {
-                query_strings.insert(lang, String::from(query_out));
+                query_strings.insert(lang, query_out);
             }
         }
 
@@ -147,8 +147,8 @@ impl Opts {
 #[derive(Debug)]
 pub enum Format {
     Lines,
-    JSON,
-    PrettyJSON,
+    Json,
+    PrettyJson,
 }
 
 impl FromStr for Format {
@@ -157,8 +157,8 @@ impl FromStr for Format {
     fn from_str(s: &str) -> Result<Self> {
         match s {
             "lines" => Ok(Format::Lines),
-            "json" => Ok(Format::JSON),
-            "pretty-json" => Ok(Format::PrettyJSON),
+            "json" => Ok(Format::Json),
+            "pretty-json" => Ok(Format::PrettyJson),
             _ => bail!("unknown format. See --help for valid formats."),
         }
     }

@@ -49,10 +49,9 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
                 .extractor_for(entry)
                 .map(|extractor| (entry, extractor))
         })
-        .map_init(
-            || Parser::new(),
-            |parser, (entry, extractor)| extractor.extract_from_file(entry.path(), parser),
-        )
+        .map_init(Parser::new, |parser, (entry, extractor)| {
+            extractor.extract_from_file(entry.path(), parser)
+        })
         .filter_map(|result_containing_option| match result_containing_option {
             Ok(None) => None,
             Ok(Some(extraction)) => Some(Ok(extraction)),
@@ -68,13 +67,13 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
             }
         }
 
-        Format::JSON => {
-            serde_json::to_writer(out, &extracted_files).context("could not write JSON output")?;
+        Format::Json => {
+            serde_json::to_writer(out, &extracted_files).context("could not write Json output")?;
         }
 
-        Format::PrettyJSON => {
+        Format::PrettyJson => {
             serde_json::to_writer_pretty(out, &extracted_files)
-                .context("could not write JSON output")?;
+                .context("could not write Json output")?;
         }
     }
 

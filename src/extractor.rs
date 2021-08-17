@@ -20,14 +20,14 @@ impl Extractor {
         let captures = query.capture_names().to_vec();
 
         for name in &captures {
-            if name.starts_with("_") {
+            if name.starts_with('_') {
                 query.disable_capture(&name);
             }
         }
 
         Extractor {
             ts_language: (&language).language(),
-            language: language,
+            language,
             query,
             captures,
         }
@@ -69,7 +69,7 @@ impl Extractor {
                 node.utf8_text(&source).unwrap_or("")
             })
             .flat_map(|query_match| query_match.captures)
-            .filter_map(|capture| {
+            .map(|capture| {
                 // note: the cast here could potentially break if run on a 16-bit
                 // microcontroller. I don't think this is a huge problem, though,
                 // since even the gnarliest queries I've written have something
@@ -82,16 +82,16 @@ impl Extractor {
                     .context("could not extract text from capture")
                 {
                     Ok(text) => text,
-                    Err(problem) => return Some(Err(problem)),
+                    Err(problem) => return Err(problem),
                 };
 
-                Some(Ok(ExtractedMatch {
+                Ok(ExtractedMatch {
                     kind: node.kind(),
-                    name: name,
-                    text: text,
+                    name,
+                    text,
                     start: node.start_position(),
                     end: node.end_position(),
-                }))
+                })
             })
             .collect::<Result<Vec<ExtractedMatch>>>()?;
 
@@ -115,9 +115,9 @@ pub struct ExtractedFile<'query> {
 impl<'query> Display for ExtractedFile<'query> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         for extraction in &self.matches {
-            write!(
+            writeln!(
                 f,
-                "{}:{}:{}:{}:{}\n",
+                "{}:{}:{}:{}:{}",
                 self.file.display(),
                 extraction.start.row,
                 extraction.start.column,

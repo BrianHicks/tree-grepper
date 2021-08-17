@@ -55,6 +55,6 @@ impl<'extractor> ExtractorChooser<'extractor> {
             .inner()
             .and_then(|glob| glob.file_type_def())
             .and_then(|def| self.extractors.get(def.name()))
-            .map(|extractor_ref| *extractor_ref)
+            .copied()
     }
 }
