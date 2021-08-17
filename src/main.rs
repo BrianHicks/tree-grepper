@@ -166,4 +166,16 @@ mod tests {
             "pretty-json"
         ]))
     }
+
+    #[test]
+    fn all_haskell() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "haskell",
+            "(_)",
+            "-f",
+            "pretty-json"
+        ]))
+    }
 }
