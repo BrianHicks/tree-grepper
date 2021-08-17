@@ -24,7 +24,7 @@ impl<'extractor> ExtractorChooser<'extractor> {
                 Language::JavaScript => "js",
                 Language::Ruby => "ruby",
                 Language::Rust => "rust",
-                Language::TypeScript => "typescript",
+                Language::TypeScript => "ts",
             };
             types_builder.select(name);
 
