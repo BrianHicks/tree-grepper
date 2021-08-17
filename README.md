@@ -13,9 +13,6 @@ nix-env -if https://github.com/BrianHicks/tree-grepper/archive/refs/heads/main.t
 
 If you have a Rust toolchain set up, you can also clone this repo and run `cargo build`.
 
-(Warning: this repo use submodules.
-I'm currently pretty unhappy with the consequences of that decision, and will likely change it soon!)
-
 ## Usage
 
 Use it like `grep` (or really, more like `ack`/`ag`/`pt`/`rg`.)
