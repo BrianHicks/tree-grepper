@@ -100,3 +100,24 @@ fn build_walker(opts: &Opts) -> Result<ignore::Walk> {
         .git_global(opts.git_ignore)
         .build())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn call(args: &[&str]) -> String {
+        let mut bytes = Vec::new();
+        try_main(
+            args.iter().map(|s| s.to_string()).collect(),
+            Box::new(&mut bytes),
+        )
+        .unwrap();
+
+        String::from_utf8(bytes).unwrap()
+    }
+
+    #[test]
+    fn lines_output() {
+        insta::assert_snapshot!(call(&["tree-grepper", "-q", "elm", "(import_clause)"]))
+    }
+}
