@@ -106,7 +106,7 @@ impl Extractor {
     }
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, PartialEq, Eq, PartialOrd, Ord)]
 pub struct ExtractedFile<'query> {
     file: PathBuf,
     matches: Vec<ExtractedMatch<'query>>,
@@ -130,7 +130,7 @@ impl<'query> Display for ExtractedFile<'query> {
     }
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, PartialEq, Eq, PartialOrd, Ord)]
 pub struct ExtractedMatch<'query> {
     kind: &'static str,
     name: &'query str,

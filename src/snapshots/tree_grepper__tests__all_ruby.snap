@@ -1,9 +1,1132 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"-f\", \"pretty-json\",\n       \"vendor/tree-sitter-ruby\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"vendor/tree-sitter-ruby\"])"
 
 ---
 [
+  {
+    "file": "vendor/tree-sitter-ruby/test/corpus/single-cr-as-whitespace.rb",
+    "matches": [
+      {
+        "kind": "program",
+        "name": "query",
+        "text": "==================================\nSingle CR characters as whitespace\n==================================\n\nputs\r\r\r\r\r\r\r\r\r\r\r\r\r\r\"hi\"\n\n---\n\n(program (call (identifier) (argument_list (string (string_content)))))\n",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 9,
+          "column": 0
+        }
+      },
+      {
+        "kind": "ERROR",
+        "name": "query",
+        "text": "==================================",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 34
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 3
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 3
+        },
+        "end": {
+          "row": 0,
+          "column": 6
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 6
+        },
+        "end": {
+          "row": 0,
+          "column": 9
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 9
+        },
+        "end": {
+          "row": 0,
+          "column": 12
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 12
+        },
+        "end": {
+          "row": 0,
+          "column": 15
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 15
+        },
+        "end": {
+          "row": 0,
+          "column": 18
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 18
+        },
+        "end": {
+          "row": 0,
+          "column": 21
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 21
+        },
+        "end": {
+          "row": 0,
+          "column": 24
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 24
+        },
+        "end": {
+          "row": 0,
+          "column": 27
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 27
+        },
+        "end": {
+          "row": 0,
+          "column": 30
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 0,
+          "column": 30
+        },
+        "end": {
+          "row": 0,
+          "column": 33
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 0,
+          "column": 33
+        },
+        "end": {
+          "row": 0,
+          "column": 34
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "Single CR characters as whitespace",
+        "start": {
+          "row": 1,
+          "column": 0
+        },
+        "end": {
+          "row": 1,
+          "column": 34
+        }
+      },
+      {
+        "kind": "constant",
+        "name": "query",
+        "text": "Single",
+        "start": {
+          "row": 1,
+          "column": 0
+        },
+        "end": {
+          "row": 1,
+          "column": 6
+        }
+      },
+      {
+        "kind": "argument_list",
+        "name": "query",
+        "text": "CR characters as whitespace",
+        "start": {
+          "row": 1,
+          "column": 7
+        },
+        "end": {
+          "row": 1,
+          "column": 34
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "CR characters as whitespace",
+        "start": {
+          "row": 1,
+          "column": 7
+        },
+        "end": {
+          "row": 1,
+          "column": 34
+        }
+      },
+      {
+        "kind": "constant",
+        "name": "query",
+        "text": "CR",
+        "start": {
+          "row": 1,
+          "column": 7
+        },
+        "end": {
+          "row": 1,
+          "column": 9
+        }
+      },
+      {
+        "kind": "argument_list",
+        "name": "query",
+        "text": "characters as whitespace",
+        "start": {
+          "row": 1,
+          "column": 10
+        },
+        "end": {
+          "row": 1,
+          "column": 34
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "characters as whitespace",
+        "start": {
+          "row": 1,
+          "column": 10
+        },
+        "end": {
+          "row": 1,
+          "column": 34
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "characters",
+        "start": {
+          "row": 1,
+          "column": 10
+        },
+        "end": {
+          "row": 1,
+          "column": 20
+        }
+      },
+      {
+        "kind": "argument_list",
+        "name": "query",
+        "text": "as whitespace",
+        "start": {
+          "row": 1,
+          "column": 21
+        },
+        "end": {
+          "row": 1,
+          "column": 34
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "as whitespace",
+        "start": {
+          "row": 1,
+          "column": 21
+        },
+        "end": {
+          "row": 1,
+          "column": 34
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "as",
+        "start": {
+          "row": 1,
+          "column": 21
+        },
+        "end": {
+          "row": 1,
+          "column": 23
+        }
+      },
+      {
+        "kind": "argument_list",
+        "name": "query",
+        "text": "whitespace",
+        "start": {
+          "row": 1,
+          "column": 24
+        },
+        "end": {
+          "row": 1,
+          "column": 34
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "whitespace",
+        "start": {
+          "row": 1,
+          "column": 24
+        },
+        "end": {
+          "row": 1,
+          "column": 34
+        }
+      },
+      {
+        "kind": "ERROR",
+        "name": "query",
+        "text": "==================================",
+        "start": {
+          "row": 2,
+          "column": 0
+        },
+        "end": {
+          "row": 2,
+          "column": 34
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 0
+        },
+        "end": {
+          "row": 2,
+          "column": 3
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 3
+        },
+        "end": {
+          "row": 2,
+          "column": 6
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 6
+        },
+        "end": {
+          "row": 2,
+          "column": 9
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 9
+        },
+        "end": {
+          "row": 2,
+          "column": 12
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 12
+        },
+        "end": {
+          "row": 2,
+          "column": 15
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 15
+        },
+        "end": {
+          "row": 2,
+          "column": 18
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 18
+        },
+        "end": {
+          "row": 2,
+          "column": 21
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 21
+        },
+        "end": {
+          "row": 2,
+          "column": 24
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 24
+        },
+        "end": {
+          "row": 2,
+          "column": 27
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 27
+        },
+        "end": {
+          "row": 2,
+          "column": 30
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 2,
+          "column": 30
+        },
+        "end": {
+          "row": 2,
+          "column": 33
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 2,
+          "column": 33
+        },
+        "end": {
+          "row": 2,
+          "column": 34
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "puts\r\r\r\r\r\r\r\r\r\r\r\r\r\r\"hi\"",
+        "start": {
+          "row": 4,
+          "column": 0
+        },
+        "end": {
+          "row": 4,
+          "column": 22
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "puts",
+        "start": {
+          "row": 4,
+          "column": 0
+        },
+        "end": {
+          "row": 4,
+          "column": 4
+        }
+      },
+      {
+        "kind": "argument_list",
+        "name": "query",
+        "text": "\"hi\"",
+        "start": {
+          "row": 4,
+          "column": 18
+        },
+        "end": {
+          "row": 4,
+          "column": 22
+        }
+      },
+      {
+        "kind": "string",
+        "name": "query",
+        "text": "\"hi\"",
+        "start": {
+          "row": 4,
+          "column": 18
+        },
+        "end": {
+          "row": 4,
+          "column": 22
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 4,
+          "column": 18
+        },
+        "end": {
+          "row": 4,
+          "column": 19
+        }
+      },
+      {
+        "kind": "string_content",
+        "name": "query",
+        "text": "hi",
+        "start": {
+          "row": 4,
+          "column": 19
+        },
+        "end": {
+          "row": 4,
+          "column": 21
+        }
+      },
+      {
+        "kind": "\"",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 4,
+          "column": 21
+        },
+        "end": {
+          "row": 4,
+          "column": 22
+        }
+      },
+      {
+        "kind": "unary",
+        "name": "query",
+        "text": "---\n\n(program (call (identifier) (argument_list (string (string_content)))))",
+        "start": {
+          "row": 6,
+          "column": 0
+        },
+        "end": {
+          "row": 8,
+          "column": 71
+        }
+      },
+      {
+        "kind": "-",
+        "name": "query",
+        "text": "-",
+        "start": {
+          "row": 6,
+          "column": 0
+        },
+        "end": {
+          "row": 6,
+          "column": 1
+        }
+      },
+      {
+        "kind": "unary",
+        "name": "query",
+        "text": "--\n\n(program (call (identifier) (argument_list (string (string_content)))))",
+        "start": {
+          "row": 6,
+          "column": 1
+        },
+        "end": {
+          "row": 8,
+          "column": 71
+        }
+      },
+      {
+        "kind": "-",
+        "name": "query",
+        "text": "-",
+        "start": {
+          "row": 6,
+          "column": 1
+        },
+        "end": {
+          "row": 6,
+          "column": 2
+        }
+      },
+      {
+        "kind": "unary",
+        "name": "query",
+        "text": "-\n\n(program (call (identifier) (argument_list (string (string_content)))))",
+        "start": {
+          "row": 6,
+          "column": 2
+        },
+        "end": {
+          "row": 8,
+          "column": 71
+        }
+      },
+      {
+        "kind": "-",
+        "name": "query",
+        "text": "-",
+        "start": {
+          "row": 6,
+          "column": 2
+        },
+        "end": {
+          "row": 6,
+          "column": 3
+        }
+      },
+      {
+        "kind": "parenthesized_statements",
+        "name": "query",
+        "text": "(program (call (identifier) (argument_list (string (string_content)))))",
+        "start": {
+          "row": 8,
+          "column": 0
+        },
+        "end": {
+          "row": 8,
+          "column": 71
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 8,
+          "column": 0
+        },
+        "end": {
+          "row": 8,
+          "column": 1
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "program (call (identifier) (argument_list (string (string_content))))",
+        "start": {
+          "row": 8,
+          "column": 1
+        },
+        "end": {
+          "row": 8,
+          "column": 70
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "program",
+        "start": {
+          "row": 8,
+          "column": 1
+        },
+        "end": {
+          "row": 8,
+          "column": 8
+        }
+      },
+      {
+        "kind": "argument_list",
+        "name": "query",
+        "text": "(call (identifier) (argument_list (string (string_content))))",
+        "start": {
+          "row": 8,
+          "column": 9
+        },
+        "end": {
+          "row": 8,
+          "column": 70
+        }
+      },
+      {
+        "kind": "parenthesized_statements",
+        "name": "query",
+        "text": "(call (identifier) (argument_list (string (string_content))))",
+        "start": {
+          "row": 8,
+          "column": 9
+        },
+        "end": {
+          "row": 8,
+          "column": 70
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 8,
+          "column": 9
+        },
+        "end": {
+          "row": 8,
+          "column": 10
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "call (identifier) (argument_list (string (string_content)))",
+        "start": {
+          "row": 8,
+          "column": 10
+        },
+        "end": {
+          "row": 8,
+          "column": 69
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "call",
+        "start": {
+          "row": 8,
+          "column": 10
+        },
+        "end": {
+          "row": 8,
+          "column": 14
+        }
+      },
+      {
+        "kind": "ERROR",
+        "name": "query",
+        "text": "(identifier)",
+        "start": {
+          "row": 8,
+          "column": 15
+        },
+        "end": {
+          "row": 8,
+          "column": 27
+        }
+      },
+      {
+        "kind": "parenthesized_statements",
+        "name": "query",
+        "text": "(identifier)",
+        "start": {
+          "row": 8,
+          "column": 15
+        },
+        "end": {
+          "row": 8,
+          "column": 27
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 8,
+          "column": 15
+        },
+        "end": {
+          "row": 8,
+          "column": 16
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "identifier",
+        "start": {
+          "row": 8,
+          "column": 16
+        },
+        "end": {
+          "row": 8,
+          "column": 26
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 8,
+          "column": 26
+        },
+        "end": {
+          "row": 8,
+          "column": 27
+        }
+      },
+      {
+        "kind": "argument_list",
+        "name": "query",
+        "text": "(argument_list (string (string_content)))",
+        "start": {
+          "row": 8,
+          "column": 28
+        },
+        "end": {
+          "row": 8,
+          "column": 69
+        }
+      },
+      {
+        "kind": "parenthesized_statements",
+        "name": "query",
+        "text": "(argument_list (string (string_content)))",
+        "start": {
+          "row": 8,
+          "column": 28
+        },
+        "end": {
+          "row": 8,
+          "column": 69
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 8,
+          "column": 28
+        },
+        "end": {
+          "row": 8,
+          "column": 29
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "argument_list (string (string_content))",
+        "start": {
+          "row": 8,
+          "column": 29
+        },
+        "end": {
+          "row": 8,
+          "column": 68
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "argument_list",
+        "start": {
+          "row": 8,
+          "column": 29
+        },
+        "end": {
+          "row": 8,
+          "column": 42
+        }
+      },
+      {
+        "kind": "argument_list",
+        "name": "query",
+        "text": "(string (string_content))",
+        "start": {
+          "row": 8,
+          "column": 43
+        },
+        "end": {
+          "row": 8,
+          "column": 68
+        }
+      },
+      {
+        "kind": "parenthesized_statements",
+        "name": "query",
+        "text": "(string (string_content))",
+        "start": {
+          "row": 8,
+          "column": 43
+        },
+        "end": {
+          "row": 8,
+          "column": 68
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 8,
+          "column": 43
+        },
+        "end": {
+          "row": 8,
+          "column": 44
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "string (string_content)",
+        "start": {
+          "row": 8,
+          "column": 44
+        },
+        "end": {
+          "row": 8,
+          "column": 67
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "string",
+        "start": {
+          "row": 8,
+          "column": 44
+        },
+        "end": {
+          "row": 8,
+          "column": 50
+        }
+      },
+      {
+        "kind": "argument_list",
+        "name": "query",
+        "text": "(string_content)",
+        "start": {
+          "row": 8,
+          "column": 51
+        },
+        "end": {
+          "row": 8,
+          "column": 67
+        }
+      },
+      {
+        "kind": "parenthesized_statements",
+        "name": "query",
+        "text": "(string_content)",
+        "start": {
+          "row": 8,
+          "column": 51
+        },
+        "end": {
+          "row": 8,
+          "column": 67
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 8,
+          "column": 51
+        },
+        "end": {
+          "row": 8,
+          "column": 52
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "string_content",
+        "start": {
+          "row": 8,
+          "column": 52
+        },
+        "end": {
+          "row": 8,
+          "column": 66
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 8,
+          "column": 66
+        },
+        "end": {
+          "row": 8,
+          "column": 67
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 8,
+          "column": 67
+        },
+        "end": {
+          "row": 8,
+          "column": 68
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 8,
+          "column": 68
+        },
+        "end": {
+          "row": 8,
+          "column": 69
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 8,
+          "column": 69
+        },
+        "end": {
+          "row": 8,
+          "column": 70
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 8,
+          "column": 70
+        },
+        "end": {
+          "row": 8,
+          "column": 71
+        }
+      }
+    ]
+  },
   {
     "file": "vendor/tree-sitter-ruby/test/highlight/classes.rb",
     "matches": [
@@ -655,6 +1778,635 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"-f\", \"prett
         "end": {
           "row": 32,
           "column": 12
+        }
+      }
+    ]
+  },
+  {
+    "file": "vendor/tree-sitter-ruby/test/highlight/constants.rb",
+    "matches": [
+      {
+        "kind": "program",
+        "name": "query",
+        "text": "class MyClass\n  #   ^ constructor\n\n  ELEMENT8 = 8\n  # ^ constant\n\n  ELEMENT16 = 16\n  # ^ constant\n\n  def OtherClass\n    #  ^ function.method\n\n    @other.OtherClass(Something.new).inspect\n    # ^ property\n    #      ^ function.method\n    #                 ^ constructor\n    #                           ^ function.method\n    #                                ^ function.method\n  end\nend\n\nif __FILE__ == $0\n  # ^ constant.builtin\nend\n",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 24,
+          "column": 0
+        }
+      },
+      {
+        "kind": "class",
+        "name": "query",
+        "text": "class MyClass\n  #   ^ constructor\n\n  ELEMENT8 = 8\n  # ^ constant\n\n  ELEMENT16 = 16\n  # ^ constant\n\n  def OtherClass\n    #  ^ function.method\n\n    @other.OtherClass(Something.new).inspect\n    # ^ property\n    #      ^ function.method\n    #                 ^ constructor\n    #                           ^ function.method\n    #                                ^ function.method\n  end\nend",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 19,
+          "column": 3
+        }
+      },
+      {
+        "kind": "class",
+        "name": "query",
+        "text": "class",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 5
+        }
+      },
+      {
+        "kind": "constant",
+        "name": "query",
+        "text": "MyClass",
+        "start": {
+          "row": 0,
+          "column": 6
+        },
+        "end": {
+          "row": 0,
+          "column": 13
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#   ^ constructor",
+        "start": {
+          "row": 1,
+          "column": 2
+        },
+        "end": {
+          "row": 1,
+          "column": 19
+        }
+      },
+      {
+        "kind": "assignment",
+        "name": "query",
+        "text": "ELEMENT8 = 8",
+        "start": {
+          "row": 3,
+          "column": 2
+        },
+        "end": {
+          "row": 3,
+          "column": 14
+        }
+      },
+      {
+        "kind": "constant",
+        "name": "query",
+        "text": "ELEMENT8",
+        "start": {
+          "row": 3,
+          "column": 2
+        },
+        "end": {
+          "row": 3,
+          "column": 10
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 3,
+          "column": 11
+        },
+        "end": {
+          "row": 3,
+          "column": 12
+        }
+      },
+      {
+        "kind": "integer",
+        "name": "query",
+        "text": "8",
+        "start": {
+          "row": 3,
+          "column": 13
+        },
+        "end": {
+          "row": 3,
+          "column": 14
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# ^ constant",
+        "start": {
+          "row": 4,
+          "column": 2
+        },
+        "end": {
+          "row": 4,
+          "column": 14
+        }
+      },
+      {
+        "kind": "assignment",
+        "name": "query",
+        "text": "ELEMENT16 = 16",
+        "start": {
+          "row": 6,
+          "column": 2
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "constant",
+        "name": "query",
+        "text": "ELEMENT16",
+        "start": {
+          "row": 6,
+          "column": 2
+        },
+        "end": {
+          "row": 6,
+          "column": 11
+        }
+      },
+      {
+        "kind": "=",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 6,
+          "column": 12
+        },
+        "end": {
+          "row": 6,
+          "column": 13
+        }
+      },
+      {
+        "kind": "integer",
+        "name": "query",
+        "text": "16",
+        "start": {
+          "row": 6,
+          "column": 14
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# ^ constant",
+        "start": {
+          "row": 7,
+          "column": 2
+        },
+        "end": {
+          "row": 7,
+          "column": 14
+        }
+      },
+      {
+        "kind": "method",
+        "name": "query",
+        "text": "def OtherClass\n    #  ^ function.method\n\n    @other.OtherClass(Something.new).inspect\n    # ^ property\n    #      ^ function.method\n    #                 ^ constructor\n    #                           ^ function.method\n    #                                ^ function.method\n  end",
+        "start": {
+          "row": 9,
+          "column": 2
+        },
+        "end": {
+          "row": 18,
+          "column": 5
+        }
+      },
+      {
+        "kind": "def",
+        "name": "query",
+        "text": "def",
+        "start": {
+          "row": 9,
+          "column": 2
+        },
+        "end": {
+          "row": 9,
+          "column": 5
+        }
+      },
+      {
+        "kind": "constant",
+        "name": "query",
+        "text": "OtherClass",
+        "start": {
+          "row": 9,
+          "column": 6
+        },
+        "end": {
+          "row": 9,
+          "column": 16
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#  ^ function.method",
+        "start": {
+          "row": 10,
+          "column": 4
+        },
+        "end": {
+          "row": 10,
+          "column": 24
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "@other.OtherClass(Something.new).inspect",
+        "start": {
+          "row": 12,
+          "column": 4
+        },
+        "end": {
+          "row": 12,
+          "column": 44
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "@other.OtherClass(Something.new)",
+        "start": {
+          "row": 12,
+          "column": 4
+        },
+        "end": {
+          "row": 12,
+          "column": 36
+        }
+      },
+      {
+        "kind": "instance_variable",
+        "name": "query",
+        "text": "@other",
+        "start": {
+          "row": 12,
+          "column": 4
+        },
+        "end": {
+          "row": 12,
+          "column": 10
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 12,
+          "column": 10
+        },
+        "end": {
+          "row": 12,
+          "column": 11
+        }
+      },
+      {
+        "kind": "constant",
+        "name": "query",
+        "text": "OtherClass",
+        "start": {
+          "row": 12,
+          "column": 11
+        },
+        "end": {
+          "row": 12,
+          "column": 21
+        }
+      },
+      {
+        "kind": "argument_list",
+        "name": "query",
+        "text": "(Something.new)",
+        "start": {
+          "row": 12,
+          "column": 21
+        },
+        "end": {
+          "row": 12,
+          "column": 36
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 12,
+          "column": 21
+        },
+        "end": {
+          "row": 12,
+          "column": 22
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "Something.new",
+        "start": {
+          "row": 12,
+          "column": 22
+        },
+        "end": {
+          "row": 12,
+          "column": 35
+        }
+      },
+      {
+        "kind": "constant",
+        "name": "query",
+        "text": "Something",
+        "start": {
+          "row": 12,
+          "column": 22
+        },
+        "end": {
+          "row": 12,
+          "column": 31
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 12,
+          "column": 31
+        },
+        "end": {
+          "row": 12,
+          "column": 32
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "new",
+        "start": {
+          "row": 12,
+          "column": 32
+        },
+        "end": {
+          "row": 12,
+          "column": 35
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 12,
+          "column": 35
+        },
+        "end": {
+          "row": 12,
+          "column": 36
+        }
+      },
+      {
+        "kind": ".",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 12,
+          "column": 36
+        },
+        "end": {
+          "row": 12,
+          "column": 37
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "inspect",
+        "start": {
+          "row": 12,
+          "column": 37
+        },
+        "end": {
+          "row": 12,
+          "column": 44
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# ^ property",
+        "start": {
+          "row": 13,
+          "column": 4
+        },
+        "end": {
+          "row": 13,
+          "column": 16
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#      ^ function.method",
+        "start": {
+          "row": 14,
+          "column": 4
+        },
+        "end": {
+          "row": 14,
+          "column": 28
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                 ^ constructor",
+        "start": {
+          "row": 15,
+          "column": 4
+        },
+        "end": {
+          "row": 15,
+          "column": 35
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                           ^ function.method",
+        "start": {
+          "row": 16,
+          "column": 4
+        },
+        "end": {
+          "row": 16,
+          "column": 49
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                                ^ function.method",
+        "start": {
+          "row": 17,
+          "column": 4
+        },
+        "end": {
+          "row": 17,
+          "column": 54
+        }
+      },
+      {
+        "kind": "end",
+        "name": "query",
+        "text": "end",
+        "start": {
+          "row": 18,
+          "column": 2
+        },
+        "end": {
+          "row": 18,
+          "column": 5
+        }
+      },
+      {
+        "kind": "end",
+        "name": "query",
+        "text": "end",
+        "start": {
+          "row": 19,
+          "column": 0
+        },
+        "end": {
+          "row": 19,
+          "column": 3
+        }
+      },
+      {
+        "kind": "if",
+        "name": "query",
+        "text": "if __FILE__ == $0\n  # ^ constant.builtin\nend",
+        "start": {
+          "row": 21,
+          "column": 0
+        },
+        "end": {
+          "row": 23,
+          "column": 3
+        }
+      },
+      {
+        "kind": "if",
+        "name": "query",
+        "text": "if",
+        "start": {
+          "row": 21,
+          "column": 0
+        },
+        "end": {
+          "row": 21,
+          "column": 2
+        }
+      },
+      {
+        "kind": "binary",
+        "name": "query",
+        "text": "__FILE__ == $0",
+        "start": {
+          "row": 21,
+          "column": 3
+        },
+        "end": {
+          "row": 21,
+          "column": 17
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "__FILE__",
+        "start": {
+          "row": 21,
+          "column": 3
+        },
+        "end": {
+          "row": 21,
+          "column": 11
+        }
+      },
+      {
+        "kind": "==",
+        "name": "query",
+        "text": "==",
+        "start": {
+          "row": 21,
+          "column": 12
+        },
+        "end": {
+          "row": 21,
+          "column": 14
+        }
+      },
+      {
+        "kind": "global_variable",
+        "name": "query",
+        "text": "$0",
+        "start": {
+          "row": 21,
+          "column": 15
+        },
+        "end": {
+          "row": 21,
+          "column": 17
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# ^ constant.builtin",
+        "start": {
+          "row": 22,
+          "column": 2
+        },
+        "end": {
+          "row": 22,
+          "column": 22
+        }
+      },
+      {
+        "kind": "end",
+        "name": "query",
+        "text": "end",
+        "start": {
+          "row": 23,
+          "column": 0
+        },
+        "end": {
+          "row": 23,
+          "column": 3
         }
       }
     ]
@@ -3148,1758 +4900,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"-f\", \"prett
         "end": {
           "row": 47,
           "column": 3
-        }
-      }
-    ]
-  },
-  {
-    "file": "vendor/tree-sitter-ruby/test/highlight/constants.rb",
-    "matches": [
-      {
-        "kind": "program",
-        "name": "query",
-        "text": "class MyClass\n  #   ^ constructor\n\n  ELEMENT8 = 8\n  # ^ constant\n\n  ELEMENT16 = 16\n  # ^ constant\n\n  def OtherClass\n    #  ^ function.method\n\n    @other.OtherClass(Something.new).inspect\n    # ^ property\n    #      ^ function.method\n    #                 ^ constructor\n    #                           ^ function.method\n    #                                ^ function.method\n  end\nend\n\nif __FILE__ == $0\n  # ^ constant.builtin\nend\n",
-        "start": {
-          "row": 0,
-          "column": 0
-        },
-        "end": {
-          "row": 24,
-          "column": 0
-        }
-      },
-      {
-        "kind": "class",
-        "name": "query",
-        "text": "class MyClass\n  #   ^ constructor\n\n  ELEMENT8 = 8\n  # ^ constant\n\n  ELEMENT16 = 16\n  # ^ constant\n\n  def OtherClass\n    #  ^ function.method\n\n    @other.OtherClass(Something.new).inspect\n    # ^ property\n    #      ^ function.method\n    #                 ^ constructor\n    #                           ^ function.method\n    #                                ^ function.method\n  end\nend",
-        "start": {
-          "row": 0,
-          "column": 0
-        },
-        "end": {
-          "row": 19,
-          "column": 3
-        }
-      },
-      {
-        "kind": "class",
-        "name": "query",
-        "text": "class",
-        "start": {
-          "row": 0,
-          "column": 0
-        },
-        "end": {
-          "row": 0,
-          "column": 5
-        }
-      },
-      {
-        "kind": "constant",
-        "name": "query",
-        "text": "MyClass",
-        "start": {
-          "row": 0,
-          "column": 6
-        },
-        "end": {
-          "row": 0,
-          "column": 13
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "#   ^ constructor",
-        "start": {
-          "row": 1,
-          "column": 2
-        },
-        "end": {
-          "row": 1,
-          "column": 19
-        }
-      },
-      {
-        "kind": "assignment",
-        "name": "query",
-        "text": "ELEMENT8 = 8",
-        "start": {
-          "row": 3,
-          "column": 2
-        },
-        "end": {
-          "row": 3,
-          "column": 14
-        }
-      },
-      {
-        "kind": "constant",
-        "name": "query",
-        "text": "ELEMENT8",
-        "start": {
-          "row": 3,
-          "column": 2
-        },
-        "end": {
-          "row": 3,
-          "column": 10
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 3,
-          "column": 11
-        },
-        "end": {
-          "row": 3,
-          "column": 12
-        }
-      },
-      {
-        "kind": "integer",
-        "name": "query",
-        "text": "8",
-        "start": {
-          "row": 3,
-          "column": 13
-        },
-        "end": {
-          "row": 3,
-          "column": 14
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "# ^ constant",
-        "start": {
-          "row": 4,
-          "column": 2
-        },
-        "end": {
-          "row": 4,
-          "column": 14
-        }
-      },
-      {
-        "kind": "assignment",
-        "name": "query",
-        "text": "ELEMENT16 = 16",
-        "start": {
-          "row": 6,
-          "column": 2
-        },
-        "end": {
-          "row": 6,
-          "column": 16
-        }
-      },
-      {
-        "kind": "constant",
-        "name": "query",
-        "text": "ELEMENT16",
-        "start": {
-          "row": 6,
-          "column": 2
-        },
-        "end": {
-          "row": 6,
-          "column": 11
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 6,
-          "column": 12
-        },
-        "end": {
-          "row": 6,
-          "column": 13
-        }
-      },
-      {
-        "kind": "integer",
-        "name": "query",
-        "text": "16",
-        "start": {
-          "row": 6,
-          "column": 14
-        },
-        "end": {
-          "row": 6,
-          "column": 16
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "# ^ constant",
-        "start": {
-          "row": 7,
-          "column": 2
-        },
-        "end": {
-          "row": 7,
-          "column": 14
-        }
-      },
-      {
-        "kind": "method",
-        "name": "query",
-        "text": "def OtherClass\n    #  ^ function.method\n\n    @other.OtherClass(Something.new).inspect\n    # ^ property\n    #      ^ function.method\n    #                 ^ constructor\n    #                           ^ function.method\n    #                                ^ function.method\n  end",
-        "start": {
-          "row": 9,
-          "column": 2
-        },
-        "end": {
-          "row": 18,
-          "column": 5
-        }
-      },
-      {
-        "kind": "def",
-        "name": "query",
-        "text": "def",
-        "start": {
-          "row": 9,
-          "column": 2
-        },
-        "end": {
-          "row": 9,
-          "column": 5
-        }
-      },
-      {
-        "kind": "constant",
-        "name": "query",
-        "text": "OtherClass",
-        "start": {
-          "row": 9,
-          "column": 6
-        },
-        "end": {
-          "row": 9,
-          "column": 16
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "#  ^ function.method",
-        "start": {
-          "row": 10,
-          "column": 4
-        },
-        "end": {
-          "row": 10,
-          "column": 24
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "@other.OtherClass(Something.new).inspect",
-        "start": {
-          "row": 12,
-          "column": 4
-        },
-        "end": {
-          "row": 12,
-          "column": 44
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "@other.OtherClass(Something.new)",
-        "start": {
-          "row": 12,
-          "column": 4
-        },
-        "end": {
-          "row": 12,
-          "column": 36
-        }
-      },
-      {
-        "kind": "instance_variable",
-        "name": "query",
-        "text": "@other",
-        "start": {
-          "row": 12,
-          "column": 4
-        },
-        "end": {
-          "row": 12,
-          "column": 10
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 12,
-          "column": 10
-        },
-        "end": {
-          "row": 12,
-          "column": 11
-        }
-      },
-      {
-        "kind": "constant",
-        "name": "query",
-        "text": "OtherClass",
-        "start": {
-          "row": 12,
-          "column": 11
-        },
-        "end": {
-          "row": 12,
-          "column": 21
-        }
-      },
-      {
-        "kind": "argument_list",
-        "name": "query",
-        "text": "(Something.new)",
-        "start": {
-          "row": 12,
-          "column": 21
-        },
-        "end": {
-          "row": 12,
-          "column": 36
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 12,
-          "column": 21
-        },
-        "end": {
-          "row": 12,
-          "column": 22
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "Something.new",
-        "start": {
-          "row": 12,
-          "column": 22
-        },
-        "end": {
-          "row": 12,
-          "column": 35
-        }
-      },
-      {
-        "kind": "constant",
-        "name": "query",
-        "text": "Something",
-        "start": {
-          "row": 12,
-          "column": 22
-        },
-        "end": {
-          "row": 12,
-          "column": 31
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 12,
-          "column": 31
-        },
-        "end": {
-          "row": 12,
-          "column": 32
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "new",
-        "start": {
-          "row": 12,
-          "column": 32
-        },
-        "end": {
-          "row": 12,
-          "column": 35
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 12,
-          "column": 35
-        },
-        "end": {
-          "row": 12,
-          "column": 36
-        }
-      },
-      {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 12,
-          "column": 36
-        },
-        "end": {
-          "row": 12,
-          "column": 37
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "inspect",
-        "start": {
-          "row": 12,
-          "column": 37
-        },
-        "end": {
-          "row": 12,
-          "column": 44
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "# ^ property",
-        "start": {
-          "row": 13,
-          "column": 4
-        },
-        "end": {
-          "row": 13,
-          "column": 16
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "#      ^ function.method",
-        "start": {
-          "row": 14,
-          "column": 4
-        },
-        "end": {
-          "row": 14,
-          "column": 28
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "#                 ^ constructor",
-        "start": {
-          "row": 15,
-          "column": 4
-        },
-        "end": {
-          "row": 15,
-          "column": 35
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "#                           ^ function.method",
-        "start": {
-          "row": 16,
-          "column": 4
-        },
-        "end": {
-          "row": 16,
-          "column": 49
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "#                                ^ function.method",
-        "start": {
-          "row": 17,
-          "column": 4
-        },
-        "end": {
-          "row": 17,
-          "column": 54
-        }
-      },
-      {
-        "kind": "end",
-        "name": "query",
-        "text": "end",
-        "start": {
-          "row": 18,
-          "column": 2
-        },
-        "end": {
-          "row": 18,
-          "column": 5
-        }
-      },
-      {
-        "kind": "end",
-        "name": "query",
-        "text": "end",
-        "start": {
-          "row": 19,
-          "column": 0
-        },
-        "end": {
-          "row": 19,
-          "column": 3
-        }
-      },
-      {
-        "kind": "if",
-        "name": "query",
-        "text": "if __FILE__ == $0\n  # ^ constant.builtin\nend",
-        "start": {
-          "row": 21,
-          "column": 0
-        },
-        "end": {
-          "row": 23,
-          "column": 3
-        }
-      },
-      {
-        "kind": "if",
-        "name": "query",
-        "text": "if",
-        "start": {
-          "row": 21,
-          "column": 0
-        },
-        "end": {
-          "row": 21,
-          "column": 2
-        }
-      },
-      {
-        "kind": "binary",
-        "name": "query",
-        "text": "__FILE__ == $0",
-        "start": {
-          "row": 21,
-          "column": 3
-        },
-        "end": {
-          "row": 21,
-          "column": 17
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "__FILE__",
-        "start": {
-          "row": 21,
-          "column": 3
-        },
-        "end": {
-          "row": 21,
-          "column": 11
-        }
-      },
-      {
-        "kind": "==",
-        "name": "query",
-        "text": "==",
-        "start": {
-          "row": 21,
-          "column": 12
-        },
-        "end": {
-          "row": 21,
-          "column": 14
-        }
-      },
-      {
-        "kind": "global_variable",
-        "name": "query",
-        "text": "$0",
-        "start": {
-          "row": 21,
-          "column": 15
-        },
-        "end": {
-          "row": 21,
-          "column": 17
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "# ^ constant.builtin",
-        "start": {
-          "row": 22,
-          "column": 2
-        },
-        "end": {
-          "row": 22,
-          "column": 22
-        }
-      },
-      {
-        "kind": "end",
-        "name": "query",
-        "text": "end",
-        "start": {
-          "row": 23,
-          "column": 0
-        },
-        "end": {
-          "row": 23,
-          "column": 3
-        }
-      }
-    ]
-  },
-  {
-    "file": "vendor/tree-sitter-ruby/test/corpus/single-cr-as-whitespace.rb",
-    "matches": [
-      {
-        "kind": "program",
-        "name": "query",
-        "text": "==================================\nSingle CR characters as whitespace\n==================================\n\nputs\r\r\r\r\r\r\r\r\r\r\r\r\r\r\"hi\"\n\n---\n\n(program (call (identifier) (argument_list (string (string_content)))))\n",
-        "start": {
-          "row": 0,
-          "column": 0
-        },
-        "end": {
-          "row": 9,
-          "column": 0
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "==================================",
-        "start": {
-          "row": 0,
-          "column": 0
-        },
-        "end": {
-          "row": 0,
-          "column": 34
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 0
-        },
-        "end": {
-          "row": 0,
-          "column": 3
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 3
-        },
-        "end": {
-          "row": 0,
-          "column": 6
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 6
-        },
-        "end": {
-          "row": 0,
-          "column": 9
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 9
-        },
-        "end": {
-          "row": 0,
-          "column": 12
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 12
-        },
-        "end": {
-          "row": 0,
-          "column": 15
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 15
-        },
-        "end": {
-          "row": 0,
-          "column": 18
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 18
-        },
-        "end": {
-          "row": 0,
-          "column": 21
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 21
-        },
-        "end": {
-          "row": 0,
-          "column": 24
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 24
-        },
-        "end": {
-          "row": 0,
-          "column": 27
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 27
-        },
-        "end": {
-          "row": 0,
-          "column": 30
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 30
-        },
-        "end": {
-          "row": 0,
-          "column": 33
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 0,
-          "column": 33
-        },
-        "end": {
-          "row": 0,
-          "column": 34
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "Single CR characters as whitespace",
-        "start": {
-          "row": 1,
-          "column": 0
-        },
-        "end": {
-          "row": 1,
-          "column": 34
-        }
-      },
-      {
-        "kind": "constant",
-        "name": "query",
-        "text": "Single",
-        "start": {
-          "row": 1,
-          "column": 0
-        },
-        "end": {
-          "row": 1,
-          "column": 6
-        }
-      },
-      {
-        "kind": "argument_list",
-        "name": "query",
-        "text": "CR characters as whitespace",
-        "start": {
-          "row": 1,
-          "column": 7
-        },
-        "end": {
-          "row": 1,
-          "column": 34
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "CR characters as whitespace",
-        "start": {
-          "row": 1,
-          "column": 7
-        },
-        "end": {
-          "row": 1,
-          "column": 34
-        }
-      },
-      {
-        "kind": "constant",
-        "name": "query",
-        "text": "CR",
-        "start": {
-          "row": 1,
-          "column": 7
-        },
-        "end": {
-          "row": 1,
-          "column": 9
-        }
-      },
-      {
-        "kind": "argument_list",
-        "name": "query",
-        "text": "characters as whitespace",
-        "start": {
-          "row": 1,
-          "column": 10
-        },
-        "end": {
-          "row": 1,
-          "column": 34
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "characters as whitespace",
-        "start": {
-          "row": 1,
-          "column": 10
-        },
-        "end": {
-          "row": 1,
-          "column": 34
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "characters",
-        "start": {
-          "row": 1,
-          "column": 10
-        },
-        "end": {
-          "row": 1,
-          "column": 20
-        }
-      },
-      {
-        "kind": "argument_list",
-        "name": "query",
-        "text": "as whitespace",
-        "start": {
-          "row": 1,
-          "column": 21
-        },
-        "end": {
-          "row": 1,
-          "column": 34
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "as whitespace",
-        "start": {
-          "row": 1,
-          "column": 21
-        },
-        "end": {
-          "row": 1,
-          "column": 34
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "as",
-        "start": {
-          "row": 1,
-          "column": 21
-        },
-        "end": {
-          "row": 1,
-          "column": 23
-        }
-      },
-      {
-        "kind": "argument_list",
-        "name": "query",
-        "text": "whitespace",
-        "start": {
-          "row": 1,
-          "column": 24
-        },
-        "end": {
-          "row": 1,
-          "column": 34
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "whitespace",
-        "start": {
-          "row": 1,
-          "column": 24
-        },
-        "end": {
-          "row": 1,
-          "column": 34
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "==================================",
-        "start": {
-          "row": 2,
-          "column": 0
-        },
-        "end": {
-          "row": 2,
-          "column": 34
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 0
-        },
-        "end": {
-          "row": 2,
-          "column": 3
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 3
-        },
-        "end": {
-          "row": 2,
-          "column": 6
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 6
-        },
-        "end": {
-          "row": 2,
-          "column": 9
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 9
-        },
-        "end": {
-          "row": 2,
-          "column": 12
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 12
-        },
-        "end": {
-          "row": 2,
-          "column": 15
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 15
-        },
-        "end": {
-          "row": 2,
-          "column": 18
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 18
-        },
-        "end": {
-          "row": 2,
-          "column": 21
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 21
-        },
-        "end": {
-          "row": 2,
-          "column": 24
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 24
-        },
-        "end": {
-          "row": 2,
-          "column": 27
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 27
-        },
-        "end": {
-          "row": 2,
-          "column": 30
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 30
-        },
-        "end": {
-          "row": 2,
-          "column": 33
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 2,
-          "column": 33
-        },
-        "end": {
-          "row": 2,
-          "column": 34
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "puts\r\r\r\r\r\r\r\r\r\r\r\r\r\r\"hi\"",
-        "start": {
-          "row": 4,
-          "column": 0
-        },
-        "end": {
-          "row": 4,
-          "column": 22
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "puts",
-        "start": {
-          "row": 4,
-          "column": 0
-        },
-        "end": {
-          "row": 4,
-          "column": 4
-        }
-      },
-      {
-        "kind": "argument_list",
-        "name": "query",
-        "text": "\"hi\"",
-        "start": {
-          "row": 4,
-          "column": 18
-        },
-        "end": {
-          "row": 4,
-          "column": 22
-        }
-      },
-      {
-        "kind": "string",
-        "name": "query",
-        "text": "\"hi\"",
-        "start": {
-          "row": 4,
-          "column": 18
-        },
-        "end": {
-          "row": 4,
-          "column": 22
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 4,
-          "column": 18
-        },
-        "end": {
-          "row": 4,
-          "column": 19
-        }
-      },
-      {
-        "kind": "string_content",
-        "name": "query",
-        "text": "hi",
-        "start": {
-          "row": 4,
-          "column": 19
-        },
-        "end": {
-          "row": 4,
-          "column": 21
-        }
-      },
-      {
-        "kind": "\"",
-        "name": "query",
-        "text": "\"",
-        "start": {
-          "row": 4,
-          "column": 21
-        },
-        "end": {
-          "row": 4,
-          "column": 22
-        }
-      },
-      {
-        "kind": "unary",
-        "name": "query",
-        "text": "---\n\n(program (call (identifier) (argument_list (string (string_content)))))",
-        "start": {
-          "row": 6,
-          "column": 0
-        },
-        "end": {
-          "row": 8,
-          "column": 71
-        }
-      },
-      {
-        "kind": "-",
-        "name": "query",
-        "text": "-",
-        "start": {
-          "row": 6,
-          "column": 0
-        },
-        "end": {
-          "row": 6,
-          "column": 1
-        }
-      },
-      {
-        "kind": "unary",
-        "name": "query",
-        "text": "--\n\n(program (call (identifier) (argument_list (string (string_content)))))",
-        "start": {
-          "row": 6,
-          "column": 1
-        },
-        "end": {
-          "row": 8,
-          "column": 71
-        }
-      },
-      {
-        "kind": "-",
-        "name": "query",
-        "text": "-",
-        "start": {
-          "row": 6,
-          "column": 1
-        },
-        "end": {
-          "row": 6,
-          "column": 2
-        }
-      },
-      {
-        "kind": "unary",
-        "name": "query",
-        "text": "-\n\n(program (call (identifier) (argument_list (string (string_content)))))",
-        "start": {
-          "row": 6,
-          "column": 2
-        },
-        "end": {
-          "row": 8,
-          "column": 71
-        }
-      },
-      {
-        "kind": "-",
-        "name": "query",
-        "text": "-",
-        "start": {
-          "row": 6,
-          "column": 2
-        },
-        "end": {
-          "row": 6,
-          "column": 3
-        }
-      },
-      {
-        "kind": "parenthesized_statements",
-        "name": "query",
-        "text": "(program (call (identifier) (argument_list (string (string_content)))))",
-        "start": {
-          "row": 8,
-          "column": 0
-        },
-        "end": {
-          "row": 8,
-          "column": 71
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 8,
-          "column": 0
-        },
-        "end": {
-          "row": 8,
-          "column": 1
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "program (call (identifier) (argument_list (string (string_content))))",
-        "start": {
-          "row": 8,
-          "column": 1
-        },
-        "end": {
-          "row": 8,
-          "column": 70
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "program",
-        "start": {
-          "row": 8,
-          "column": 1
-        },
-        "end": {
-          "row": 8,
-          "column": 8
-        }
-      },
-      {
-        "kind": "argument_list",
-        "name": "query",
-        "text": "(call (identifier) (argument_list (string (string_content))))",
-        "start": {
-          "row": 8,
-          "column": 9
-        },
-        "end": {
-          "row": 8,
-          "column": 70
-        }
-      },
-      {
-        "kind": "parenthesized_statements",
-        "name": "query",
-        "text": "(call (identifier) (argument_list (string (string_content))))",
-        "start": {
-          "row": 8,
-          "column": 9
-        },
-        "end": {
-          "row": 8,
-          "column": 70
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 8,
-          "column": 9
-        },
-        "end": {
-          "row": 8,
-          "column": 10
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "call (identifier) (argument_list (string (string_content)))",
-        "start": {
-          "row": 8,
-          "column": 10
-        },
-        "end": {
-          "row": 8,
-          "column": 69
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "call",
-        "start": {
-          "row": 8,
-          "column": 10
-        },
-        "end": {
-          "row": 8,
-          "column": 14
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "(identifier)",
-        "start": {
-          "row": 8,
-          "column": 15
-        },
-        "end": {
-          "row": 8,
-          "column": 27
-        }
-      },
-      {
-        "kind": "parenthesized_statements",
-        "name": "query",
-        "text": "(identifier)",
-        "start": {
-          "row": 8,
-          "column": 15
-        },
-        "end": {
-          "row": 8,
-          "column": 27
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 8,
-          "column": 15
-        },
-        "end": {
-          "row": 8,
-          "column": 16
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "identifier",
-        "start": {
-          "row": 8,
-          "column": 16
-        },
-        "end": {
-          "row": 8,
-          "column": 26
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 8,
-          "column": 26
-        },
-        "end": {
-          "row": 8,
-          "column": 27
-        }
-      },
-      {
-        "kind": "argument_list",
-        "name": "query",
-        "text": "(argument_list (string (string_content)))",
-        "start": {
-          "row": 8,
-          "column": 28
-        },
-        "end": {
-          "row": 8,
-          "column": 69
-        }
-      },
-      {
-        "kind": "parenthesized_statements",
-        "name": "query",
-        "text": "(argument_list (string (string_content)))",
-        "start": {
-          "row": 8,
-          "column": 28
-        },
-        "end": {
-          "row": 8,
-          "column": 69
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 8,
-          "column": 28
-        },
-        "end": {
-          "row": 8,
-          "column": 29
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "argument_list (string (string_content))",
-        "start": {
-          "row": 8,
-          "column": 29
-        },
-        "end": {
-          "row": 8,
-          "column": 68
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "argument_list",
-        "start": {
-          "row": 8,
-          "column": 29
-        },
-        "end": {
-          "row": 8,
-          "column": 42
-        }
-      },
-      {
-        "kind": "argument_list",
-        "name": "query",
-        "text": "(string (string_content))",
-        "start": {
-          "row": 8,
-          "column": 43
-        },
-        "end": {
-          "row": 8,
-          "column": 68
-        }
-      },
-      {
-        "kind": "parenthesized_statements",
-        "name": "query",
-        "text": "(string (string_content))",
-        "start": {
-          "row": 8,
-          "column": 43
-        },
-        "end": {
-          "row": 8,
-          "column": 68
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 8,
-          "column": 43
-        },
-        "end": {
-          "row": 8,
-          "column": 44
-        }
-      },
-      {
-        "kind": "call",
-        "name": "query",
-        "text": "string (string_content)",
-        "start": {
-          "row": 8,
-          "column": 44
-        },
-        "end": {
-          "row": 8,
-          "column": 67
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "string",
-        "start": {
-          "row": 8,
-          "column": 44
-        },
-        "end": {
-          "row": 8,
-          "column": 50
-        }
-      },
-      {
-        "kind": "argument_list",
-        "name": "query",
-        "text": "(string_content)",
-        "start": {
-          "row": 8,
-          "column": 51
-        },
-        "end": {
-          "row": 8,
-          "column": 67
-        }
-      },
-      {
-        "kind": "parenthesized_statements",
-        "name": "query",
-        "text": "(string_content)",
-        "start": {
-          "row": 8,
-          "column": 51
-        },
-        "end": {
-          "row": 8,
-          "column": 67
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 8,
-          "column": 51
-        },
-        "end": {
-          "row": 8,
-          "column": 52
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "string_content",
-        "start": {
-          "row": 8,
-          "column": 52
-        },
-        "end": {
-          "row": 8,
-          "column": 66
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 8,
-          "column": 66
-        },
-        "end": {
-          "row": 8,
-          "column": 67
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 8,
-          "column": 67
-        },
-        "end": {
-          "row": 8,
-          "column": 68
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 8,
-          "column": 68
-        },
-        "end": {
-          "row": 8,
-          "column": 69
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 8,
-          "column": 69
-        },
-        "end": {
-          "row": 8,
-          "column": 70
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 8,
-          "column": 70
-        },
-        "end": {
-          "row": 8,
-          "column": 71
         }
       }
     ]

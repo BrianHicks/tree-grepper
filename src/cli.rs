@@ -14,6 +14,7 @@ pub struct Opts {
     pub paths: Vec<PathBuf>,
     pub git_ignore: bool,
     pub format: Format,
+    pub sort: bool,
 }
 
 impl Opts {
@@ -65,6 +66,12 @@ impl Opts {
                 .default_value("lines")
                 .about("what format should we output lines in?")
             )
+            .arg(
+                Arg::new("sort")
+                .long("sort")
+                .about("sort matches stably")
+                .about("sort matches stably. If this is not specified, output ordering will vary because due to parallelism. Caution: this adds a worst-case `O(n * log(n))` overhead, where `n` is the number of files matched. Avoid it if possible if you care about performance.")
+            )
             .try_get_matches_from(args)
             .context("could not parse args")?;
 
@@ -74,6 +81,7 @@ impl Opts {
             git_ignore: !matches.is_present("no-gitignore"),
             format: Format::from_str(matches.value_of("FORMAT").context("format not provided")?)
                 .context("could not set format")?,
+            sort: matches.is_present("sort"),
         })
     }
 
