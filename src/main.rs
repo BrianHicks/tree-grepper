@@ -6,20 +6,20 @@ mod language;
 use anyhow::{bail, Context, Result};
 use cli::{Format, Opts};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
-use std::io;
+use std::io::{self, Write};
 use tree_sitter::Parser;
 
 #[global_allocator]
 static ALLOCATOR: bump_alloc::BumpAlloc = bump_alloc::BumpAlloc::new();
 
 fn main() {
-    if let Err(error) = try_main() {
+    if let Err(error) = try_main(&io::stdout()) {
         eprintln!("{:?}", error);
         std::process::exit(1);
     }
 }
 
-fn try_main() -> Result<()> {
+fn try_main(mut out: impl Write) -> Result<()> {
     let opts = Opts::from_args()
         .context("couldn't get a valid configuration from the command-line options")?;
 
@@ -57,17 +57,16 @@ fn try_main() -> Result<()> {
     match opts.format {
         Format::Lines => {
             for extracted_file in extracted_files {
-                print!("{}", extracted_file);
+                write!(out, "{}", extracted_file).context("could not write lines")?;
             }
         }
 
         Format::JSON => {
-            serde_json::to_writer(io::stdout(), &extracted_files)
-                .context("could not write JSON output")?;
+            serde_json::to_writer(out, &extracted_files).context("could not write JSON output")?;
         }
 
         Format::PrettyJSON => {
-            serde_json::to_writer_pretty(io::stdout(), &extracted_files)
+            serde_json::to_writer_pretty(out, &extracted_files)
                 .context("could not write JSON output")?;
         }
     }
