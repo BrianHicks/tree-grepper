@@ -58,7 +58,12 @@ Set up [nix](https://nixos.org/download.html) (just Nix, not NixOS) and then run
 After that, you just need to add a tree-sitter grammar to the project.
 [The tree-sitter project keeps an up-to-date list](https://tree-sitter.github.io/tree-sitter/), so you may not even need to write your own!
 
-Add your grammar as a submodule to this repo, then follow the pattern in [`build.rs`](./build.rs) and [`src/language.rs`](./src/language.rs) to hook it up to the matching machinery.
+1. Add your grammar as a subtree to this repo: `git subtree add --prefix vendor/tree-sitter-LANGUAGE https://github.com/ORG/tree-sitter-LANG BRANCH` (where `BRANCH` is whatever main branch the project uses)
+2. Set up compilation in [`build.rs`](./build.rs) by following the pattern there.
+3. Set up a new target in [`src/language.rs`](./src/language.rs) by following the patterns there.
+4. Add a test like `all_LANG` in [`src/main.rs`](./src/main.rs)
+5. Try to run with insta: `cargo insta test` and then `cargo insta review`.
+   If the output looks right, open a PR!
 
 ## License
 
