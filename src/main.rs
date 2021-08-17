@@ -213,4 +213,17 @@ mod tests {
             "vendor/tree-sitter-ruby",
         ]))
     }
+
+    #[test]
+    fn all_rust() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "rust",
+            "(_)",
+            "-f",
+            "pretty-json",
+            "vendor/tree-sitter-rust",
+        ]))
+    }
 }
