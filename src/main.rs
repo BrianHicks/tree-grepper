@@ -20,7 +20,7 @@ fn main() {
         // Clap errors (--help or misuse) are already well-formatted, so we
         // don't have to do any additional work.
         if let Some(clap_error) = error.downcast_ref::<clap::Error>() {
-            eprintln!("{}", clap_error);
+            eprint!("{}", clap_error);
         } else {
             eprintln!("{:?}", error);
         }
