@@ -15,6 +15,7 @@ stdenv.mkDerivation {
 
     # rust tools
     cargo
+    cargo-edit
     cargo-insta
     cargo-watch
     rustPackages.clippy
