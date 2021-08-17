@@ -2,7 +2,7 @@
 }:
 let
   naersk = pkgs.callPackage sources.naersk { };
-  gitignore = import sources.gitignore { };
+  gitignore = pkgs.callPackage sources.gitignore { };
   darwinInputs = if pkgs.stdenv.isDarwin then [ pkgs.xcbuild ] else [ ];
 in naersk.buildPackage {
   src = gitignore.gitignoreSource ./.;
