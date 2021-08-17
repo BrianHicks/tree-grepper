@@ -1,0 +1,3496 @@
+---
+source: src/main.rs
+expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty-json\"])"
+
+---
+[
+  {
+    "file": "./vendor/tree-sitter-elm/test/highlight/basic.elm",
+    "matches": [
+      {
+        "kind": "file",
+        "name": "query",
+        "text": "module Main exposing (Msg(..), main, update, view)\n-- ^ keyword.other.elm\n--              ^ keyword.other.elm\n\nimport Browser\n-- ^ meta.import.elm\nimport Html exposing (Html, button, div, text)\n-- ^ meta.import.elm\nimport Html.Events exposing (onClick)\n-- ^ meta.import.elm\n\n\nmain =\n    Browser.sandbox { init = 0, update = update, view = view }\n\n\ntype Msg\n-- <- @keyword.type.elm\n--    ^ @storage.type.elm\n    = Increment\n    -- ^ constant.type-constructor.elm\n    | Decrement\n    -- ^ constant.type-constructor.elm\n\nupdate : Msg -> Model\n-- <- entity.name.function.elm\n--     ^ keyword.other.elm\n--            ^ keyword.operator.arrow.elm\n\nupdate msg model =\n    case msg of\n    --       ^ keyword.control.elm\n        Increment ->\n                -- ^ keyword.operator.arrow.elm\n            model + 1\n            --    ^ keyword.operator.elm\n\n        Decrement ->\n            model - 1\n            --      ^ constant.numeric.elm\n\nview model =\n    --     ^ keyword.operator.assignment.elm\n    div []\n        [ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ punctuation.definition.string.begin.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]\n",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 50,
+          "column": 0
+        }
+      },
+      {
+        "kind": "module_declaration",
+        "name": "query",
+        "text": "module Main exposing (Msg(..), main, update, view)",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 50
+        }
+      },
+      {
+        "kind": "module",
+        "name": "query",
+        "text": "module",
+        "start": {
+          "row": 0,
+          "column": 0
+        },
+        "end": {
+          "row": 0,
+          "column": 6
+        }
+      },
+      {
+        "kind": "upper_case_qid",
+        "name": "query",
+        "text": "Main",
+        "start": {
+          "row": 0,
+          "column": 7
+        },
+        "end": {
+          "row": 0,
+          "column": 11
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Main",
+        "start": {
+          "row": 0,
+          "column": 7
+        },
+        "end": {
+          "row": 0,
+          "column": 11
+        }
+      },
+      {
+        "kind": "exposing_list",
+        "name": "query",
+        "text": "exposing (Msg(..), main, update, view)",
+        "start": {
+          "row": 0,
+          "column": 12
+        },
+        "end": {
+          "row": 0,
+          "column": 50
+        }
+      },
+      {
+        "kind": "exposing",
+        "name": "query",
+        "text": "exposing",
+        "start": {
+          "row": 0,
+          "column": 12
+        },
+        "end": {
+          "row": 0,
+          "column": 20
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 0,
+          "column": 21
+        },
+        "end": {
+          "row": 0,
+          "column": 22
+        }
+      },
+      {
+        "kind": "exposed_type",
+        "name": "query",
+        "text": "Msg(..)",
+        "start": {
+          "row": 0,
+          "column": 22
+        },
+        "end": {
+          "row": 0,
+          "column": 29
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Msg",
+        "start": {
+          "row": 0,
+          "column": 22
+        },
+        "end": {
+          "row": 0,
+          "column": 25
+        }
+      },
+      {
+        "kind": "exposed_union_constructors",
+        "name": "query",
+        "text": "(..)",
+        "start": {
+          "row": 0,
+          "column": 25
+        },
+        "end": {
+          "row": 0,
+          "column": 29
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 0,
+          "column": 25
+        },
+        "end": {
+          "row": 0,
+          "column": 26
+        }
+      },
+      {
+        "kind": "double_dot",
+        "name": "query",
+        "text": "..",
+        "start": {
+          "row": 0,
+          "column": 26
+        },
+        "end": {
+          "row": 0,
+          "column": 28
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 0,
+          "column": 28
+        },
+        "end": {
+          "row": 0,
+          "column": 29
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 0,
+          "column": 29
+        },
+        "end": {
+          "row": 0,
+          "column": 30
+        }
+      },
+      {
+        "kind": "exposed_value",
+        "name": "query",
+        "text": "main",
+        "start": {
+          "row": 0,
+          "column": 31
+        },
+        "end": {
+          "row": 0,
+          "column": 35
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "main",
+        "start": {
+          "row": 0,
+          "column": 31
+        },
+        "end": {
+          "row": 0,
+          "column": 35
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 0,
+          "column": 35
+        },
+        "end": {
+          "row": 0,
+          "column": 36
+        }
+      },
+      {
+        "kind": "exposed_value",
+        "name": "query",
+        "text": "update",
+        "start": {
+          "row": 0,
+          "column": 37
+        },
+        "end": {
+          "row": 0,
+          "column": 43
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "update",
+        "start": {
+          "row": 0,
+          "column": 37
+        },
+        "end": {
+          "row": 0,
+          "column": 43
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 0,
+          "column": 43
+        },
+        "end": {
+          "row": 0,
+          "column": 44
+        }
+      },
+      {
+        "kind": "exposed_value",
+        "name": "query",
+        "text": "view",
+        "start": {
+          "row": 0,
+          "column": 45
+        },
+        "end": {
+          "row": 0,
+          "column": 49
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "view",
+        "start": {
+          "row": 0,
+          "column": 45
+        },
+        "end": {
+          "row": 0,
+          "column": 49
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 0,
+          "column": 49
+        },
+        "end": {
+          "row": 0,
+          "column": 50
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "-- ^ keyword.other.elm",
+        "start": {
+          "row": 1,
+          "column": 0
+        },
+        "end": {
+          "row": 1,
+          "column": 22
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "--              ^ keyword.other.elm",
+        "start": {
+          "row": 2,
+          "column": 0
+        },
+        "end": {
+          "row": 2,
+          "column": 35
+        }
+      },
+      {
+        "kind": "import_clause",
+        "name": "query",
+        "text": "import Browser",
+        "start": {
+          "row": 4,
+          "column": 0
+        },
+        "end": {
+          "row": 4,
+          "column": 14
+        }
+      },
+      {
+        "kind": "import",
+        "name": "query",
+        "text": "import",
+        "start": {
+          "row": 4,
+          "column": 0
+        },
+        "end": {
+          "row": 4,
+          "column": 6
+        }
+      },
+      {
+        "kind": "upper_case_qid",
+        "name": "query",
+        "text": "Browser",
+        "start": {
+          "row": 4,
+          "column": 7
+        },
+        "end": {
+          "row": 4,
+          "column": 14
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Browser",
+        "start": {
+          "row": 4,
+          "column": 7
+        },
+        "end": {
+          "row": 4,
+          "column": 14
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "-- ^ meta.import.elm",
+        "start": {
+          "row": 5,
+          "column": 0
+        },
+        "end": {
+          "row": 5,
+          "column": 20
+        }
+      },
+      {
+        "kind": "import_clause",
+        "name": "query",
+        "text": "import Html exposing (Html, button, div, text)",
+        "start": {
+          "row": 6,
+          "column": 0
+        },
+        "end": {
+          "row": 6,
+          "column": 46
+        }
+      },
+      {
+        "kind": "import",
+        "name": "query",
+        "text": "import",
+        "start": {
+          "row": 6,
+          "column": 0
+        },
+        "end": {
+          "row": 6,
+          "column": 6
+        }
+      },
+      {
+        "kind": "upper_case_qid",
+        "name": "query",
+        "text": "Html",
+        "start": {
+          "row": 6,
+          "column": 7
+        },
+        "end": {
+          "row": 6,
+          "column": 11
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Html",
+        "start": {
+          "row": 6,
+          "column": 7
+        },
+        "end": {
+          "row": 6,
+          "column": 11
+        }
+      },
+      {
+        "kind": "exposing_list",
+        "name": "query",
+        "text": "exposing (Html, button, div, text)",
+        "start": {
+          "row": 6,
+          "column": 12
+        },
+        "end": {
+          "row": 6,
+          "column": 46
+        }
+      },
+      {
+        "kind": "exposing",
+        "name": "query",
+        "text": "exposing",
+        "start": {
+          "row": 6,
+          "column": 12
+        },
+        "end": {
+          "row": 6,
+          "column": 20
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 6,
+          "column": 21
+        },
+        "end": {
+          "row": 6,
+          "column": 22
+        }
+      },
+      {
+        "kind": "exposed_type",
+        "name": "query",
+        "text": "Html",
+        "start": {
+          "row": 6,
+          "column": 22
+        },
+        "end": {
+          "row": 6,
+          "column": 26
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Html",
+        "start": {
+          "row": 6,
+          "column": 22
+        },
+        "end": {
+          "row": 6,
+          "column": 26
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 6,
+          "column": 26
+        },
+        "end": {
+          "row": 6,
+          "column": 27
+        }
+      },
+      {
+        "kind": "exposed_value",
+        "name": "query",
+        "text": "button",
+        "start": {
+          "row": 6,
+          "column": 28
+        },
+        "end": {
+          "row": 6,
+          "column": 34
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "button",
+        "start": {
+          "row": 6,
+          "column": 28
+        },
+        "end": {
+          "row": 6,
+          "column": 34
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 6,
+          "column": 34
+        },
+        "end": {
+          "row": 6,
+          "column": 35
+        }
+      },
+      {
+        "kind": "exposed_value",
+        "name": "query",
+        "text": "div",
+        "start": {
+          "row": 6,
+          "column": 36
+        },
+        "end": {
+          "row": 6,
+          "column": 39
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "div",
+        "start": {
+          "row": 6,
+          "column": 36
+        },
+        "end": {
+          "row": 6,
+          "column": 39
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 6,
+          "column": 39
+        },
+        "end": {
+          "row": 6,
+          "column": 40
+        }
+      },
+      {
+        "kind": "exposed_value",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 6,
+          "column": 41
+        },
+        "end": {
+          "row": 6,
+          "column": 45
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 6,
+          "column": 41
+        },
+        "end": {
+          "row": 6,
+          "column": 45
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 6,
+          "column": 45
+        },
+        "end": {
+          "row": 6,
+          "column": 46
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "-- ^ meta.import.elm",
+        "start": {
+          "row": 7,
+          "column": 0
+        },
+        "end": {
+          "row": 7,
+          "column": 20
+        }
+      },
+      {
+        "kind": "import_clause",
+        "name": "query",
+        "text": "import Html.Events exposing (onClick)",
+        "start": {
+          "row": 8,
+          "column": 0
+        },
+        "end": {
+          "row": 8,
+          "column": 37
+        }
+      },
+      {
+        "kind": "import",
+        "name": "query",
+        "text": "import",
+        "start": {
+          "row": 8,
+          "column": 0
+        },
+        "end": {
+          "row": 8,
+          "column": 6
+        }
+      },
+      {
+        "kind": "upper_case_qid",
+        "name": "query",
+        "text": "Html.Events",
+        "start": {
+          "row": 8,
+          "column": 7
+        },
+        "end": {
+          "row": 8,
+          "column": 18
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Html",
+        "start": {
+          "row": 8,
+          "column": 7
+        },
+        "end": {
+          "row": 8,
+          "column": 11
+        }
+      },
+      {
+        "kind": "dot",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 8,
+          "column": 11
+        },
+        "end": {
+          "row": 8,
+          "column": 12
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Events",
+        "start": {
+          "row": 8,
+          "column": 12
+        },
+        "end": {
+          "row": 8,
+          "column": 18
+        }
+      },
+      {
+        "kind": "exposing_list",
+        "name": "query",
+        "text": "exposing (onClick)",
+        "start": {
+          "row": 8,
+          "column": 19
+        },
+        "end": {
+          "row": 8,
+          "column": 37
+        }
+      },
+      {
+        "kind": "exposing",
+        "name": "query",
+        "text": "exposing",
+        "start": {
+          "row": 8,
+          "column": 19
+        },
+        "end": {
+          "row": 8,
+          "column": 27
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 8,
+          "column": 28
+        },
+        "end": {
+          "row": 8,
+          "column": 29
+        }
+      },
+      {
+        "kind": "exposed_value",
+        "name": "query",
+        "text": "onClick",
+        "start": {
+          "row": 8,
+          "column": 29
+        },
+        "end": {
+          "row": 8,
+          "column": 36
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "onClick",
+        "start": {
+          "row": 8,
+          "column": 29
+        },
+        "end": {
+          "row": 8,
+          "column": 36
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 8,
+          "column": 36
+        },
+        "end": {
+          "row": 8,
+          "column": 37
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "-- ^ meta.import.elm",
+        "start": {
+          "row": 9,
+          "column": 0
+        },
+        "end": {
+          "row": 9,
+          "column": 20
+        }
+      },
+      {
+        "kind": "value_declaration",
+        "name": "query",
+        "text": "main =\n    Browser.sandbox { init = 0, update = update, view = view }",
+        "start": {
+          "row": 12,
+          "column": 0
+        },
+        "end": {
+          "row": 13,
+          "column": 62
+        }
+      },
+      {
+        "kind": "function_declaration_left",
+        "name": "query",
+        "text": "main",
+        "start": {
+          "row": 12,
+          "column": 0
+        },
+        "end": {
+          "row": 12,
+          "column": 4
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "main",
+        "start": {
+          "row": 12,
+          "column": 0
+        },
+        "end": {
+          "row": 12,
+          "column": 4
+        }
+      },
+      {
+        "kind": "eq",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 12,
+          "column": 5
+        },
+        "end": {
+          "row": 12,
+          "column": 6
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "Browser.sandbox { init = 0, update = update, view = view }",
+        "start": {
+          "row": 13,
+          "column": 4
+        },
+        "end": {
+          "row": 13,
+          "column": 62
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "Browser.sandbox",
+        "start": {
+          "row": 13,
+          "column": 4
+        },
+        "end": {
+          "row": 13,
+          "column": 19
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "Browser.sandbox",
+        "start": {
+          "row": 13,
+          "column": 4
+        },
+        "end": {
+          "row": 13,
+          "column": 19
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Browser",
+        "start": {
+          "row": 13,
+          "column": 4
+        },
+        "end": {
+          "row": 13,
+          "column": 11
+        }
+      },
+      {
+        "kind": "dot",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 13,
+          "column": 11
+        },
+        "end": {
+          "row": 13,
+          "column": 12
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "sandbox",
+        "start": {
+          "row": 13,
+          "column": 12
+        },
+        "end": {
+          "row": 13,
+          "column": 19
+        }
+      },
+      {
+        "kind": "record_expr",
+        "name": "query",
+        "text": "{ init = 0, update = update, view = view }",
+        "start": {
+          "row": 13,
+          "column": 20
+        },
+        "end": {
+          "row": 13,
+          "column": 62
+        }
+      },
+      {
+        "kind": "{",
+        "name": "query",
+        "text": "{",
+        "start": {
+          "row": 13,
+          "column": 20
+        },
+        "end": {
+          "row": 13,
+          "column": 21
+        }
+      },
+      {
+        "kind": "field",
+        "name": "query",
+        "text": "init = 0",
+        "start": {
+          "row": 13,
+          "column": 22
+        },
+        "end": {
+          "row": 13,
+          "column": 30
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "init",
+        "start": {
+          "row": 13,
+          "column": 22
+        },
+        "end": {
+          "row": 13,
+          "column": 26
+        }
+      },
+      {
+        "kind": "eq",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 13,
+          "column": 27
+        },
+        "end": {
+          "row": 13,
+          "column": 28
+        }
+      },
+      {
+        "kind": "number_constant_expr",
+        "name": "query",
+        "text": "0",
+        "start": {
+          "row": 13,
+          "column": 29
+        },
+        "end": {
+          "row": 13,
+          "column": 30
+        }
+      },
+      {
+        "kind": "number_literal",
+        "name": "query",
+        "text": "0",
+        "start": {
+          "row": 13,
+          "column": 29
+        },
+        "end": {
+          "row": 13,
+          "column": 30
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 13,
+          "column": 30
+        },
+        "end": {
+          "row": 13,
+          "column": 31
+        }
+      },
+      {
+        "kind": "field",
+        "name": "query",
+        "text": "update = update",
+        "start": {
+          "row": 13,
+          "column": 32
+        },
+        "end": {
+          "row": 13,
+          "column": 47
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "update",
+        "start": {
+          "row": 13,
+          "column": 32
+        },
+        "end": {
+          "row": 13,
+          "column": 38
+        }
+      },
+      {
+        "kind": "eq",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 13,
+          "column": 39
+        },
+        "end": {
+          "row": 13,
+          "column": 40
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "update",
+        "start": {
+          "row": 13,
+          "column": 41
+        },
+        "end": {
+          "row": 13,
+          "column": 47
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "update",
+        "start": {
+          "row": 13,
+          "column": 41
+        },
+        "end": {
+          "row": 13,
+          "column": 47
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "update",
+        "start": {
+          "row": 13,
+          "column": 41
+        },
+        "end": {
+          "row": 13,
+          "column": 47
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 13,
+          "column": 47
+        },
+        "end": {
+          "row": 13,
+          "column": 48
+        }
+      },
+      {
+        "kind": "field",
+        "name": "query",
+        "text": "view = view",
+        "start": {
+          "row": 13,
+          "column": 49
+        },
+        "end": {
+          "row": 13,
+          "column": 60
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "view",
+        "start": {
+          "row": 13,
+          "column": 49
+        },
+        "end": {
+          "row": 13,
+          "column": 53
+        }
+      },
+      {
+        "kind": "eq",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 13,
+          "column": 54
+        },
+        "end": {
+          "row": 13,
+          "column": 55
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "view",
+        "start": {
+          "row": 13,
+          "column": 56
+        },
+        "end": {
+          "row": 13,
+          "column": 60
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "view",
+        "start": {
+          "row": 13,
+          "column": 56
+        },
+        "end": {
+          "row": 13,
+          "column": 60
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "view",
+        "start": {
+          "row": 13,
+          "column": 56
+        },
+        "end": {
+          "row": 13,
+          "column": 60
+        }
+      },
+      {
+        "kind": "}",
+        "name": "query",
+        "text": "}",
+        "start": {
+          "row": 13,
+          "column": 61
+        },
+        "end": {
+          "row": 13,
+          "column": 62
+        }
+      },
+      {
+        "kind": "type_declaration",
+        "name": "query",
+        "text": "type Msg\n-- <- @keyword.type.elm\n--    ^ @storage.type.elm\n    = Increment\n    -- ^ constant.type-constructor.elm\n    | Decrement",
+        "start": {
+          "row": 16,
+          "column": 0
+        },
+        "end": {
+          "row": 21,
+          "column": 15
+        }
+      },
+      {
+        "kind": "type",
+        "name": "query",
+        "text": "type",
+        "start": {
+          "row": 16,
+          "column": 0
+        },
+        "end": {
+          "row": 16,
+          "column": 4
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Msg",
+        "start": {
+          "row": 16,
+          "column": 5
+        },
+        "end": {
+          "row": 16,
+          "column": 8
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "-- <- @keyword.type.elm",
+        "start": {
+          "row": 17,
+          "column": 0
+        },
+        "end": {
+          "row": 17,
+          "column": 23
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "--    ^ @storage.type.elm",
+        "start": {
+          "row": 18,
+          "column": 0
+        },
+        "end": {
+          "row": 18,
+          "column": 25
+        }
+      },
+      {
+        "kind": "eq",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 19,
+          "column": 4
+        },
+        "end": {
+          "row": 19,
+          "column": 5
+        }
+      },
+      {
+        "kind": "union_variant",
+        "name": "query",
+        "text": "Increment",
+        "start": {
+          "row": 19,
+          "column": 6
+        },
+        "end": {
+          "row": 19,
+          "column": 15
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Increment",
+        "start": {
+          "row": 19,
+          "column": 6
+        },
+        "end": {
+          "row": 19,
+          "column": 15
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "-- ^ constant.type-constructor.elm",
+        "start": {
+          "row": 20,
+          "column": 4
+        },
+        "end": {
+          "row": 20,
+          "column": 38
+        }
+      },
+      {
+        "kind": "|",
+        "name": "query",
+        "text": "|",
+        "start": {
+          "row": 21,
+          "column": 4
+        },
+        "end": {
+          "row": 21,
+          "column": 5
+        }
+      },
+      {
+        "kind": "union_variant",
+        "name": "query",
+        "text": "Decrement",
+        "start": {
+          "row": 21,
+          "column": 6
+        },
+        "end": {
+          "row": 21,
+          "column": 15
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Decrement",
+        "start": {
+          "row": 21,
+          "column": 6
+        },
+        "end": {
+          "row": 21,
+          "column": 15
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "-- ^ constant.type-constructor.elm",
+        "start": {
+          "row": 22,
+          "column": 4
+        },
+        "end": {
+          "row": 22,
+          "column": 38
+        }
+      },
+      {
+        "kind": "type_annotation",
+        "name": "query",
+        "text": "update : Msg -> Model",
+        "start": {
+          "row": 24,
+          "column": 0
+        },
+        "end": {
+          "row": 24,
+          "column": 21
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "update",
+        "start": {
+          "row": 24,
+          "column": 0
+        },
+        "end": {
+          "row": 24,
+          "column": 6
+        }
+      },
+      {
+        "kind": "colon",
+        "name": "query",
+        "text": ":",
+        "start": {
+          "row": 24,
+          "column": 7
+        },
+        "end": {
+          "row": 24,
+          "column": 8
+        }
+      },
+      {
+        "kind": "type_expression",
+        "name": "query",
+        "text": "Msg -> Model",
+        "start": {
+          "row": 24,
+          "column": 9
+        },
+        "end": {
+          "row": 24,
+          "column": 21
+        }
+      },
+      {
+        "kind": "type_ref",
+        "name": "query",
+        "text": "Msg",
+        "start": {
+          "row": 24,
+          "column": 9
+        },
+        "end": {
+          "row": 24,
+          "column": 12
+        }
+      },
+      {
+        "kind": "upper_case_qid",
+        "name": "query",
+        "text": "Msg",
+        "start": {
+          "row": 24,
+          "column": 9
+        },
+        "end": {
+          "row": 24,
+          "column": 12
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Msg",
+        "start": {
+          "row": 24,
+          "column": 9
+        },
+        "end": {
+          "row": 24,
+          "column": 12
+        }
+      },
+      {
+        "kind": "arrow",
+        "name": "query",
+        "text": "->",
+        "start": {
+          "row": 24,
+          "column": 13
+        },
+        "end": {
+          "row": 24,
+          "column": 15
+        }
+      },
+      {
+        "kind": "type_ref",
+        "name": "query",
+        "text": "Model",
+        "start": {
+          "row": 24,
+          "column": 16
+        },
+        "end": {
+          "row": 24,
+          "column": 21
+        }
+      },
+      {
+        "kind": "upper_case_qid",
+        "name": "query",
+        "text": "Model",
+        "start": {
+          "row": 24,
+          "column": 16
+        },
+        "end": {
+          "row": 24,
+          "column": 21
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Model",
+        "start": {
+          "row": 24,
+          "column": 16
+        },
+        "end": {
+          "row": 24,
+          "column": 21
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "-- <- entity.name.function.elm",
+        "start": {
+          "row": 25,
+          "column": 0
+        },
+        "end": {
+          "row": 25,
+          "column": 30
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "--     ^ keyword.other.elm",
+        "start": {
+          "row": 26,
+          "column": 0
+        },
+        "end": {
+          "row": 26,
+          "column": 26
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "--            ^ keyword.operator.arrow.elm",
+        "start": {
+          "row": 27,
+          "column": 0
+        },
+        "end": {
+          "row": 27,
+          "column": 42
+        }
+      },
+      {
+        "kind": "value_declaration",
+        "name": "query",
+        "text": "update msg model =\n    case msg of\n    --       ^ keyword.control.elm\n        Increment ->\n                -- ^ keyword.operator.arrow.elm\n            model + 1\n            --    ^ keyword.operator.elm\n\n        Decrement ->\n            model - 1\n            --      ^ constant.numeric.elm",
+        "start": {
+          "row": 29,
+          "column": 0
+        },
+        "end": {
+          "row": 39,
+          "column": 42
+        }
+      },
+      {
+        "kind": "function_declaration_left",
+        "name": "query",
+        "text": "update msg model",
+        "start": {
+          "row": 29,
+          "column": 0
+        },
+        "end": {
+          "row": 29,
+          "column": 16
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "update",
+        "start": {
+          "row": 29,
+          "column": 0
+        },
+        "end": {
+          "row": 29,
+          "column": 6
+        }
+      },
+      {
+        "kind": "lower_pattern",
+        "name": "query",
+        "text": "msg",
+        "start": {
+          "row": 29,
+          "column": 7
+        },
+        "end": {
+          "row": 29,
+          "column": 10
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "msg",
+        "start": {
+          "row": 29,
+          "column": 7
+        },
+        "end": {
+          "row": 29,
+          "column": 10
+        }
+      },
+      {
+        "kind": "lower_pattern",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 29,
+          "column": 11
+        },
+        "end": {
+          "row": 29,
+          "column": 16
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 29,
+          "column": 11
+        },
+        "end": {
+          "row": 29,
+          "column": 16
+        }
+      },
+      {
+        "kind": "eq",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 29,
+          "column": 17
+        },
+        "end": {
+          "row": 29,
+          "column": 18
+        }
+      },
+      {
+        "kind": "case_of_expr",
+        "name": "query",
+        "text": "case msg of\n    --       ^ keyword.control.elm\n        Increment ->\n                -- ^ keyword.operator.arrow.elm\n            model + 1\n            --    ^ keyword.operator.elm\n\n        Decrement ->\n            model - 1\n            --      ^ constant.numeric.elm",
+        "start": {
+          "row": 30,
+          "column": 4
+        },
+        "end": {
+          "row": 39,
+          "column": 42
+        }
+      },
+      {
+        "kind": "case",
+        "name": "query",
+        "text": "case",
+        "start": {
+          "row": 30,
+          "column": 4
+        },
+        "end": {
+          "row": 30,
+          "column": 8
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "msg",
+        "start": {
+          "row": 30,
+          "column": 9
+        },
+        "end": {
+          "row": 30,
+          "column": 12
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "msg",
+        "start": {
+          "row": 30,
+          "column": 9
+        },
+        "end": {
+          "row": 30,
+          "column": 12
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "msg",
+        "start": {
+          "row": 30,
+          "column": 9
+        },
+        "end": {
+          "row": 30,
+          "column": 12
+        }
+      },
+      {
+        "kind": "of",
+        "name": "query",
+        "text": "of",
+        "start": {
+          "row": 30,
+          "column": 13
+        },
+        "end": {
+          "row": 30,
+          "column": 15
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "--       ^ keyword.control.elm",
+        "start": {
+          "row": 31,
+          "column": 4
+        },
+        "end": {
+          "row": 31,
+          "column": 34
+        }
+      },
+      {
+        "kind": "case_of_branch",
+        "name": "query",
+        "text": "Increment ->\n                -- ^ keyword.operator.arrow.elm\n            model + 1",
+        "start": {
+          "row": 32,
+          "column": 8
+        },
+        "end": {
+          "row": 34,
+          "column": 21
+        }
+      },
+      {
+        "kind": "pattern",
+        "name": "query",
+        "text": "Increment",
+        "start": {
+          "row": 32,
+          "column": 8
+        },
+        "end": {
+          "row": 32,
+          "column": 17
+        }
+      },
+      {
+        "kind": "union_pattern",
+        "name": "query",
+        "text": "Increment",
+        "start": {
+          "row": 32,
+          "column": 8
+        },
+        "end": {
+          "row": 32,
+          "column": 17
+        }
+      },
+      {
+        "kind": "upper_case_qid",
+        "name": "query",
+        "text": "Increment",
+        "start": {
+          "row": 32,
+          "column": 8
+        },
+        "end": {
+          "row": 32,
+          "column": 17
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Increment",
+        "start": {
+          "row": 32,
+          "column": 8
+        },
+        "end": {
+          "row": 32,
+          "column": 17
+        }
+      },
+      {
+        "kind": "arrow",
+        "name": "query",
+        "text": "->",
+        "start": {
+          "row": 32,
+          "column": 18
+        },
+        "end": {
+          "row": 32,
+          "column": 20
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "-- ^ keyword.operator.arrow.elm",
+        "start": {
+          "row": 33,
+          "column": 16
+        },
+        "end": {
+          "row": 33,
+          "column": 47
+        }
+      },
+      {
+        "kind": "bin_op_expr",
+        "name": "query",
+        "text": "model + 1",
+        "start": {
+          "row": 34,
+          "column": 12
+        },
+        "end": {
+          "row": 34,
+          "column": 21
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 34,
+          "column": 12
+        },
+        "end": {
+          "row": 34,
+          "column": 17
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 34,
+          "column": 12
+        },
+        "end": {
+          "row": 34,
+          "column": 17
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 34,
+          "column": 12
+        },
+        "end": {
+          "row": 34,
+          "column": 17
+        }
+      },
+      {
+        "kind": "operator",
+        "name": "query",
+        "text": "+",
+        "start": {
+          "row": 34,
+          "column": 18
+        },
+        "end": {
+          "row": 34,
+          "column": 19
+        }
+      },
+      {
+        "kind": "operator_identifier",
+        "name": "query",
+        "text": "+",
+        "start": {
+          "row": 34,
+          "column": 18
+        },
+        "end": {
+          "row": 34,
+          "column": 19
+        }
+      },
+      {
+        "kind": "+",
+        "name": "query",
+        "text": "+",
+        "start": {
+          "row": 34,
+          "column": 18
+        },
+        "end": {
+          "row": 34,
+          "column": 19
+        }
+      },
+      {
+        "kind": "number_constant_expr",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 34,
+          "column": 20
+        },
+        "end": {
+          "row": 34,
+          "column": 21
+        }
+      },
+      {
+        "kind": "number_literal",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 34,
+          "column": 20
+        },
+        "end": {
+          "row": 34,
+          "column": 21
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "--    ^ keyword.operator.elm",
+        "start": {
+          "row": 35,
+          "column": 12
+        },
+        "end": {
+          "row": 35,
+          "column": 40
+        }
+      },
+      {
+        "kind": "case_of_branch",
+        "name": "query",
+        "text": "Decrement ->\n            model - 1",
+        "start": {
+          "row": 37,
+          "column": 8
+        },
+        "end": {
+          "row": 38,
+          "column": 21
+        }
+      },
+      {
+        "kind": "pattern",
+        "name": "query",
+        "text": "Decrement",
+        "start": {
+          "row": 37,
+          "column": 8
+        },
+        "end": {
+          "row": 37,
+          "column": 17
+        }
+      },
+      {
+        "kind": "union_pattern",
+        "name": "query",
+        "text": "Decrement",
+        "start": {
+          "row": 37,
+          "column": 8
+        },
+        "end": {
+          "row": 37,
+          "column": 17
+        }
+      },
+      {
+        "kind": "upper_case_qid",
+        "name": "query",
+        "text": "Decrement",
+        "start": {
+          "row": 37,
+          "column": 8
+        },
+        "end": {
+          "row": 37,
+          "column": 17
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Decrement",
+        "start": {
+          "row": 37,
+          "column": 8
+        },
+        "end": {
+          "row": 37,
+          "column": 17
+        }
+      },
+      {
+        "kind": "arrow",
+        "name": "query",
+        "text": "->",
+        "start": {
+          "row": 37,
+          "column": 18
+        },
+        "end": {
+          "row": 37,
+          "column": 20
+        }
+      },
+      {
+        "kind": "bin_op_expr",
+        "name": "query",
+        "text": "model - 1",
+        "start": {
+          "row": 38,
+          "column": 12
+        },
+        "end": {
+          "row": 38,
+          "column": 21
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 38,
+          "column": 12
+        },
+        "end": {
+          "row": 38,
+          "column": 17
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 38,
+          "column": 12
+        },
+        "end": {
+          "row": 38,
+          "column": 17
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 38,
+          "column": 12
+        },
+        "end": {
+          "row": 38,
+          "column": 17
+        }
+      },
+      {
+        "kind": "operator",
+        "name": "query",
+        "text": "-",
+        "start": {
+          "row": 38,
+          "column": 18
+        },
+        "end": {
+          "row": 38,
+          "column": 19
+        }
+      },
+      {
+        "kind": "operator_identifier",
+        "name": "query",
+        "text": "-",
+        "start": {
+          "row": 38,
+          "column": 18
+        },
+        "end": {
+          "row": 38,
+          "column": 19
+        }
+      },
+      {
+        "kind": "-",
+        "name": "query",
+        "text": "-",
+        "start": {
+          "row": 38,
+          "column": 18
+        },
+        "end": {
+          "row": 38,
+          "column": 19
+        }
+      },
+      {
+        "kind": "number_constant_expr",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 38,
+          "column": 20
+        },
+        "end": {
+          "row": 38,
+          "column": 21
+        }
+      },
+      {
+        "kind": "number_literal",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 38,
+          "column": 20
+        },
+        "end": {
+          "row": 38,
+          "column": 21
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "--      ^ constant.numeric.elm",
+        "start": {
+          "row": 39,
+          "column": 12
+        },
+        "end": {
+          "row": 39,
+          "column": 42
+        }
+      },
+      {
+        "kind": "value_declaration",
+        "name": "query",
+        "text": "view model =\n    --     ^ keyword.operator.assignment.elm\n    div []\n        [ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ punctuation.definition.string.begin.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]",
+        "start": {
+          "row": 41,
+          "column": 0
+        },
+        "end": {
+          "row": 49,
+          "column": 9
+        }
+      },
+      {
+        "kind": "function_declaration_left",
+        "name": "query",
+        "text": "view model",
+        "start": {
+          "row": 41,
+          "column": 0
+        },
+        "end": {
+          "row": 41,
+          "column": 10
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "view",
+        "start": {
+          "row": 41,
+          "column": 0
+        },
+        "end": {
+          "row": 41,
+          "column": 4
+        }
+      },
+      {
+        "kind": "lower_pattern",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 41,
+          "column": 5
+        },
+        "end": {
+          "row": 41,
+          "column": 10
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 41,
+          "column": 5
+        },
+        "end": {
+          "row": 41,
+          "column": 10
+        }
+      },
+      {
+        "kind": "eq",
+        "name": "query",
+        "text": "=",
+        "start": {
+          "row": 41,
+          "column": 11
+        },
+        "end": {
+          "row": 41,
+          "column": 12
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "--     ^ keyword.operator.assignment.elm",
+        "start": {
+          "row": 42,
+          "column": 4
+        },
+        "end": {
+          "row": 42,
+          "column": 44
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "div []\n        [ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ punctuation.definition.string.begin.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]",
+        "start": {
+          "row": 43,
+          "column": 4
+        },
+        "end": {
+          "row": 49,
+          "column": 9
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "div",
+        "start": {
+          "row": 43,
+          "column": 4
+        },
+        "end": {
+          "row": 43,
+          "column": 7
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "div",
+        "start": {
+          "row": 43,
+          "column": 4
+        },
+        "end": {
+          "row": 43,
+          "column": 7
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "div",
+        "start": {
+          "row": 43,
+          "column": 4
+        },
+        "end": {
+          "row": 43,
+          "column": 7
+        }
+      },
+      {
+        "kind": "list_expr",
+        "name": "query",
+        "text": "[]",
+        "start": {
+          "row": 43,
+          "column": 8
+        },
+        "end": {
+          "row": 43,
+          "column": 10
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 43,
+          "column": 8
+        },
+        "end": {
+          "row": 43,
+          "column": 9
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 43,
+          "column": 9
+        },
+        "end": {
+          "row": 43,
+          "column": 10
+        }
+      },
+      {
+        "kind": "list_expr",
+        "name": "query",
+        "text": "[ button [ onClick Decrement ] [ text \"-\" ]\n        --                                    ^ punctuation.definition.string.begin.elm\n        --                                     ^ string.elm\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]",
+        "start": {
+          "row": 44,
+          "column": 8
+        },
+        "end": {
+          "row": 49,
+          "column": 9
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 44,
+          "column": 8
+        },
+        "end": {
+          "row": 44,
+          "column": 9
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "button [ onClick Decrement ] [ text \"-\" ]",
+        "start": {
+          "row": 44,
+          "column": 10
+        },
+        "end": {
+          "row": 44,
+          "column": 51
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "button",
+        "start": {
+          "row": 44,
+          "column": 10
+        },
+        "end": {
+          "row": 44,
+          "column": 16
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "button",
+        "start": {
+          "row": 44,
+          "column": 10
+        },
+        "end": {
+          "row": 44,
+          "column": 16
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "button",
+        "start": {
+          "row": 44,
+          "column": 10
+        },
+        "end": {
+          "row": 44,
+          "column": 16
+        }
+      },
+      {
+        "kind": "list_expr",
+        "name": "query",
+        "text": "[ onClick Decrement ]",
+        "start": {
+          "row": 44,
+          "column": 17
+        },
+        "end": {
+          "row": 44,
+          "column": 38
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 44,
+          "column": 17
+        },
+        "end": {
+          "row": 44,
+          "column": 18
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "onClick Decrement",
+        "start": {
+          "row": 44,
+          "column": 19
+        },
+        "end": {
+          "row": 44,
+          "column": 36
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "onClick",
+        "start": {
+          "row": 44,
+          "column": 19
+        },
+        "end": {
+          "row": 44,
+          "column": 26
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "onClick",
+        "start": {
+          "row": 44,
+          "column": 19
+        },
+        "end": {
+          "row": 44,
+          "column": 26
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "onClick",
+        "start": {
+          "row": 44,
+          "column": 19
+        },
+        "end": {
+          "row": 44,
+          "column": 26
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "Decrement",
+        "start": {
+          "row": 44,
+          "column": 27
+        },
+        "end": {
+          "row": 44,
+          "column": 36
+        }
+      },
+      {
+        "kind": "upper_case_qid",
+        "name": "query",
+        "text": "Decrement",
+        "start": {
+          "row": 44,
+          "column": 27
+        },
+        "end": {
+          "row": 44,
+          "column": 36
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Decrement",
+        "start": {
+          "row": 44,
+          "column": 27
+        },
+        "end": {
+          "row": 44,
+          "column": 36
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 44,
+          "column": 37
+        },
+        "end": {
+          "row": 44,
+          "column": 38
+        }
+      },
+      {
+        "kind": "list_expr",
+        "name": "query",
+        "text": "[ text \"-\" ]",
+        "start": {
+          "row": 44,
+          "column": 39
+        },
+        "end": {
+          "row": 44,
+          "column": 51
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 44,
+          "column": 39
+        },
+        "end": {
+          "row": 44,
+          "column": 40
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "text \"-\"",
+        "start": {
+          "row": 44,
+          "column": 41
+        },
+        "end": {
+          "row": 44,
+          "column": 49
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 44,
+          "column": 41
+        },
+        "end": {
+          "row": 44,
+          "column": 45
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 44,
+          "column": 41
+        },
+        "end": {
+          "row": 44,
+          "column": 45
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 44,
+          "column": 41
+        },
+        "end": {
+          "row": 44,
+          "column": 45
+        }
+      },
+      {
+        "kind": "string_constant_expr",
+        "name": "query",
+        "text": "\"-\"",
+        "start": {
+          "row": 44,
+          "column": 46
+        },
+        "end": {
+          "row": 44,
+          "column": 49
+        }
+      },
+      {
+        "kind": "open_quote",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 44,
+          "column": 46
+        },
+        "end": {
+          "row": 44,
+          "column": 47
+        }
+      },
+      {
+        "kind": "regular_string_part",
+        "name": "query",
+        "text": "-",
+        "start": {
+          "row": 44,
+          "column": 47
+        },
+        "end": {
+          "row": 44,
+          "column": 48
+        }
+      },
+      {
+        "kind": "close_quote",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 44,
+          "column": 48
+        },
+        "end": {
+          "row": 44,
+          "column": 49
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 44,
+          "column": 50
+        },
+        "end": {
+          "row": 44,
+          "column": 51
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "--                                    ^ punctuation.definition.string.begin.elm",
+        "start": {
+          "row": 45,
+          "column": 8
+        },
+        "end": {
+          "row": 45,
+          "column": 87
+        }
+      },
+      {
+        "kind": "line_comment",
+        "name": "query",
+        "text": "--                                     ^ string.elm",
+        "start": {
+          "row": 46,
+          "column": 8
+        },
+        "end": {
+          "row": 46,
+          "column": 59
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 47,
+          "column": 8
+        },
+        "end": {
+          "row": 47,
+          "column": 9
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "div [] [ text (String.fromInt model) ]",
+        "start": {
+          "row": 47,
+          "column": 10
+        },
+        "end": {
+          "row": 47,
+          "column": 48
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "div",
+        "start": {
+          "row": 47,
+          "column": 10
+        },
+        "end": {
+          "row": 47,
+          "column": 13
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "div",
+        "start": {
+          "row": 47,
+          "column": 10
+        },
+        "end": {
+          "row": 47,
+          "column": 13
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "div",
+        "start": {
+          "row": 47,
+          "column": 10
+        },
+        "end": {
+          "row": 47,
+          "column": 13
+        }
+      },
+      {
+        "kind": "list_expr",
+        "name": "query",
+        "text": "[]",
+        "start": {
+          "row": 47,
+          "column": 14
+        },
+        "end": {
+          "row": 47,
+          "column": 16
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 47,
+          "column": 14
+        },
+        "end": {
+          "row": 47,
+          "column": 15
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 47,
+          "column": 15
+        },
+        "end": {
+          "row": 47,
+          "column": 16
+        }
+      },
+      {
+        "kind": "list_expr",
+        "name": "query",
+        "text": "[ text (String.fromInt model) ]",
+        "start": {
+          "row": 47,
+          "column": 17
+        },
+        "end": {
+          "row": 47,
+          "column": 48
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 47,
+          "column": 17
+        },
+        "end": {
+          "row": 47,
+          "column": 18
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "text (String.fromInt model)",
+        "start": {
+          "row": 47,
+          "column": 19
+        },
+        "end": {
+          "row": 47,
+          "column": 46
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 47,
+          "column": 19
+        },
+        "end": {
+          "row": 47,
+          "column": 23
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 47,
+          "column": 19
+        },
+        "end": {
+          "row": 47,
+          "column": 23
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 47,
+          "column": 19
+        },
+        "end": {
+          "row": 47,
+          "column": 23
+        }
+      },
+      {
+        "kind": "parenthesized_expr",
+        "name": "query",
+        "text": "(String.fromInt model)",
+        "start": {
+          "row": 47,
+          "column": 24
+        },
+        "end": {
+          "row": 47,
+          "column": 46
+        }
+      },
+      {
+        "kind": "(",
+        "name": "query",
+        "text": "(",
+        "start": {
+          "row": 47,
+          "column": 24
+        },
+        "end": {
+          "row": 47,
+          "column": 25
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "String.fromInt model",
+        "start": {
+          "row": 47,
+          "column": 25
+        },
+        "end": {
+          "row": 47,
+          "column": 45
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "String.fromInt",
+        "start": {
+          "row": 47,
+          "column": 25
+        },
+        "end": {
+          "row": 47,
+          "column": 39
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "String.fromInt",
+        "start": {
+          "row": 47,
+          "column": 25
+        },
+        "end": {
+          "row": 47,
+          "column": 39
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "String",
+        "start": {
+          "row": 47,
+          "column": 25
+        },
+        "end": {
+          "row": 47,
+          "column": 31
+        }
+      },
+      {
+        "kind": "dot",
+        "name": "query",
+        "text": ".",
+        "start": {
+          "row": 47,
+          "column": 31
+        },
+        "end": {
+          "row": 47,
+          "column": 32
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "fromInt",
+        "start": {
+          "row": 47,
+          "column": 32
+        },
+        "end": {
+          "row": 47,
+          "column": 39
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 47,
+          "column": 40
+        },
+        "end": {
+          "row": 47,
+          "column": 45
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 47,
+          "column": 40
+        },
+        "end": {
+          "row": 47,
+          "column": 45
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "model",
+        "start": {
+          "row": 47,
+          "column": 40
+        },
+        "end": {
+          "row": 47,
+          "column": 45
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 47,
+          "column": 45
+        },
+        "end": {
+          "row": 47,
+          "column": 46
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 47,
+          "column": 47
+        },
+        "end": {
+          "row": 47,
+          "column": 48
+        }
+      },
+      {
+        "kind": ",",
+        "name": "query",
+        "text": ",",
+        "start": {
+          "row": 48,
+          "column": 8
+        },
+        "end": {
+          "row": 48,
+          "column": 9
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "button [ onClick Increment ] [ text \"+\" ]",
+        "start": {
+          "row": 48,
+          "column": 10
+        },
+        "end": {
+          "row": 48,
+          "column": 51
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "button",
+        "start": {
+          "row": 48,
+          "column": 10
+        },
+        "end": {
+          "row": 48,
+          "column": 16
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "button",
+        "start": {
+          "row": 48,
+          "column": 10
+        },
+        "end": {
+          "row": 48,
+          "column": 16
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "button",
+        "start": {
+          "row": 48,
+          "column": 10
+        },
+        "end": {
+          "row": 48,
+          "column": 16
+        }
+      },
+      {
+        "kind": "list_expr",
+        "name": "query",
+        "text": "[ onClick Increment ]",
+        "start": {
+          "row": 48,
+          "column": 17
+        },
+        "end": {
+          "row": 48,
+          "column": 38
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 48,
+          "column": 17
+        },
+        "end": {
+          "row": 48,
+          "column": 18
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "onClick Increment",
+        "start": {
+          "row": 48,
+          "column": 19
+        },
+        "end": {
+          "row": 48,
+          "column": 36
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "onClick",
+        "start": {
+          "row": 48,
+          "column": 19
+        },
+        "end": {
+          "row": 48,
+          "column": 26
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "onClick",
+        "start": {
+          "row": 48,
+          "column": 19
+        },
+        "end": {
+          "row": 48,
+          "column": 26
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "onClick",
+        "start": {
+          "row": 48,
+          "column": 19
+        },
+        "end": {
+          "row": 48,
+          "column": 26
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "Increment",
+        "start": {
+          "row": 48,
+          "column": 27
+        },
+        "end": {
+          "row": 48,
+          "column": 36
+        }
+      },
+      {
+        "kind": "upper_case_qid",
+        "name": "query",
+        "text": "Increment",
+        "start": {
+          "row": 48,
+          "column": 27
+        },
+        "end": {
+          "row": 48,
+          "column": 36
+        }
+      },
+      {
+        "kind": "upper_case_identifier",
+        "name": "query",
+        "text": "Increment",
+        "start": {
+          "row": 48,
+          "column": 27
+        },
+        "end": {
+          "row": 48,
+          "column": 36
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 48,
+          "column": 37
+        },
+        "end": {
+          "row": 48,
+          "column": 38
+        }
+      },
+      {
+        "kind": "list_expr",
+        "name": "query",
+        "text": "[ text \"+\" ]",
+        "start": {
+          "row": 48,
+          "column": 39
+        },
+        "end": {
+          "row": 48,
+          "column": 51
+        }
+      },
+      {
+        "kind": "[",
+        "name": "query",
+        "text": "[",
+        "start": {
+          "row": 48,
+          "column": 39
+        },
+        "end": {
+          "row": 48,
+          "column": 40
+        }
+      },
+      {
+        "kind": "function_call_expr",
+        "name": "query",
+        "text": "text \"+\"",
+        "start": {
+          "row": 48,
+          "column": 41
+        },
+        "end": {
+          "row": 48,
+          "column": 49
+        }
+      },
+      {
+        "kind": "value_expr",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 48,
+          "column": 41
+        },
+        "end": {
+          "row": 48,
+          "column": 45
+        }
+      },
+      {
+        "kind": "value_qid",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 48,
+          "column": 41
+        },
+        "end": {
+          "row": 48,
+          "column": 45
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "text",
+        "start": {
+          "row": 48,
+          "column": 41
+        },
+        "end": {
+          "row": 48,
+          "column": 45
+        }
+      },
+      {
+        "kind": "string_constant_expr",
+        "name": "query",
+        "text": "\"+\"",
+        "start": {
+          "row": 48,
+          "column": 46
+        },
+        "end": {
+          "row": 48,
+          "column": 49
+        }
+      },
+      {
+        "kind": "open_quote",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 48,
+          "column": 46
+        },
+        "end": {
+          "row": 48,
+          "column": 47
+        }
+      },
+      {
+        "kind": "regular_string_part",
+        "name": "query",
+        "text": "+",
+        "start": {
+          "row": 48,
+          "column": 47
+        },
+        "end": {
+          "row": 48,
+          "column": 48
+        }
+      },
+      {
+        "kind": "close_quote",
+        "name": "query",
+        "text": "\"",
+        "start": {
+          "row": 48,
+          "column": 48
+        },
+        "end": {
+          "row": 48,
+          "column": 49
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 48,
+          "column": 50
+        },
+        "end": {
+          "row": 48,
+          "column": 51
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 49,
+          "column": 8
+        },
+        "end": {
+          "row": 49,
+          "column": 9
+        }
+      }
+    ]
+  }
+]

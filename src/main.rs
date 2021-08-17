@@ -151,4 +151,19 @@ mod tests {
             "pretty-json"
         ]))
     }
+
+    // All languages should have a test that just spits out their entire node
+    // tree. We use this to know about changes in the vendored parsers!
+
+    #[test]
+    fn all_elm() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "elm",
+            "(_)",
+            "-f",
+            "pretty-json"
+        ]))
+    }
 }
