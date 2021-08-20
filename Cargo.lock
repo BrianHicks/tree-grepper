@@ -574,7 +574,7 @@ dependencies = [
 
 [[package]]
 name = "tree-grepper"
-version = "2.0.0"
+version = "2.0.1"
 dependencies = [
  "anyhow",
  "bump_alloc",
