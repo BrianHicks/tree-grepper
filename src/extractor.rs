@@ -100,6 +100,7 @@ impl Extractor {
         } else {
             Ok(Some(ExtractedFile {
                 file: path.to_path_buf(),
+                file_type: self.language.to_string(),
                 matches: extracted_matches,
             }))
         }
@@ -109,6 +110,7 @@ impl Extractor {
 #[derive(Debug, Serialize, PartialEq, Eq, PartialOrd, Ord)]
 pub struct ExtractedFile<'query> {
     file: PathBuf,
+    file_type: String,
     matches: Vec<ExtractedMatch<'query>>,
 }
 

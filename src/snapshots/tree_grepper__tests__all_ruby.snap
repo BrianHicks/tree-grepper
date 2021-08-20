@@ -6,6 +6,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
 [
   {
     "file": "vendor/tree-sitter-ruby/test/corpus/single-cr-as-whitespace.rb",
+    "file_type": "ruby",
     "matches": [
       {
         "kind": "program",
@@ -1129,6 +1130,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
   },
   {
     "file": "vendor/tree-sitter-ruby/test/highlight/classes.rb",
+    "file_type": "ruby",
     "matches": [
       {
         "kind": "program",
@@ -1784,6 +1786,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
   },
   {
     "file": "vendor/tree-sitter-ruby/test/highlight/constants.rb",
+    "file_type": "ruby",
     "matches": [
       {
         "kind": "program",
@@ -2413,6 +2416,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
   },
   {
     "file": "vendor/tree-sitter-ruby/test/highlight/literals.rb",
+    "file_type": "ruby",
     "matches": [
       {
         "kind": "program",
@@ -3198,6 +3202,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
   },
   {
     "file": "vendor/tree-sitter-ruby/test/highlight/variables.rb",
+    "file_type": "ruby",
     "matches": [
       {
         "kind": "program",

@@ -6,6 +6,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
 [
   {
     "file": "vendor/tree-sitter-javascript/test/highlight/functions.js",
+    "file_type": "javascript",
     "matches": [
       {
         "kind": "program",
@@ -2494,6 +2495,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
   },
   {
     "file": "vendor/tree-sitter-javascript/test/highlight/injection.js",
+    "file_type": "javascript",
     "matches": [
       {
         "kind": "program",
@@ -2707,6 +2709,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
   },
   {
     "file": "vendor/tree-sitter-javascript/test/highlight/keywords.js",
+    "file_type": "javascript",
     "matches": [
       {
         "kind": "program",
@@ -3232,6 +3235,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
   },
   {
     "file": "vendor/tree-sitter-javascript/test/highlight/variables.js",
+    "file_type": "javascript",
     "matches": [
       {
         "kind": "program",

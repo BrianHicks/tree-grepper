@@ -6,6 +6,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
 [
   {
     "file": "vendor/tree-sitter-rust/bindings/rust/build.rs",
+    "file_type": "rust",
     "matches": [
       {
         "kind": "source_file",
@@ -2598,6 +2599,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
   },
   {
     "file": "vendor/tree-sitter-rust/bindings/rust/lib.rs",
+    "file_type": "rust",
     "matches": [
       {
         "kind": "source_file",

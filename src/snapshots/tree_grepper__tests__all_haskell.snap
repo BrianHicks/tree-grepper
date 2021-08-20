@@ -6,6 +6,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
 [
   {
     "file": "vendor/tree-sitter-haskell/test/edit/Test.hs",
+    "file_type": "haskell",
     "matches": [
       {
         "kind": "haskell",
@@ -349,6 +350,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
   },
   {
     "file": "vendor/tree-sitter-haskell/test/highlight/Basic.hs",
+    "file_type": "haskell",
     "matches": [
       {
         "kind": "haskell",
