@@ -1,11 +1,12 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"-f\", \"pretty-json\",\n       \"vendor/tree-sitter-elm\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"vendor/tree-sitter-elm\"])"
 
 ---
 [
   {
     "file": "vendor/tree-sitter-elm/test/highlight/basic.elm",
+    "file_type": "elm",
     "matches": [
       {
         "kind": "file",

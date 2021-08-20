@@ -1,11 +1,12 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"-f\", \"pretty-json\",\n       \"vendor/tree-sitter-typescript/typescript/test.ts\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--format=pretty-json\",\n       \"--sort\", \"vendor/tree-sitter-typescript/typescript/test.ts\"])"
 
 ---
 [
   {
     "file": "vendor/tree-sitter-typescript/typescript/test.ts",
+    "file_type": "typescript",
     "matches": [
       {
         "kind": "program",
