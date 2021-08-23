@@ -182,7 +182,43 @@ mod tests {
     use tree_sitter::Parser;
 
     #[test]
-    fn test_matching_with_underscored_name() {
+    fn test_matches_are_extracted() {
+        let lang = Language::Elm;
+        let query = lang
+            .parse_query("(import_clause (upper_case_qid)@import)")
+            .unwrap();
+        let extractor = Extractor::new(lang, query);
+
+        let extracted = extractor
+            .extract_from_text(None, b"import Html.Styled", &mut Parser::new())
+            // From Result<Option<ExtractedFile>>
+            .unwrap()
+            // From Option<ExtractedFile>
+            .unwrap();
+
+        assert_eq!(extracted.matches.len(), 1);
+        assert_eq!(extracted.matches[0].name, "import");
+        assert_eq!(extracted.matches[0].text, "Html.Styled");
+    }
+
+    #[test]
+    fn test_underscore_names_are_ignored() {
+        let lang = Language::Elm;
+        let query = lang
+            .parse_query("(import_clause (upper_case_qid)@_import)")
+            .unwrap();
+        let extractor = Extractor::new(lang, query);
+
+        let extracted = extractor
+            .extract_from_text(None, b"import Html.Styled", &mut Parser::new())
+            // From Result<Option<ExtractedFile>>
+            .unwrap();
+
+        assert_eq!(extracted, None);
+    }
+
+    #[test]
+    fn test_underscore_names_can_still_be_used_in_matchers() {
         let lang = Language::JavaScript;
         let query = lang
             .parse_query("(call_expression (identifier)@_fn (arguments . (string)@import .) (#eq? @_fn require))")
