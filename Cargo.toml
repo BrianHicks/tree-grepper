@@ -1,6 +1,6 @@
 [package]
 name = "tree-grepper"
-version = "2.0.1"
+version = "2.0.2"
 authors = ["Brian Hicks <brian@brianthicks.com>"]
 edition = "2018"
 
