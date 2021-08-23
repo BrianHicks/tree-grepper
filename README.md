@@ -31,11 +31,20 @@ The columns here are filename, row, column, match name, and match text.
 Note, however, that if your query includes a match with newlines in the text they will be included in the output!
 If this causes problems for your use case, try asking for JSON output (`-f json`) instead.
 
-`tree-grepper` uses [Tree-sitter's s-expressions](https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries) to find matches.
-See the docs there for what all you can do with it.
+`tree-grepper` uses Tree-sitter's s-expressions to find matches.
+See [the tree-sitter docs on queries](https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries) for what all you can do there.
 
-You can get more info (the match end and the node kind) by asking for JSON output with `-f json`.
-This is handy for discovery: if you just need node names for your language, try something like `tree-grepper -q rust '(_)' -f json`.
+We add one important thing on top of the standard query stuff (including `#eq?` and `#match?`): if you name a pattern starting with an underscore, it will not be returned in the output.
+This is primarily useful for filtering out matches you don't really care about.
+For example, to match JavaScript calls to `require` but not other functions, you could do this:
+
+```
+(call_expression (identifier)@_fn (arguments . (string)@import .) (#eq? @_fn require))
+```
+
+In addition to text output, we support JSON output for scripting: just  specify `-f json`.
+You also get more info (the match's end location and node kind) by asking for JSON output.
+This is handy for discovery: if you want to see the node names for your target language, try something like `tree-grepper -q rust '(_)' -f json`, replacing `rust` with the language of your choice.
 
 ## Supported Languages
 
