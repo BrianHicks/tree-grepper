@@ -42,9 +42,17 @@ impl Extractor {
         path: &Path,
         parser: &mut Parser,
     ) -> Result<Option<ExtractedFile>> {
-        let source =
-            fs::read(path).with_context(|| format!("could not read {}", path.display()))?;
+        let source = fs::read(&path).context("could not read file")?;
 
+        self.extract_from_text(Some(path), &source, parser)
+    }
+
+    pub fn extract_from_text(
+        &self,
+        path: Option<&Path>,
+        source: &[u8],
+        parser: &mut Parser,
+    ) -> Result<Option<ExtractedFile>> {
         parser
             .set_language(self.ts_language)
             .context("could not set language")?;
@@ -57,8 +65,7 @@ impl Extractor {
             // it's an internal error.
             .with_context(|| {
                 format!(
-                    "could not parse {}. This is an internal error and should be reported.",
-                    path.display()
+                    "could not parse to a tree. This is an internal error and should be reported.",
                 )
             })?;
 
@@ -99,7 +106,7 @@ impl Extractor {
             Ok(None)
         } else {
             Ok(Some(ExtractedFile {
-                file: path.to_path_buf(),
+                file: path.map(|p| p.to_owned()),
                 file_type: self.language.to_string(),
                 matches: extracted_matches,
             }))
@@ -109,18 +116,28 @@ impl Extractor {
 
 #[derive(Debug, Serialize, PartialEq, Eq, PartialOrd, Ord)]
 pub struct ExtractedFile<'query> {
-    file: PathBuf,
+    file: Option<PathBuf>,
     file_type: String,
     matches: Vec<ExtractedMatch<'query>>,
 }
 
 impl<'query> Display for ExtractedFile<'query> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // TODO: is there a better way to do this unwrapping? This implementation
+        // turns non-UTF-8 paths into "NON-UTF8 FILENAME". I don't know exactly
+        // what circumstances that could happen in... maybe we should just wait
+        // for bug reports?
+        let filename = self
+            .file
+            .as_ref()
+            .map(|f| f.to_str().unwrap_or("NON-UTF8 FILENAME"))
+            .unwrap_or("NO FILE");
+
         for extraction in &self.matches {
             writeln!(
                 f,
                 "{}:{}:{}:{}:{}",
-                self.file.display(),
+                filename,
                 extraction.start.row,
                 extraction.start.column,
                 extraction.name,

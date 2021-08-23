@@ -54,7 +54,11 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
                 .map(|extractor| (entry, extractor))
         })
         .map_init(Parser::new, |parser, (entry, extractor)| {
-            extractor.extract_from_file(entry.path(), parser)
+            extractor
+                .extract_from_file(entry.path(), parser)
+                .with_context(|| {
+                    format!("could not extract matches from {}", entry.path().display())
+                })
         })
         .filter_map(|result_containing_option| match result_containing_option {
             Ok(None) => None,
