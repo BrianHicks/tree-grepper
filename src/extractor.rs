@@ -67,11 +67,9 @@ impl Extractor {
             // that so we know it's always a language error. Buuuut we also
             // always set the language above so if this happens we also know
             // it's an internal error.
-            .with_context(|| {
-                format!(
-                    "could not parse to a tree. This is an internal error and should be reported.",
-                )
-            })?;
+            .context(
+                "could not parse to a tree. This is an internal error and should be reported.",
+            )?;
 
         let mut cursor = QueryCursor::new();
 
