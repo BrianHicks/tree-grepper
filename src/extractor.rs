@@ -2,6 +2,7 @@ use crate::language::Language;
 use anyhow::{Context, Result};
 use serde::ser::{SerializeStruct, Serializer};
 use serde::Serialize;
+use std::collections::HashSet;
 use std::fmt::{self, Display};
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -13,23 +14,26 @@ pub struct Extractor {
     ts_language: tree_sitter::Language,
     query: Query,
     captures: Vec<String>,
+    ignores: HashSet<usize>,
 }
 
 impl Extractor {
-    pub fn new(language: Language, mut query: Query) -> Extractor {
+    pub fn new(language: Language, query: Query) -> Extractor {
         let captures = query.capture_names().to_vec();
 
-        for name in &captures {
+        let mut ignores = HashSet::default();
+        captures.iter().enumerate().for_each(|(i, name)| {
             if name.starts_with('_') {
-                query.disable_capture(&name);
+                ignores.insert(i);
             }
-        }
+        });
 
         Extractor {
             ts_language: (&language).language(),
             language,
             query,
             captures,
+            ignores,
         }
     }
 
@@ -42,9 +46,17 @@ impl Extractor {
         path: &Path,
         parser: &mut Parser,
     ) -> Result<Option<ExtractedFile>> {
-        let source =
-            fs::read(path).with_context(|| format!("could not read {}", path.display()))?;
+        let source = fs::read(&path).context("could not read file")?;
 
+        self.extract_from_text(Some(path), &source, parser)
+    }
+
+    pub fn extract_from_text(
+        &self,
+        path: Option<&Path>,
+        source: &[u8],
+        parser: &mut Parser,
+    ) -> Result<Option<ExtractedFile>> {
         parser
             .set_language(self.ts_language)
             .context("could not set language")?;
@@ -55,12 +67,9 @@ impl Extractor {
             // that so we know it's always a language error. Buuuut we also
             // always set the language above so if this happens we also know
             // it's an internal error.
-            .with_context(|| {
-                format!(
-                    "could not parse {}. This is an internal error and should be reported.",
-                    path.display()
-                )
-            })?;
+            .context(
+                "could not parse to a tree. This is an internal error and should be reported.",
+            )?;
 
         let mut cursor = QueryCursor::new();
 
@@ -69,11 +78,12 @@ impl Extractor {
                 node.utf8_text(&source).unwrap_or("")
             })
             .flat_map(|query_match| query_match.captures)
+            // note: the casts here could potentially break if run on a 16-bit
+            // microcontroller. I don't think this is a huge problem, though,
+            // since even the gnarliest queries I've written have something on
+            // the order of 20 matches. Nowhere close to 2^16!
+            .filter(|capture| !self.ignores.contains(&(capture.index as usize)))
             .map(|capture| {
-                // note: the cast here could potentially break if run on a 16-bit
-                // microcontroller. I don't think this is a huge problem, though,
-                // since even the gnarliest queries I've written have something
-                // on the order of 20 matches. Nowhere close to 2^16!
                 let name = &self.captures[capture.index as usize];
                 let node = capture.node;
                 let text = match node
@@ -99,7 +109,7 @@ impl Extractor {
             Ok(None)
         } else {
             Ok(Some(ExtractedFile {
-                file: path.to_path_buf(),
+                file: path.map(|p| p.to_owned()),
                 file_type: self.language.to_string(),
                 matches: extracted_matches,
             }))
@@ -109,18 +119,28 @@ impl Extractor {
 
 #[derive(Debug, Serialize, PartialEq, Eq, PartialOrd, Ord)]
 pub struct ExtractedFile<'query> {
-    file: PathBuf,
+    file: Option<PathBuf>,
     file_type: String,
     matches: Vec<ExtractedMatch<'query>>,
 }
 
 impl<'query> Display for ExtractedFile<'query> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // TODO: is there a better way to do this unwrapping? This implementation
+        // turns non-UTF-8 paths into "NON-UTF8 FILENAME". I don't know exactly
+        // what circumstances that could happen in... maybe we should just wait
+        // for bug reports?
+        let filename = self
+            .file
+            .as_ref()
+            .map(|f| f.to_str().unwrap_or("NON-UTF8 FILENAME"))
+            .unwrap_or("NO FILE");
+
         for extraction in &self.matches {
             writeln!(
                 f,
                 "{}:{}:{}:{}:{}",
-                self.file.display(),
+                filename,
                 extraction.start.row,
                 extraction.start.column,
                 extraction.name,
@@ -151,4 +171,67 @@ where
     out.serialize_field("row", &point.row)?;
     out.serialize_field("column", &point.column)?;
     out.end()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::language::Language;
+    use tree_sitter::Parser;
+
+    #[test]
+    fn test_matches_are_extracted() {
+        let lang = Language::Elm;
+        let query = lang
+            .parse_query("(import_clause (upper_case_qid)@import)")
+            .unwrap();
+        let extractor = Extractor::new(lang, query);
+
+        let extracted = extractor
+            .extract_from_text(None, b"import Html.Styled", &mut Parser::new())
+            // From Result<Option<ExtractedFile>>
+            .unwrap()
+            // From Option<ExtractedFile>
+            .unwrap();
+
+        assert_eq!(extracted.matches.len(), 1);
+        assert_eq!(extracted.matches[0].name, "import");
+        assert_eq!(extracted.matches[0].text, "Html.Styled");
+    }
+
+    #[test]
+    fn test_underscore_names_are_ignored() {
+        let lang = Language::Elm;
+        let query = lang
+            .parse_query("(import_clause (upper_case_qid)@_import)")
+            .unwrap();
+        let extractor = Extractor::new(lang, query);
+
+        let extracted = extractor
+            .extract_from_text(None, b"import Html.Styled", &mut Parser::new())
+            // From Result<Option<ExtractedFile>>
+            .unwrap();
+
+        assert_eq!(extracted, None);
+    }
+
+    #[test]
+    fn test_underscore_names_can_still_be_used_in_matchers() {
+        let lang = Language::JavaScript;
+        let query = lang
+            .parse_query("(call_expression (identifier)@_fn (arguments . (string)@import .) (#eq? @_fn require))")
+            .unwrap();
+        let extractor = Extractor::new(lang, query);
+
+        let extracted = extractor
+            .extract_from_text(None, b"let foo = require(\"foo.js\")", &mut Parser::new())
+            // From Result<Option<ExtractedFile>>
+            .unwrap()
+            // From Option<ExtractedFile>
+            .unwrap();
+
+        assert_eq!(extracted.matches.len(), 1);
+        assert_eq!(extracted.matches[0].name, "import");
+        assert_eq!(extracted.matches[0].text, "\"foo.js\"");
+    }
 }
