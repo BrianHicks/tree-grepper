@@ -2,6 +2,7 @@ use crate::language::Language;
 use anyhow::{Context, Result};
 use serde::ser::{SerializeStruct, Serializer};
 use serde::Serialize;
+use std::collections::HashSet;
 use std::fmt::{self, Display};
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -13,23 +14,26 @@ pub struct Extractor {
     ts_language: tree_sitter::Language,
     query: Query,
     captures: Vec<String>,
+    ignores: HashSet<usize>,
 }
 
 impl Extractor {
-    pub fn new(language: Language, mut query: Query) -> Extractor {
+    pub fn new(language: Language, query: Query) -> Extractor {
         let captures = query.capture_names().to_vec();
 
-        for name in &captures {
+        let mut ignores = HashSet::default();
+        captures.iter().enumerate().for_each(|(i, name)| {
             if name.starts_with('_') {
-                query.disable_capture(&name);
+                ignores.insert(i);
             }
-        }
+        });
 
         Extractor {
             ts_language: (&language).language(),
             language,
             query,
             captures,
+            ignores,
         }
     }
 
@@ -76,11 +80,12 @@ impl Extractor {
                 node.utf8_text(&source).unwrap_or("")
             })
             .flat_map(|query_match| query_match.captures)
+            // note: the casts here could potentially break if run on a 16-bit
+            // microcontroller. I don't think this is a huge problem, though,
+            // since even the gnarliest queries I've written have something on
+            // the order of 20 matches. Nowhere close to 2^16!
+            .filter(|capture| !self.ignores.contains(&(capture.index as usize)))
             .map(|capture| {
-                // note: the cast here could potentially break if run on a 16-bit
-                // microcontroller. I don't think this is a huge problem, though,
-                // since even the gnarliest queries I've written have something
-                // on the order of 20 matches. Nowhere close to 2^16!
                 let name = &self.captures[capture.index as usize];
                 let node = capture.node;
                 let text = match node
@@ -168,4 +173,31 @@ where
     out.serialize_field("row", &point.row)?;
     out.serialize_field("column", &point.column)?;
     out.end()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::language::Language;
+    use tree_sitter::Parser;
+
+    #[test]
+    fn test_matching_with_underscored_name() {
+        let lang = Language::JavaScript;
+        let query = lang
+            .parse_query("(call_expression (identifier)@_fn (arguments . (string)@import .) (#eq? @_fn require))")
+            .unwrap();
+        let extractor = Extractor::new(lang, query);
+
+        let extracted = extractor
+            .extract_from_text(None, b"let foo = require(\"foo.js\")", &mut Parser::new())
+            // From Result<Option<ExtractedFile>>
+            .unwrap()
+            // From Option<ExtractedFile>
+            .unwrap();
+
+        assert_eq!(extracted.matches.len(), 1);
+        assert_eq!(extracted.matches[0].name, "import");
+        assert_eq!(extracted.matches[0].text, "\"foo.js\"");
+    }
 }
