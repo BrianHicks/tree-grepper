@@ -13,17 +13,25 @@
       in
         rec {
           # `nix build`
-          packages.hello-world = naersk-lib.buildPackage {
-            pname = "hello-world";
-            root = ./.;
-          };
-          defaultPackage = packages.hello-world;
+          packages.tree-grepper =
+            let darwinInputs = if pkgs.stdenv.isDarwin then [ pkgs.xcbuild ] else [ ];
+            in naersk-lib.buildPackage {
+              root = ./.;
+              buildInputs = [ pkgs.libiconv pkgs.rustPackages.clippy ] ++ darwinInputs;
+
+              doCheck = true;
+              checkPhase = ''
+                cargo test
+                cargo clippy -- --deny warnings
+              '';
+            };
+          defaultPackage = packages.tree-grepper;
 
           # `nix run`
-          apps.hello-world = flake-utils.lib.mkApp {
-            drv = packages.hello-world;
+          apps.tree-grepper = flake-utils.lib.mkApp {
+            drv = packages.tree-grepper;
           };
-          defaultApp = apps.hello-world;
+          defaultApp = apps.tree-grepper;
 
           # `nix develop`
           devShell = pkgs.mkShell {
