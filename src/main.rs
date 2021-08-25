@@ -211,6 +211,7 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
+            "--no-gitignore",
             // note that this doesn't include the entire vendor
             // directory. tree-sitter-javascript vendors a couple of libraries
             // to test things and it makes this test run unacceptably long. I

@@ -1,6 +1,6 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--format=pretty-json\",\n       \"--sort\", \"vendor/tree-sitter-javascript/test\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--format=pretty-json\",\n       \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-javascript/test\"])"
 
 ---
 [
