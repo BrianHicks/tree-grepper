@@ -5,7 +5,8 @@ on:
   push:
 
 jobs:
-  tests:
+  build-and-test:
+    name: build and test
     strategy:
       matrix:
         # note: we're using ubuntu-latest as a stand-in for all Linux
@@ -19,12 +20,38 @@ jobs:
     runs-on: "${{ matrix.os }}"
     steps:
       - uses: actions/checkout@v2
-
       - uses: cachix/install-nix-action@v13
-
       - uses: cachix/cachix-action@v10
         with:
           name: tree-grepper
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
       - run: nix-build
+
+  clippy:
+    name: clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v13
+      - uses: cachix/cachix-action@v10
+        with:
+          name: tree-grepper
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          skipPush: true
+
+      - run: nix-shell --pure --run 'cargo clippy'
+
+  rustfmt:
+    name: rustfmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v13
+      - uses: cachix/cachix-action@v10
+        with:
+          name: tree-grepper
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          skipPush: true
+
+      - run: nix-shell --pure --run 'rustfmt --check $(find . -name "*.rs" -not -ipath "*vendor*" -not -ipath "*target*")'
