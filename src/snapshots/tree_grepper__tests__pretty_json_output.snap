@@ -1,11 +1,11 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"--format=pretty-json\",\n       \"--sort\", \"vendor/tree-sitter-elm\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"--format=pretty-json\",\n       \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-elm/examples\"])"
 
 ---
 [
   {
-    "file": "vendor/tree-sitter-elm/test/highlight/basic.elm",
+    "file": "vendor/tree-sitter-elm/examples/basic.elm",
     "file_type": "elm",
     "matches": [
       {
@@ -13,11 +13,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"--
         "name": "query",
         "text": "import Browser",
         "start": {
-          "row": 4,
+          "row": 2,
           "column": 0
         },
         "end": {
-          "row": 4,
+          "row": 2,
           "column": 14
         }
       },
@@ -26,11 +26,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"--
         "name": "query",
         "text": "import Html exposing (Html, button, div, text)",
         "start": {
-          "row": 6,
+          "row": 3,
           "column": 0
         },
         "end": {
-          "row": 6,
+          "row": 3,
           "column": 46
         }
       },
@@ -39,11 +39,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"--
         "name": "query",
         "text": "import Html.Events exposing (onClick)",
         "start": {
-          "row": 8,
+          "row": 4,
           "column": 0
         },
         "end": {
-          "row": 8,
+          "row": 4,
           "column": 37
         }
       }

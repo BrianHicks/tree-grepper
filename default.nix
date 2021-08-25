@@ -1,16 +1,5 @@
-{ sources ? import ./nix/sources.nix { }, pkgs ? import sources.nixpkgs { }, ...
-}:
-let
-  naersk = pkgs.callPackage sources.naersk { };
-  gitignore = pkgs.callPackage sources.gitignore { };
-  darwinInputs = if pkgs.stdenv.isDarwin then [ pkgs.xcbuild ] else [ ];
-in naersk.buildPackage {
-  src = gitignore.gitignoreSource ./.;
-  buildInputs = [ pkgs.libiconv pkgs.rustPackages.clippy ] ++ darwinInputs;
-
-  doCheck = true;
-  checkPhase = ''
-    cargo test
-    cargo clippy -- --deny warnings
-  '';
-}
+(import (fetchTarball {
+  url =
+    "https://github.com/edolstra/flake-compat/archive/12c64ca55c1014cdc1b16ed5a804aa8576601ff2.tar.gz";
+  sha256 = "0jm6nzb83wa6ai17ly9fzpqc40wg1viib8klq8lby54agpl213w5";
+}) { src = ./.; }).defaultNix

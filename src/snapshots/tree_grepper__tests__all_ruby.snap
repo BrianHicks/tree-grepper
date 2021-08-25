@@ -1,6 +1,6 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"vendor/tree-sitter-ruby\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"--no-gitignore\", \"vendor/tree-sitter-ruby\"])"
 
 ---
 [

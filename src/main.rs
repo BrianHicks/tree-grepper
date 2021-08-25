@@ -137,7 +137,8 @@ mod tests {
             "-f",
             "lines",
             "--sort",
-            "vendor/tree-sitter-elm",
+            "--no-gitignore",
+            "vendor/tree-sitter-elm/examples",
         ]))
     }
 
@@ -151,7 +152,8 @@ mod tests {
             "-f",
             "json",
             "--sort",
-            "vendor/tree-sitter-elm",
+            "--no-gitignore",
+            "vendor/tree-sitter-elm/examples",
         ]))
     }
 
@@ -164,7 +166,8 @@ mod tests {
             "(import_clause)",
             "--format=pretty-json",
             "--sort",
-            "vendor/tree-sitter-elm",
+            "--no-gitignore",
+            "vendor/tree-sitter-elm/examples",
         ]))
     }
 
@@ -180,7 +183,8 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
-            "vendor/tree-sitter-elm",
+            "--no-gitignore",
+            "vendor/tree-sitter-elm/examples",
         ]))
     }
 
@@ -193,6 +197,7 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
+            "--no-gitignore",
             "vendor/tree-sitter-haskell",
         ]))
     }
@@ -206,6 +211,7 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
+            "--no-gitignore",
             // note that this doesn't include the entire vendor
             // directory. tree-sitter-javascript vendors a couple of libraries
             // to test things and it makes this test run unacceptably long. I
@@ -224,6 +230,7 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
+            "--no-gitignore",
             "vendor/tree-sitter-ruby",
         ]))
     }
@@ -237,7 +244,8 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
-            "vendor/tree-sitter-rust",
+            "--no-gitignore",
+            "vendor/tree-sitter-rust/examples",
         ]))
     }
 
@@ -250,6 +258,7 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
+            "--no-gitignore",
             // similar to JavaScript, there is one particular test file in this
             // grammar that's *huge*. It seems to be a comprehensive listing of
             // all the typescript syntax, maybe? Regardless, it makes this test

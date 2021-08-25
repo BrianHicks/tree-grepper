@@ -1,25 +1,5 @@
-{ ... }:
-let
-  sources = import ./nix/sources.nix;
-  nixpkgs = import sources.nixpkgs { };
-  niv = import sources.niv { };
-in with nixpkgs;
-stdenv.mkDerivation {
-  name = "tree-grepper";
-  buildInputs = [
-    niv.niv
-    git
-
-    # tree-sitter C deps
-    pkgs.libiconv
-
-    # rust tools
-    cargo
-    cargo-edit
-    cargo-insta
-    cargo-watch
-    rustPackages.clippy
-    rustc
-    rustfmt
-  ];
-}
+(import (fetchTarball {
+  url =
+    "https://github.com/edolstra/flake-compat/archive/12c64ca55c1014cdc1b16ed5a804aa8576601ff2.tar.gz";
+  sha256 = "0jm6nzb83wa6ai17ly9fzpqc40wg1viib8klq8lby54agpl213w5";
+}) { src = ./.; }).shellNix
