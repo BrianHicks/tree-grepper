@@ -37,7 +37,6 @@ jobs:
       - uses: cachix/cachix-action@v10
         with:
           name: tree-grepper
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           skipPush: true
 
       - run: nix-shell --pure --run 'cargo clippy'
@@ -51,7 +50,6 @@ jobs:
       - uses: cachix/cachix-action@v10
         with:
           name: tree-grepper
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           skipPush: true
 
       - run: nix-shell --pure --run 'rustfmt --check $(find . -name "*.rs" -not -ipath "*vendor*" -not -ipath "*target*")'
