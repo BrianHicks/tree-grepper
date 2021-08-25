@@ -197,6 +197,7 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
+            "--no-gitignore",
             "vendor/tree-sitter-haskell",
         ]))
     }
