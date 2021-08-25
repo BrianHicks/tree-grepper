@@ -10,11 +10,10 @@
       let
         pkgs = nixpkgs.legacyPackages."${system}";
         naersk-lib = naersk.lib."${system}";
+        darwinInputs = if pkgs.stdenv.isDarwin then [ pkgs.xcbuild ] else [ ];
       in rec {
         # `nix build`
-        packages.tree-grepper = let
-          darwinInputs = if pkgs.stdenv.isDarwin then [ pkgs.xcbuild ] else [ ];
-        in naersk-lib.buildPackage {
+        packages.tree-grepper = naersk-lib.buildPackage {
           root = ./.;
           buildInputs = [ pkgs.libiconv pkgs.rustPackages.clippy ]
             ++ darwinInputs;
@@ -34,18 +33,19 @@
 
         # `nix develop`
         devShell = pkgs.mkShell {
-          nativeBuildInputs = with pkgs; [
-            cargo
-            cargo-edit
-            cargo-insta
-            cargo-watch
-            rustPackages.clippy
-            rustc
-            rustfmt
+          nativeBuildInputs = with pkgs;
+            [
+              cargo
+              cargo-edit
+              cargo-insta
+              cargo-watch
+              rustPackages.clippy
+              rustc
+              rustfmt
 
-            # for some reason this seems to be required, especially on macOS
-            libiconv
-          ];
+              # for some reason this seems to be required, especially on macOS
+              libiconv
+            ] ++ darwinInputs;
         };
       });
 }
