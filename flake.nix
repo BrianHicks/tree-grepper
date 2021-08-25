@@ -35,7 +35,18 @@
 
           # `nix develop`
           devShell = pkgs.mkShell {
-            nativeBuildInputs = with pkgs; [ rustc cargo ];
+            nativeBuildInputs = with pkgs; [
+              cargo
+              cargo-edit
+              cargo-insta
+              cargo-watch
+              rustPackages.clippy
+              rustc
+              rustfmt
+
+              # for some reason this seems to be required, especially on macOS
+              libiconv
+            ];
           };
         }
     );
