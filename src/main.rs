@@ -244,7 +244,8 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
-            "vendor/tree-sitter-rust",
+            "--no-gitignore",
+            "vendor/tree-sitter-rust/examples",
         ]))
     }
 
