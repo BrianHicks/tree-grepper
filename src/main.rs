@@ -137,7 +137,8 @@ mod tests {
             "-f",
             "lines",
             "--sort",
-            "vendor/tree-sitter-elm",
+            "--no-gitignore",
+            "vendor/tree-sitter-elm/examples",
         ]))
     }
 
@@ -151,7 +152,8 @@ mod tests {
             "-f",
             "json",
             "--sort",
-            "vendor/tree-sitter-elm",
+            "--no-gitignore",
+            "vendor/tree-sitter-elm/examples",
         ]))
     }
 
@@ -164,7 +166,8 @@ mod tests {
             "(import_clause)",
             "--format=pretty-json",
             "--sort",
-            "vendor/tree-sitter-elm",
+            "--no-gitignore",
+            "vendor/tree-sitter-elm/examples",
         ]))
     }
 
@@ -180,7 +183,8 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
-            "vendor/tree-sitter-elm",
+            "--no-gitignore",
+            "vendor/tree-sitter-elm/examples",
         ]))
     }
 
