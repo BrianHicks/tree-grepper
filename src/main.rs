@@ -258,6 +258,7 @@ mod tests {
             "(_)",
             "--format=pretty-json",
             "--sort",
+            "--no-gitignore",
             // similar to JavaScript, there is one particular test file in this
             // grammar that's *huge*. It seems to be a comprehensive listing of
             // all the typescript syntax, maybe? Regardless, it makes this test
