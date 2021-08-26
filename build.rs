@@ -87,7 +87,9 @@ fn main() {
         .compile("tree_sitter_rust_scanner");
 
     // typescript
-    let typescript_dir: PathBuf = ["vendor", "tree-sitter-typescript", "typescript", "src"].iter().collect();
+    let typescript_dir: PathBuf = ["vendor", "tree-sitter-typescript", "typescript", "src"]
+        .iter()
+        .collect();
 
     println!("cargo:rerun-if-changed=vendor/tree-sitter-typescript/typescript/src/parser.c");
     cc::Build::new()
