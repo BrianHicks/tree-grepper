@@ -25,6 +25,7 @@
           '';
         };
         defaultPackage = packages.tree-grepper;
+        overlay = final: prev: { tree-grepper = packages.tree-grepper; };
 
         # `nix run`
         apps.tree-grepper =
