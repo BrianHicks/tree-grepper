@@ -13,12 +13,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "module A where\n\ndata Foo a =\n  Foo\n  deriving (Eq)\n  deriving (Show)\n",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 6,
-          "column": 0
+          "row": 7,
+          "column": 1
         }
       },
       {
@@ -26,12 +26,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "module",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 6
+          "row": 1,
+          "column": 7
         }
       },
       {
@@ -39,12 +39,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 0,
-          "column": 7
+          "row": 1,
+          "column": 8
         },
         "end": {
-          "row": 0,
-          "column": 8
+          "row": 1,
+          "column": 9
         }
       },
       {
@@ -52,12 +52,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "where",
         "start": {
-          "row": 0,
-          "column": 9
+          "row": 1,
+          "column": 10
         },
         "end": {
-          "row": 0,
-          "column": 14
+          "row": 1,
+          "column": 15
         }
       },
       {
@@ -65,12 +65,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "data Foo a =\n  Foo\n  deriving (Eq)\n  deriving (Show)",
         "start": {
-          "row": 2,
-          "column": 0
+          "row": 3,
+          "column": 1
         },
         "end": {
-          "row": 5,
-          "column": 17
+          "row": 6,
+          "column": 18
         }
       },
       {
@@ -78,12 +78,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "data",
         "start": {
-          "row": 2,
-          "column": 0
+          "row": 3,
+          "column": 1
         },
         "end": {
-          "row": 2,
-          "column": 4
+          "row": 3,
+          "column": 5
         }
       },
       {
@@ -91,12 +91,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "Foo",
         "start": {
-          "row": 2,
-          "column": 5
+          "row": 3,
+          "column": 6
         },
         "end": {
-          "row": 2,
-          "column": 8
+          "row": 3,
+          "column": 9
         }
       },
       {
@@ -104,12 +104,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 2,
-          "column": 9
+          "row": 3,
+          "column": 10
         },
         "end": {
-          "row": 2,
-          "column": 10
+          "row": 3,
+          "column": 11
         }
       },
       {
@@ -117,12 +117,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "=",
         "start": {
-          "row": 2,
-          "column": 11
+          "row": 3,
+          "column": 12
         },
         "end": {
-          "row": 2,
-          "column": 12
+          "row": 3,
+          "column": 13
         }
       },
       {
@@ -130,12 +130,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "Foo",
         "start": {
-          "row": 3,
-          "column": 2
+          "row": 4,
+          "column": 3
         },
         "end": {
-          "row": 3,
-          "column": 5
+          "row": 4,
+          "column": 6
         }
       },
       {
@@ -143,12 +143,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "Foo",
         "start": {
-          "row": 3,
-          "column": 2
+          "row": 4,
+          "column": 3
         },
         "end": {
-          "row": 3,
-          "column": 5
+          "row": 4,
+          "column": 6
         }
       },
       {
@@ -156,12 +156,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "Foo",
         "start": {
-          "row": 3,
-          "column": 2
+          "row": 4,
+          "column": 3
         },
         "end": {
-          "row": 3,
-          "column": 5
+          "row": 4,
+          "column": 6
         }
       },
       {
@@ -169,12 +169,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "deriving (Eq)",
         "start": {
-          "row": 4,
-          "column": 2
+          "row": 5,
+          "column": 3
         },
         "end": {
-          "row": 4,
-          "column": 15
+          "row": 5,
+          "column": 16
         }
       },
       {
@@ -182,12 +182,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "deriving",
         "start": {
-          "row": 4,
-          "column": 2
+          "row": 5,
+          "column": 3
         },
         "end": {
-          "row": 4,
-          "column": 10
+          "row": 5,
+          "column": 11
         }
       },
       {
@@ -195,12 +195,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "(",
         "start": {
-          "row": 4,
-          "column": 11
+          "row": 5,
+          "column": 12
         },
         "end": {
-          "row": 4,
-          "column": 12
+          "row": 5,
+          "column": 13
         }
       },
       {
@@ -208,12 +208,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "Eq",
         "start": {
-          "row": 4,
-          "column": 12
+          "row": 5,
+          "column": 13
         },
         "end": {
-          "row": 4,
-          "column": 14
+          "row": 5,
+          "column": 15
         }
       },
       {
@@ -221,12 +221,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "Eq",
         "start": {
-          "row": 4,
-          "column": 12
+          "row": 5,
+          "column": 13
         },
         "end": {
-          "row": 4,
-          "column": 14
+          "row": 5,
+          "column": 15
         }
       },
       {
@@ -234,12 +234,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "Eq",
         "start": {
-          "row": 4,
-          "column": 12
+          "row": 5,
+          "column": 13
         },
         "end": {
-          "row": 4,
-          "column": 14
+          "row": 5,
+          "column": 15
         }
       },
       {
@@ -247,12 +247,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": ")",
         "start": {
-          "row": 4,
-          "column": 14
+          "row": 5,
+          "column": 15
         },
         "end": {
-          "row": 4,
-          "column": 15
+          "row": 5,
+          "column": 16
         }
       },
       {
@@ -260,12 +260,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "deriving (Show)",
         "start": {
-          "row": 5,
-          "column": 2
+          "row": 6,
+          "column": 3
         },
         "end": {
-          "row": 5,
-          "column": 17
+          "row": 6,
+          "column": 18
         }
       },
       {
@@ -273,12 +273,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "deriving",
         "start": {
-          "row": 5,
-          "column": 2
+          "row": 6,
+          "column": 3
         },
         "end": {
-          "row": 5,
-          "column": 10
+          "row": 6,
+          "column": 11
         }
       },
       {
@@ -286,12 +286,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "(",
         "start": {
-          "row": 5,
-          "column": 11
+          "row": 6,
+          "column": 12
         },
         "end": {
-          "row": 5,
-          "column": 12
+          "row": 6,
+          "column": 13
         }
       },
       {
@@ -299,12 +299,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "Show",
         "start": {
-          "row": 5,
-          "column": 12
+          "row": 6,
+          "column": 13
         },
         "end": {
-          "row": 5,
-          "column": 16
+          "row": 6,
+          "column": 17
         }
       },
       {
@@ -312,12 +312,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "Show",
         "start": {
-          "row": 5,
-          "column": 12
+          "row": 6,
+          "column": 13
         },
         "end": {
-          "row": 5,
-          "column": 16
+          "row": 6,
+          "column": 17
         }
       },
       {
@@ -325,12 +325,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "Show",
         "start": {
-          "row": 5,
-          "column": 12
+          "row": 6,
+          "column": 13
         },
         "end": {
-          "row": 5,
-          "column": 16
+          "row": 6,
+          "column": 17
         }
       },
       {
@@ -338,12 +338,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": ")",
         "start": {
-          "row": 5,
-          "column": 16
+          "row": 6,
+          "column": 17
         },
         "end": {
-          "row": 5,
-          "column": 17
+          "row": 6,
+          "column": 18
         }
       }
     ]
@@ -357,12 +357,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "module A where\n\ndata A a = A a\n\nclass C a where\n\na :: C a => A a -> A a\na (A a) =\n  A a\n",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 9,
-          "column": 0
+          "row": 10,
+          "column": 1
         }
       },
       {
@@ -370,12 +370,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "module",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 6
+          "row": 1,
+          "column": 7
         }
       },
       {
@@ -383,12 +383,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 0,
-          "column": 7
+          "row": 1,
+          "column": 8
         },
         "end": {
-          "row": 0,
-          "column": 8
+          "row": 1,
+          "column": 9
         }
       },
       {
@@ -396,12 +396,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "where",
         "start": {
-          "row": 0,
-          "column": 9
+          "row": 1,
+          "column": 10
         },
         "end": {
-          "row": 0,
-          "column": 14
+          "row": 1,
+          "column": 15
         }
       },
       {
@@ -409,12 +409,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "data A a = A a",
         "start": {
-          "row": 2,
-          "column": 0
+          "row": 3,
+          "column": 1
         },
         "end": {
-          "row": 2,
-          "column": 14
+          "row": 3,
+          "column": 15
         }
       },
       {
@@ -422,12 +422,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "data",
         "start": {
-          "row": 2,
-          "column": 0
+          "row": 3,
+          "column": 1
         },
         "end": {
-          "row": 2,
-          "column": 4
+          "row": 3,
+          "column": 5
         }
       },
       {
@@ -435,12 +435,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 2,
-          "column": 5
+          "row": 3,
+          "column": 6
         },
         "end": {
-          "row": 2,
-          "column": 6
+          "row": 3,
+          "column": 7
         }
       },
       {
@@ -448,12 +448,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 2,
-          "column": 7
+          "row": 3,
+          "column": 8
         },
         "end": {
-          "row": 2,
-          "column": 8
+          "row": 3,
+          "column": 9
         }
       },
       {
@@ -461,12 +461,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "=",
         "start": {
-          "row": 2,
-          "column": 9
+          "row": 3,
+          "column": 10
         },
         "end": {
-          "row": 2,
-          "column": 10
+          "row": 3,
+          "column": 11
         }
       },
       {
@@ -474,12 +474,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A a",
         "start": {
-          "row": 2,
-          "column": 11
+          "row": 3,
+          "column": 12
         },
         "end": {
-          "row": 2,
-          "column": 14
+          "row": 3,
+          "column": 15
         }
       },
       {
@@ -487,12 +487,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A a",
         "start": {
-          "row": 2,
-          "column": 11
+          "row": 3,
+          "column": 12
         },
         "end": {
-          "row": 2,
-          "column": 14
+          "row": 3,
+          "column": 15
         }
       },
       {
@@ -500,12 +500,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 2,
-          "column": 11
+          "row": 3,
+          "column": 12
         },
         "end": {
-          "row": 2,
-          "column": 12
+          "row": 3,
+          "column": 13
         }
       },
       {
@@ -513,12 +513,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 2,
-          "column": 13
+          "row": 3,
+          "column": 14
         },
         "end": {
-          "row": 2,
-          "column": 14
+          "row": 3,
+          "column": 15
         }
       },
       {
@@ -526,12 +526,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 2,
-          "column": 13
+          "row": 3,
+          "column": 14
         },
         "end": {
-          "row": 2,
-          "column": 14
+          "row": 3,
+          "column": 15
         }
       },
       {
@@ -539,12 +539,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "class C a where",
         "start": {
-          "row": 4,
-          "column": 0
+          "row": 5,
+          "column": 1
         },
         "end": {
-          "row": 4,
-          "column": 15
+          "row": 5,
+          "column": 16
         }
       },
       {
@@ -552,12 +552,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "class",
         "start": {
-          "row": 4,
-          "column": 0
+          "row": 5,
+          "column": 1
         },
         "end": {
-          "row": 4,
-          "column": 5
+          "row": 5,
+          "column": 6
         }
       },
       {
@@ -565,12 +565,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "C a",
         "start": {
-          "row": 4,
-          "column": 6
+          "row": 5,
+          "column": 7
         },
         "end": {
-          "row": 4,
-          "column": 9
+          "row": 5,
+          "column": 10
         }
       },
       {
@@ -578,12 +578,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "C",
         "start": {
-          "row": 4,
-          "column": 6
+          "row": 5,
+          "column": 7
         },
         "end": {
-          "row": 4,
-          "column": 7
+          "row": 5,
+          "column": 8
         }
       },
       {
@@ -591,12 +591,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "C",
         "start": {
-          "row": 4,
-          "column": 6
+          "row": 5,
+          "column": 7
         },
         "end": {
-          "row": 4,
-          "column": 7
+          "row": 5,
+          "column": 8
         }
       },
       {
@@ -604,12 +604,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 4,
-          "column": 8
+          "row": 5,
+          "column": 9
         },
         "end": {
-          "row": 4,
-          "column": 9
+          "row": 5,
+          "column": 10
         }
       },
       {
@@ -617,12 +617,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 4,
-          "column": 8
+          "row": 5,
+          "column": 9
         },
         "end": {
-          "row": 4,
-          "column": 9
+          "row": 5,
+          "column": 10
         }
       },
       {
@@ -630,12 +630,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "where",
         "start": {
-          "row": 4,
-          "column": 10
+          "row": 5,
+          "column": 11
         },
         "end": {
-          "row": 4,
-          "column": 15
+          "row": 5,
+          "column": 16
         }
       },
       {
@@ -643,12 +643,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "where",
         "start": {
-          "row": 4,
-          "column": 10
+          "row": 5,
+          "column": 11
         },
         "end": {
-          "row": 4,
-          "column": 15
+          "row": 5,
+          "column": 16
         }
       },
       {
@@ -656,12 +656,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a :: C a => A a -> A a",
         "start": {
-          "row": 6,
-          "column": 0
+          "row": 7,
+          "column": 1
         },
         "end": {
-          "row": 6,
-          "column": 22
+          "row": 7,
+          "column": 23
         }
       },
       {
@@ -669,12 +669,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 6,
-          "column": 0
+          "row": 7,
+          "column": 1
         },
         "end": {
-          "row": 6,
-          "column": 1
+          "row": 7,
+          "column": 2
         }
       },
       {
@@ -682,12 +682,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "::",
         "start": {
-          "row": 6,
-          "column": 2
+          "row": 7,
+          "column": 3
         },
         "end": {
-          "row": 6,
-          "column": 4
+          "row": 7,
+          "column": 5
         }
       },
       {
@@ -695,12 +695,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "C a => A a -> A a",
         "start": {
-          "row": 6,
-          "column": 5
+          "row": 7,
+          "column": 6
         },
         "end": {
-          "row": 6,
-          "column": 22
+          "row": 7,
+          "column": 23
         }
       },
       {
@@ -708,12 +708,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "C a",
         "start": {
-          "row": 6,
-          "column": 5
+          "row": 7,
+          "column": 6
         },
         "end": {
-          "row": 6,
-          "column": 8
+          "row": 7,
+          "column": 9
         }
       },
       {
@@ -721,12 +721,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "C",
         "start": {
-          "row": 6,
-          "column": 5
+          "row": 7,
+          "column": 6
         },
         "end": {
-          "row": 6,
-          "column": 6
+          "row": 7,
+          "column": 7
         }
       },
       {
@@ -734,12 +734,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "C",
         "start": {
-          "row": 6,
-          "column": 5
+          "row": 7,
+          "column": 6
         },
         "end": {
-          "row": 6,
-          "column": 6
+          "row": 7,
+          "column": 7
         }
       },
       {
@@ -747,12 +747,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 6,
-          "column": 7
+          "row": 7,
+          "column": 8
         },
         "end": {
-          "row": 6,
-          "column": 8
+          "row": 7,
+          "column": 9
         }
       },
       {
@@ -760,12 +760,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 6,
-          "column": 7
+          "row": 7,
+          "column": 8
         },
         "end": {
-          "row": 6,
-          "column": 8
+          "row": 7,
+          "column": 9
         }
       },
       {
@@ -773,12 +773,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "=>",
         "start": {
-          "row": 6,
-          "column": 9
+          "row": 7,
+          "column": 10
         },
         "end": {
-          "row": 6,
-          "column": 11
+          "row": 7,
+          "column": 12
         }
       },
       {
@@ -786,12 +786,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A a -> A a",
         "start": {
-          "row": 6,
-          "column": 12
+          "row": 7,
+          "column": 13
         },
         "end": {
-          "row": 6,
-          "column": 22
+          "row": 7,
+          "column": 23
         }
       },
       {
@@ -799,12 +799,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A a",
         "start": {
-          "row": 6,
-          "column": 12
+          "row": 7,
+          "column": 13
         },
         "end": {
-          "row": 6,
-          "column": 15
+          "row": 7,
+          "column": 16
         }
       },
       {
@@ -812,12 +812,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 6,
-          "column": 12
+          "row": 7,
+          "column": 13
         },
         "end": {
-          "row": 6,
-          "column": 13
+          "row": 7,
+          "column": 14
         }
       },
       {
@@ -825,12 +825,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 6,
-          "column": 12
+          "row": 7,
+          "column": 13
         },
         "end": {
-          "row": 6,
-          "column": 13
+          "row": 7,
+          "column": 14
         }
       },
       {
@@ -838,12 +838,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 6,
-          "column": 14
+          "row": 7,
+          "column": 15
         },
         "end": {
-          "row": 6,
-          "column": 15
+          "row": 7,
+          "column": 16
         }
       },
       {
@@ -851,12 +851,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 6,
-          "column": 14
+          "row": 7,
+          "column": 15
         },
         "end": {
-          "row": 6,
-          "column": 15
+          "row": 7,
+          "column": 16
         }
       },
       {
@@ -864,12 +864,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "->",
         "start": {
-          "row": 6,
-          "column": 16
+          "row": 7,
+          "column": 17
         },
         "end": {
-          "row": 6,
-          "column": 18
+          "row": 7,
+          "column": 19
         }
       },
       {
@@ -877,12 +877,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A a",
         "start": {
-          "row": 6,
-          "column": 19
+          "row": 7,
+          "column": 20
         },
         "end": {
-          "row": 6,
-          "column": 22
+          "row": 7,
+          "column": 23
         }
       },
       {
@@ -890,12 +890,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 6,
-          "column": 19
+          "row": 7,
+          "column": 20
         },
         "end": {
-          "row": 6,
-          "column": 20
+          "row": 7,
+          "column": 21
         }
       },
       {
@@ -903,12 +903,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 6,
-          "column": 19
+          "row": 7,
+          "column": 20
         },
         "end": {
-          "row": 6,
-          "column": 20
+          "row": 7,
+          "column": 21
         }
       },
       {
@@ -916,12 +916,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 6,
-          "column": 21
+          "row": 7,
+          "column": 22
         },
         "end": {
-          "row": 6,
-          "column": 22
+          "row": 7,
+          "column": 23
         }
       },
       {
@@ -929,12 +929,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 6,
-          "column": 21
+          "row": 7,
+          "column": 22
         },
         "end": {
-          "row": 6,
-          "column": 22
+          "row": 7,
+          "column": 23
         }
       },
       {
@@ -942,12 +942,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a (A a) =\n  A a",
         "start": {
-          "row": 7,
-          "column": 0
+          "row": 8,
+          "column": 1
         },
         "end": {
-          "row": 8,
-          "column": 5
+          "row": 9,
+          "column": 6
         }
       },
       {
@@ -955,12 +955,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 7,
-          "column": 0
+          "row": 8,
+          "column": 1
         },
         "end": {
-          "row": 7,
-          "column": 1
+          "row": 8,
+          "column": 2
         }
       },
       {
@@ -968,12 +968,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "(A a)",
         "start": {
-          "row": 7,
-          "column": 2
+          "row": 8,
+          "column": 3
         },
         "end": {
-          "row": 7,
-          "column": 7
+          "row": 8,
+          "column": 8
         }
       },
       {
@@ -981,12 +981,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "(A a)",
         "start": {
-          "row": 7,
-          "column": 2
+          "row": 8,
+          "column": 3
         },
         "end": {
-          "row": 7,
-          "column": 7
+          "row": 8,
+          "column": 8
         }
       },
       {
@@ -994,12 +994,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "(",
         "start": {
-          "row": 7,
-          "column": 2
+          "row": 8,
+          "column": 3
         },
         "end": {
-          "row": 7,
-          "column": 3
+          "row": 8,
+          "column": 4
         }
       },
       {
@@ -1007,12 +1007,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A a",
         "start": {
-          "row": 7,
-          "column": 3
+          "row": 8,
+          "column": 4
         },
         "end": {
-          "row": 7,
-          "column": 6
+          "row": 8,
+          "column": 7
         }
       },
       {
@@ -1020,12 +1020,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 7,
-          "column": 3
+          "row": 8,
+          "column": 4
         },
         "end": {
-          "row": 7,
-          "column": 4
+          "row": 8,
+          "column": 5
         }
       },
       {
@@ -1033,12 +1033,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 7,
-          "column": 3
+          "row": 8,
+          "column": 4
         },
         "end": {
-          "row": 7,
-          "column": 4
+          "row": 8,
+          "column": 5
         }
       },
       {
@@ -1046,12 +1046,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 7,
-          "column": 5
+          "row": 8,
+          "column": 6
         },
         "end": {
-          "row": 7,
-          "column": 6
+          "row": 8,
+          "column": 7
         }
       },
       {
@@ -1059,12 +1059,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 7,
-          "column": 5
+          "row": 8,
+          "column": 6
         },
         "end": {
-          "row": 7,
-          "column": 6
+          "row": 8,
+          "column": 7
         }
       },
       {
@@ -1072,12 +1072,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": ")",
         "start": {
-          "row": 7,
-          "column": 6
+          "row": 8,
+          "column": 7
         },
         "end": {
-          "row": 7,
-          "column": 7
+          "row": 8,
+          "column": 8
         }
       },
       {
@@ -1085,12 +1085,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "=",
         "start": {
-          "row": 7,
-          "column": 8
+          "row": 8,
+          "column": 9
         },
         "end": {
-          "row": 7,
-          "column": 9
+          "row": 8,
+          "column": 10
         }
       },
       {
@@ -1098,12 +1098,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A a",
         "start": {
-          "row": 8,
-          "column": 2
+          "row": 9,
+          "column": 3
         },
         "end": {
-          "row": 8,
-          "column": 5
+          "row": 9,
+          "column": 6
         }
       },
       {
@@ -1111,12 +1111,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 8,
-          "column": 2
+          "row": 9,
+          "column": 3
         },
         "end": {
-          "row": 8,
-          "column": 3
+          "row": 9,
+          "column": 4
         }
       },
       {
@@ -1124,12 +1124,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "A",
         "start": {
-          "row": 8,
-          "column": 2
+          "row": 9,
+          "column": 3
         },
         "end": {
-          "row": 8,
-          "column": 3
+          "row": 9,
+          "column": 4
         }
       },
       {
@@ -1137,12 +1137,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 8,
-          "column": 4
+          "row": 9,
+          "column": 5
         },
         "end": {
-          "row": 8,
-          "column": 5
+          "row": 9,
+          "column": 6
         }
       },
       {
@@ -1150,12 +1150,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         "name": "query",
         "text": "a",
         "start": {
-          "row": 8,
-          "column": 4
+          "row": 9,
+          "column": 5
         },
         "end": {
-          "row": 8,
-          "column": 5
+          "row": 9,
+          "column": 6
         }
       }
     ]

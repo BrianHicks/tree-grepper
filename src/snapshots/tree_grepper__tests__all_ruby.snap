@@ -13,12 +13,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "==================================\nSingle CR characters as whitespace\n==================================\n\nputs\r\r\r\r\r\r\r\r\r\r\r\r\r\r\"hi\"\n\n---\n\n(program (call (identifier) (argument_list (string (string_content)))))\n",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 9,
-          "column": 0
+          "row": 10,
+          "column": 1
         }
       },
       {
@@ -26,155 +26,155 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "==================================",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
+          "row": 1,
+          "column": 35
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 1,
+          "column": 4
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 4
+        },
+        "end": {
+          "row": 1,
+          "column": 7
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 7
+        },
+        "end": {
+          "row": 1,
+          "column": 10
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 10
+        },
+        "end": {
+          "row": 1,
+          "column": 13
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 13
+        },
+        "end": {
+          "row": 1,
+          "column": 16
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 16
+        },
+        "end": {
+          "row": 1,
+          "column": 19
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 19
+        },
+        "end": {
+          "row": 1,
+          "column": 22
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 22
+        },
+        "end": {
+          "row": 1,
+          "column": 25
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 25
+        },
+        "end": {
+          "row": 1,
+          "column": 28
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 28
+        },
+        "end": {
+          "row": 1,
+          "column": 31
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 1,
+          "column": 31
+        },
+        "end": {
+          "row": 1,
           "column": 34
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 0
-        },
-        "end": {
-          "row": 0,
-          "column": 3
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 3
-        },
-        "end": {
-          "row": 0,
-          "column": 6
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 6
-        },
-        "end": {
-          "row": 0,
-          "column": 9
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 9
-        },
-        "end": {
-          "row": 0,
-          "column": 12
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 12
-        },
-        "end": {
-          "row": 0,
-          "column": 15
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 15
-        },
-        "end": {
-          "row": 0,
-          "column": 18
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 18
-        },
-        "end": {
-          "row": 0,
-          "column": 21
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 21
-        },
-        "end": {
-          "row": 0,
-          "column": 24
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 24
-        },
-        "end": {
-          "row": 0,
-          "column": 27
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 27
-        },
-        "end": {
-          "row": 0,
-          "column": 30
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 0,
-          "column": 30
-        },
-        "end": {
-          "row": 0,
-          "column": 33
         }
       },
       {
@@ -182,12 +182,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "=",
         "start": {
-          "row": 0,
-          "column": 33
+          "row": 1,
+          "column": 34
         },
         "end": {
-          "row": 0,
-          "column": 34
+          "row": 1,
+          "column": 35
         }
       },
       {
@@ -195,12 +195,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "Single CR characters as whitespace",
         "start": {
-          "row": 1,
-          "column": 0
+          "row": 2,
+          "column": 1
         },
         "end": {
-          "row": 1,
-          "column": 34
+          "row": 2,
+          "column": 35
         }
       },
       {
@@ -208,12 +208,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "Single",
         "start": {
-          "row": 1,
-          "column": 0
+          "row": 2,
+          "column": 1
         },
         "end": {
-          "row": 1,
-          "column": 6
+          "row": 2,
+          "column": 7
         }
       },
       {
@@ -221,12 +221,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "CR characters as whitespace",
         "start": {
-          "row": 1,
-          "column": 7
+          "row": 2,
+          "column": 8
         },
         "end": {
-          "row": 1,
-          "column": 34
+          "row": 2,
+          "column": 35
         }
       },
       {
@@ -234,12 +234,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "CR characters as whitespace",
         "start": {
-          "row": 1,
-          "column": 7
+          "row": 2,
+          "column": 8
         },
         "end": {
-          "row": 1,
-          "column": 34
+          "row": 2,
+          "column": 35
         }
       },
       {
@@ -247,12 +247,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "CR",
         "start": {
-          "row": 1,
-          "column": 7
+          "row": 2,
+          "column": 8
         },
         "end": {
-          "row": 1,
-          "column": 9
+          "row": 2,
+          "column": 10
         }
       },
       {
@@ -260,12 +260,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "characters as whitespace",
         "start": {
-          "row": 1,
-          "column": 10
+          "row": 2,
+          "column": 11
         },
         "end": {
-          "row": 1,
-          "column": 34
+          "row": 2,
+          "column": 35
         }
       },
       {
@@ -273,12 +273,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "characters as whitespace",
         "start": {
-          "row": 1,
-          "column": 10
+          "row": 2,
+          "column": 11
         },
         "end": {
-          "row": 1,
-          "column": 34
+          "row": 2,
+          "column": 35
         }
       },
       {
@@ -286,12 +286,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "characters",
         "start": {
-          "row": 1,
-          "column": 10
+          "row": 2,
+          "column": 11
         },
         "end": {
-          "row": 1,
-          "column": 20
+          "row": 2,
+          "column": 21
         }
       },
       {
@@ -299,12 +299,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "as whitespace",
         "start": {
-          "row": 1,
-          "column": 21
+          "row": 2,
+          "column": 22
         },
         "end": {
-          "row": 1,
-          "column": 34
+          "row": 2,
+          "column": 35
         }
       },
       {
@@ -312,12 +312,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "as whitespace",
         "start": {
-          "row": 1,
-          "column": 21
+          "row": 2,
+          "column": 22
         },
         "end": {
-          "row": 1,
-          "column": 34
+          "row": 2,
+          "column": 35
         }
       },
       {
@@ -325,12 +325,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "as",
         "start": {
-          "row": 1,
-          "column": 21
+          "row": 2,
+          "column": 22
         },
         "end": {
-          "row": 1,
-          "column": 23
+          "row": 2,
+          "column": 24
         }
       },
       {
@@ -338,12 +338,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "whitespace",
         "start": {
-          "row": 1,
-          "column": 24
+          "row": 2,
+          "column": 25
         },
         "end": {
-          "row": 1,
-          "column": 34
+          "row": 2,
+          "column": 35
         }
       },
       {
@@ -351,12 +351,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "whitespace",
         "start": {
-          "row": 1,
-          "column": 24
+          "row": 2,
+          "column": 25
         },
         "end": {
-          "row": 1,
-          "column": 34
+          "row": 2,
+          "column": 35
         }
       },
       {
@@ -364,155 +364,155 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "==================================",
         "start": {
-          "row": 2,
-          "column": 0
+          "row": 3,
+          "column": 1
         },
         "end": {
-          "row": 2,
+          "row": 3,
+          "column": 35
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 1
+        },
+        "end": {
+          "row": 3,
+          "column": 4
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 4
+        },
+        "end": {
+          "row": 3,
+          "column": 7
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 7
+        },
+        "end": {
+          "row": 3,
+          "column": 10
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 10
+        },
+        "end": {
+          "row": 3,
+          "column": 13
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 13
+        },
+        "end": {
+          "row": 3,
+          "column": 16
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 16
+        },
+        "end": {
+          "row": 3,
+          "column": 19
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 19
+        },
+        "end": {
+          "row": 3,
+          "column": 22
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 22
+        },
+        "end": {
+          "row": 3,
+          "column": 25
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 25
+        },
+        "end": {
+          "row": 3,
+          "column": 28
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 28
+        },
+        "end": {
+          "row": 3,
+          "column": 31
+        }
+      },
+      {
+        "kind": "===",
+        "name": "query",
+        "text": "===",
+        "start": {
+          "row": 3,
+          "column": 31
+        },
+        "end": {
+          "row": 3,
           "column": 34
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 0
-        },
-        "end": {
-          "row": 2,
-          "column": 3
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 3
-        },
-        "end": {
-          "row": 2,
-          "column": 6
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 6
-        },
-        "end": {
-          "row": 2,
-          "column": 9
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 9
-        },
-        "end": {
-          "row": 2,
-          "column": 12
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 12
-        },
-        "end": {
-          "row": 2,
-          "column": 15
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 15
-        },
-        "end": {
-          "row": 2,
-          "column": 18
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 18
-        },
-        "end": {
-          "row": 2,
-          "column": 21
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 21
-        },
-        "end": {
-          "row": 2,
-          "column": 24
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 24
-        },
-        "end": {
-          "row": 2,
-          "column": 27
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 27
-        },
-        "end": {
-          "row": 2,
-          "column": 30
-        }
-      },
-      {
-        "kind": "===",
-        "name": "query",
-        "text": "===",
-        "start": {
-          "row": 2,
-          "column": 30
-        },
-        "end": {
-          "row": 2,
-          "column": 33
         }
       },
       {
@@ -520,12 +520,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "=",
         "start": {
-          "row": 2,
-          "column": 33
+          "row": 3,
+          "column": 34
         },
         "end": {
-          "row": 2,
-          "column": 34
+          "row": 3,
+          "column": 35
         }
       },
       {
@@ -533,12 +533,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "puts\r\r\r\r\r\r\r\r\r\r\r\r\r\r\"hi\"",
         "start": {
-          "row": 4,
-          "column": 0
+          "row": 5,
+          "column": 1
         },
         "end": {
-          "row": 4,
-          "column": 22
+          "row": 5,
+          "column": 23
         }
       },
       {
@@ -546,12 +546,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "puts",
         "start": {
-          "row": 4,
-          "column": 0
+          "row": 5,
+          "column": 1
         },
         "end": {
-          "row": 4,
-          "column": 4
+          "row": 5,
+          "column": 5
         }
       },
       {
@@ -559,12 +559,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"hi\"",
         "start": {
-          "row": 4,
-          "column": 18
+          "row": 5,
+          "column": 19
         },
         "end": {
-          "row": 4,
-          "column": 22
+          "row": 5,
+          "column": 23
         }
       },
       {
@@ -572,12 +572,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"hi\"",
         "start": {
-          "row": 4,
-          "column": 18
+          "row": 5,
+          "column": 19
         },
         "end": {
-          "row": 4,
-          "column": 22
+          "row": 5,
+          "column": 23
         }
       },
       {
@@ -585,12 +585,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"",
         "start": {
-          "row": 4,
-          "column": 18
+          "row": 5,
+          "column": 19
         },
         "end": {
-          "row": 4,
-          "column": 19
+          "row": 5,
+          "column": 20
         }
       },
       {
@@ -598,12 +598,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "hi",
         "start": {
-          "row": 4,
-          "column": 19
+          "row": 5,
+          "column": 20
         },
         "end": {
-          "row": 4,
-          "column": 21
+          "row": 5,
+          "column": 22
         }
       },
       {
@@ -611,12 +611,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"",
         "start": {
-          "row": 4,
-          "column": 21
+          "row": 5,
+          "column": 22
         },
         "end": {
-          "row": 4,
-          "column": 22
+          "row": 5,
+          "column": 23
         }
       },
       {
@@ -624,12 +624,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "---\n\n(program (call (identifier) (argument_list (string (string_content)))))",
         "start": {
-          "row": 6,
-          "column": 0
+          "row": 7,
+          "column": 1
         },
         "end": {
-          "row": 8,
-          "column": 71
+          "row": 9,
+          "column": 72
         }
       },
       {
@@ -637,12 +637,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "-",
         "start": {
-          "row": 6,
-          "column": 0
+          "row": 7,
+          "column": 1
         },
         "end": {
-          "row": 6,
-          "column": 1
+          "row": 7,
+          "column": 2
         }
       },
       {
@@ -650,12 +650,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "--\n\n(program (call (identifier) (argument_list (string (string_content)))))",
         "start": {
-          "row": 6,
-          "column": 1
+          "row": 7,
+          "column": 2
         },
         "end": {
-          "row": 8,
-          "column": 71
+          "row": 9,
+          "column": 72
         }
       },
       {
@@ -663,12 +663,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "-",
         "start": {
-          "row": 6,
-          "column": 1
+          "row": 7,
+          "column": 2
         },
         "end": {
-          "row": 6,
-          "column": 2
+          "row": 7,
+          "column": 3
         }
       },
       {
@@ -676,12 +676,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "-\n\n(program (call (identifier) (argument_list (string (string_content)))))",
         "start": {
-          "row": 6,
-          "column": 2
+          "row": 7,
+          "column": 3
         },
         "end": {
-          "row": 8,
-          "column": 71
+          "row": 9,
+          "column": 72
         }
       },
       {
@@ -689,12 +689,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "-",
         "start": {
-          "row": 6,
-          "column": 2
+          "row": 7,
+          "column": 3
         },
         "end": {
-          "row": 6,
-          "column": 3
+          "row": 7,
+          "column": 4
         }
       },
       {
@@ -702,12 +702,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(program (call (identifier) (argument_list (string (string_content)))))",
         "start": {
-          "row": 8,
-          "column": 0
+          "row": 9,
+          "column": 1
         },
         "end": {
-          "row": 8,
-          "column": 71
+          "row": 9,
+          "column": 72
         }
       },
       {
@@ -715,12 +715,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 8,
-          "column": 0
+          "row": 9,
+          "column": 1
         },
         "end": {
-          "row": 8,
-          "column": 1
+          "row": 9,
+          "column": 2
         }
       },
       {
@@ -728,12 +728,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "program (call (identifier) (argument_list (string (string_content))))",
         "start": {
-          "row": 8,
-          "column": 1
+          "row": 9,
+          "column": 2
         },
         "end": {
-          "row": 8,
-          "column": 70
+          "row": 9,
+          "column": 71
         }
       },
       {
@@ -741,12 +741,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "program",
         "start": {
-          "row": 8,
-          "column": 1
+          "row": 9,
+          "column": 2
         },
         "end": {
-          "row": 8,
-          "column": 8
+          "row": 9,
+          "column": 9
         }
       },
       {
@@ -754,12 +754,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(call (identifier) (argument_list (string (string_content))))",
         "start": {
-          "row": 8,
-          "column": 9
+          "row": 9,
+          "column": 10
         },
         "end": {
-          "row": 8,
-          "column": 70
+          "row": 9,
+          "column": 71
         }
       },
       {
@@ -767,12 +767,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(call (identifier) (argument_list (string (string_content))))",
         "start": {
-          "row": 8,
-          "column": 9
+          "row": 9,
+          "column": 10
         },
         "end": {
-          "row": 8,
-          "column": 70
+          "row": 9,
+          "column": 71
         }
       },
       {
@@ -780,12 +780,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 8,
-          "column": 9
+          "row": 9,
+          "column": 10
         },
         "end": {
-          "row": 8,
-          "column": 10
+          "row": 9,
+          "column": 11
         }
       },
       {
@@ -793,12 +793,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "call (identifier) (argument_list (string (string_content)))",
         "start": {
-          "row": 8,
-          "column": 10
+          "row": 9,
+          "column": 11
         },
         "end": {
-          "row": 8,
-          "column": 69
+          "row": 9,
+          "column": 70
         }
       },
       {
@@ -806,12 +806,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "call",
         "start": {
-          "row": 8,
-          "column": 10
+          "row": 9,
+          "column": 11
         },
         "end": {
-          "row": 8,
-          "column": 14
+          "row": 9,
+          "column": 15
         }
       },
       {
@@ -819,12 +819,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(identifier)",
         "start": {
-          "row": 8,
-          "column": 15
+          "row": 9,
+          "column": 16
         },
         "end": {
-          "row": 8,
-          "column": 27
+          "row": 9,
+          "column": 28
         }
       },
       {
@@ -832,12 +832,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(identifier)",
         "start": {
-          "row": 8,
-          "column": 15
+          "row": 9,
+          "column": 16
         },
         "end": {
-          "row": 8,
-          "column": 27
+          "row": 9,
+          "column": 28
         }
       },
       {
@@ -845,12 +845,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 8,
-          "column": 15
+          "row": 9,
+          "column": 16
         },
         "end": {
-          "row": 8,
-          "column": 16
+          "row": 9,
+          "column": 17
         }
       },
       {
@@ -858,12 +858,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "identifier",
         "start": {
-          "row": 8,
-          "column": 16
+          "row": 9,
+          "column": 17
         },
         "end": {
-          "row": 8,
-          "column": 26
+          "row": 9,
+          "column": 27
         }
       },
       {
@@ -871,12 +871,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 8,
-          "column": 26
+          "row": 9,
+          "column": 27
         },
         "end": {
-          "row": 8,
-          "column": 27
+          "row": 9,
+          "column": 28
         }
       },
       {
@@ -884,12 +884,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(argument_list (string (string_content)))",
         "start": {
-          "row": 8,
-          "column": 28
+          "row": 9,
+          "column": 29
         },
         "end": {
-          "row": 8,
-          "column": 69
+          "row": 9,
+          "column": 70
         }
       },
       {
@@ -897,12 +897,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(argument_list (string (string_content)))",
         "start": {
-          "row": 8,
-          "column": 28
+          "row": 9,
+          "column": 29
         },
         "end": {
-          "row": 8,
-          "column": 69
+          "row": 9,
+          "column": 70
         }
       },
       {
@@ -910,12 +910,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 8,
-          "column": 28
+          "row": 9,
+          "column": 29
         },
         "end": {
-          "row": 8,
-          "column": 29
+          "row": 9,
+          "column": 30
         }
       },
       {
@@ -923,12 +923,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "argument_list (string (string_content))",
         "start": {
-          "row": 8,
-          "column": 29
+          "row": 9,
+          "column": 30
         },
         "end": {
-          "row": 8,
-          "column": 68
+          "row": 9,
+          "column": 69
         }
       },
       {
@@ -936,12 +936,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "argument_list",
         "start": {
-          "row": 8,
-          "column": 29
+          "row": 9,
+          "column": 30
         },
         "end": {
-          "row": 8,
-          "column": 42
+          "row": 9,
+          "column": 43
         }
       },
       {
@@ -949,12 +949,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(string (string_content))",
         "start": {
-          "row": 8,
-          "column": 43
+          "row": 9,
+          "column": 44
         },
         "end": {
-          "row": 8,
-          "column": 68
+          "row": 9,
+          "column": 69
         }
       },
       {
@@ -962,12 +962,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(string (string_content))",
         "start": {
-          "row": 8,
-          "column": 43
+          "row": 9,
+          "column": 44
         },
         "end": {
-          "row": 8,
-          "column": 68
+          "row": 9,
+          "column": 69
         }
       },
       {
@@ -975,12 +975,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 8,
-          "column": 43
+          "row": 9,
+          "column": 44
         },
         "end": {
-          "row": 8,
-          "column": 44
+          "row": 9,
+          "column": 45
         }
       },
       {
@@ -988,12 +988,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "string (string_content)",
         "start": {
-          "row": 8,
-          "column": 44
+          "row": 9,
+          "column": 45
         },
         "end": {
-          "row": 8,
-          "column": 67
+          "row": 9,
+          "column": 68
         }
       },
       {
@@ -1001,12 +1001,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "string",
         "start": {
-          "row": 8,
-          "column": 44
+          "row": 9,
+          "column": 45
         },
         "end": {
-          "row": 8,
-          "column": 50
+          "row": 9,
+          "column": 51
         }
       },
       {
@@ -1014,12 +1014,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(string_content)",
         "start": {
-          "row": 8,
-          "column": 51
+          "row": 9,
+          "column": 52
         },
         "end": {
-          "row": 8,
-          "column": 67
+          "row": 9,
+          "column": 68
         }
       },
       {
@@ -1027,12 +1027,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(string_content)",
         "start": {
-          "row": 8,
-          "column": 51
+          "row": 9,
+          "column": 52
         },
         "end": {
-          "row": 8,
-          "column": 67
+          "row": 9,
+          "column": 68
         }
       },
       {
@@ -1040,12 +1040,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 8,
-          "column": 51
+          "row": 9,
+          "column": 52
         },
         "end": {
-          "row": 8,
-          "column": 52
+          "row": 9,
+          "column": 53
         }
       },
       {
@@ -1053,24 +1053,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "string_content",
         "start": {
-          "row": 8,
-          "column": 52
+          "row": 9,
+          "column": 53
         },
         "end": {
-          "row": 8,
-          "column": 66
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 8,
-          "column": 66
-        },
-        "end": {
-          "row": 8,
+          "row": 9,
           "column": 67
         }
       },
@@ -1079,11 +1066,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 8,
+          "row": 9,
           "column": 67
         },
         "end": {
-          "row": 8,
+          "row": 9,
           "column": 68
         }
       },
@@ -1092,11 +1079,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 8,
+          "row": 9,
           "column": 68
         },
         "end": {
-          "row": 8,
+          "row": 9,
           "column": 69
         }
       },
@@ -1105,11 +1092,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 8,
+          "row": 9,
           "column": 69
         },
         "end": {
-          "row": 8,
+          "row": 9,
           "column": 70
         }
       },
@@ -1118,12 +1105,25 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 8,
+          "row": 9,
           "column": 70
         },
         "end": {
-          "row": 8,
+          "row": 9,
           "column": 71
+        }
+      },
+      {
+        "kind": ")",
+        "name": "query",
+        "text": ")",
+        "start": {
+          "row": 9,
+          "column": 71
+        },
+        "end": {
+          "row": 9,
+          "column": 72
         }
       }
     ]
@@ -1137,12 +1137,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "require \"a\"\n# ^ function.method.builtin\n\nclass Car < Vehicle\n  # <- keyword\n  #    ^ constructor\n\n  def init(id)\n    # <- keyword\n    # ^ function.method\n\n    @id = id\n    # <- property\n    #     ^ variable.parameter\n\n    yield\n    # <- keyword\n    return\n    # <- keyword\n    next\n    # <- keyword\n  end\n\n  private\n  # ^ keyword\n\n  public\n  # ^ keyword\n\n  protected\n  # ^ keyword\nend\n# <- keyword\n",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 33,
-          "column": 0
+          "row": 34,
+          "column": 1
         }
       },
       {
@@ -1150,12 +1150,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "require \"a\"",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 11
+          "row": 1,
+          "column": 12
         }
       },
       {
@@ -1163,12 +1163,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "require",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 7
+          "row": 1,
+          "column": 8
         }
       },
       {
@@ -1176,12 +1176,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"a\"",
         "start": {
-          "row": 0,
-          "column": 8
+          "row": 1,
+          "column": 9
         },
         "end": {
-          "row": 0,
-          "column": 11
+          "row": 1,
+          "column": 12
         }
       },
       {
@@ -1189,12 +1189,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"a\"",
         "start": {
-          "row": 0,
-          "column": 8
+          "row": 1,
+          "column": 9
         },
         "end": {
-          "row": 0,
-          "column": 11
+          "row": 1,
+          "column": 12
         }
       },
       {
@@ -1202,12 +1202,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"",
         "start": {
-          "row": 0,
-          "column": 8
+          "row": 1,
+          "column": 9
         },
         "end": {
-          "row": 0,
-          "column": 9
+          "row": 1,
+          "column": 10
         }
       },
       {
@@ -1215,12 +1215,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "a",
         "start": {
-          "row": 0,
-          "column": 9
+          "row": 1,
+          "column": 10
         },
         "end": {
-          "row": 0,
-          "column": 10
+          "row": 1,
+          "column": 11
         }
       },
       {
@@ -1228,12 +1228,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"",
         "start": {
-          "row": 0,
-          "column": 10
+          "row": 1,
+          "column": 11
         },
         "end": {
-          "row": 0,
-          "column": 11
+          "row": 1,
+          "column": 12
         }
       },
       {
@@ -1241,12 +1241,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ function.method.builtin",
         "start": {
-          "row": 1,
-          "column": 0
+          "row": 2,
+          "column": 1
         },
         "end": {
-          "row": 1,
-          "column": 27
+          "row": 2,
+          "column": 28
         }
       },
       {
@@ -1254,12 +1254,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "class Car < Vehicle\n  # <- keyword\n  #    ^ constructor\n\n  def init(id)\n    # <- keyword\n    # ^ function.method\n\n    @id = id\n    # <- property\n    #     ^ variable.parameter\n\n    yield\n    # <- keyword\n    return\n    # <- keyword\n    next\n    # <- keyword\n  end\n\n  private\n  # ^ keyword\n\n  public\n  # ^ keyword\n\n  protected\n  # ^ keyword\nend",
         "start": {
-          "row": 3,
-          "column": 0
+          "row": 4,
+          "column": 1
         },
         "end": {
-          "row": 31,
-          "column": 3
+          "row": 32,
+          "column": 4
         }
       },
       {
@@ -1267,12 +1267,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "class",
         "start": {
-          "row": 3,
-          "column": 0
+          "row": 4,
+          "column": 1
         },
         "end": {
-          "row": 3,
-          "column": 5
+          "row": 4,
+          "column": 6
         }
       },
       {
@@ -1280,12 +1280,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "Car",
         "start": {
-          "row": 3,
-          "column": 6
+          "row": 4,
+          "column": 7
         },
         "end": {
-          "row": 3,
-          "column": 9
+          "row": 4,
+          "column": 10
         }
       },
       {
@@ -1293,12 +1293,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "< Vehicle",
         "start": {
-          "row": 3,
-          "column": 10
+          "row": 4,
+          "column": 11
         },
         "end": {
-          "row": 3,
-          "column": 19
+          "row": 4,
+          "column": 20
         }
       },
       {
@@ -1306,12 +1306,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "<",
         "start": {
-          "row": 3,
-          "column": 10
+          "row": 4,
+          "column": 11
         },
         "end": {
-          "row": 3,
-          "column": 11
+          "row": 4,
+          "column": 12
         }
       },
       {
@@ -1319,12 +1319,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "Vehicle",
         "start": {
-          "row": 3,
-          "column": 12
+          "row": 4,
+          "column": 13
         },
         "end": {
-          "row": 3,
-          "column": 19
+          "row": 4,
+          "column": 20
         }
       },
       {
@@ -1332,12 +1332,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# <- keyword",
         "start": {
-          "row": 4,
-          "column": 2
+          "row": 5,
+          "column": 3
         },
         "end": {
-          "row": 4,
-          "column": 14
+          "row": 5,
+          "column": 15
         }
       },
       {
@@ -1345,12 +1345,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#    ^ constructor",
         "start": {
-          "row": 5,
-          "column": 2
+          "row": 6,
+          "column": 3
         },
         "end": {
-          "row": 5,
-          "column": 20
+          "row": 6,
+          "column": 21
         }
       },
       {
@@ -1358,12 +1358,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "def init(id)\n    # <- keyword\n    # ^ function.method\n\n    @id = id\n    # <- property\n    #     ^ variable.parameter\n\n    yield\n    # <- keyword\n    return\n    # <- keyword\n    next\n    # <- keyword\n  end",
         "start": {
-          "row": 7,
-          "column": 2
+          "row": 8,
+          "column": 3
         },
         "end": {
-          "row": 21,
-          "column": 5
+          "row": 22,
+          "column": 6
         }
       },
       {
@@ -1371,12 +1371,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "def",
         "start": {
-          "row": 7,
-          "column": 2
+          "row": 8,
+          "column": 3
         },
         "end": {
-          "row": 7,
-          "column": 5
+          "row": 8,
+          "column": 6
         }
       },
       {
@@ -1384,12 +1384,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "init",
         "start": {
-          "row": 7,
-          "column": 6
+          "row": 8,
+          "column": 7
         },
         "end": {
-          "row": 7,
-          "column": 10
+          "row": 8,
+          "column": 11
         }
       },
       {
@@ -1397,12 +1397,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(id)",
         "start": {
-          "row": 7,
-          "column": 10
+          "row": 8,
+          "column": 11
         },
         "end": {
-          "row": 7,
-          "column": 14
+          "row": 8,
+          "column": 15
         }
       },
       {
@@ -1410,12 +1410,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 7,
-          "column": 10
+          "row": 8,
+          "column": 11
         },
         "end": {
-          "row": 7,
-          "column": 11
+          "row": 8,
+          "column": 12
         }
       },
       {
@@ -1423,12 +1423,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "id",
         "start": {
-          "row": 7,
-          "column": 11
+          "row": 8,
+          "column": 12
         },
         "end": {
-          "row": 7,
-          "column": 13
+          "row": 8,
+          "column": 14
         }
       },
       {
@@ -1436,12 +1436,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 7,
-          "column": 13
+          "row": 8,
+          "column": 14
         },
         "end": {
-          "row": 7,
-          "column": 14
+          "row": 8,
+          "column": 15
         }
       },
       {
@@ -1449,12 +1449,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# <- keyword",
         "start": {
-          "row": 8,
-          "column": 4
+          "row": 9,
+          "column": 5
         },
         "end": {
-          "row": 8,
-          "column": 16
+          "row": 9,
+          "column": 17
         }
       },
       {
@@ -1462,12 +1462,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ function.method",
         "start": {
-          "row": 9,
-          "column": 4
+          "row": 10,
+          "column": 5
         },
         "end": {
-          "row": 9,
-          "column": 23
+          "row": 10,
+          "column": 24
         }
       },
       {
@@ -1475,12 +1475,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "@id = id",
         "start": {
-          "row": 11,
-          "column": 4
+          "row": 12,
+          "column": 5
         },
         "end": {
-          "row": 11,
-          "column": 12
+          "row": 12,
+          "column": 13
         }
       },
       {
@@ -1488,12 +1488,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "@id",
         "start": {
-          "row": 11,
-          "column": 4
+          "row": 12,
+          "column": 5
         },
         "end": {
-          "row": 11,
-          "column": 7
+          "row": 12,
+          "column": 8
         }
       },
       {
@@ -1501,12 +1501,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "=",
         "start": {
-          "row": 11,
-          "column": 8
+          "row": 12,
+          "column": 9
         },
         "end": {
-          "row": 11,
-          "column": 9
+          "row": 12,
+          "column": 10
         }
       },
       {
@@ -1514,12 +1514,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "id",
         "start": {
-          "row": 11,
-          "column": 10
+          "row": 12,
+          "column": 11
         },
         "end": {
-          "row": 11,
-          "column": 12
+          "row": 12,
+          "column": 13
         }
       },
       {
@@ -1527,12 +1527,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# <- property",
         "start": {
-          "row": 12,
-          "column": 4
+          "row": 13,
+          "column": 5
         },
         "end": {
-          "row": 12,
-          "column": 17
+          "row": 13,
+          "column": 18
         }
       },
       {
@@ -1540,12 +1540,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#     ^ variable.parameter",
         "start": {
-          "row": 13,
-          "column": 4
+          "row": 14,
+          "column": 5
         },
         "end": {
-          "row": 13,
-          "column": 30
+          "row": 14,
+          "column": 31
         }
       },
       {
@@ -1553,63 +1553,24 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "yield",
         "start": {
-          "row": 15,
-          "column": 4
-        },
-        "end": {
-          "row": 15,
-          "column": 9
-        }
-      },
-      {
-        "kind": "yield",
-        "name": "query",
-        "text": "yield",
-        "start": {
-          "row": 15,
-          "column": 4
-        },
-        "end": {
-          "row": 15,
-          "column": 9
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "# <- keyword",
-        "start": {
           "row": 16,
-          "column": 4
+          "column": 5
         },
         "end": {
           "row": 16,
-          "column": 16
-        }
-      },
-      {
-        "kind": "return",
-        "name": "query",
-        "text": "return",
-        "start": {
-          "row": 17,
-          "column": 4
-        },
-        "end": {
-          "row": 17,
           "column": 10
         }
       },
       {
-        "kind": "return",
+        "kind": "yield",
         "name": "query",
-        "text": "return",
+        "text": "yield",
         "start": {
-          "row": 17,
-          "column": 4
+          "row": 16,
+          "column": 5
         },
         "end": {
-          "row": 17,
+          "row": 16,
           "column": 10
         }
       },
@@ -1618,38 +1579,38 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# <- keyword",
         "start": {
-          "row": 18,
-          "column": 4
+          "row": 17,
+          "column": 5
         },
         "end": {
-          "row": 18,
-          "column": 16
+          "row": 17,
+          "column": 17
         }
       },
       {
-        "kind": "next",
+        "kind": "return",
         "name": "query",
-        "text": "next",
+        "text": "return",
         "start": {
-          "row": 19,
-          "column": 4
+          "row": 18,
+          "column": 5
         },
         "end": {
-          "row": 19,
-          "column": 8
+          "row": 18,
+          "column": 11
         }
       },
       {
-        "kind": "next",
+        "kind": "return",
         "name": "query",
-        "text": "next",
+        "text": "return",
         "start": {
-          "row": 19,
-          "column": 4
+          "row": 18,
+          "column": 5
         },
         "end": {
-          "row": 19,
-          "column": 8
+          "row": 18,
+          "column": 11
         }
       },
       {
@@ -1657,12 +1618,51 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# <- keyword",
         "start": {
+          "row": 19,
+          "column": 5
+        },
+        "end": {
+          "row": 19,
+          "column": 17
+        }
+      },
+      {
+        "kind": "next",
+        "name": "query",
+        "text": "next",
+        "start": {
           "row": 20,
-          "column": 4
+          "column": 5
         },
         "end": {
           "row": 20,
-          "column": 16
+          "column": 9
+        }
+      },
+      {
+        "kind": "next",
+        "name": "query",
+        "text": "next",
+        "start": {
+          "row": 20,
+          "column": 5
+        },
+        "end": {
+          "row": 20,
+          "column": 9
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# <- keyword",
+        "start": {
+          "row": 21,
+          "column": 5
+        },
+        "end": {
+          "row": 21,
+          "column": 17
         }
       },
       {
@@ -1670,12 +1670,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "end",
         "start": {
-          "row": 21,
-          "column": 2
+          "row": 22,
+          "column": 3
         },
         "end": {
-          "row": 21,
-          "column": 5
+          "row": 22,
+          "column": 6
         }
       },
       {
@@ -1683,11 +1683,37 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "private",
         "start": {
-          "row": 23,
-          "column": 2
+          "row": 24,
+          "column": 3
         },
         "end": {
-          "row": 23,
+          "row": 24,
+          "column": 10
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# ^ keyword",
+        "start": {
+          "row": 25,
+          "column": 3
+        },
+        "end": {
+          "row": 25,
+          "column": 14
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "public",
+        "start": {
+          "row": 27,
+          "column": 3
+        },
+        "end": {
+          "row": 27,
           "column": 9
         }
       },
@@ -1696,38 +1722,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ keyword",
         "start": {
-          "row": 24,
-          "column": 2
+          "row": 28,
+          "column": 3
         },
         "end": {
-          "row": 24,
-          "column": 13
-        }
-      },
-      {
-        "kind": "identifier",
-        "name": "query",
-        "text": "public",
-        "start": {
-          "row": 26,
-          "column": 2
-        },
-        "end": {
-          "row": 26,
-          "column": 8
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "# ^ keyword",
-        "start": {
-          "row": 27,
-          "column": 2
-        },
-        "end": {
-          "row": 27,
-          "column": 13
+          "row": 28,
+          "column": 14
         }
       },
       {
@@ -1735,12 +1735,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "protected",
         "start": {
-          "row": 29,
-          "column": 2
+          "row": 30,
+          "column": 3
         },
         "end": {
-          "row": 29,
-          "column": 11
+          "row": 30,
+          "column": 12
         }
       },
       {
@@ -1748,12 +1748,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ keyword",
         "start": {
-          "row": 30,
-          "column": 2
+          "row": 31,
+          "column": 3
         },
         "end": {
-          "row": 30,
-          "column": 13
+          "row": 31,
+          "column": 14
         }
       },
       {
@@ -1761,12 +1761,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "end",
         "start": {
-          "row": 31,
-          "column": 0
+          "row": 32,
+          "column": 1
         },
         "end": {
-          "row": 31,
-          "column": 3
+          "row": 32,
+          "column": 4
         }
       },
       {
@@ -1774,12 +1774,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# <- keyword",
         "start": {
-          "row": 32,
-          "column": 0
+          "row": 33,
+          "column": 1
         },
         "end": {
-          "row": 32,
-          "column": 12
+          "row": 33,
+          "column": 13
         }
       }
     ]
@@ -1793,12 +1793,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "class MyClass\n  #   ^ constructor\n\n  ELEMENT8 = 8\n  # ^ constant\n\n  ELEMENT16 = 16\n  # ^ constant\n\n  def OtherClass\n    #  ^ function.method\n\n    @other.OtherClass(Something.new).inspect\n    # ^ property\n    #      ^ function.method\n    #                 ^ constructor\n    #                           ^ function.method\n    #                                ^ function.method\n  end\nend\n\nif __FILE__ == $0\n  # ^ constant.builtin\nend\n",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 24,
-          "column": 0
+          "row": 25,
+          "column": 1
         }
       },
       {
@@ -1806,12 +1806,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "class MyClass\n  #   ^ constructor\n\n  ELEMENT8 = 8\n  # ^ constant\n\n  ELEMENT16 = 16\n  # ^ constant\n\n  def OtherClass\n    #  ^ function.method\n\n    @other.OtherClass(Something.new).inspect\n    # ^ property\n    #      ^ function.method\n    #                 ^ constructor\n    #                           ^ function.method\n    #                                ^ function.method\n  end\nend",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 19,
-          "column": 3
+          "row": 20,
+          "column": 4
         }
       },
       {
@@ -1819,12 +1819,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "class",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 5
+          "row": 1,
+          "column": 6
         }
       },
       {
@@ -1832,12 +1832,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "MyClass",
         "start": {
-          "row": 0,
-          "column": 6
+          "row": 1,
+          "column": 7
         },
         "end": {
-          "row": 0,
-          "column": 13
+          "row": 1,
+          "column": 14
         }
       },
       {
@@ -1845,12 +1845,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#   ^ constructor",
         "start": {
-          "row": 1,
-          "column": 2
+          "row": 2,
+          "column": 3
         },
         "end": {
-          "row": 1,
-          "column": 19
+          "row": 2,
+          "column": 20
         }
       },
       {
@@ -1858,12 +1858,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "ELEMENT8 = 8",
         "start": {
-          "row": 3,
-          "column": 2
+          "row": 4,
+          "column": 3
         },
         "end": {
-          "row": 3,
-          "column": 14
+          "row": 4,
+          "column": 15
         }
       },
       {
@@ -1871,12 +1871,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "ELEMENT8",
         "start": {
-          "row": 3,
-          "column": 2
+          "row": 4,
+          "column": 3
         },
         "end": {
-          "row": 3,
-          "column": 10
+          "row": 4,
+          "column": 11
         }
       },
       {
@@ -1884,12 +1884,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "=",
         "start": {
-          "row": 3,
-          "column": 11
+          "row": 4,
+          "column": 12
         },
         "end": {
-          "row": 3,
-          "column": 12
+          "row": 4,
+          "column": 13
         }
       },
       {
@@ -1897,12 +1897,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "8",
         "start": {
-          "row": 3,
-          "column": 13
+          "row": 4,
+          "column": 14
         },
         "end": {
-          "row": 3,
-          "column": 14
+          "row": 4,
+          "column": 15
         }
       },
       {
@@ -1910,12 +1910,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ constant",
         "start": {
-          "row": 4,
-          "column": 2
+          "row": 5,
+          "column": 3
         },
         "end": {
-          "row": 4,
-          "column": 14
+          "row": 5,
+          "column": 15
         }
       },
       {
@@ -1923,12 +1923,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "ELEMENT16 = 16",
         "start": {
-          "row": 6,
-          "column": 2
+          "row": 7,
+          "column": 3
         },
         "end": {
-          "row": 6,
-          "column": 16
+          "row": 7,
+          "column": 17
         }
       },
       {
@@ -1936,12 +1936,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "ELEMENT16",
         "start": {
-          "row": 6,
-          "column": 2
+          "row": 7,
+          "column": 3
         },
         "end": {
-          "row": 6,
-          "column": 11
+          "row": 7,
+          "column": 12
         }
       },
       {
@@ -1949,12 +1949,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "=",
         "start": {
-          "row": 6,
-          "column": 12
+          "row": 7,
+          "column": 13
         },
         "end": {
-          "row": 6,
-          "column": 13
+          "row": 7,
+          "column": 14
         }
       },
       {
@@ -1962,12 +1962,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "16",
         "start": {
-          "row": 6,
-          "column": 14
+          "row": 7,
+          "column": 15
         },
         "end": {
-          "row": 6,
-          "column": 16
+          "row": 7,
+          "column": 17
         }
       },
       {
@@ -1975,12 +1975,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ constant",
         "start": {
-          "row": 7,
-          "column": 2
+          "row": 8,
+          "column": 3
         },
         "end": {
-          "row": 7,
-          "column": 14
+          "row": 8,
+          "column": 15
         }
       },
       {
@@ -1988,12 +1988,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "def OtherClass\n    #  ^ function.method\n\n    @other.OtherClass(Something.new).inspect\n    # ^ property\n    #      ^ function.method\n    #                 ^ constructor\n    #                           ^ function.method\n    #                                ^ function.method\n  end",
         "start": {
-          "row": 9,
-          "column": 2
+          "row": 10,
+          "column": 3
         },
         "end": {
-          "row": 18,
-          "column": 5
+          "row": 19,
+          "column": 6
         }
       },
       {
@@ -2001,12 +2001,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "def",
         "start": {
-          "row": 9,
-          "column": 2
+          "row": 10,
+          "column": 3
         },
         "end": {
-          "row": 9,
-          "column": 5
+          "row": 10,
+          "column": 6
         }
       },
       {
@@ -2014,12 +2014,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "OtherClass",
         "start": {
-          "row": 9,
-          "column": 6
+          "row": 10,
+          "column": 7
         },
         "end": {
-          "row": 9,
-          "column": 16
+          "row": 10,
+          "column": 17
         }
       },
       {
@@ -2027,12 +2027,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#  ^ function.method",
         "start": {
-          "row": 10,
-          "column": 4
+          "row": 11,
+          "column": 5
         },
         "end": {
-          "row": 10,
-          "column": 24
+          "row": 11,
+          "column": 25
         }
       },
       {
@@ -2040,12 +2040,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "@other.OtherClass(Something.new).inspect",
         "start": {
-          "row": 12,
-          "column": 4
+          "row": 13,
+          "column": 5
         },
         "end": {
-          "row": 12,
-          "column": 44
+          "row": 13,
+          "column": 45
         }
       },
       {
@@ -2053,12 +2053,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "@other.OtherClass(Something.new)",
         "start": {
-          "row": 12,
-          "column": 4
+          "row": 13,
+          "column": 5
         },
         "end": {
-          "row": 12,
-          "column": 36
+          "row": 13,
+          "column": 37
         }
       },
       {
@@ -2066,12 +2066,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "@other",
         "start": {
-          "row": 12,
-          "column": 4
+          "row": 13,
+          "column": 5
         },
         "end": {
-          "row": 12,
-          "column": 10
+          "row": 13,
+          "column": 11
         }
       },
       {
@@ -2079,12 +2079,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ".",
         "start": {
-          "row": 12,
-          "column": 10
+          "row": 13,
+          "column": 11
         },
         "end": {
-          "row": 12,
-          "column": 11
+          "row": 13,
+          "column": 12
         }
       },
       {
@@ -2092,12 +2092,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "OtherClass",
         "start": {
-          "row": 12,
-          "column": 11
+          "row": 13,
+          "column": 12
         },
         "end": {
-          "row": 12,
-          "column": 21
+          "row": 13,
+          "column": 22
         }
       },
       {
@@ -2105,12 +2105,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(Something.new)",
         "start": {
-          "row": 12,
-          "column": 21
+          "row": 13,
+          "column": 22
         },
         "end": {
-          "row": 12,
-          "column": 36
+          "row": 13,
+          "column": 37
         }
       },
       {
@@ -2118,12 +2118,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 12,
-          "column": 21
+          "row": 13,
+          "column": 22
         },
         "end": {
-          "row": 12,
-          "column": 22
+          "row": 13,
+          "column": 23
         }
       },
       {
@@ -2131,12 +2131,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "Something.new",
         "start": {
-          "row": 12,
-          "column": 22
+          "row": 13,
+          "column": 23
         },
         "end": {
-          "row": 12,
-          "column": 35
+          "row": 13,
+          "column": 36
         }
       },
       {
@@ -2144,12 +2144,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "Something",
         "start": {
-          "row": 12,
-          "column": 22
+          "row": 13,
+          "column": 23
         },
         "end": {
-          "row": 12,
-          "column": 31
+          "row": 13,
+          "column": 32
         }
       },
       {
@@ -2157,12 +2157,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ".",
         "start": {
-          "row": 12,
-          "column": 31
+          "row": 13,
+          "column": 32
         },
         "end": {
-          "row": 12,
-          "column": 32
+          "row": 13,
+          "column": 33
         }
       },
       {
@@ -2170,12 +2170,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "new",
         "start": {
-          "row": 12,
-          "column": 32
+          "row": 13,
+          "column": 33
         },
         "end": {
-          "row": 12,
-          "column": 35
+          "row": 13,
+          "column": 36
         }
       },
       {
@@ -2183,12 +2183,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 12,
-          "column": 35
+          "row": 13,
+          "column": 36
         },
         "end": {
-          "row": 12,
-          "column": 36
+          "row": 13,
+          "column": 37
         }
       },
       {
@@ -2196,12 +2196,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ".",
         "start": {
-          "row": 12,
-          "column": 36
+          "row": 13,
+          "column": 37
         },
         "end": {
-          "row": 12,
-          "column": 37
+          "row": 13,
+          "column": 38
         }
       },
       {
@@ -2209,12 +2209,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "inspect",
         "start": {
-          "row": 12,
-          "column": 37
+          "row": 13,
+          "column": 38
         },
         "end": {
-          "row": 12,
-          "column": 44
+          "row": 13,
+          "column": 45
         }
       },
       {
@@ -2222,12 +2222,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ property",
         "start": {
-          "row": 13,
-          "column": 4
+          "row": 14,
+          "column": 5
         },
         "end": {
-          "row": 13,
-          "column": 16
+          "row": 14,
+          "column": 17
         }
       },
       {
@@ -2235,12 +2235,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#      ^ function.method",
         "start": {
-          "row": 14,
-          "column": 4
+          "row": 15,
+          "column": 5
         },
         "end": {
-          "row": 14,
-          "column": 28
+          "row": 15,
+          "column": 29
         }
       },
       {
@@ -2248,12 +2248,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                 ^ constructor",
         "start": {
-          "row": 15,
-          "column": 4
+          "row": 16,
+          "column": 5
         },
         "end": {
-          "row": 15,
-          "column": 35
+          "row": 16,
+          "column": 36
         }
       },
       {
@@ -2261,12 +2261,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                           ^ function.method",
         "start": {
-          "row": 16,
-          "column": 4
+          "row": 17,
+          "column": 5
         },
         "end": {
-          "row": 16,
-          "column": 49
+          "row": 17,
+          "column": 50
         }
       },
       {
@@ -2274,25 +2274,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                                ^ function.method",
         "start": {
-          "row": 17,
-          "column": 4
-        },
-        "end": {
-          "row": 17,
-          "column": 54
-        }
-      },
-      {
-        "kind": "end",
-        "name": "query",
-        "text": "end",
-        "start": {
-          "row": 18,
-          "column": 2
-        },
-        "end": {
           "row": 18,
           "column": 5
+        },
+        "end": {
+          "row": 18,
+          "column": 55
         }
       },
       {
@@ -2301,11 +2288,24 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "text": "end",
         "start": {
           "row": 19,
-          "column": 0
+          "column": 3
         },
         "end": {
           "row": 19,
-          "column": 3
+          "column": 6
+        }
+      },
+      {
+        "kind": "end",
+        "name": "query",
+        "text": "end",
+        "start": {
+          "row": 20,
+          "column": 1
+        },
+        "end": {
+          "row": 20,
+          "column": 4
         }
       },
       {
@@ -2313,12 +2313,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "if __FILE__ == $0\n  # ^ constant.builtin\nend",
         "start": {
-          "row": 21,
-          "column": 0
+          "row": 22,
+          "column": 1
         },
         "end": {
-          "row": 23,
-          "column": 3
+          "row": 24,
+          "column": 4
         }
       },
       {
@@ -2326,12 +2326,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "if",
         "start": {
-          "row": 21,
-          "column": 0
+          "row": 22,
+          "column": 1
         },
         "end": {
-          "row": 21,
-          "column": 2
+          "row": 22,
+          "column": 3
         }
       },
       {
@@ -2339,12 +2339,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "__FILE__ == $0",
         "start": {
-          "row": 21,
-          "column": 3
+          "row": 22,
+          "column": 4
         },
         "end": {
-          "row": 21,
-          "column": 17
+          "row": 22,
+          "column": 18
         }
       },
       {
@@ -2352,12 +2352,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "__FILE__",
         "start": {
-          "row": 21,
-          "column": 3
+          "row": 22,
+          "column": 4
         },
         "end": {
-          "row": 21,
-          "column": 11
+          "row": 22,
+          "column": 12
         }
       },
       {
@@ -2365,12 +2365,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "==",
         "start": {
-          "row": 21,
-          "column": 12
+          "row": 22,
+          "column": 13
         },
         "end": {
-          "row": 21,
-          "column": 14
+          "row": 22,
+          "column": 15
         }
       },
       {
@@ -2378,12 +2378,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "$0",
         "start": {
-          "row": 21,
-          "column": 15
+          "row": 22,
+          "column": 16
         },
         "end": {
-          "row": 21,
-          "column": 17
+          "row": 22,
+          "column": 18
         }
       },
       {
@@ -2391,12 +2391,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ constant.builtin",
         "start": {
-          "row": 22,
-          "column": 2
+          "row": 23,
+          "column": 3
         },
         "end": {
-          "row": 22,
-          "column": 22
+          "row": 23,
+          "column": 23
         }
       },
       {
@@ -2404,12 +2404,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "end",
         "start": {
-          "row": 23,
-          "column": 0
+          "row": 24,
+          "column": 1
         },
         "end": {
-          "row": 23,
-          "column": 3
+          "row": 24,
+          "column": 4
         }
       }
     ]
@@ -2423,12 +2423,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"hello\"\n# ^ string\n%(hello)\n# ^ string\n%w(hello goodbye)\n#   ^ string\n#         ^ string\n\n:hello\n# ^ string.special.symbol\n%s(hello)\n# ^ string.special.symbol\n%I(hello goodbye)\n#  ^ string.special.symbol\n#         ^ string.special.symbol\n\n/hello/\n# ^ string.special.regex\n%r(hello)\n# ^ string.special.regex\n\n12345\n# ^ number\n12.345\n# ^ number\n\nnil\n# ^ constant.builtin\ntrue\n# ^ constant.builtin\nTRUE\n# ^ constant.builtin\nfalse\n# ^ constant.builtin\nFALSE\n# ^ constant.builtin\n",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 36,
-          "column": 0
+          "row": 37,
+          "column": 1
         }
       },
       {
@@ -2436,12 +2436,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"hello\"",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 7
+          "row": 1,
+          "column": 8
         }
       },
       {
@@ -2449,12 +2449,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 1
+          "row": 1,
+          "column": 2
         }
       },
       {
@@ -2462,12 +2462,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "hello",
         "start": {
-          "row": 0,
-          "column": 1
+          "row": 1,
+          "column": 2
         },
         "end": {
-          "row": 0,
-          "column": 6
+          "row": 1,
+          "column": 7
         }
       },
       {
@@ -2475,12 +2475,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "\"",
         "start": {
-          "row": 0,
-          "column": 6
+          "row": 1,
+          "column": 7
         },
         "end": {
-          "row": 0,
-          "column": 7
+          "row": 1,
+          "column": 8
         }
       },
       {
@@ -2488,12 +2488,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ string",
         "start": {
-          "row": 1,
-          "column": 0
+          "row": 2,
+          "column": 1
         },
         "end": {
-          "row": 1,
-          "column": 10
+          "row": 2,
+          "column": 11
         }
       },
       {
@@ -2501,12 +2501,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "%(hello)",
         "start": {
-          "row": 2,
-          "column": 0
+          "row": 3,
+          "column": 1
         },
         "end": {
-          "row": 2,
-          "column": 8
+          "row": 3,
+          "column": 9
         }
       },
       {
@@ -2514,12 +2514,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "%(",
         "start": {
-          "row": 2,
-          "column": 0
+          "row": 3,
+          "column": 1
         },
         "end": {
-          "row": 2,
-          "column": 2
+          "row": 3,
+          "column": 3
         }
       },
       {
@@ -2527,12 +2527,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "hello",
         "start": {
-          "row": 2,
-          "column": 2
+          "row": 3,
+          "column": 3
         },
         "end": {
-          "row": 2,
-          "column": 7
+          "row": 3,
+          "column": 8
         }
       },
       {
@@ -2540,12 +2540,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 2,
-          "column": 7
+          "row": 3,
+          "column": 8
         },
         "end": {
-          "row": 2,
-          "column": 8
+          "row": 3,
+          "column": 9
         }
       },
       {
@@ -2553,12 +2553,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ string",
         "start": {
-          "row": 3,
-          "column": 0
+          "row": 4,
+          "column": 1
         },
         "end": {
-          "row": 3,
-          "column": 10
+          "row": 4,
+          "column": 11
         }
       },
       {
@@ -2566,12 +2566,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "%w(hello goodbye)",
         "start": {
-          "row": 4,
-          "column": 0
+          "row": 5,
+          "column": 1
         },
         "end": {
-          "row": 4,
-          "column": 17
+          "row": 5,
+          "column": 18
         }
       },
       {
@@ -2579,12 +2579,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "%w(",
         "start": {
-          "row": 4,
-          "column": 0
+          "row": 5,
+          "column": 1
         },
         "end": {
-          "row": 4,
-          "column": 3
+          "row": 5,
+          "column": 4
         }
       },
       {
@@ -2592,12 +2592,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "hello",
         "start": {
-          "row": 4,
-          "column": 3
+          "row": 5,
+          "column": 4
         },
         "end": {
-          "row": 4,
-          "column": 8
+          "row": 5,
+          "column": 9
         }
       },
       {
@@ -2605,12 +2605,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "hello",
         "start": {
-          "row": 4,
-          "column": 3
+          "row": 5,
+          "column": 4
         },
         "end": {
-          "row": 4,
-          "column": 8
+          "row": 5,
+          "column": 9
         }
       },
       {
@@ -2618,12 +2618,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "goodbye",
         "start": {
-          "row": 4,
-          "column": 9
+          "row": 5,
+          "column": 10
         },
         "end": {
-          "row": 4,
-          "column": 16
+          "row": 5,
+          "column": 17
         }
       },
       {
@@ -2631,12 +2631,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "goodbye",
         "start": {
-          "row": 4,
-          "column": 9
+          "row": 5,
+          "column": 10
         },
         "end": {
-          "row": 4,
-          "column": 16
+          "row": 5,
+          "column": 17
         }
       },
       {
@@ -2644,12 +2644,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 4,
-          "column": 16
+          "row": 5,
+          "column": 17
         },
         "end": {
-          "row": 4,
-          "column": 17
+          "row": 5,
+          "column": 18
         }
       },
       {
@@ -2657,12 +2657,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#   ^ string",
         "start": {
-          "row": 5,
-          "column": 0
+          "row": 6,
+          "column": 1
         },
         "end": {
-          "row": 5,
-          "column": 12
+          "row": 6,
+          "column": 13
         }
       },
       {
@@ -2670,12 +2670,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#         ^ string",
         "start": {
-          "row": 6,
-          "column": 0
+          "row": 7,
+          "column": 1
         },
         "end": {
-          "row": 6,
-          "column": 18
+          "row": 7,
+          "column": 19
         }
       },
       {
@@ -2683,12 +2683,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ":hello",
         "start": {
-          "row": 8,
-          "column": 0
+          "row": 9,
+          "column": 1
         },
         "end": {
-          "row": 8,
-          "column": 6
+          "row": 9,
+          "column": 7
         }
       },
       {
@@ -2696,12 +2696,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ string.special.symbol",
         "start": {
-          "row": 9,
-          "column": 0
+          "row": 10,
+          "column": 1
         },
         "end": {
-          "row": 9,
-          "column": 25
+          "row": 10,
+          "column": 26
         }
       },
       {
@@ -2709,12 +2709,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "%s(hello)",
         "start": {
-          "row": 10,
-          "column": 0
+          "row": 11,
+          "column": 1
         },
         "end": {
-          "row": 10,
-          "column": 9
+          "row": 11,
+          "column": 10
         }
       },
       {
@@ -2722,12 +2722,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "%s(",
         "start": {
-          "row": 10,
-          "column": 0
+          "row": 11,
+          "column": 1
         },
         "end": {
-          "row": 10,
-          "column": 3
+          "row": 11,
+          "column": 4
         }
       },
       {
@@ -2735,12 +2735,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "hello",
         "start": {
-          "row": 10,
-          "column": 3
+          "row": 11,
+          "column": 4
         },
         "end": {
-          "row": 10,
-          "column": 8
+          "row": 11,
+          "column": 9
         }
       },
       {
@@ -2748,12 +2748,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 10,
-          "column": 8
+          "row": 11,
+          "column": 9
         },
         "end": {
-          "row": 10,
-          "column": 9
+          "row": 11,
+          "column": 10
         }
       },
       {
@@ -2761,12 +2761,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ string.special.symbol",
         "start": {
-          "row": 11,
-          "column": 0
+          "row": 12,
+          "column": 1
         },
         "end": {
-          "row": 11,
-          "column": 25
+          "row": 12,
+          "column": 26
         }
       },
       {
@@ -2774,12 +2774,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "%I(hello goodbye)",
         "start": {
-          "row": 12,
-          "column": 0
+          "row": 13,
+          "column": 1
         },
         "end": {
-          "row": 12,
-          "column": 17
+          "row": 13,
+          "column": 18
         }
       },
       {
@@ -2787,12 +2787,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "%I(",
         "start": {
-          "row": 12,
-          "column": 0
+          "row": 13,
+          "column": 1
         },
         "end": {
-          "row": 12,
-          "column": 3
+          "row": 13,
+          "column": 4
         }
       },
       {
@@ -2800,12 +2800,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "hello",
         "start": {
-          "row": 12,
-          "column": 3
+          "row": 13,
+          "column": 4
         },
         "end": {
-          "row": 12,
-          "column": 8
+          "row": 13,
+          "column": 9
         }
       },
       {
@@ -2813,12 +2813,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "hello",
         "start": {
-          "row": 12,
-          "column": 3
+          "row": 13,
+          "column": 4
         },
         "end": {
-          "row": 12,
-          "column": 8
+          "row": 13,
+          "column": 9
         }
       },
       {
@@ -2826,12 +2826,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "goodbye",
         "start": {
-          "row": 12,
-          "column": 9
+          "row": 13,
+          "column": 10
         },
         "end": {
-          "row": 12,
-          "column": 16
+          "row": 13,
+          "column": 17
         }
       },
       {
@@ -2839,12 +2839,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "goodbye",
         "start": {
-          "row": 12,
-          "column": 9
+          "row": 13,
+          "column": 10
         },
         "end": {
-          "row": 12,
-          "column": 16
+          "row": 13,
+          "column": 17
         }
       },
       {
@@ -2852,12 +2852,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 12,
-          "column": 16
+          "row": 13,
+          "column": 17
         },
         "end": {
-          "row": 12,
-          "column": 17
+          "row": 13,
+          "column": 18
         }
       },
       {
@@ -2865,12 +2865,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#  ^ string.special.symbol",
         "start": {
-          "row": 13,
-          "column": 0
+          "row": 14,
+          "column": 1
         },
         "end": {
-          "row": 13,
-          "column": 26
+          "row": 14,
+          "column": 27
         }
       },
       {
@@ -2878,12 +2878,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#         ^ string.special.symbol",
         "start": {
-          "row": 14,
-          "column": 0
+          "row": 15,
+          "column": 1
         },
         "end": {
-          "row": 14,
-          "column": 33
+          "row": 15,
+          "column": 34
         }
       },
       {
@@ -2891,12 +2891,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "/hello/",
         "start": {
-          "row": 16,
-          "column": 0
+          "row": 17,
+          "column": 1
         },
         "end": {
-          "row": 16,
-          "column": 7
+          "row": 17,
+          "column": 8
         }
       },
       {
@@ -2904,12 +2904,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "/",
         "start": {
-          "row": 16,
-          "column": 0
+          "row": 17,
+          "column": 1
         },
         "end": {
-          "row": 16,
-          "column": 1
+          "row": 17,
+          "column": 2
         }
       },
       {
@@ -2917,12 +2917,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "hello",
         "start": {
-          "row": 16,
-          "column": 1
+          "row": 17,
+          "column": 2
         },
         "end": {
-          "row": 16,
-          "column": 6
+          "row": 17,
+          "column": 7
         }
       },
       {
@@ -2930,12 +2930,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "/",
         "start": {
-          "row": 16,
-          "column": 6
+          "row": 17,
+          "column": 7
         },
         "end": {
-          "row": 16,
-          "column": 7
+          "row": 17,
+          "column": 8
         }
       },
       {
@@ -2943,12 +2943,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ string.special.regex",
         "start": {
-          "row": 17,
-          "column": 0
+          "row": 18,
+          "column": 1
         },
         "end": {
-          "row": 17,
-          "column": 24
+          "row": 18,
+          "column": 25
         }
       },
       {
@@ -2956,12 +2956,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "%r(hello)",
         "start": {
-          "row": 18,
-          "column": 0
+          "row": 19,
+          "column": 1
         },
         "end": {
-          "row": 18,
-          "column": 9
+          "row": 19,
+          "column": 10
         }
       },
       {
@@ -2969,12 +2969,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "%r(",
         "start": {
-          "row": 18,
-          "column": 0
+          "row": 19,
+          "column": 1
         },
         "end": {
-          "row": 18,
-          "column": 3
+          "row": 19,
+          "column": 4
         }
       },
       {
@@ -2982,12 +2982,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "hello",
         "start": {
-          "row": 18,
-          "column": 3
+          "row": 19,
+          "column": 4
         },
         "end": {
-          "row": 18,
-          "column": 8
+          "row": 19,
+          "column": 9
         }
       },
       {
@@ -2995,12 +2995,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 18,
-          "column": 8
+          "row": 19,
+          "column": 9
         },
         "end": {
-          "row": 18,
-          "column": 9
+          "row": 19,
+          "column": 10
         }
       },
       {
@@ -3008,12 +3008,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ string.special.regex",
         "start": {
-          "row": 19,
-          "column": 0
+          "row": 20,
+          "column": 1
         },
         "end": {
-          "row": 19,
-          "column": 24
+          "row": 20,
+          "column": 25
         }
       },
       {
@@ -3021,37 +3021,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "12345",
         "start": {
-          "row": 21,
-          "column": 0
-        },
-        "end": {
-          "row": 21,
-          "column": 5
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "# ^ number",
-        "start": {
           "row": 22,
-          "column": 0
+          "column": 1
         },
         "end": {
           "row": 22,
-          "column": 10
-        }
-      },
-      {
-        "kind": "float",
-        "name": "query",
-        "text": "12.345",
-        "start": {
-          "row": 23,
-          "column": 0
-        },
-        "end": {
-          "row": 23,
           "column": 6
         }
       },
@@ -3060,12 +3034,38 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ number",
         "start": {
+          "row": 23,
+          "column": 1
+        },
+        "end": {
+          "row": 23,
+          "column": 11
+        }
+      },
+      {
+        "kind": "float",
+        "name": "query",
+        "text": "12.345",
+        "start": {
           "row": 24,
-          "column": 0
+          "column": 1
         },
         "end": {
           "row": 24,
-          "column": 10
+          "column": 7
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# ^ number",
+        "start": {
+          "row": 25,
+          "column": 1
+        },
+        "end": {
+          "row": 25,
+          "column": 11
         }
       },
       {
@@ -3073,12 +3073,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "nil",
         "start": {
-          "row": 26,
-          "column": 0
+          "row": 27,
+          "column": 1
         },
         "end": {
-          "row": 26,
-          "column": 3
+          "row": 27,
+          "column": 4
         }
       },
       {
@@ -3086,12 +3086,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ constant.builtin",
         "start": {
-          "row": 27,
-          "column": 0
+          "row": 28,
+          "column": 1
         },
         "end": {
-          "row": 27,
-          "column": 20
+          "row": 28,
+          "column": 21
         }
       },
       {
@@ -3099,12 +3099,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "true",
         "start": {
-          "row": 28,
-          "column": 0
+          "row": 29,
+          "column": 1
         },
         "end": {
-          "row": 28,
-          "column": 4
+          "row": 29,
+          "column": 5
         }
       },
       {
@@ -3112,12 +3112,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ constant.builtin",
         "start": {
-          "row": 29,
-          "column": 0
+          "row": 30,
+          "column": 1
         },
         "end": {
-          "row": 29,
-          "column": 20
+          "row": 30,
+          "column": 21
         }
       },
       {
@@ -3125,12 +3125,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "TRUE",
         "start": {
-          "row": 30,
-          "column": 0
+          "row": 31,
+          "column": 1
         },
         "end": {
-          "row": 30,
-          "column": 4
+          "row": 31,
+          "column": 5
         }
       },
       {
@@ -3138,12 +3138,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ constant.builtin",
         "start": {
-          "row": 31,
-          "column": 0
+          "row": 32,
+          "column": 1
         },
         "end": {
-          "row": 31,
-          "column": 20
+          "row": 32,
+          "column": 21
         }
       },
       {
@@ -3151,12 +3151,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "false",
         "start": {
-          "row": 32,
-          "column": 0
+          "row": 33,
+          "column": 1
         },
         "end": {
-          "row": 32,
-          "column": 5
+          "row": 33,
+          "column": 6
         }
       },
       {
@@ -3164,12 +3164,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ constant.builtin",
         "start": {
-          "row": 33,
-          "column": 0
+          "row": 34,
+          "column": 1
         },
         "end": {
-          "row": 33,
-          "column": 20
+          "row": 34,
+          "column": 21
         }
       },
       {
@@ -3177,12 +3177,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "FALSE",
         "start": {
-          "row": 34,
-          "column": 0
+          "row": 35,
+          "column": 1
         },
         "end": {
-          "row": 34,
-          "column": 5
+          "row": 35,
+          "column": 6
         }
       },
       {
@@ -3190,12 +3190,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ constant.builtin",
         "start": {
-          "row": 35,
-          "column": 0
+          "row": 36,
+          "column": 1
         },
         "end": {
-          "row": 35,
-          "column": 20
+          "row": 36,
+          "column": 21
         }
       }
     ]
@@ -3209,12 +3209,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "one = 1\n# <- variable\n\ndef two()\n  three = one\n  # ^ variable\n  #        ^ function.method\n\n  four = three\n  # ^ variable\n  #       ^ variable\n\n  four.each do |i|\n    puts i, three, five\n    #    ^ variable.parameter\n    #        ^ variable (because blocks are closures)\n    #               ^ function.method\n  end\n\n  four.each do |(a, b), c: d, e = f|\n    #            ^ variable.parameter\n    #               ^ variable.parameter\n    #                   ^ variable.parameter\n    #                      ^ function.method\n    #                         ^ variable.parameter\n    #                             ^ function.method\n    puts a, b, c, d, e, f\n    #    ^ variable.parameter\n    #       ^ variable.parameter\n    #          ^ variable.parameter\n    #             ^ function.method\n    #                ^ variable.parameter\n    #                   ^ function.method\n  end\n\n  five ||= 1\n  # ^ variable\n\n  six -> (seven) { eight(seven, five) }\n  # ^ function.method\n  #        ^ variable.parameter\n  #                 ^ function.method\n  #                      ^ variable.parameter\n  #                              ^ variable\n\n  seven\n  # ^ function.method (because the `seven` above was in the scope of the lambda)\nend\n",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 48,
-          "column": 0
+          "row": 49,
+          "column": 1
         }
       },
       {
@@ -3222,12 +3222,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "one = 1",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 7
+          "row": 1,
+          "column": 8
         }
       },
       {
@@ -3235,12 +3235,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "one",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 3
+          "row": 1,
+          "column": 4
         }
       },
       {
@@ -3248,12 +3248,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "=",
         "start": {
-          "row": 0,
-          "column": 4
+          "row": 1,
+          "column": 5
         },
         "end": {
-          "row": 0,
-          "column": 5
+          "row": 1,
+          "column": 6
         }
       },
       {
@@ -3261,12 +3261,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "1",
         "start": {
-          "row": 0,
-          "column": 6
+          "row": 1,
+          "column": 7
         },
         "end": {
-          "row": 0,
-          "column": 7
+          "row": 1,
+          "column": 8
         }
       },
       {
@@ -3274,12 +3274,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# <- variable",
         "start": {
-          "row": 1,
-          "column": 0
+          "row": 2,
+          "column": 1
         },
         "end": {
-          "row": 1,
-          "column": 13
+          "row": 2,
+          "column": 14
         }
       },
       {
@@ -3287,12 +3287,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "def two()\n  three = one\n  # ^ variable\n  #        ^ function.method\n\n  four = three\n  # ^ variable\n  #       ^ variable\n\n  four.each do |i|\n    puts i, three, five\n    #    ^ variable.parameter\n    #        ^ variable (because blocks are closures)\n    #               ^ function.method\n  end\n\n  four.each do |(a, b), c: d, e = f|\n    #            ^ variable.parameter\n    #               ^ variable.parameter\n    #                   ^ variable.parameter\n    #                      ^ function.method\n    #                         ^ variable.parameter\n    #                             ^ function.method\n    puts a, b, c, d, e, f\n    #    ^ variable.parameter\n    #       ^ variable.parameter\n    #          ^ variable.parameter\n    #             ^ function.method\n    #                ^ variable.parameter\n    #                   ^ function.method\n  end\n\n  five ||= 1\n  # ^ variable\n\n  six -> (seven) { eight(seven, five) }\n  # ^ function.method\n  #        ^ variable.parameter\n  #                 ^ function.method\n  #                      ^ variable.parameter\n  #                              ^ variable\n\n  seven\n  # ^ function.method (because the `seven` above was in the scope of the lambda)\nend",
         "start": {
-          "row": 3,
-          "column": 0
+          "row": 4,
+          "column": 1
         },
         "end": {
-          "row": 47,
-          "column": 3
+          "row": 48,
+          "column": 4
         }
       },
       {
@@ -3300,12 +3300,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "def",
         "start": {
-          "row": 3,
-          "column": 0
+          "row": 4,
+          "column": 1
         },
         "end": {
-          "row": 3,
-          "column": 3
+          "row": 4,
+          "column": 4
         }
       },
       {
@@ -3313,12 +3313,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "two",
         "start": {
-          "row": 3,
-          "column": 4
+          "row": 4,
+          "column": 5
         },
         "end": {
-          "row": 3,
-          "column": 7
+          "row": 4,
+          "column": 8
         }
       },
       {
@@ -3326,12 +3326,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "()",
         "start": {
-          "row": 3,
-          "column": 7
+          "row": 4,
+          "column": 8
         },
         "end": {
-          "row": 3,
-          "column": 9
+          "row": 4,
+          "column": 10
         }
       },
       {
@@ -3339,12 +3339,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 3,
-          "column": 7
+          "row": 4,
+          "column": 8
         },
         "end": {
-          "row": 3,
-          "column": 8
+          "row": 4,
+          "column": 9
         }
       },
       {
@@ -3352,12 +3352,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 3,
-          "column": 8
+          "row": 4,
+          "column": 9
         },
         "end": {
-          "row": 3,
-          "column": 9
+          "row": 4,
+          "column": 10
         }
       },
       {
@@ -3365,12 +3365,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "three = one",
         "start": {
-          "row": 4,
-          "column": 2
+          "row": 5,
+          "column": 3
         },
         "end": {
-          "row": 4,
-          "column": 13
+          "row": 5,
+          "column": 14
         }
       },
       {
@@ -3378,12 +3378,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "three",
         "start": {
-          "row": 4,
-          "column": 2
+          "row": 5,
+          "column": 3
         },
         "end": {
-          "row": 4,
-          "column": 7
+          "row": 5,
+          "column": 8
         }
       },
       {
@@ -3391,12 +3391,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "=",
         "start": {
-          "row": 4,
-          "column": 8
+          "row": 5,
+          "column": 9
         },
         "end": {
-          "row": 4,
-          "column": 9
+          "row": 5,
+          "column": 10
         }
       },
       {
@@ -3404,12 +3404,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "one",
         "start": {
-          "row": 4,
-          "column": 10
+          "row": 5,
+          "column": 11
         },
         "end": {
-          "row": 4,
-          "column": 13
+          "row": 5,
+          "column": 14
         }
       },
       {
@@ -3417,12 +3417,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ variable",
         "start": {
-          "row": 5,
-          "column": 2
+          "row": 6,
+          "column": 3
         },
         "end": {
-          "row": 5,
-          "column": 14
+          "row": 6,
+          "column": 15
         }
       },
       {
@@ -3430,12 +3430,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#        ^ function.method",
         "start": {
-          "row": 6,
-          "column": 2
+          "row": 7,
+          "column": 3
         },
         "end": {
-          "row": 6,
-          "column": 28
+          "row": 7,
+          "column": 29
         }
       },
       {
@@ -3443,12 +3443,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "four = three",
         "start": {
-          "row": 8,
-          "column": 2
+          "row": 9,
+          "column": 3
         },
         "end": {
-          "row": 8,
-          "column": 14
+          "row": 9,
+          "column": 15
         }
       },
       {
@@ -3456,12 +3456,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "four",
         "start": {
-          "row": 8,
-          "column": 2
+          "row": 9,
+          "column": 3
         },
         "end": {
-          "row": 8,
-          "column": 6
+          "row": 9,
+          "column": 7
         }
       },
       {
@@ -3469,12 +3469,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "=",
         "start": {
-          "row": 8,
-          "column": 7
+          "row": 9,
+          "column": 8
         },
         "end": {
-          "row": 8,
-          "column": 8
+          "row": 9,
+          "column": 9
         }
       },
       {
@@ -3482,12 +3482,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "three",
         "start": {
-          "row": 8,
-          "column": 9
+          "row": 9,
+          "column": 10
         },
         "end": {
-          "row": 8,
-          "column": 14
+          "row": 9,
+          "column": 15
         }
       },
       {
@@ -3495,12 +3495,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ variable",
         "start": {
-          "row": 9,
-          "column": 2
+          "row": 10,
+          "column": 3
         },
         "end": {
-          "row": 9,
-          "column": 14
+          "row": 10,
+          "column": 15
         }
       },
       {
@@ -3508,12 +3508,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#       ^ variable",
         "start": {
-          "row": 10,
-          "column": 2
+          "row": 11,
+          "column": 3
         },
         "end": {
-          "row": 10,
-          "column": 20
+          "row": 11,
+          "column": 21
         }
       },
       {
@@ -3521,12 +3521,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "four.each do |i|\n    puts i, three, five\n    #    ^ variable.parameter\n    #        ^ variable (because blocks are closures)\n    #               ^ function.method\n  end",
         "start": {
-          "row": 12,
-          "column": 2
+          "row": 13,
+          "column": 3
         },
         "end": {
-          "row": 17,
-          "column": 5
+          "row": 18,
+          "column": 6
         }
       },
       {
@@ -3534,12 +3534,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "four",
         "start": {
-          "row": 12,
-          "column": 2
+          "row": 13,
+          "column": 3
         },
         "end": {
-          "row": 12,
-          "column": 6
+          "row": 13,
+          "column": 7
         }
       },
       {
@@ -3547,12 +3547,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ".",
         "start": {
-          "row": 12,
-          "column": 6
+          "row": 13,
+          "column": 7
         },
         "end": {
-          "row": 12,
-          "column": 7
+          "row": 13,
+          "column": 8
         }
       },
       {
@@ -3560,12 +3560,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "each",
         "start": {
-          "row": 12,
-          "column": 7
+          "row": 13,
+          "column": 8
         },
         "end": {
-          "row": 12,
-          "column": 11
+          "row": 13,
+          "column": 12
         }
       },
       {
@@ -3573,12 +3573,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "do |i|\n    puts i, three, five\n    #    ^ variable.parameter\n    #        ^ variable (because blocks are closures)\n    #               ^ function.method\n  end",
         "start": {
-          "row": 12,
-          "column": 12
+          "row": 13,
+          "column": 13
         },
         "end": {
-          "row": 17,
-          "column": 5
+          "row": 18,
+          "column": 6
         }
       },
       {
@@ -3586,12 +3586,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "do",
         "start": {
-          "row": 12,
-          "column": 12
+          "row": 13,
+          "column": 13
         },
         "end": {
-          "row": 12,
-          "column": 14
+          "row": 13,
+          "column": 15
         }
       },
       {
@@ -3599,12 +3599,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "|i|",
         "start": {
-          "row": 12,
-          "column": 15
+          "row": 13,
+          "column": 16
         },
         "end": {
-          "row": 12,
-          "column": 18
+          "row": 13,
+          "column": 19
         }
       },
       {
@@ -3612,12 +3612,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "|",
         "start": {
-          "row": 12,
-          "column": 15
+          "row": 13,
+          "column": 16
         },
         "end": {
-          "row": 12,
-          "column": 16
+          "row": 13,
+          "column": 17
         }
       },
       {
@@ -3625,12 +3625,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "i",
         "start": {
-          "row": 12,
-          "column": 16
+          "row": 13,
+          "column": 17
         },
         "end": {
-          "row": 12,
-          "column": 17
+          "row": 13,
+          "column": 18
         }
       },
       {
@@ -3638,12 +3638,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "|",
         "start": {
-          "row": 12,
-          "column": 17
+          "row": 13,
+          "column": 18
         },
         "end": {
-          "row": 12,
-          "column": 18
+          "row": 13,
+          "column": 19
         }
       },
       {
@@ -3651,12 +3651,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "puts i, three, five",
         "start": {
-          "row": 13,
-          "column": 4
+          "row": 14,
+          "column": 5
         },
         "end": {
-          "row": 13,
-          "column": 23
+          "row": 14,
+          "column": 24
         }
       },
       {
@@ -3664,12 +3664,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "puts",
         "start": {
-          "row": 13,
-          "column": 4
+          "row": 14,
+          "column": 5
         },
         "end": {
-          "row": 13,
-          "column": 8
+          "row": 14,
+          "column": 9
         }
       },
       {
@@ -3677,12 +3677,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "i, three, five",
         "start": {
-          "row": 13,
-          "column": 9
+          "row": 14,
+          "column": 10
         },
         "end": {
-          "row": 13,
-          "column": 23
+          "row": 14,
+          "column": 24
         }
       },
       {
@@ -3690,12 +3690,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "i",
         "start": {
-          "row": 13,
-          "column": 9
+          "row": 14,
+          "column": 10
         },
         "end": {
-          "row": 13,
-          "column": 10
+          "row": 14,
+          "column": 11
         }
       },
       {
@@ -3703,12 +3703,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 13,
-          "column": 10
+          "row": 14,
+          "column": 11
         },
         "end": {
-          "row": 13,
-          "column": 11
+          "row": 14,
+          "column": 12
         }
       },
       {
@@ -3716,12 +3716,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "three",
         "start": {
-          "row": 13,
-          "column": 12
+          "row": 14,
+          "column": 13
         },
         "end": {
-          "row": 13,
-          "column": 17
+          "row": 14,
+          "column": 18
         }
       },
       {
@@ -3729,12 +3729,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 13,
-          "column": 17
+          "row": 14,
+          "column": 18
         },
         "end": {
-          "row": 13,
-          "column": 18
+          "row": 14,
+          "column": 19
         }
       },
       {
@@ -3742,12 +3742,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "five",
         "start": {
-          "row": 13,
-          "column": 19
+          "row": 14,
+          "column": 20
         },
         "end": {
-          "row": 13,
-          "column": 23
+          "row": 14,
+          "column": 24
         }
       },
       {
@@ -3755,12 +3755,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#    ^ variable.parameter",
         "start": {
-          "row": 14,
-          "column": 4
+          "row": 15,
+          "column": 5
         },
         "end": {
-          "row": 14,
-          "column": 29
+          "row": 15,
+          "column": 30
         }
       },
       {
@@ -3768,12 +3768,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#        ^ variable (because blocks are closures)",
         "start": {
-          "row": 15,
-          "column": 4
+          "row": 16,
+          "column": 5
         },
         "end": {
-          "row": 15,
-          "column": 53
+          "row": 16,
+          "column": 54
         }
       },
       {
@@ -3781,12 +3781,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#               ^ function.method",
         "start": {
-          "row": 16,
-          "column": 4
+          "row": 17,
+          "column": 5
         },
         "end": {
-          "row": 16,
-          "column": 37
+          "row": 17,
+          "column": 38
         }
       },
       {
@@ -3794,12 +3794,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "end",
         "start": {
-          "row": 17,
-          "column": 2
+          "row": 18,
+          "column": 3
         },
         "end": {
-          "row": 17,
-          "column": 5
+          "row": 18,
+          "column": 6
         }
       },
       {
@@ -3807,12 +3807,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "four.each do |(a, b), c: d, e = f|\n    #            ^ variable.parameter\n    #               ^ variable.parameter\n    #                   ^ variable.parameter\n    #                      ^ function.method\n    #                         ^ variable.parameter\n    #                             ^ function.method\n    puts a, b, c, d, e, f\n    #    ^ variable.parameter\n    #       ^ variable.parameter\n    #          ^ variable.parameter\n    #             ^ function.method\n    #                ^ variable.parameter\n    #                   ^ function.method\n  end",
         "start": {
-          "row": 19,
-          "column": 2
+          "row": 20,
+          "column": 3
         },
         "end": {
-          "row": 33,
-          "column": 5
+          "row": 34,
+          "column": 6
         }
       },
       {
@@ -3820,12 +3820,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "four",
         "start": {
-          "row": 19,
-          "column": 2
+          "row": 20,
+          "column": 3
         },
         "end": {
-          "row": 19,
-          "column": 6
+          "row": 20,
+          "column": 7
         }
       },
       {
@@ -3833,12 +3833,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ".",
         "start": {
-          "row": 19,
-          "column": 6
+          "row": 20,
+          "column": 7
         },
         "end": {
-          "row": 19,
-          "column": 7
+          "row": 20,
+          "column": 8
         }
       },
       {
@@ -3846,12 +3846,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "each",
         "start": {
-          "row": 19,
-          "column": 7
+          "row": 20,
+          "column": 8
         },
         "end": {
-          "row": 19,
-          "column": 11
+          "row": 20,
+          "column": 12
         }
       },
       {
@@ -3859,12 +3859,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "do |(a, b), c: d, e = f|\n    #            ^ variable.parameter\n    #               ^ variable.parameter\n    #                   ^ variable.parameter\n    #                      ^ function.method\n    #                         ^ variable.parameter\n    #                             ^ function.method\n    puts a, b, c, d, e, f\n    #    ^ variable.parameter\n    #       ^ variable.parameter\n    #          ^ variable.parameter\n    #             ^ function.method\n    #                ^ variable.parameter\n    #                   ^ function.method\n  end",
         "start": {
-          "row": 19,
-          "column": 12
+          "row": 20,
+          "column": 13
         },
         "end": {
-          "row": 33,
-          "column": 5
+          "row": 34,
+          "column": 6
         }
       },
       {
@@ -3872,12 +3872,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "do",
         "start": {
-          "row": 19,
-          "column": 12
+          "row": 20,
+          "column": 13
         },
         "end": {
-          "row": 19,
-          "column": 14
+          "row": 20,
+          "column": 15
         }
       },
       {
@@ -3885,12 +3885,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "|(a, b), c: d, e = f|",
         "start": {
-          "row": 19,
-          "column": 15
+          "row": 20,
+          "column": 16
         },
         "end": {
-          "row": 19,
-          "column": 36
+          "row": 20,
+          "column": 37
         }
       },
       {
@@ -3898,12 +3898,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "|",
         "start": {
-          "row": 19,
-          "column": 15
+          "row": 20,
+          "column": 16
         },
         "end": {
-          "row": 19,
-          "column": 16
+          "row": 20,
+          "column": 17
         }
       },
       {
@@ -3911,12 +3911,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(a, b)",
         "start": {
-          "row": 19,
-          "column": 16
+          "row": 20,
+          "column": 17
         },
         "end": {
-          "row": 19,
-          "column": 22
+          "row": 20,
+          "column": 23
         }
       },
       {
@@ -3924,12 +3924,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 19,
-          "column": 16
+          "row": 20,
+          "column": 17
         },
         "end": {
-          "row": 19,
-          "column": 17
+          "row": 20,
+          "column": 18
         }
       },
       {
@@ -3937,12 +3937,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "a",
         "start": {
-          "row": 19,
-          "column": 17
+          "row": 20,
+          "column": 18
         },
         "end": {
-          "row": 19,
-          "column": 18
+          "row": 20,
+          "column": 19
         }
       },
       {
@@ -3950,12 +3950,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 19,
-          "column": 18
+          "row": 20,
+          "column": 19
         },
         "end": {
-          "row": 19,
-          "column": 19
+          "row": 20,
+          "column": 20
         }
       },
       {
@@ -3963,12 +3963,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "b",
         "start": {
-          "row": 19,
-          "column": 20
+          "row": 20,
+          "column": 21
         },
         "end": {
-          "row": 19,
-          "column": 21
+          "row": 20,
+          "column": 22
         }
       },
       {
@@ -3976,12 +3976,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 19,
-          "column": 21
+          "row": 20,
+          "column": 22
         },
         "end": {
-          "row": 19,
-          "column": 22
+          "row": 20,
+          "column": 23
         }
       },
       {
@@ -3989,12 +3989,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 19,
-          "column": 22
+          "row": 20,
+          "column": 23
         },
         "end": {
-          "row": 19,
-          "column": 23
+          "row": 20,
+          "column": 24
         }
       },
       {
@@ -4002,12 +4002,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "c: d",
         "start": {
-          "row": 19,
-          "column": 24
+          "row": 20,
+          "column": 25
         },
         "end": {
-          "row": 19,
-          "column": 28
+          "row": 20,
+          "column": 29
         }
       },
       {
@@ -4015,12 +4015,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "c",
         "start": {
-          "row": 19,
-          "column": 24
+          "row": 20,
+          "column": 25
         },
         "end": {
-          "row": 19,
-          "column": 25
+          "row": 20,
+          "column": 26
         }
       },
       {
@@ -4028,12 +4028,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ":",
         "start": {
-          "row": 19,
-          "column": 25
+          "row": 20,
+          "column": 26
         },
         "end": {
-          "row": 19,
-          "column": 26
+          "row": 20,
+          "column": 27
         }
       },
       {
@@ -4041,12 +4041,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "d",
         "start": {
-          "row": 19,
-          "column": 27
+          "row": 20,
+          "column": 28
         },
         "end": {
-          "row": 19,
-          "column": 28
+          "row": 20,
+          "column": 29
         }
       },
       {
@@ -4054,12 +4054,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 19,
-          "column": 28
+          "row": 20,
+          "column": 29
         },
         "end": {
-          "row": 19,
-          "column": 29
+          "row": 20,
+          "column": 30
         }
       },
       {
@@ -4067,12 +4067,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "e = f",
         "start": {
-          "row": 19,
-          "column": 30
+          "row": 20,
+          "column": 31
         },
         "end": {
-          "row": 19,
-          "column": 35
+          "row": 20,
+          "column": 36
         }
       },
       {
@@ -4080,12 +4080,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "e",
         "start": {
-          "row": 19,
-          "column": 30
+          "row": 20,
+          "column": 31
         },
         "end": {
-          "row": 19,
-          "column": 31
+          "row": 20,
+          "column": 32
         }
       },
       {
@@ -4093,12 +4093,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "=",
         "start": {
-          "row": 19,
-          "column": 32
+          "row": 20,
+          "column": 33
         },
         "end": {
-          "row": 19,
-          "column": 33
+          "row": 20,
+          "column": 34
         }
       },
       {
@@ -4106,12 +4106,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "f",
         "start": {
-          "row": 19,
-          "column": 34
+          "row": 20,
+          "column": 35
         },
         "end": {
-          "row": 19,
-          "column": 35
+          "row": 20,
+          "column": 36
         }
       },
       {
@@ -4119,12 +4119,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "|",
         "start": {
-          "row": 19,
-          "column": 35
+          "row": 20,
+          "column": 36
         },
         "end": {
-          "row": 19,
-          "column": 36
+          "row": 20,
+          "column": 37
         }
       },
       {
@@ -4132,12 +4132,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#            ^ variable.parameter",
         "start": {
-          "row": 20,
-          "column": 4
+          "row": 21,
+          "column": 5
         },
         "end": {
-          "row": 20,
-          "column": 37
+          "row": 21,
+          "column": 38
         }
       },
       {
@@ -4145,12 +4145,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#               ^ variable.parameter",
         "start": {
-          "row": 21,
-          "column": 4
+          "row": 22,
+          "column": 5
         },
         "end": {
-          "row": 21,
-          "column": 40
+          "row": 22,
+          "column": 41
         }
       },
       {
@@ -4158,12 +4158,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                   ^ variable.parameter",
         "start": {
-          "row": 22,
-          "column": 4
+          "row": 23,
+          "column": 5
         },
         "end": {
-          "row": 22,
-          "column": 44
+          "row": 23,
+          "column": 45
         }
       },
       {
@@ -4171,12 +4171,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                      ^ function.method",
         "start": {
-          "row": 23,
-          "column": 4
+          "row": 24,
+          "column": 5
         },
         "end": {
-          "row": 23,
-          "column": 44
+          "row": 24,
+          "column": 45
         }
       },
       {
@@ -4184,21 +4184,8 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                         ^ variable.parameter",
         "start": {
-          "row": 24,
-          "column": 4
-        },
-        "end": {
-          "row": 24,
-          "column": 50
-        }
-      },
-      {
-        "kind": "comment",
-        "name": "query",
-        "text": "#                             ^ function.method",
-        "start": {
           "row": 25,
-          "column": 4
+          "column": 5
         },
         "end": {
           "row": 25,
@@ -4206,16 +4193,29 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                             ^ function.method",
+        "start": {
+          "row": 26,
+          "column": 5
+        },
+        "end": {
+          "row": 26,
+          "column": 52
+        }
+      },
+      {
         "kind": "call",
         "name": "query",
         "text": "puts a, b, c, d, e, f",
         "start": {
-          "row": 26,
-          "column": 4
+          "row": 27,
+          "column": 5
         },
         "end": {
-          "row": 26,
-          "column": 25
+          "row": 27,
+          "column": 26
         }
       },
       {
@@ -4223,12 +4223,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "puts",
         "start": {
-          "row": 26,
-          "column": 4
+          "row": 27,
+          "column": 5
         },
         "end": {
-          "row": 26,
-          "column": 8
+          "row": 27,
+          "column": 9
         }
       },
       {
@@ -4236,12 +4236,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "a, b, c, d, e, f",
         "start": {
-          "row": 26,
-          "column": 9
+          "row": 27,
+          "column": 10
         },
         "end": {
-          "row": 26,
-          "column": 25
+          "row": 27,
+          "column": 26
         }
       },
       {
@@ -4249,12 +4249,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "a",
         "start": {
-          "row": 26,
-          "column": 9
+          "row": 27,
+          "column": 10
         },
         "end": {
-          "row": 26,
-          "column": 10
+          "row": 27,
+          "column": 11
         }
       },
       {
@@ -4262,12 +4262,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 26,
-          "column": 10
+          "row": 27,
+          "column": 11
         },
         "end": {
-          "row": 26,
-          "column": 11
+          "row": 27,
+          "column": 12
         }
       },
       {
@@ -4275,12 +4275,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "b",
         "start": {
-          "row": 26,
-          "column": 12
+          "row": 27,
+          "column": 13
         },
         "end": {
-          "row": 26,
-          "column": 13
+          "row": 27,
+          "column": 14
         }
       },
       {
@@ -4288,12 +4288,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 26,
-          "column": 13
+          "row": 27,
+          "column": 14
         },
         "end": {
-          "row": 26,
-          "column": 14
+          "row": 27,
+          "column": 15
         }
       },
       {
@@ -4301,12 +4301,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "c",
         "start": {
-          "row": 26,
-          "column": 15
+          "row": 27,
+          "column": 16
         },
         "end": {
-          "row": 26,
-          "column": 16
+          "row": 27,
+          "column": 17
         }
       },
       {
@@ -4314,12 +4314,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 26,
-          "column": 16
+          "row": 27,
+          "column": 17
         },
         "end": {
-          "row": 26,
-          "column": 17
+          "row": 27,
+          "column": 18
         }
       },
       {
@@ -4327,12 +4327,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "d",
         "start": {
-          "row": 26,
-          "column": 18
+          "row": 27,
+          "column": 19
         },
         "end": {
-          "row": 26,
-          "column": 19
+          "row": 27,
+          "column": 20
         }
       },
       {
@@ -4340,12 +4340,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 26,
-          "column": 19
+          "row": 27,
+          "column": 20
         },
         "end": {
-          "row": 26,
-          "column": 20
+          "row": 27,
+          "column": 21
         }
       },
       {
@@ -4353,12 +4353,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "e",
         "start": {
-          "row": 26,
-          "column": 21
+          "row": 27,
+          "column": 22
         },
         "end": {
-          "row": 26,
-          "column": 22
+          "row": 27,
+          "column": 23
         }
       },
       {
@@ -4366,12 +4366,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 26,
-          "column": 22
+          "row": 27,
+          "column": 23
         },
         "end": {
-          "row": 26,
-          "column": 23
+          "row": 27,
+          "column": 24
         }
       },
       {
@@ -4379,12 +4379,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "f",
         "start": {
-          "row": 26,
-          "column": 24
+          "row": 27,
+          "column": 25
         },
         "end": {
-          "row": 26,
-          "column": 25
+          "row": 27,
+          "column": 26
         }
       },
       {
@@ -4392,12 +4392,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#    ^ variable.parameter",
         "start": {
-          "row": 27,
-          "column": 4
+          "row": 28,
+          "column": 5
         },
         "end": {
-          "row": 27,
-          "column": 29
+          "row": 28,
+          "column": 30
         }
       },
       {
@@ -4405,12 +4405,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#       ^ variable.parameter",
         "start": {
-          "row": 28,
-          "column": 4
+          "row": 29,
+          "column": 5
         },
         "end": {
-          "row": 28,
-          "column": 32
+          "row": 29,
+          "column": 33
         }
       },
       {
@@ -4418,12 +4418,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#          ^ variable.parameter",
         "start": {
-          "row": 29,
-          "column": 4
+          "row": 30,
+          "column": 5
         },
         "end": {
-          "row": 29,
-          "column": 35
+          "row": 30,
+          "column": 36
         }
       },
       {
@@ -4431,12 +4431,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#             ^ function.method",
         "start": {
-          "row": 30,
-          "column": 4
+          "row": 31,
+          "column": 5
         },
         "end": {
-          "row": 30,
-          "column": 35
+          "row": 31,
+          "column": 36
         }
       },
       {
@@ -4444,12 +4444,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                ^ variable.parameter",
         "start": {
-          "row": 31,
-          "column": 4
+          "row": 32,
+          "column": 5
         },
         "end": {
-          "row": 31,
-          "column": 41
+          "row": 32,
+          "column": 42
         }
       },
       {
@@ -4457,12 +4457,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                   ^ function.method",
         "start": {
-          "row": 32,
-          "column": 4
+          "row": 33,
+          "column": 5
         },
         "end": {
-          "row": 32,
-          "column": 41
+          "row": 33,
+          "column": 42
         }
       },
       {
@@ -4470,12 +4470,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "end",
         "start": {
-          "row": 33,
-          "column": 2
+          "row": 34,
+          "column": 3
         },
         "end": {
-          "row": 33,
-          "column": 5
+          "row": 34,
+          "column": 6
         }
       },
       {
@@ -4483,12 +4483,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "five ||= 1",
         "start": {
-          "row": 35,
-          "column": 2
+          "row": 36,
+          "column": 3
         },
         "end": {
-          "row": 35,
-          "column": 12
+          "row": 36,
+          "column": 13
         }
       },
       {
@@ -4496,12 +4496,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "five",
         "start": {
-          "row": 35,
-          "column": 2
+          "row": 36,
+          "column": 3
         },
         "end": {
-          "row": 35,
-          "column": 6
+          "row": 36,
+          "column": 7
         }
       },
       {
@@ -4509,12 +4509,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "||=",
         "start": {
-          "row": 35,
-          "column": 7
+          "row": 36,
+          "column": 8
         },
         "end": {
-          "row": 35,
-          "column": 10
+          "row": 36,
+          "column": 11
         }
       },
       {
@@ -4522,12 +4522,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "1",
         "start": {
-          "row": 35,
-          "column": 11
+          "row": 36,
+          "column": 12
         },
         "end": {
-          "row": 35,
-          "column": 12
+          "row": 36,
+          "column": 13
         }
       },
       {
@@ -4535,12 +4535,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ variable",
         "start": {
-          "row": 36,
-          "column": 2
+          "row": 37,
+          "column": 3
         },
         "end": {
-          "row": 36,
-          "column": 14
+          "row": 37,
+          "column": 15
         }
       },
       {
@@ -4548,12 +4548,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "six -> (seven) { eight(seven, five) }",
         "start": {
-          "row": 38,
-          "column": 2
+          "row": 39,
+          "column": 3
         },
         "end": {
-          "row": 38,
-          "column": 39
+          "row": 39,
+          "column": 40
         }
       },
       {
@@ -4561,12 +4561,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "six",
         "start": {
-          "row": 38,
-          "column": 2
+          "row": 39,
+          "column": 3
         },
         "end": {
-          "row": 38,
-          "column": 5
+          "row": 39,
+          "column": 6
         }
       },
       {
@@ -4574,12 +4574,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "-> (seven) { eight(seven, five) }",
         "start": {
-          "row": 38,
-          "column": 6
+          "row": 39,
+          "column": 7
         },
         "end": {
-          "row": 38,
-          "column": 39
+          "row": 39,
+          "column": 40
         }
       },
       {
@@ -4587,12 +4587,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "-> (seven) { eight(seven, five) }",
         "start": {
-          "row": 38,
-          "column": 6
+          "row": 39,
+          "column": 7
         },
         "end": {
-          "row": 38,
-          "column": 39
+          "row": 39,
+          "column": 40
         }
       },
       {
@@ -4600,12 +4600,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "->",
         "start": {
-          "row": 38,
-          "column": 6
+          "row": 39,
+          "column": 7
         },
         "end": {
-          "row": 38,
-          "column": 8
+          "row": 39,
+          "column": 9
         }
       },
       {
@@ -4613,12 +4613,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(seven)",
         "start": {
-          "row": 38,
-          "column": 9
+          "row": 39,
+          "column": 10
         },
         "end": {
-          "row": 38,
-          "column": 16
+          "row": 39,
+          "column": 17
         }
       },
       {
@@ -4626,12 +4626,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 38,
-          "column": 9
+          "row": 39,
+          "column": 10
         },
         "end": {
-          "row": 38,
-          "column": 10
+          "row": 39,
+          "column": 11
         }
       },
       {
@@ -4639,12 +4639,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "seven",
         "start": {
-          "row": 38,
-          "column": 10
+          "row": 39,
+          "column": 11
         },
         "end": {
-          "row": 38,
-          "column": 15
+          "row": 39,
+          "column": 16
         }
       },
       {
@@ -4652,12 +4652,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 38,
-          "column": 15
+          "row": 39,
+          "column": 16
         },
         "end": {
-          "row": 38,
-          "column": 16
+          "row": 39,
+          "column": 17
         }
       },
       {
@@ -4665,12 +4665,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "{ eight(seven, five) }",
         "start": {
-          "row": 38,
-          "column": 17
+          "row": 39,
+          "column": 18
         },
         "end": {
-          "row": 38,
-          "column": 39
+          "row": 39,
+          "column": 40
         }
       },
       {
@@ -4678,12 +4678,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "{",
         "start": {
-          "row": 38,
-          "column": 17
+          "row": 39,
+          "column": 18
         },
         "end": {
-          "row": 38,
-          "column": 18
+          "row": 39,
+          "column": 19
         }
       },
       {
@@ -4691,12 +4691,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "eight(seven, five)",
         "start": {
-          "row": 38,
-          "column": 19
+          "row": 39,
+          "column": 20
         },
         "end": {
-          "row": 38,
-          "column": 37
+          "row": 39,
+          "column": 38
         }
       },
       {
@@ -4704,12 +4704,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "eight",
         "start": {
-          "row": 38,
-          "column": 19
+          "row": 39,
+          "column": 20
         },
         "end": {
-          "row": 38,
-          "column": 24
+          "row": 39,
+          "column": 25
         }
       },
       {
@@ -4717,12 +4717,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(seven, five)",
         "start": {
-          "row": 38,
-          "column": 24
+          "row": 39,
+          "column": 25
         },
         "end": {
-          "row": 38,
-          "column": 37
+          "row": 39,
+          "column": 38
         }
       },
       {
@@ -4730,12 +4730,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "(",
         "start": {
-          "row": 38,
-          "column": 24
+          "row": 39,
+          "column": 25
         },
         "end": {
-          "row": 38,
-          "column": 25
+          "row": 39,
+          "column": 26
         }
       },
       {
@@ -4743,12 +4743,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "seven",
         "start": {
-          "row": 38,
-          "column": 25
+          "row": 39,
+          "column": 26
         },
         "end": {
-          "row": 38,
-          "column": 30
+          "row": 39,
+          "column": 31
         }
       },
       {
@@ -4756,12 +4756,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ",",
         "start": {
-          "row": 38,
-          "column": 30
+          "row": 39,
+          "column": 31
         },
         "end": {
-          "row": 38,
-          "column": 31
+          "row": 39,
+          "column": 32
         }
       },
       {
@@ -4769,12 +4769,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "five",
         "start": {
-          "row": 38,
-          "column": 32
+          "row": 39,
+          "column": 33
         },
         "end": {
-          "row": 38,
-          "column": 36
+          "row": 39,
+          "column": 37
         }
       },
       {
@@ -4782,12 +4782,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": ")",
         "start": {
-          "row": 38,
-          "column": 36
+          "row": 39,
+          "column": 37
         },
         "end": {
-          "row": 38,
-          "column": 37
+          "row": 39,
+          "column": 38
         }
       },
       {
@@ -4795,12 +4795,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "}",
         "start": {
-          "row": 38,
-          "column": 38
+          "row": 39,
+          "column": 39
         },
         "end": {
-          "row": 38,
-          "column": 39
+          "row": 39,
+          "column": 40
         }
       },
       {
@@ -4808,12 +4808,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ function.method",
         "start": {
-          "row": 39,
-          "column": 2
+          "row": 40,
+          "column": 3
         },
         "end": {
-          "row": 39,
-          "column": 21
+          "row": 40,
+          "column": 22
         }
       },
       {
@@ -4821,12 +4821,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#        ^ variable.parameter",
         "start": {
-          "row": 40,
-          "column": 2
+          "row": 41,
+          "column": 3
         },
         "end": {
-          "row": 40,
-          "column": 31
+          "row": 41,
+          "column": 32
         }
       },
       {
@@ -4834,12 +4834,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                 ^ function.method",
         "start": {
-          "row": 41,
-          "column": 2
+          "row": 42,
+          "column": 3
         },
         "end": {
-          "row": 41,
-          "column": 37
+          "row": 42,
+          "column": 38
         }
       },
       {
@@ -4847,12 +4847,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                      ^ variable.parameter",
         "start": {
-          "row": 42,
-          "column": 2
+          "row": 43,
+          "column": 3
         },
         "end": {
-          "row": 42,
-          "column": 45
+          "row": 43,
+          "column": 46
         }
       },
       {
@@ -4860,12 +4860,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "#                              ^ variable",
         "start": {
-          "row": 43,
-          "column": 2
+          "row": 44,
+          "column": 3
         },
         "end": {
-          "row": 43,
-          "column": 43
+          "row": 44,
+          "column": 44
         }
       },
       {
@@ -4873,12 +4873,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "seven",
         "start": {
-          "row": 45,
-          "column": 2
+          "row": 46,
+          "column": 3
         },
         "end": {
-          "row": 45,
-          "column": 7
+          "row": 46,
+          "column": 8
         }
       },
       {
@@ -4886,12 +4886,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "# ^ function.method (because the `seven` above was in the scope of the lambda)",
         "start": {
-          "row": 46,
-          "column": 2
+          "row": 47,
+          "column": 3
         },
         "end": {
-          "row": 46,
-          "column": 80
+          "row": 47,
+          "column": 81
         }
       },
       {
@@ -4899,12 +4899,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "name": "query",
         "text": "end",
         "start": {
-          "row": 47,
-          "column": 0
+          "row": 48,
+          "column": 1
         },
         "end": {
-          "row": 47,
-          "column": 3
+          "row": 48,
+          "column": 4
         }
       }
     ]
