@@ -17,13 +17,23 @@ fn main() {
     let mut buffer = BufWriter::new(io::stdout());
 
     if let Err(error) = try_main(env::args().collect(), &mut buffer) {
-        // Clap errors (--help or misuse) are already well-formatted, so we
-        // don't have to do any additional work.
+        if let Some(err) = error.downcast_ref::<io::Error>() {
+            // a broken pipe is totally normal and fine. It's what we get when
+            // we pipe to something like `head` that only takes a certain number
+            // of lines.
+            if err.kind() == io::ErrorKind::BrokenPipe {
+                std::process::exit(0);
+            }
+        }
+
         if let Some(clap_error) = error.downcast_ref::<clap::Error>() {
+            // Clap errors (--help or misuse) are already well-formatted,
+            // so we don't have to do any additional work.
             eprint!("{}", clap_error);
         } else {
             eprintln!("{:?}", error);
         }
+
         std::process::exit(1);
     }
 
