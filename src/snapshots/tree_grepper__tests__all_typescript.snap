@@ -13,12 +13,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "type a = readonly b[][];\n",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 1,
-          "column": 0
+          "row": 2,
+          "column": 1
         }
       },
       {
@@ -26,12 +26,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "type a = readonly b[][];",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 24
+          "row": 1,
+          "column": 25
         }
       },
       {
@@ -39,12 +39,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "type",
         "start": {
-          "row": 0,
-          "column": 0
+          "row": 1,
+          "column": 1
         },
         "end": {
-          "row": 0,
-          "column": 4
+          "row": 1,
+          "column": 5
         }
       },
       {
@@ -52,12 +52,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "a",
         "start": {
-          "row": 0,
-          "column": 5
+          "row": 1,
+          "column": 6
         },
         "end": {
-          "row": 0,
-          "column": 6
+          "row": 1,
+          "column": 7
         }
       },
       {
@@ -65,12 +65,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "=",
         "start": {
-          "row": 0,
-          "column": 7
+          "row": 1,
+          "column": 8
         },
         "end": {
-          "row": 0,
-          "column": 8
+          "row": 1,
+          "column": 9
         }
       },
       {
@@ -78,12 +78,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "readonly b[][]",
         "start": {
-          "row": 0,
-          "column": 9
+          "row": 1,
+          "column": 10
         },
         "end": {
-          "row": 0,
-          "column": 23
+          "row": 1,
+          "column": 24
         }
       },
       {
@@ -91,12 +91,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "readonly",
         "start": {
-          "row": 0,
-          "column": 9
+          "row": 1,
+          "column": 10
         },
         "end": {
-          "row": 0,
-          "column": 17
+          "row": 1,
+          "column": 18
         }
       },
       {
@@ -104,12 +104,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "b[][]",
         "start": {
-          "row": 0,
-          "column": 18
+          "row": 1,
+          "column": 19
         },
         "end": {
-          "row": 0,
-          "column": 23
+          "row": 1,
+          "column": 24
         }
       },
       {
@@ -117,12 +117,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "b[]",
         "start": {
-          "row": 0,
-          "column": 18
+          "row": 1,
+          "column": 19
         },
         "end": {
-          "row": 0,
-          "column": 21
+          "row": 1,
+          "column": 22
         }
       },
       {
@@ -130,12 +130,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "b",
         "start": {
-          "row": 0,
-          "column": 18
+          "row": 1,
+          "column": 19
         },
         "end": {
-          "row": 0,
-          "column": 19
+          "row": 1,
+          "column": 20
         }
       },
       {
@@ -143,12 +143,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "[",
         "start": {
-          "row": 0,
-          "column": 19
+          "row": 1,
+          "column": 20
         },
         "end": {
-          "row": 0,
-          "column": 20
+          "row": 1,
+          "column": 21
         }
       },
       {
@@ -156,12 +156,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "]",
         "start": {
-          "row": 0,
-          "column": 20
+          "row": 1,
+          "column": 21
         },
         "end": {
-          "row": 0,
-          "column": 21
+          "row": 1,
+          "column": 22
         }
       },
       {
@@ -169,25 +169,25 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": "[",
         "start": {
-          "row": 0,
-          "column": 21
-        },
-        "end": {
-          "row": 0,
-          "column": 22
-        }
-      },
-      {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 0,
+          "row": 1,
           "column": 22
         },
         "end": {
-          "row": 0,
+          "row": 1,
           "column": 23
+        }
+      },
+      {
+        "kind": "]",
+        "name": "query",
+        "text": "]",
+        "start": {
+          "row": 1,
+          "column": 23
+        },
+        "end": {
+          "row": 1,
+          "column": 24
         }
       },
       {
@@ -195,12 +195,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "name": "query",
         "text": ";",
         "start": {
-          "row": 0,
-          "column": 23
+          "row": 1,
+          "column": 24
         },
         "end": {
-          "row": 0,
-          "column": 24
+          "row": 1,
+          "column": 25
         }
       }
     ]

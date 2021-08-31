@@ -141,8 +141,8 @@ impl<'query> Display for ExtractedFile<'query> {
                 f,
                 "{}:{}:{}:{}:{}",
                 filename,
-                extraction.start.row,
-                extraction.start.column,
+                extraction.start.row + 1,
+                extraction.start.column + 1,
                 extraction.name,
                 extraction.text
             )?
@@ -168,8 +168,8 @@ where
     S: Serializer,
 {
     let mut out = sz.serialize_struct("Point", 2)?;
-    out.serialize_field("row", &point.row)?;
-    out.serialize_field("column", &point.column)?;
+    out.serialize_field("row", &(point.row + 1))?;
+    out.serialize_field("column", &(point.column + 1))?;
     out.end()
 }
 

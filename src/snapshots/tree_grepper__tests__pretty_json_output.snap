@@ -13,12 +13,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"--
         "name": "query",
         "text": "import Browser",
         "start": {
-          "row": 2,
-          "column": 0
+          "row": 3,
+          "column": 1
         },
         "end": {
-          "row": 2,
-          "column": 14
+          "row": 3,
+          "column": 15
         }
       },
       {
@@ -26,12 +26,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"--
         "name": "query",
         "text": "import Html exposing (Html, button, div, text)",
         "start": {
-          "row": 3,
-          "column": 0
+          "row": 4,
+          "column": 1
         },
         "end": {
-          "row": 3,
-          "column": 46
+          "row": 4,
+          "column": 47
         }
       },
       {
@@ -39,12 +39,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"--
         "name": "query",
         "text": "import Html.Events exposing (onClick)",
         "start": {
-          "row": 4,
-          "column": 0
+          "row": 5,
+          "column": 1
         },
         "end": {
-          "row": 4,
-          "column": 37
+          "row": 5,
+          "column": 38
         }
       }
     ]
