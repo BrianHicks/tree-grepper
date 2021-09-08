@@ -74,9 +74,7 @@ impl Extractor {
         let mut cursor = QueryCursor::new();
 
         let extracted_matches = cursor
-            .matches(&self.query, tree.root_node(), |node| {
-                node.utf8_text(&source).unwrap_or("")
-            })
+            .matches(&self.query, tree.root_node(), source)
             .flat_map(|query_match| query_match.captures)
             // note: the casts here could potentially break if run on a 16-bit
             // microcontroller. I don't think this is a huge problem, though,
