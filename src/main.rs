@@ -114,7 +114,7 @@ fn find_files(opts: &Opts) -> Result<Vec<ignore::DirEntry>> {
         None => bail!("I need at least one file or directory to walk!"),
     };
 
-    let (send_root, receive) = channel::unbounded();
+    let (root_sender, receiver) = channel::unbounded();
 
     builder
         .git_ignore(opts.git_ignore)
@@ -122,9 +122,9 @@ fn find_files(opts: &Opts) -> Result<Vec<ignore::DirEntry>> {
         .git_global(opts.git_ignore)
         .build_parallel()
         .run(|| {
-            let send = send_root.clone();
+            let sender = root_sender.clone();
             Box::new(move |entry_result| match entry_result {
-                Ok(entry) => match send.send(entry) {
+                Ok(entry) => match sender.send(entry) {
                     Ok(()) => ignore::WalkState::Continue,
                     Err(_) => ignore::WalkState::Quit,
                 },
@@ -132,9 +132,9 @@ fn find_files(opts: &Opts) -> Result<Vec<ignore::DirEntry>> {
             })
         });
 
-    drop(send_root);
+    drop(root_sender);
 
-    Ok(receive.iter().collect())
+    Ok(receiver.iter().collect())
 }
 
 #[cfg(test)]
