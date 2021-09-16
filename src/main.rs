@@ -5,6 +5,7 @@ mod language;
 
 use anyhow::{bail, Context, Result};
 use cli::{Format, Opts};
+use crossbeam::channel;
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use std::env;
 use std::io::{self, BufWriter, Write};
@@ -47,10 +48,8 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
     // You might think "why not use ParallelBridge here?" Well, the quick answer
     // is that I benchmarked it and having things separated here and handling
     // their own errors actually speeds up this part of the code by like 20%!
-    let items: Vec<ignore::DirEntry> = build_walker(&opts)
-        .context("couldn't build a filesystem walker")?
-        .collect::<Result<Vec<ignore::DirEntry>, ignore::Error>>()
-        .context("had a problem while walking the filesystem")?;
+    let items: Vec<ignore::DirEntry> =
+        find_files(&opts).context("had a problem while walking the filesystem")?;
 
     let chooser = opts
         .extractor_chooser()
@@ -102,7 +101,7 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
     Ok(())
 }
 
-fn build_walker(opts: &Opts) -> Result<ignore::Walk> {
+fn find_files(opts: &Opts) -> Result<Vec<ignore::DirEntry>> {
     let mut builder = match opts.paths.split_first() {
         Some((first, rest)) => {
             let mut builder = ignore::WalkBuilder::new(first);
@@ -115,11 +114,27 @@ fn build_walker(opts: &Opts) -> Result<ignore::Walk> {
         None => bail!("I need at least one file or directory to walk!"),
     };
 
-    Ok(builder
+    let (root_sender, receiver) = channel::unbounded();
+
+    builder
         .git_ignore(opts.git_ignore)
         .git_exclude(opts.git_ignore)
         .git_global(opts.git_ignore)
-        .build())
+        .build_parallel()
+        .run(|| {
+            let sender = root_sender.clone();
+            Box::new(move |entry_result| match entry_result {
+                Ok(entry) => match sender.send(entry) {
+                    Ok(()) => ignore::WalkState::Continue,
+                    Err(_) => ignore::WalkState::Quit,
+                },
+                Err(_) => ignore::WalkState::Quit,
+            })
+        });
+
+    drop(root_sender);
+
+    Ok(receiver.iter().collect())
 }
 
 #[cfg(test)]
