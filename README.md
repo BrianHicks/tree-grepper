@@ -11,7 +11,7 @@ That's fine, use [`nix`](https://nixos.org/download.html):
 nix-env -if https://github.com/BrianHicks/tree-grepper/archive/refs/heads/main.tar.gz
 ```
 
-If you have a Rust toolchain set up, you can also clone this repo and run `cargo build`.
+If you have a Rust toolchain set up you can also clone this repo and run `cargo build`.
 
 ## Usage
 
