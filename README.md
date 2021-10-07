@@ -1,6 +1,7 @@
 # tree-grepper
 
 Works like `grep`, but uses `tree-sitter` to search for structure instead of strings.
+[Here's a longer introduction to the tool as a blog post](https://bytes.zone/posts/tree-grepper/).
 
 ## Installing
 
