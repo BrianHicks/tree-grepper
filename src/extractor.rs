@@ -85,7 +85,7 @@ impl Extractor {
                 let name = &self.captures[capture.index as usize];
                 let node = capture.node;
                 let text = match node
-                    .utf8_text(&source)
+                    .utf8_text(source)
                     .map(|unowned| unowned.to_string())
                     .context("could not extract text from capture")
                 {

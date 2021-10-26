@@ -110,7 +110,7 @@ impl Opts {
             let mut query_out = String::from(raw_query);
 
             let temp_query = lang
-                .parse_query(&raw_query)
+                .parse_query(raw_query)
                 .context("could not parse query")?;
 
             if temp_query.capture_names().is_empty() {
