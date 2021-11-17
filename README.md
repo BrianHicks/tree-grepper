@@ -5,10 +5,10 @@ Works like `grep`, but uses `tree-sitter` to search for structure instead of str
 
 ## Installing
 
-This isn't available packaged anywhere.
-That's fine, use [`nix`](https://nixos.org/download.html):
+Use [`nix`](https://nixos.org/download.html) to install:
 
 ```
+cachix use tree-grepper # if you have cachix installed installed
 nix-env -if https://github.com/BrianHicks/tree-grepper/archive/refs/heads/main.tar.gz
 ```
 
