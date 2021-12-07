@@ -200,6 +200,20 @@ mod tests {
     // tree. We use this to know about changes in the vendored parsers!
 
     #[test]
+    fn all_cpp() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "cpp",
+            "(_)",
+            "--format=pretty-json",
+            "--sort",
+            "--no-gitignore",
+            "vendor/tree-sitter-cpp/examples",
+        ]))
+    }
+
+    #[test]
     fn all_elm() {
         insta::assert_snapshot!(call(&[
             "tree-grepper",
