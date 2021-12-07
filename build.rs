@@ -103,4 +103,19 @@ fn main() {
         .warnings(false) // lots of unused parameters
         .file(typescript_dir.join("scanner.c"))
         .compile("tree_sitter_typescript_scanner");
+    // cpp
+    let cpp_dir: PathBuf = ["vendor", "tree-sitter-cpp", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-cpp/src/parser.c");
+    cc::Build::new()
+        .include(&cpp_dir)
+        .file(cpp_dir.join("parser.c"))
+        .compile("tree-sitter-cpp");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-cpp/src/scanner.cc");
+    cc::Build::new()
+        .include(&cpp_dir)
+        .cpp(true)
+        .file(cpp_dir.join("scanner.cc"))
+        .compile("tree_sitter_cpp_scanner");
 }
