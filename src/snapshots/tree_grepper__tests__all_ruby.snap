@@ -2135,6 +2135,519 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
     ]
   },
   {
+    "file": "vendor/tree-sitter-ruby/test/highlight/patterns.rb",
+    "file_type": "ruby",
+    "matches": [
+      {
+        "kind": "program",
+        "name": "query",
+        "text": "expr = [false | __LINE__ | __FILE__ | __ENCODING__]\n#       ^ constant.builtin\n#               ^ constant.builtin\n#                          ^ constant.builtin\n#                                     ^ constant.builtin\n\ncase expr\n  in {a: 5, b:, **nil}\n#               ^ operator\n#                 ^ constant.builtin\n  in [false | __LINE__ | __FILE__ | __ENCODING__]\n#     ^ constant.builtin\n#             ^ constant.builtin\n#                        ^ constant.builtin\n#                                   ^ constant.builtin\n  else\nend\n\n",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 19,
+          "column": 1
+        }
+      },
+      {
+        "kind": "assignment",
+        "name": "query",
+        "text": "expr = [false | __LINE__ | __FILE__ | __ENCODING__]",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 1,
+          "column": 52
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "expr",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 1,
+          "column": 5
+        }
+      },
+      {
+        "kind": "array",
+        "name": "query",
+        "text": "[false | __LINE__ | __FILE__ | __ENCODING__]",
+        "start": {
+          "row": 1,
+          "column": 8
+        },
+        "end": {
+          "row": 1,
+          "column": 52
+        }
+      },
+      {
+        "kind": "binary",
+        "name": "query",
+        "text": "false | __LINE__ | __FILE__ | __ENCODING__",
+        "start": {
+          "row": 1,
+          "column": 9
+        },
+        "end": {
+          "row": 1,
+          "column": 51
+        }
+      },
+      {
+        "kind": "binary",
+        "name": "query",
+        "text": "false | __LINE__ | __FILE__",
+        "start": {
+          "row": 1,
+          "column": 9
+        },
+        "end": {
+          "row": 1,
+          "column": 36
+        }
+      },
+      {
+        "kind": "binary",
+        "name": "query",
+        "text": "false | __LINE__",
+        "start": {
+          "row": 1,
+          "column": 9
+        },
+        "end": {
+          "row": 1,
+          "column": 25
+        }
+      },
+      {
+        "kind": "false",
+        "name": "query",
+        "text": "false",
+        "start": {
+          "row": 1,
+          "column": 9
+        },
+        "end": {
+          "row": 1,
+          "column": 14
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "__LINE__",
+        "start": {
+          "row": 1,
+          "column": 17
+        },
+        "end": {
+          "row": 1,
+          "column": 25
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "__FILE__",
+        "start": {
+          "row": 1,
+          "column": 28
+        },
+        "end": {
+          "row": 1,
+          "column": 36
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "__ENCODING__",
+        "start": {
+          "row": 1,
+          "column": 39
+        },
+        "end": {
+          "row": 1,
+          "column": 51
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#       ^ constant.builtin",
+        "start": {
+          "row": 2,
+          "column": 1
+        },
+        "end": {
+          "row": 2,
+          "column": 27
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#               ^ constant.builtin",
+        "start": {
+          "row": 3,
+          "column": 1
+        },
+        "end": {
+          "row": 3,
+          "column": 35
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                          ^ constant.builtin",
+        "start": {
+          "row": 4,
+          "column": 1
+        },
+        "end": {
+          "row": 4,
+          "column": 46
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                                     ^ constant.builtin",
+        "start": {
+          "row": 5,
+          "column": 1
+        },
+        "end": {
+          "row": 5,
+          "column": 57
+        }
+      },
+      {
+        "kind": "case_match",
+        "name": "query",
+        "text": "case expr\n  in {a: 5, b:, **nil}\n#               ^ operator\n#                 ^ constant.builtin\n  in [false | __LINE__ | __FILE__ | __ENCODING__]\n#     ^ constant.builtin\n#             ^ constant.builtin\n#                        ^ constant.builtin\n#                                   ^ constant.builtin\n  else\nend",
+        "start": {
+          "row": 7,
+          "column": 1
+        },
+        "end": {
+          "row": 17,
+          "column": 4
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "expr",
+        "start": {
+          "row": 7,
+          "column": 6
+        },
+        "end": {
+          "row": 7,
+          "column": 10
+        }
+      },
+      {
+        "kind": "in_clause",
+        "name": "query",
+        "text": "in {a: 5, b:, **nil}\n#               ^ operator\n#                 ^ constant.builtin",
+        "start": {
+          "row": 8,
+          "column": 3
+        },
+        "end": {
+          "row": 10,
+          "column": 37
+        }
+      },
+      {
+        "kind": "hash_pattern",
+        "name": "query",
+        "text": "{a: 5, b:, **nil}",
+        "start": {
+          "row": 8,
+          "column": 6
+        },
+        "end": {
+          "row": 8,
+          "column": 23
+        }
+      },
+      {
+        "kind": "keyword_pattern",
+        "name": "query",
+        "text": "a: 5",
+        "start": {
+          "row": 8,
+          "column": 7
+        },
+        "end": {
+          "row": 8,
+          "column": 11
+        }
+      },
+      {
+        "kind": "hash_key_symbol",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 8,
+          "column": 7
+        },
+        "end": {
+          "row": 8,
+          "column": 8
+        }
+      },
+      {
+        "kind": "integer",
+        "name": "query",
+        "text": "5",
+        "start": {
+          "row": 8,
+          "column": 10
+        },
+        "end": {
+          "row": 8,
+          "column": 11
+        }
+      },
+      {
+        "kind": "keyword_pattern",
+        "name": "query",
+        "text": "b:",
+        "start": {
+          "row": 8,
+          "column": 13
+        },
+        "end": {
+          "row": 8,
+          "column": 15
+        }
+      },
+      {
+        "kind": "hash_key_symbol",
+        "name": "query",
+        "text": "b",
+        "start": {
+          "row": 8,
+          "column": 13
+        },
+        "end": {
+          "row": 8,
+          "column": 14
+        }
+      },
+      {
+        "kind": "hash_splat_nil",
+        "name": "query",
+        "text": "**nil",
+        "start": {
+          "row": 8,
+          "column": 17
+        },
+        "end": {
+          "row": 8,
+          "column": 22
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#               ^ operator",
+        "start": {
+          "row": 9,
+          "column": 1
+        },
+        "end": {
+          "row": 9,
+          "column": 27
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                 ^ constant.builtin",
+        "start": {
+          "row": 10,
+          "column": 1
+        },
+        "end": {
+          "row": 10,
+          "column": 37
+        }
+      },
+      {
+        "kind": "in_clause",
+        "name": "query",
+        "text": "in [false | __LINE__ | __FILE__ | __ENCODING__]\n#     ^ constant.builtin\n#             ^ constant.builtin\n#                        ^ constant.builtin\n#                                   ^ constant.builtin",
+        "start": {
+          "row": 11,
+          "column": 3
+        },
+        "end": {
+          "row": 15,
+          "column": 55
+        }
+      },
+      {
+        "kind": "array_pattern",
+        "name": "query",
+        "text": "[false | __LINE__ | __FILE__ | __ENCODING__]",
+        "start": {
+          "row": 11,
+          "column": 6
+        },
+        "end": {
+          "row": 11,
+          "column": 50
+        }
+      },
+      {
+        "kind": "alternative_pattern",
+        "name": "query",
+        "text": "false | __LINE__ | __FILE__ | __ENCODING__",
+        "start": {
+          "row": 11,
+          "column": 7
+        },
+        "end": {
+          "row": 11,
+          "column": 49
+        }
+      },
+      {
+        "kind": "false",
+        "name": "query",
+        "text": "false",
+        "start": {
+          "row": 11,
+          "column": 7
+        },
+        "end": {
+          "row": 11,
+          "column": 12
+        }
+      },
+      {
+        "kind": "line",
+        "name": "query",
+        "text": "__LINE__",
+        "start": {
+          "row": 11,
+          "column": 15
+        },
+        "end": {
+          "row": 11,
+          "column": 23
+        }
+      },
+      {
+        "kind": "file",
+        "name": "query",
+        "text": "__FILE__",
+        "start": {
+          "row": 11,
+          "column": 26
+        },
+        "end": {
+          "row": 11,
+          "column": 34
+        }
+      },
+      {
+        "kind": "encoding",
+        "name": "query",
+        "text": "__ENCODING__",
+        "start": {
+          "row": 11,
+          "column": 37
+        },
+        "end": {
+          "row": 11,
+          "column": 49
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#     ^ constant.builtin",
+        "start": {
+          "row": 12,
+          "column": 1
+        },
+        "end": {
+          "row": 12,
+          "column": 25
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#             ^ constant.builtin",
+        "start": {
+          "row": 13,
+          "column": 1
+        },
+        "end": {
+          "row": 13,
+          "column": 33
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                        ^ constant.builtin",
+        "start": {
+          "row": 14,
+          "column": 1
+        },
+        "end": {
+          "row": 14,
+          "column": 44
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                                   ^ constant.builtin",
+        "start": {
+          "row": 15,
+          "column": 1
+        },
+        "end": {
+          "row": 15,
+          "column": 55
+        }
+      },
+      {
+        "kind": "else",
+        "name": "query",
+        "text": "else",
+        "start": {
+          "row": 16,
+          "column": 3
+        },
+        "end": {
+          "row": 16,
+          "column": 7
+        }
+      }
+    ]
+  },
+  {
     "file": "vendor/tree-sitter-ruby/test/highlight/variables.rb",
     "file_type": "ruby",
     "matches": [
