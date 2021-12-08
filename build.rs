@@ -116,6 +116,7 @@ fn main() {
     cc::Build::new()
         .include(&cpp_dir)
         .cpp(true)
+        .warnings(false) // lots of unused parameters
         .file(cpp_dir.join("scanner.cc"))
         .compile("tree_sitter_cpp_scanner");
 }
