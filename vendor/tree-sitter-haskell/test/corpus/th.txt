@@ -121,3 +121,30 @@ a -- a
  (function (variable) (quasiquote (quasiquote_start) (quasiquote_bar) (quasiquote_body)))
  (function (variable) (quasiquote (quasiquote_start) (quoter) (quasiquote_bar) (quasiquote_body)))
 )
+
+================================================================================
+template haskell: qualified quoter
+================================================================================
+
+a = [A.a|a|]
+
+---
+
+(haskell
+ (function
+  (variable)
+  (quasiquote
+   (quasiquote_start)
+   (quoter (module) (variable))
+   (quasiquote_bar)
+   (quasiquote_body))))
+
+================================================================================
+template haskell: error: incomplete quote
+================================================================================
+
+a = [a|
+
+---
+
+(haskell (function (variable) (quasiquote (quasiquote_start) (quoter) (quasiquote_bar) (MISSING "|]"))))
