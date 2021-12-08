@@ -69,7 +69,8 @@ module.exports = grammar({
   extras: $ => [
     $.comment,
     $.heredoc_body,
-    /\s|\\\n/
+    /\s/,
+    /\\\r?\n/
   ],
 
   word: $ => $.identifier,
@@ -78,9 +79,16 @@ module.exports = grammar({
     $._statement,
     $._arg,
     $._method_name,
+    $._expression,
     $._variable,
     $._primary,
+    $._simple_numeric,
     $._lhs,
+    $._pattern_top_expr_body,
+    $._pattern_expr,
+    $._pattern_expr_basic,
+    $._pattern_primitive,
+    $._pattern_constant,
   ],
 
   rules: {
@@ -139,19 +147,42 @@ module.exports = grammar({
     _method_rest: $ => seq(
       field('name', $._method_name),
       choice(
+        $._body_expr,
         seq(
           field('parameters', alias($.parameters, $.method_parameters)),
-          optional($._terminator)
+          choice(
+            seq(optional($._terminator), $._body_statement),
+            $._body_expr
+          )
+
         ),
         seq(
           optional(
             field('parameters', alias($.bare_parameters, $.method_parameters))
           ),
-          $._terminator
+          $._terminator,
+          $._body_statement
         ),
       ),
-      $._body_statement
     ),
+
+    rescue_modifier_arg: $ => prec(PREC.RESCUE,
+      seq(
+        field('body', $._arg),
+        'rescue',
+        field('handler', $._arg)
+      )
+    ),
+
+    _body_expr: $ =>
+      seq(
+        '=',
+        choice(
+          $._arg,
+          alias($.rescue_modifier_arg, $.rescue_modifier),
+        )
+      ),
+
 
     parameters: $ => seq(
       '(',
@@ -180,10 +211,14 @@ module.exports = grammar({
       $.identifier,
       $.splat_parameter,
       $.hash_splat_parameter,
+      $.hash_splat_nil,
+      $.forward_parameter,
       $.block_parameter,
       $.keyword_parameter,
       $.optional_parameter
     ),
+
+    forward_parameter: $ => '...',
 
     splat_parameter: $ => seq(
       '*',
@@ -193,6 +228,7 @@ module.exports = grammar({
       '**',
       field('name', optional($.identifier))
     ),
+    hash_splat_nil: $ => seq('**', 'nil'),
     block_parameter: $ => seq(
       '&',
       field('name', $.identifier)
@@ -311,13 +347,187 @@ module.exports = grammar({
       'end'
     ),
 
+    case_match: $ => seq(
+      'case',
+      field('value', $._statement),
+      optional($._terminator),
+      repeat1(field('clauses', $.in_clause)),
+      optional(field('else', $.else)),
+      'end'
+    ),
+
     when: $ => seq(
       'when',
       commaSep1(field('pattern', $.pattern)),
       choice($._terminator, field('body', $.then))
     ),
 
+    in_clause: $ => seq(
+      'in',
+      field('pattern', $._pattern_top_expr_body),
+      field('guard', optional($._guard)),
+      choice($._terminator, field('body', $.then))
+    ),
+
     pattern: $ => choice($._arg, $.splat_argument),
+
+    _guard: $ => choice(
+      $.if_guard,
+      $.unless_guard
+    ),
+
+    if_guard: $ => seq(
+      'if',
+      field('condition', $._expression)
+    ),
+
+    unless_guard: $ => seq(
+      'unless',
+      field('condition', $._expression)
+    ),
+
+    _pattern_top_expr_body: $ => choice(
+      $._pattern_expr,
+      alias($._array_pattern_n, $.array_pattern),
+      alias($._find_pattern_body, $.find_pattern),
+      alias($._hash_pattern_body, $.hash_pattern),
+    ),
+
+    _array_pattern_n: $ => choice(
+      seq($._pattern_expr, alias(',', $.splat_parameter)),
+      seq($._pattern_expr, ',', choice($._pattern_expr, $._array_pattern_n)),
+      seq($.splat_parameter, repeat(seq(',', $._pattern_expr))),
+    ),
+
+    _pattern_expr: $ => choice(
+      $.as_pattern,
+      $._pattern_expr_alt,
+    ),
+
+    as_pattern: $ => seq(field('value', $._pattern_expr), '=>', field('name', $.identifier)),
+
+    _pattern_expr_alt: $ => choice(
+      $.alternative_pattern,
+      $._pattern_expr_basic,
+    ),
+
+    alternative_pattern: $ => seq(field('alternatives', $._pattern_expr_basic), repeat1(seq('|', field('alternatives', $._pattern_expr_basic)))),
+
+    _array_pattern_body: $ => choice(
+      $._pattern_expr,
+      $._array_pattern_n,
+    ),
+
+    array_pattern: $ => choice(
+      seq('[', optional($._array_pattern_body), ']'),
+      seq(field('class', $._pattern_constant), token.immediate('['), optional($._array_pattern_body), ']'),
+      seq(field('class', $._pattern_constant), token.immediate('('), optional($._array_pattern_body), ')')
+    ),
+
+    _find_pattern_body: $ => seq($.splat_parameter, repeat1(seq(',', $._pattern_expr)), ',', $.splat_parameter),
+    find_pattern: $ => choice(
+      seq('[', $._find_pattern_body, ']'),
+      seq(field('class', $._pattern_constant), token.immediate('['), $._find_pattern_body, ']'),
+      seq(field('class', $._pattern_constant), token.immediate('('), $._find_pattern_body, ')')
+    ),
+
+    _hash_pattern_body: $ => choice(
+      seq(commaSep1($.keyword_pattern), optional(',')),
+      seq(commaSep1($.keyword_pattern), ',', $._hash_pattern_any_rest),
+      $._hash_pattern_any_rest
+    ),
+
+    keyword_pattern: $ => seq(
+      field('key',
+        choice(
+          alias($.identifier, $.hash_key_symbol),
+          alias($.constant, $.hash_key_symbol),
+          $.string
+        )
+      ),
+      token.immediate(':'),
+      optional(field('value', $._pattern_expr))
+    ),
+
+    _hash_pattern_any_rest: $ => choice($.hash_splat_parameter, $.hash_splat_nil),
+
+    hash_pattern: $ => choice(
+      seq('{', optional($._hash_pattern_body), '}'),
+      seq(field('class', $._pattern_constant), token.immediate('['), $._hash_pattern_body, ']'),
+      seq(field('class', $._pattern_constant), token.immediate('('), $._hash_pattern_body, ')')
+    ),
+
+    _pattern_expr_basic: $ => choice(
+      $._pattern_value,
+      $.array_pattern,
+      $.find_pattern,
+      $.hash_pattern,
+      $.parenthesized_pattern,
+    ),
+
+    parenthesized_pattern: $ => seq('(', $._pattern_expr, ')'),
+
+    _pattern_value: $ => choice(
+      $._pattern_primitive,
+      alias($._pattern_range, $.range),
+      $.identifier,
+      $.variable_reference_pattern,
+      $._pattern_constant
+    ),
+
+    _pattern_range: $ => {
+      const begin = field('begin', $._pattern_primitive);
+      const end = field('end', $._pattern_primitive);
+      const operator = field('operator', choice('..', '...'));
+      return choice(
+        seq(begin, operator, end),
+        seq(operator, end),
+        seq(begin, operator)
+      );
+    },
+
+    _pattern_primitive: $ => choice(
+      $._pattern_literal,
+      $._pattern_lambda
+    ),
+
+    _pattern_lambda: $ => $.lambda,
+
+    _pattern_literal: $ => choice(
+      $._literal,
+      $.string,
+      $.regex,
+      $.string_array,
+      $.symbol_array,
+      $._keyword_variable
+    ),
+
+    _keyword_variable: $ => choice(
+      $.nil,
+      $.self,
+      $.true,
+      $.false,
+      $.line,
+      $.file,
+      $.encoding,
+    ),
+
+    line: $ => '__LINE__',
+    file: $ => '__FILE__',
+    encoding: $ => '__ENCODING__',
+
+    variable_reference_pattern: $ => seq('^', field('name', $.identifier)),
+
+    _pattern_constant: $ => choice(
+      $.constant,
+      alias($._pattern_constant_resolution, $.scope_resolution)
+    ),
+
+    _pattern_constant_resolution: $ => seq(
+      optional(field('scope', $._pattern_constant)),
+      '::',
+      field('name', $.constant)
+    ),
 
     if: $ => seq(
       'if',
@@ -432,12 +642,7 @@ module.exports = grammar({
       $.symbol_array,
       $.hash,
       $.subshell,
-      $.simple_symbol,
-      $.delimited_symbol,
-      $.integer,
-      $.float,
-      $.complex,
-      $.rational,
+      $._literal,
       $.string,
       $.character,
       $.chained_string,
@@ -455,6 +660,7 @@ module.exports = grammar({
       $.unless,
       $.for,
       $.case,
+      $.case_match,
       $.return,
       $.yield,
       $.break,
@@ -462,7 +668,6 @@ module.exports = grammar({
       $.redo,
       $.retry,
       alias($.parenthesized_unary, $.unary),
-      alias($.unary_literal, $.unary),
       $.heredoc_beginning
     ),
 
@@ -558,10 +763,12 @@ module.exports = grammar({
       $._expression,
       $.splat_argument,
       $.hash_splat_argument,
+      $.forward_argument,
       $.block_argument,
       $.pair
     )),
 
+    forward_argument: $ => '...',
     splat_argument: $ => seq(alias($._splat_star, '*'), $._arg),
     hash_splat_argument: $ => seq(alias($._hash_splat_star_star, '**'), $._arg),
     block_argument: $ => seq(alias($._block_ampersand, '&'), $._arg),
@@ -696,8 +903,27 @@ module.exports = grammar({
 
     unary_literal: $ => prec.right(PREC.UNARY_MINUS, seq(
       field('operator', choice(alias($._unary_minus, '-'), '+')),
-      field('operand', choice($.integer, $.float))
+      field('operand', $._simple_numeric)
     )),
+
+    _literal: $ => choice(
+      $.simple_symbol,
+      $.delimited_symbol,
+      $._numeric
+    ),
+
+    _numeric: $ => choice(
+      $._simple_numeric,
+      alias($.unary_literal, $.unary)
+    ),
+
+    _simple_numeric: $ =>
+      choice(
+        $.integer,
+        $.float,
+        $.complex,
+        $.rational
+      ),
 
     right_assignment_list: $ => prec(-1, commaSep1(choice($._arg, $.splat_argument))),
 
@@ -747,7 +973,7 @@ module.exports = grammar({
       $.class_variable,
       $.global_variable
     ),
-    setter: $ => seq(field('name', $.identifier), '='),
+    setter: $ => seq(field('name', $.identifier), token.immediate('=')),
 
     undef: $ => seq('undef', commaSep1($._method_name)),
     alias: $ => seq(
@@ -793,7 +1019,7 @@ module.exports = grammar({
     character: $ => /\?(\\\S({[0-9A-Fa-f]*}|[0-9A-Fa-f]*|-\S([MC]-\S)?)?|\S)/,
 
     interpolation: $ => seq(
-      '#{', optional($._statements),'}'
+      '#{', optional($._statements), '}'
     ),
 
     string: $ => seq(
@@ -915,18 +1141,18 @@ module.exports = grammar({
   }
 });
 
-function sep (rule, separator) {
+function sep(rule, separator) {
   return optional(sep1(rule, separator));
 }
 
-function sep1 (rule, separator) {
+function sep1(rule, separator) {
   return seq(rule, repeat(seq(separator, rule)));
 }
 
-function commaSep1 (rule) {
+function commaSep1(rule) {
   return sep1(rule, ',');
 }
 
-function commaSep (rule) {
+function commaSep(rule) {
   return optional(commaSep1(rule));
 }

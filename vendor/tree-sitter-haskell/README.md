@@ -13,12 +13,28 @@ Haskell grammar for [tree-sitter].
 
 # Building with nvim-treesitter
 
+When installing the grammar from source, be sure to include the scanner in the source files:
+
+```vim
+lua <<EOF
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.haskell = {
+  install_info = {
+    url = "~/path/to/tree-sitter-haskell",
+    files = {"src/parser.c", "src/scanner.cc"}
+  }
+}
+EOF
+```
+
 Depending on what compilers are installed in your system, it may be necessary to force `nvim-treesitter` to use a
 specific one to satisfy the C++-14 requirement (see
 [this issue](https://github.com/tree-sitter/tree-sitter-haskell/issues/34) for more info):
 
 ```vim
 lua require'nvim-treesitter.install'.compilers = { "clang" }
+" or
+lua require'nvim-treesitter.install'.compilers = { "clang++" }
 ```
 
 or
@@ -48,6 +64,10 @@ $ ls -l $(which gcc)
 If this doesn't point to something like `gcc-11`, you can remove it (if it is a symlink) and/or link the real `gcc-N`
 binary to a `bin` directory that's at the head of your `$PATH`, something like:
 
+```shell
+ln -sf /opt/homebrew/bin/gcc-11 /usr/local/bin/gcc
+```
+or this for earlier versions of homebrew.
 ```shell
 ln -sf /usr/local/bin/gcc-11 /usr/local/bin/gcc
 ```
@@ -110,8 +130,9 @@ These extensions are supported ✅, unsupported ❌ or not applicable because th
 * LambdaCase ✅
 * LexicalNegation ❌
 * LiberalTypeSynonyms ✅
-* LinearTypes ❌
+* LinearTypes ✅
 * MagicHash ✅
+* Modifiers ❌
 * MonadComprehensions ➖️
 * MonadFailDesugaring ➖️
 * MonoLocalBinds ➖️
