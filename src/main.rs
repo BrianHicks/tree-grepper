@@ -195,6 +195,20 @@ mod tests {
     }
 
     #[test]
+    fn json_lines_output() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "javascript",
+            "(identifier)",
+            "-f",
+            "json-lines",
+            "--sort",
+            "vendor/tree-sitter-javascript/examples"
+        ]))
+    }
+
+    #[test]
     fn pretty_json_output() {
         insta::assert_snapshot!(call(&[
             "tree-grepper",
