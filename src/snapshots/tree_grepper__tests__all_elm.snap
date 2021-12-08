@@ -100,19 +100,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 1,
-          "column": 22
-        },
-        "end": {
-          "row": 1,
-          "column": 23
-        }
-      },
-      {
         "kind": "exposed_type",
         "name": "query",
         "text": "Msg(..)",
@@ -152,19 +139,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 1,
-          "column": 26
-        },
-        "end": {
-          "row": 1,
-          "column": 27
-        }
-      },
-      {
         "kind": "double_dot",
         "name": "query",
         "text": "..",
@@ -178,32 +152,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 1,
-          "column": 29
-        },
-        "end": {
-          "row": 1,
-          "column": 30
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 1,
-          "column": 30
-        },
-        "end": {
-          "row": 1,
-          "column": 31
-        }
-      },
-      {
         "kind": "exposed_value",
         "name": "query",
         "text": "main",
@@ -227,19 +175,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 1,
           "column": 36
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 1,
-          "column": 36
-        },
-        "end": {
-          "row": 1,
-          "column": 37
         }
       },
       {
@@ -269,19 +204,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 1,
-          "column": 44
-        },
-        "end": {
-          "row": 1,
-          "column": 45
-        }
-      },
-      {
         "kind": "exposed_value",
         "name": "query",
         "text": "view",
@@ -305,19 +227,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 1,
           "column": 50
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 1,
-          "column": 50
-        },
-        "end": {
-          "row": 1,
-          "column": 51
         }
       },
       {
@@ -451,19 +360,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 4,
-          "column": 22
-        },
-        "end": {
-          "row": 4,
-          "column": 23
-        }
-      },
-      {
         "kind": "exposed_type",
         "name": "query",
         "text": "Html",
@@ -490,19 +386,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 4,
-          "column": 27
-        },
-        "end": {
-          "row": 4,
-          "column": 28
-        }
-      },
-      {
         "kind": "exposed_value",
         "name": "query",
         "text": "button",
@@ -526,19 +409,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 4,
           "column": 35
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 4,
-          "column": 35
-        },
-        "end": {
-          "row": 4,
-          "column": 36
         }
       },
       {
@@ -568,19 +438,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 4,
-          "column": 40
-        },
-        "end": {
-          "row": 4,
-          "column": 41
-        }
-      },
-      {
         "kind": "exposed_value",
         "name": "query",
         "text": "text",
@@ -604,19 +461,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 4,
           "column": 46
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 4,
-          "column": 46
-        },
-        "end": {
-          "row": 4,
-          "column": 47
         }
       },
       {
@@ -724,19 +568,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 5,
-          "column": 29
-        },
-        "end": {
-          "row": 5,
-          "column": 30
-        }
-      },
-      {
         "kind": "exposed_value",
         "name": "query",
         "text": "onClick",
@@ -760,19 +591,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 5,
           "column": 37
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 5,
-          "column": 37
-        },
-        "end": {
-          "row": 5,
-          "column": 38
         }
       },
       {
@@ -919,19 +737,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 9,
-          "column": 21
-        },
-        "end": {
-          "row": 9,
-          "column": 22
-        }
-      },
-      {
         "kind": "field",
         "name": "query",
         "text": "init = 0",
@@ -994,19 +799,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 9,
           "column": 31
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 9,
-          "column": 31
-        },
-        "end": {
-          "row": 9,
-          "column": 32
         }
       },
       {
@@ -1088,19 +880,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 9,
-          "column": 48
-        },
-        "end": {
-          "row": 9,
-          "column": 49
-        }
-      },
-      {
         "kind": "field",
         "name": "query",
         "text": "view = view",
@@ -1179,19 +958,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 9,
-          "column": 62
-        },
-        "end": {
-          "row": 9,
-          "column": 63
-        }
-      },
-      {
         "kind": "type_declaration",
         "name": "query",
         "text": "type Msg\n    = Increment\n    | Decrement",
@@ -1267,19 +1033,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 13,
           "column": 16
-        }
-      },
-      {
-        "kind": "|",
-        "name": "query",
-        "text": "|",
-        "start": {
-          "row": 14,
-          "column": 5
-        },
-        "end": {
-          "row": 14,
-          "column": 6
         }
       },
       {
@@ -1647,19 +1400,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "+",
-        "name": "query",
-        "text": "+",
-        "start": {
-          "row": 20,
-          "column": 19
-        },
-        "end": {
-          "row": 20,
-          "column": 20
-        }
-      },
-      {
         "kind": "number_constant_expr",
         "name": "query",
         "text": "1",
@@ -1842,19 +1582,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "-",
-        "name": "query",
-        "text": "-",
-        "start": {
-          "row": 23,
-          "column": 19
-        },
-        "end": {
-          "row": 23,
-          "column": 20
-        }
-      },
-      {
         "kind": "number_constant_expr",
         "name": "query",
         "text": "1",
@@ -2024,32 +1751,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 27,
-          "column": 9
-        },
-        "end": {
-          "row": 27,
-          "column": 10
-        }
-      },
-      {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 27,
-          "column": 10
-        },
-        "end": {
-          "row": 27,
-          "column": 11
-        }
-      },
-      {
         "kind": "list_expr",
         "name": "query",
         "text": "[ button [ onClick Decrement ] [ text \"-\" ]\n        , div [] [ text (String.fromInt model) ]\n        , button [ onClick Increment ] [ text \"+\" ]\n        ]",
@@ -2059,19 +1760,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         },
         "end": {
           "row": 31,
-          "column": 10
-        }
-      },
-      {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 28,
-          "column": 9
-        },
-        "end": {
-          "row": 28,
           "column": 10
         }
       },
@@ -2138,19 +1826,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 28,
           "column": 39
-        }
-      },
-      {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 28,
-          "column": 18
-        },
-        "end": {
-          "row": 28,
-          "column": 19
         }
       },
       {
@@ -2245,19 +1920,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 28,
-          "column": 38
-        },
-        "end": {
-          "row": 28,
-          "column": 39
-        }
-      },
-      {
         "kind": "list_expr",
         "name": "query",
         "text": "[ text \"-\" ]",
@@ -2268,19 +1930,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 28,
           "column": 52
-        }
-      },
-      {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 28,
-          "column": 40
-        },
-        "end": {
-          "row": 28,
-          "column": 41
         }
       },
       {
@@ -2388,32 +2037,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 28,
-          "column": 51
-        },
-        "end": {
-          "row": 28,
-          "column": 52
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 29,
-          "column": 9
-        },
-        "end": {
-          "row": 29,
-          "column": 10
-        }
-      },
-      {
         "kind": "function_call_expr",
         "name": "query",
         "text": "div [] [ text (String.fromInt model) ]",
@@ -2479,32 +2102,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 29,
-          "column": 15
-        },
-        "end": {
-          "row": 29,
-          "column": 16
-        }
-      },
-      {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 29,
-          "column": 16
-        },
-        "end": {
-          "row": 29,
-          "column": 17
-        }
-      },
-      {
         "kind": "list_expr",
         "name": "query",
         "text": "[ text (String.fromInt model) ]",
@@ -2515,19 +2112,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 29,
           "column": 49
-        }
-      },
-      {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 29,
-          "column": 18
-        },
-        "end": {
-          "row": 29,
-          "column": 19
         }
       },
       {
@@ -2593,19 +2177,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 29,
           "column": 47
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 29,
-          "column": 25
-        },
-        "end": {
-          "row": 29,
-          "column": 26
         }
       },
       {
@@ -2726,45 +2297,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 29,
-          "column": 46
-        },
-        "end": {
-          "row": 29,
-          "column": 47
-        }
-      },
-      {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 29,
-          "column": 48
-        },
-        "end": {
-          "row": 29,
-          "column": 49
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 30,
-          "column": 9
-        },
-        "end": {
-          "row": 30,
-          "column": 10
-        }
-      },
-      {
         "kind": "function_call_expr",
         "name": "query",
         "text": "button [ onClick Increment ] [ text \"+\" ]",
@@ -2827,19 +2359,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 30,
           "column": 39
-        }
-      },
-      {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 30,
-          "column": 18
-        },
-        "end": {
-          "row": 30,
-          "column": 19
         }
       },
       {
@@ -2934,19 +2453,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 30,
-          "column": 38
-        },
-        "end": {
-          "row": 30,
-          "column": 39
-        }
-      },
-      {
         "kind": "list_expr",
         "name": "query",
         "text": "[ text \"+\" ]",
@@ -2957,19 +2463,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 30,
           "column": 52
-        }
-      },
-      {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 30,
-          "column": 40
-        },
-        "end": {
-          "row": 30,
-          "column": 41
         }
       },
       {
@@ -3075,32 +2568,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
           "row": 30,
           "column": 50
         }
-      },
-      {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 30,
-          "column": 51
-        },
-        "end": {
-          "row": 30,
-          "column": 52
-        }
-      },
-      {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 31,
-          "column": 9
-        },
-        "end": {
-          "row": 31,
-          "column": 10
-        }
       }
     ]
   },
@@ -3200,19 +2667,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 1,
-          "column": 22
-        },
-        "end": {
-          "row": 1,
-          "column": 23
-        }
-      },
-      {
         "kind": "double_dot",
         "name": "query",
         "text": "..",
@@ -3223,19 +2677,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 1,
           "column": 25
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 1,
-          "column": 25
-        },
-        "end": {
-          "row": 1,
-          "column": 26
         }
       },
       {
@@ -6047,19 +5488,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "::",
-        "name": "query",
-        "text": "",
-        "start": {
-          "row": 39,
-          "column": 145
-        },
-        "end": {
-          "row": 39,
-          "column": 145
-        }
-      },
-      {
         "kind": "record_expr",
         "name": "query",
         "text": "{ s = 5\n                                                                                                                                                }",
@@ -6069,19 +5497,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         },
         "end": {
           "row": 41,
-          "column": 146
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 40,
-          "column": 145
-        },
-        "end": {
-          "row": 40,
           "column": 146
         }
       },
@@ -6148,19 +5563,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 40,
           "column": 152
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 41,
-          "column": 145
-        },
-        "end": {
-          "row": 41,
-          "column": 146
         }
       },
       {

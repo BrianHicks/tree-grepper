@@ -35,19 +35,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "type",
-        "name": "query",
-        "text": "type",
-        "start": {
-          "row": 1,
-          "column": 1
-        },
-        "end": {
-          "row": 1,
-          "column": 5
-        }
-      },
-      {
         "kind": "type_identifier",
         "name": "query",
         "text": "a",
@@ -61,19 +48,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 1,
-          "column": 8
-        },
-        "end": {
-          "row": 1,
-          "column": 9
-        }
-      },
-      {
         "kind": "readonly_type",
         "name": "query",
         "text": "readonly b[][]",
@@ -84,19 +58,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "end": {
           "row": 1,
           "column": 24
-        }
-      },
-      {
-        "kind": "readonly",
-        "name": "query",
-        "text": "readonly",
-        "start": {
-          "row": 1,
-          "column": 10
-        },
-        "end": {
-          "row": 1,
-          "column": 18
         }
       },
       {
@@ -136,71 +97,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"typescript\", \"(_)\", \"--forma
         "end": {
           "row": 1,
           "column": 20
-        }
-      },
-      {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 1,
-          "column": 20
-        },
-        "end": {
-          "row": 1,
-          "column": 21
-        }
-      },
-      {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 1,
-          "column": 21
-        },
-        "end": {
-          "row": 1,
-          "column": 22
-        }
-      },
-      {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 1,
-          "column": 22
-        },
-        "end": {
-          "row": 1,
-          "column": 23
-        }
-      },
-      {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 1,
-          "column": 23
-        },
-        "end": {
-          "row": 1,
-          "column": 24
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 1,
-          "column": 24
-        },
-        "end": {
-          "row": 1,
-          "column": 25
         }
       }
     ]

@@ -35,19 +35,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "var",
-        "name": "query",
-        "text": "var",
-        "start": {
-          "row": 1,
-          "column": 1
-        },
-        "end": {
-          "row": 1,
-          "column": 4
-        }
-      },
-      {
         "kind": "variable_declarator",
         "name": "query",
         "text": "a = 'a'",
@@ -74,19 +61,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 1,
-          "column": 7
-        },
-        "end": {
-          "row": 1,
-          "column": 8
-        }
-      },
-      {
         "kind": "string",
         "name": "query",
         "text": "'a'",
@@ -100,19 +74,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "'",
-        "name": "query",
-        "text": "'",
-        "start": {
-          "row": 1,
-          "column": 9
-        },
-        "end": {
-          "row": 1,
-          "column": 10
-        }
-      },
-      {
         "kind": "string_fragment",
         "name": "query",
         "text": "a",
@@ -123,32 +84,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 1,
           "column": 11
-        }
-      },
-      {
-        "kind": "'",
-        "name": "query",
-        "text": "'",
-        "start": {
-          "row": 1,
-          "column": 11
-        },
-        "end": {
-          "row": 1,
-          "column": 12
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 1,
-          "column": 12
-        },
-        "end": {
-          "row": 1,
-          "column": 13
         }
       },
       {
@@ -178,19 +113,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "var",
-        "name": "query",
-        "text": "var",
-        "start": {
-          "row": 4,
-          "column": 1
-        },
-        "end": {
-          "row": 4,
-          "column": 4
-        }
-      },
-      {
         "kind": "variable_declarator",
         "name": "query",
         "text": "b = function() {}",
@@ -217,19 +139,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 4,
-          "column": 7
-        },
-        "end": {
-          "row": 4,
-          "column": 8
-        }
-      },
-      {
         "kind": "function",
         "name": "query",
         "text": "function() {}",
@@ -243,51 +152,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "function",
-        "name": "query",
-        "text": "function",
-        "start": {
-          "row": 4,
-          "column": 9
-        },
-        "end": {
-          "row": 4,
-          "column": 17
-        }
-      },
-      {
         "kind": "formal_parameters",
         "name": "query",
         "text": "()",
         "start": {
           "row": 4,
           "column": 17
-        },
-        "end": {
-          "row": 4,
-          "column": 19
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 4,
-          "column": 17
-        },
-        "end": {
-          "row": 4,
-          "column": 18
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 4,
-          "column": 18
         },
         "end": {
           "row": 4,
@@ -305,45 +175,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 4,
           "column": 22
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 4,
-          "column": 20
-        },
-        "end": {
-          "row": 4,
-          "column": 21
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 4,
-          "column": 21
-        },
-        "end": {
-          "row": 4,
-          "column": 22
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 4,
-          "column": 22
-        },
-        "end": {
-          "row": 4,
-          "column": 23
         }
       },
       {
@@ -373,19 +204,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "var",
-        "name": "query",
-        "text": "var",
-        "start": {
-          "row": 7,
-          "column": 1
-        },
-        "end": {
-          "row": 7,
-          "column": 4
-        }
-      },
-      {
         "kind": "variable_declarator",
         "name": "query",
         "text": "c = () => {}",
@@ -409,19 +227,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 7,
           "column": 6
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 7,
-          "column": 7
-        },
-        "end": {
-          "row": 7,
-          "column": 8
         }
       },
       {
@@ -451,45 +256,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 7,
-          "column": 9
-        },
-        "end": {
-          "row": 7,
-          "column": 10
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 7,
-          "column": 10
-        },
-        "end": {
-          "row": 7,
-          "column": 11
-        }
-      },
-      {
-        "kind": "=>",
-        "name": "query",
-        "text": "=>",
-        "start": {
-          "row": 7,
-          "column": 12
-        },
-        "end": {
-          "row": 7,
-          "column": 14
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{}",
@@ -500,45 +266,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 7,
           "column": 17
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 7,
-          "column": 15
-        },
-        "end": {
-          "row": 7,
-          "column": 16
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 7,
-          "column": 16
-        },
-        "end": {
-          "row": 7,
-          "column": 17
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 7,
-          "column": 17
-        },
-        "end": {
-          "row": 7,
-          "column": 18
         }
       },
       {
@@ -568,19 +295,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "var",
-        "name": "query",
-        "text": "var",
-        "start": {
-          "row": 10,
-          "column": 1
-        },
-        "end": {
-          "row": 10,
-          "column": 4
-        }
-      },
-      {
         "kind": "variable_declarator",
         "name": "query",
         "text": "d = async () => {}",
@@ -607,19 +321,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 10,
-          "column": 7
-        },
-        "end": {
-          "row": 10,
-          "column": 8
-        }
-      },
-      {
         "kind": "arrow_function",
         "name": "query",
         "text": "async () => {}",
@@ -630,19 +331,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 10,
           "column": 23
-        }
-      },
-      {
-        "kind": "async",
-        "name": "query",
-        "text": "async",
-        "start": {
-          "row": 10,
-          "column": 9
-        },
-        "end": {
-          "row": 10,
-          "column": 14
         }
       },
       {
@@ -659,45 +347,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 10,
-          "column": 15
-        },
-        "end": {
-          "row": 10,
-          "column": 16
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 10,
-          "column": 16
-        },
-        "end": {
-          "row": 10,
-          "column": 17
-        }
-      },
-      {
-        "kind": "=>",
-        "name": "query",
-        "text": "=>",
-        "start": {
-          "row": 10,
-          "column": 18
-        },
-        "end": {
-          "row": 10,
-          "column": 20
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{}",
@@ -708,45 +357,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 10,
           "column": 23
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 10,
-          "column": 21
-        },
-        "end": {
-          "row": 10,
-          "column": 22
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 10,
-          "column": 22
-        },
-        "end": {
-          "row": 10,
-          "column": 23
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 10,
-          "column": 23
-        },
-        "end": {
-          "row": 10,
-          "column": 24
         }
       },
       {
@@ -815,19 +425,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 13,
-          "column": 7
-        },
-        "end": {
-          "row": 13,
-          "column": 8
-        }
-      },
-      {
         "kind": "property_identifier",
         "name": "query",
         "text": "e",
@@ -838,19 +435,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 13,
           "column": 9
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 13,
-          "column": 10
-        },
-        "end": {
-          "row": 13,
-          "column": 11
         }
       },
       {
@@ -867,19 +451,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "'",
-        "name": "query",
-        "text": "'",
-        "start": {
-          "row": 13,
-          "column": 12
-        },
-        "end": {
-          "row": 13,
-          "column": 13
-        }
-      },
-      {
         "kind": "string_fragment",
         "name": "query",
         "text": "e",
@@ -890,32 +461,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 13,
           "column": 14
-        }
-      },
-      {
-        "kind": "'",
-        "name": "query",
-        "text": "'",
-        "start": {
-          "row": 13,
-          "column": 14
-        },
-        "end": {
-          "row": 13,
-          "column": 15
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 13,
-          "column": 15
-        },
-        "end": {
-          "row": 13,
-          "column": 16
         }
       },
       {
@@ -984,19 +529,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 16,
-          "column": 7
-        },
-        "end": {
-          "row": 16,
-          "column": 8
-        }
-      },
-      {
         "kind": "property_identifier",
         "name": "query",
         "text": "f",
@@ -1007,19 +539,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 16,
           "column": 9
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 16,
-          "column": 10
-        },
-        "end": {
-          "row": 16,
-          "column": 11
         }
       },
       {
@@ -1036,51 +555,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "function",
-        "name": "query",
-        "text": "function",
-        "start": {
-          "row": 16,
-          "column": 12
-        },
-        "end": {
-          "row": 16,
-          "column": 20
-        }
-      },
-      {
         "kind": "formal_parameters",
         "name": "query",
         "text": "()",
         "start": {
           "row": 16,
           "column": 20
-        },
-        "end": {
-          "row": 16,
-          "column": 22
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 16,
-          "column": 20
-        },
-        "end": {
-          "row": 16,
-          "column": 21
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 16,
-          "column": 21
         },
         "end": {
           "row": 16,
@@ -1098,45 +578,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 16,
           "column": 25
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 16,
-          "column": 23
-        },
-        "end": {
-          "row": 16,
-          "column": 24
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 16,
-          "column": 24
-        },
-        "end": {
-          "row": 16,
-          "column": 25
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 16,
-          "column": 25
-        },
-        "end": {
-          "row": 16,
-          "column": 26
         }
       },
       {
@@ -1205,19 +646,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 19,
-          "column": 7
-        },
-        "end": {
-          "row": 19,
-          "column": 8
-        }
-      },
-      {
         "kind": "property_identifier",
         "name": "query",
         "text": "g",
@@ -1228,19 +656,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 19,
           "column": 9
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 19,
-          "column": 10
-        },
-        "end": {
-          "row": 19,
-          "column": 11
         }
       },
       {
@@ -1257,64 +672,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "async",
-        "name": "query",
-        "text": "async",
-        "start": {
-          "row": 19,
-          "column": 12
-        },
-        "end": {
-          "row": 19,
-          "column": 17
-        }
-      },
-      {
-        "kind": "function",
-        "name": "query",
-        "text": "function",
-        "start": {
-          "row": 19,
-          "column": 18
-        },
-        "end": {
-          "row": 19,
-          "column": 26
-        }
-      },
-      {
         "kind": "formal_parameters",
         "name": "query",
         "text": "()",
         "start": {
           "row": 19,
           "column": 26
-        },
-        "end": {
-          "row": 19,
-          "column": 28
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 19,
-          "column": 26
-        },
-        "end": {
-          "row": 19,
-          "column": 27
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 19,
-          "column": 27
         },
         "end": {
           "row": 19,
@@ -1332,45 +695,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 19,
           "column": 31
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 19,
-          "column": 29
-        },
-        "end": {
-          "row": 19,
-          "column": 30
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 19,
-          "column": 30
-        },
-        "end": {
-          "row": 19,
-          "column": 31
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 19,
-          "column": 31
-        },
-        "end": {
-          "row": 19,
-          "column": 32
         }
       },
       {
@@ -1439,19 +763,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 22,
-          "column": 7
-        },
-        "end": {
-          "row": 22,
-          "column": 8
-        }
-      },
-      {
         "kind": "property_identifier",
         "name": "query",
         "text": "h",
@@ -1462,19 +773,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 22,
           "column": 9
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 22,
-          "column": 10
-        },
-        "end": {
-          "row": 22,
-          "column": 11
         }
       },
       {
@@ -1504,45 +802,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 22,
-          "column": 12
-        },
-        "end": {
-          "row": 22,
-          "column": 13
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 22,
-          "column": 13
-        },
-        "end": {
-          "row": 22,
-          "column": 14
-        }
-      },
-      {
-        "kind": "=>",
-        "name": "query",
-        "text": "=>",
-        "start": {
-          "row": 22,
-          "column": 15
-        },
-        "end": {
-          "row": 22,
-          "column": 17
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{}",
@@ -1553,45 +812,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 22,
           "column": 20
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 22,
-          "column": 18
-        },
-        "end": {
-          "row": 22,
-          "column": 19
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 22,
-          "column": 19
-        },
-        "end": {
-          "row": 22,
-          "column": 20
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 22,
-          "column": 20
-        },
-        "end": {
-          "row": 22,
-          "column": 21
         }
       },
       {
@@ -1621,19 +841,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "function",
-        "name": "query",
-        "text": "function",
-        "start": {
-          "row": 25,
-          "column": 1
-        },
-        "end": {
-          "row": 25,
-          "column": 9
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "i",
@@ -1660,32 +867,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 25,
-          "column": 11
-        },
-        "end": {
-          "row": 25,
-          "column": 12
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 25,
-          "column": 12
-        },
-        "end": {
-          "row": 25,
-          "column": 13
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{\n  //     ^ function\n}",
@@ -1696,19 +877,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 27,
           "column": 2
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 25,
-          "column": 14
-        },
-        "end": {
-          "row": 25,
-          "column": 15
         }
       },
       {
@@ -1725,19 +893,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 27,
-          "column": 1
-        },
-        "end": {
-          "row": 27,
-          "column": 2
-        }
-      },
-      {
         "kind": "class_declaration",
         "name": "query",
         "text": "class Person {\n  static foo = bar;\n  //      ^ property\n\n  getName() {\n    // ^ function.method\n  }\n}",
@@ -1748,19 +903,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 36,
           "column": 2
-        }
-      },
-      {
-        "kind": "class",
-        "name": "query",
-        "text": "class",
-        "start": {
-          "row": 29,
-          "column": 1
-        },
-        "end": {
-          "row": 29,
-          "column": 6
         }
       },
       {
@@ -1790,19 +932,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 29,
-          "column": 14
-        },
-        "end": {
-          "row": 29,
-          "column": 15
-        }
-      },
-      {
         "kind": "field_definition",
         "name": "query",
         "text": "static foo = bar",
@@ -1813,19 +942,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 30,
           "column": 19
-        }
-      },
-      {
-        "kind": "static",
-        "name": "query",
-        "text": "static",
-        "start": {
-          "row": 30,
-          "column": 3
-        },
-        "end": {
-          "row": 30,
-          "column": 9
         }
       },
       {
@@ -1842,19 +958,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 30,
-          "column": 14
-        },
-        "end": {
-          "row": 30,
-          "column": 15
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "bar",
@@ -1865,19 +968,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 30,
           "column": 19
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 30,
-          "column": 19
-        },
-        "end": {
-          "row": 30,
-          "column": 20
         }
       },
       {
@@ -1933,32 +1023,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 33,
-          "column": 10
-        },
-        "end": {
-          "row": 33,
-          "column": 11
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 33,
-          "column": 11
-        },
-        "end": {
-          "row": 33,
-          "column": 12
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{\n    // ^ function.method\n  }",
@@ -1972,19 +1036,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 33,
-          "column": 13
-        },
-        "end": {
-          "row": 33,
-          "column": 14
-        }
-      },
-      {
         "kind": "comment",
         "name": "query",
         "text": "// ^ function.method",
@@ -1995,32 +1046,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 34,
           "column": 25
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 35,
-          "column": 3
-        },
-        "end": {
-          "row": 35,
-          "column": 4
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 36,
-          "column": 1
-        },
-        "end": {
-          "row": 36,
-          "column": 2
         }
       },
       {
@@ -2076,19 +1101,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 38,
-          "column": 4
-        },
-        "end": {
-          "row": 38,
-          "column": 5
-        }
-      },
-      {
         "kind": "function",
         "name": "query",
         "text": "function callback() {\n  // ^ keyword\n  //         ^ function\n}",
@@ -2099,19 +1111,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 41,
           "column": 2
-        }
-      },
-      {
-        "kind": "function",
-        "name": "query",
-        "text": "function",
-        "start": {
-          "row": 38,
-          "column": 5
-        },
-        "end": {
-          "row": 38,
-          "column": 13
         }
       },
       {
@@ -2141,32 +1140,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 38,
-          "column": 22
-        },
-        "end": {
-          "row": 38,
-          "column": 23
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 38,
-          "column": 23
-        },
-        "end": {
-          "row": 38,
-          "column": 24
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{\n  // ^ keyword\n  //         ^ function\n}",
@@ -2177,19 +1150,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 41,
           "column": 2
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 38,
-          "column": 25
-        },
-        "end": {
-          "row": 38,
-          "column": 26
         }
       },
       {
@@ -2216,32 +1176,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 40,
           "column": 24
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 41,
-          "column": 1
-        },
-        "end": {
-          "row": 41,
-          "column": 2
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 41,
-          "column": 2
-        },
-        "end": {
-          "row": 41,
-          "column": 3
         }
       },
       {
@@ -2294,45 +1228,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 44,
           "column": 4
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 44,
-          "column": 2
-        },
-        "end": {
-          "row": 44,
-          "column": 3
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 44,
-          "column": 3
-        },
-        "end": {
-          "row": 44,
-          "column": 4
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 44,
-          "column": 4
-        },
-        "end": {
-          "row": 44,
-          "column": 5
         }
       },
       {
@@ -2401,19 +1296,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 47,
-          "column": 7
-        },
-        "end": {
-          "row": 47,
-          "column": 8
-        }
-      },
-      {
         "kind": "property_identifier",
         "name": "query",
         "text": "e",
@@ -2437,45 +1319,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 47,
           "column": 11
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 47,
-          "column": 9
-        },
-        "end": {
-          "row": 47,
-          "column": 10
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 47,
-          "column": 10
-        },
-        "end": {
-          "row": 47,
-          "column": 11
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 47,
-          "column": 11
-        },
-        "end": {
-          "row": 47,
-          "column": 12
         }
       },
       {
@@ -2563,19 +1406,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 1,
-          "column": 5
-        },
-        "end": {
-          "row": 1,
-          "column": 6
-        }
-      },
-      {
         "kind": "call_expression",
         "name": "query",
         "text": "js `var foo`",
@@ -2612,45 +1442,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 1,
           "column": 18
-        }
-      },
-      {
-        "kind": "`",
-        "name": "query",
-        "text": "`",
-        "start": {
-          "row": 1,
-          "column": 9
-        },
-        "end": {
-          "row": 1,
-          "column": 10
-        }
-      },
-      {
-        "kind": "`",
-        "name": "query",
-        "text": "`",
-        "start": {
-          "row": 1,
-          "column": 17
-        },
-        "end": {
-          "row": 1,
-          "column": 18
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 1,
-          "column": 18
-        },
-        "end": {
-          "row": 1,
-          "column": 19
         }
       },
       {
@@ -2738,19 +1529,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "do",
-        "name": "query",
-        "text": "do",
-        "start": {
-          "row": 1,
-          "column": 1
-        },
-        "end": {
-          "row": 1,
-          "column": 3
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{}",
@@ -2761,45 +1539,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 1,
           "column": 6
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 1,
-          "column": 4
-        },
-        "end": {
-          "row": 1,
-          "column": 5
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 1,
-          "column": 5
-        },
-        "end": {
-          "row": 1,
-          "column": 6
-        }
-      },
-      {
-        "kind": "while",
-        "name": "query",
-        "text": "while",
-        "start": {
-          "row": 1,
-          "column": 7
-        },
-        "end": {
-          "row": 1,
-          "column": 12
         }
       },
       {
@@ -2816,19 +1555,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 1,
-          "column": 13
-        },
-        "end": {
-          "row": 1,
-          "column": 14
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "a",
@@ -2839,32 +1565,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 1,
           "column": 15
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 1,
-          "column": 15
-        },
-        "end": {
-          "row": 1,
-          "column": 16
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 1,
-          "column": 16
-        },
-        "end": {
-          "row": 1,
-          "column": 17
         }
       },
       {
@@ -2907,51 +1607,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "try",
-        "name": "query",
-        "text": "try",
-        "start": {
-          "row": 5,
-          "column": 1
-        },
-        "end": {
-          "row": 5,
-          "column": 4
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{}",
         "start": {
           "row": 5,
           "column": 5
-        },
-        "end": {
-          "row": 5,
-          "column": 7
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 5,
-          "column": 5
-        },
-        "end": {
-          "row": 5,
-          "column": 6
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 5,
-          "column": 6
         },
         "end": {
           "row": 5,
@@ -2972,32 +1633,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "catch",
-        "name": "query",
-        "text": "catch",
-        "start": {
-          "row": 5,
-          "column": 8
-        },
-        "end": {
-          "row": 5,
-          "column": 13
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 5,
-          "column": 14
-        },
-        "end": {
-          "row": 5,
-          "column": 15
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "e",
@@ -3011,51 +1646,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 5,
-          "column": 16
-        },
-        "end": {
-          "row": 5,
-          "column": 17
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{}",
         "start": {
           "row": 5,
           "column": 18
-        },
-        "end": {
-          "row": 5,
-          "column": 20
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 5,
-          "column": 18
-        },
-        "end": {
-          "row": 5,
-          "column": 19
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 5,
-          "column": 19
         },
         "end": {
           "row": 5,
@@ -3076,51 +1672,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "finally",
-        "name": "query",
-        "text": "finally",
-        "start": {
-          "row": 5,
-          "column": 21
-        },
-        "end": {
-          "row": 5,
-          "column": 28
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{}",
         "start": {
           "row": 5,
           "column": 29
-        },
-        "end": {
-          "row": 5,
-          "column": 31
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 5,
-          "column": 29
-        },
-        "end": {
-          "row": 5,
-          "column": 30
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 5,
-          "column": 30
         },
         "end": {
           "row": 5,
@@ -3177,19 +1734,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 10,
           "column": 8
-        }
-      },
-      {
-        "kind": "throw",
-        "name": "query",
-        "text": "throw",
-        "start": {
-          "row": 10,
-          "column": 1
-        },
-        "end": {
-          "row": 10,
-          "column": 6
         }
       },
       {
@@ -3264,19 +1808,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "class",
-        "name": "query",
-        "text": "class",
-        "start": {
-          "row": 1,
-          "column": 1
-        },
-        "end": {
-          "row": 1,
-          "column": 6
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "A",
@@ -3296,32 +1827,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "start": {
           "row": 1,
           "column": 9
-        },
-        "end": {
-          "row": 1,
-          "column": 11
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 1,
-          "column": 9
-        },
-        "end": {
-          "row": 1,
-          "column": 10
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 1,
-          "column": 10
         },
         "end": {
           "row": 1,
@@ -3355,19 +1860,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "const",
-        "name": "query",
-        "text": "const",
-        "start": {
-          "row": 3,
-          "column": 1
-        },
-        "end": {
-          "row": 3,
-          "column": 6
-        }
-      },
-      {
         "kind": "variable_declarator",
         "name": "query",
         "text": "ABC = 1",
@@ -3391,19 +1883,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 3,
           "column": 10
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 3,
-          "column": 11
-        },
-        "end": {
-          "row": 3,
-          "column": 12
         }
       },
       {
@@ -3446,19 +1925,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "const",
-        "name": "query",
-        "text": "const",
-        "start": {
-          "row": 5,
-          "column": 1
-        },
-        "end": {
-          "row": 5,
-          "column": 6
-        }
-      },
-      {
         "kind": "variable_declarator",
         "name": "query",
         "text": "AB_C1 = 2",
@@ -3482,19 +1948,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 5,
           "column": 12
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 5,
-          "column": 13
-        },
-        "end": {
-          "row": 5,
-          "column": 14
         }
       },
       {
@@ -3537,19 +1990,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "const",
-        "name": "query",
-        "text": "const",
-        "start": {
-          "row": 7,
-          "column": 1
-        },
-        "end": {
-          "row": 7,
-          "column": 6
-        }
-      },
-      {
         "kind": "variable_declarator",
         "name": "query",
         "text": "{AB_C2_D3} = x",
@@ -3576,19 +2016,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 7,
-          "column": 7
-        },
-        "end": {
-          "row": 7,
-          "column": 8
-        }
-      },
-      {
         "kind": "shorthand_property_identifier_pattern",
         "name": "query",
         "text": "AB_C2_D3",
@@ -3599,32 +2026,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 7,
           "column": 16
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 7,
-          "column": 16
-        },
-        "end": {
-          "row": 7,
-          "column": 17
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 7,
-          "column": 18
-        },
-        "end": {
-          "row": 7,
-          "column": 19
         }
       },
       {
@@ -3706,19 +2107,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 10,
-          "column": 7
-        },
-        "end": {
-          "row": 10,
-          "column": 8
-        }
-      },
-      {
         "kind": "property_identifier",
         "name": "query",
         "text": "exports",
@@ -3729,19 +2117,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 10,
           "column": 15
-        }
-      },
-      {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 10,
-          "column": 16
-        },
-        "end": {
-          "row": 10,
-          "column": 17
         }
       },
       {
@@ -3758,19 +2133,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "function",
-        "name": "query",
-        "text": "function",
-        "start": {
-          "row": 10,
-          "column": 18
-        },
-        "end": {
-          "row": 10,
-          "column": 26
-        }
-      },
-      {
         "kind": "formal_parameters",
         "name": "query",
         "text": "(one, two)",
@@ -3781,19 +2143,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 10,
           "column": 36
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 10,
-          "column": 26
-        },
-        "end": {
-          "row": 10,
-          "column": 27
         }
       },
       {
@@ -3810,19 +2159,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 10,
-          "column": 30
-        },
-        "end": {
-          "row": 10,
-          "column": 31
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "two",
@@ -3836,19 +2172,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 10,
-          "column": 35
-        },
-        "end": {
-          "row": 10,
-          "column": 36
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{\n  // <- variable.builtin\n  //                      ^ variable.parameter\n\n  if (something()) {\n    let module = null, one = 1;\n    //  ^ variable\n    //                 ^ variable\n\n    console.log(module, one, two);\n    // ^ variable.builtin\n    //            ^ variable\n    //                   ^ variable\n    //                        ^ variable.parameter\n  }\n\n  console.log(module, one, two);\n  // ^ variable.builtin\n  //            ^ variable.builtin\n  //                   ^ variable.parameter\n  //                        ^ variable.parameter\n}",
@@ -3859,19 +2182,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 31,
           "column": 2
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 10,
-          "column": 37
-        },
-        "end": {
-          "row": 10,
-          "column": 38
         }
       },
       {
@@ -3914,19 +2224,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "if",
-        "name": "query",
-        "text": "if",
-        "start": {
-          "row": 14,
-          "column": 3
-        },
-        "end": {
-          "row": 14,
-          "column": 5
-        }
-      },
-      {
         "kind": "parenthesized_expression",
         "name": "query",
         "text": "(something())",
@@ -3937,19 +2234,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 14,
           "column": 19
-        }
-      },
-      {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 14,
-          "column": 6
-        },
-        "end": {
-          "row": 14,
-          "column": 7
         }
       },
       {
@@ -3992,45 +2276,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 14,
-          "column": 16
-        },
-        "end": {
-          "row": 14,
-          "column": 17
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 14,
-          "column": 17
-        },
-        "end": {
-          "row": 14,
-          "column": 18
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 14,
-          "column": 18
-        },
-        "end": {
-          "row": 14,
-          "column": 19
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{\n    let module = null, one = 1;\n    //  ^ variable\n    //                 ^ variable\n\n    console.log(module, one, two);\n    // ^ variable.builtin\n    //            ^ variable\n    //                   ^ variable\n    //                        ^ variable.parameter\n  }",
@@ -4044,19 +2289,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 14,
-          "column": 20
-        },
-        "end": {
-          "row": 14,
-          "column": 21
-        }
-      },
-      {
         "kind": "lexical_declaration",
         "name": "query",
         "text": "let module = null, one = 1;",
@@ -4067,19 +2299,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 15,
           "column": 32
-        }
-      },
-      {
-        "kind": "let",
-        "name": "query",
-        "text": "let",
-        "start": {
-          "row": 15,
-          "column": 5
-        },
-        "end": {
-          "row": 15,
-          "column": 8
         }
       },
       {
@@ -4109,19 +2328,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 15,
-          "column": 16
-        },
-        "end": {
-          "row": 15,
-          "column": 17
-        }
-      },
-      {
         "kind": "null",
         "name": "query",
         "text": "null",
@@ -4132,19 +2338,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 15,
           "column": 22
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 15,
-          "column": 22
-        },
-        "end": {
-          "row": 15,
-          "column": 23
         }
       },
       {
@@ -4174,19 +2367,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "=",
-        "name": "query",
-        "text": "=",
-        "start": {
-          "row": 15,
-          "column": 28
-        },
-        "end": {
-          "row": 15,
-          "column": 29
-        }
-      },
-      {
         "kind": "number",
         "name": "query",
         "text": "1",
@@ -4197,19 +2377,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 15,
           "column": 31
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 15,
-          "column": 31
-        },
-        "end": {
-          "row": 15,
-          "column": 32
         }
       },
       {
@@ -4291,19 +2458,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 19,
-          "column": 12
-        },
-        "end": {
-          "row": 19,
-          "column": 13
-        }
-      },
-      {
         "kind": "property_identifier",
         "name": "query",
         "text": "log",
@@ -4330,19 +2484,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 19,
-          "column": 16
-        },
-        "end": {
-          "row": 19,
-          "column": 17
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "module",
@@ -4353,19 +2494,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 19,
           "column": 23
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 19,
-          "column": 23
-        },
-        "end": {
-          "row": 19,
-          "column": 24
         }
       },
       {
@@ -4382,19 +2510,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 19,
-          "column": 28
-        },
-        "end": {
-          "row": 19,
-          "column": 29
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "two",
@@ -4405,32 +2520,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 19,
           "column": 33
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 19,
-          "column": 33
-        },
-        "end": {
-          "row": 19,
-          "column": 34
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 19,
-          "column": 34
-        },
-        "end": {
-          "row": 19,
-          "column": 35
         }
       },
       {
@@ -4486,19 +2575,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 24,
-          "column": 3
-        },
-        "end": {
-          "row": 24,
-          "column": 4
-        }
-      },
-      {
         "kind": "expression_statement",
         "name": "query",
         "text": "console.log(module, one, two);",
@@ -4551,19 +2627,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 26,
-          "column": 10
-        },
-        "end": {
-          "row": 26,
-          "column": 11
-        }
-      },
-      {
         "kind": "property_identifier",
         "name": "query",
         "text": "log",
@@ -4590,19 +2653,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 26,
-          "column": 14
-        },
-        "end": {
-          "row": 26,
-          "column": 15
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "module",
@@ -4613,19 +2663,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 26,
           "column": 21
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 26,
-          "column": 21
-        },
-        "end": {
-          "row": 26,
-          "column": 22
         }
       },
       {
@@ -4642,19 +2679,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 26,
-          "column": 26
-        },
-        "end": {
-          "row": 26,
-          "column": 27
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "two",
@@ -4665,32 +2689,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 26,
           "column": 31
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 26,
-          "column": 31
-        },
-        "end": {
-          "row": 26,
-          "column": 32
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 26,
-          "column": 32
-        },
-        "end": {
-          "row": 26,
-          "column": 33
         }
       },
       {
@@ -4746,32 +2744,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 31,
-          "column": 1
-        },
-        "end": {
-          "row": 31,
-          "column": 2
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 31,
-          "column": 2
-        },
-        "end": {
-          "row": 31,
-          "column": 3
-        }
-      },
-      {
         "kind": "expression_statement",
         "name": "query",
         "text": "console.log(module, one, two);",
@@ -4824,19 +2796,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 33,
-          "column": 8
-        },
-        "end": {
-          "row": 33,
-          "column": 9
-        }
-      },
-      {
         "kind": "property_identifier",
         "name": "query",
         "text": "log",
@@ -4863,19 +2822,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 33,
-          "column": 12
-        },
-        "end": {
-          "row": 33,
-          "column": 13
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "module",
@@ -4886,19 +2832,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 33,
           "column": 19
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 33,
-          "column": 19
-        },
-        "end": {
-          "row": 33,
-          "column": 20
         }
       },
       {
@@ -4915,19 +2848,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 33,
-          "column": 24
-        },
-        "end": {
-          "row": 33,
-          "column": 25
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "two",
@@ -4938,32 +2858,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 33,
           "column": 29
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 33,
-          "column": 29
-        },
-        "end": {
-          "row": 33,
-          "column": 30
-        }
-      },
-      {
-        "kind": ";",
-        "name": "query",
-        "text": ";",
-        "start": {
-          "row": 33,
-          "column": 30
-        },
-        "end": {
-          "row": 33,
-          "column": 31
         }
       },
       {
@@ -5032,19 +2926,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "function",
-        "name": "query",
-        "text": "function",
-        "start": {
-          "row": 39,
-          "column": 1
-        },
-        "end": {
-          "row": 39,
-          "column": 9
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "one",
@@ -5071,19 +2952,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 39,
-          "column": 13
-        },
-        "end": {
-          "row": 39,
-          "column": 14
-        }
-      },
-      {
         "kind": "object_pattern",
         "name": "query",
         "text": "{two: three}",
@@ -5094,19 +2962,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 39,
           "column": 26
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 39,
-          "column": 14
-        },
-        "end": {
-          "row": 39,
-          "column": 15
         }
       },
       {
@@ -5136,19 +2991,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ":",
-        "name": "query",
-        "text": ":",
-        "start": {
-          "row": 39,
-          "column": 18
-        },
-        "end": {
-          "row": 39,
-          "column": 19
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "three",
@@ -5159,32 +3001,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 39,
           "column": 25
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 39,
-          "column": 25
-        },
-        "end": {
-          "row": 39,
-          "column": 26
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 39,
-          "column": 26
-        },
-        "end": {
-          "row": 39,
-          "column": 27
         }
       },
       {
@@ -5201,19 +3017,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "[",
-        "name": "query",
-        "text": "[",
-        "start": {
-          "row": 39,
-          "column": 28
-        },
-        "end": {
-          "row": 39,
-          "column": 29
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "four",
@@ -5227,32 +3030,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "]",
-        "name": "query",
-        "text": "]",
-        "start": {
-          "row": 39,
-          "column": 33
-        },
-        "end": {
-          "row": 39,
-          "column": 34
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 39,
-          "column": 34
-        },
-        "end": {
-          "row": 39,
-          "column": 35
-        }
-      },
-      {
         "kind": "statement_block",
         "name": "query",
         "text": "{\n  //          ^ property\n  //               ^ variable.parameter\n  //                         ^ variable.parameter\n\n  console.log(two, three, four)\n  //           ^ variable\n  //                ^ variable.parameter\n  //                       ^ variable.parameter\n}",
@@ -5263,19 +3040,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 48,
           "column": 2
-        }
-      },
-      {
-        "kind": "{",
-        "name": "query",
-        "text": "{",
-        "start": {
-          "row": 39,
-          "column": 36
-        },
-        "end": {
-          "row": 39,
-          "column": 37
         }
       },
       {
@@ -5370,19 +3134,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ".",
-        "name": "query",
-        "text": ".",
-        "start": {
-          "row": 44,
-          "column": 10
-        },
-        "end": {
-          "row": 44,
-          "column": 11
-        }
-      },
-      {
         "kind": "property_identifier",
         "name": "query",
         "text": "log",
@@ -5409,19 +3160,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": "(",
-        "name": "query",
-        "text": "(",
-        "start": {
-          "row": 44,
-          "column": 14
-        },
-        "end": {
-          "row": 44,
-          "column": 15
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "two",
@@ -5432,19 +3170,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 44,
           "column": 18
-        }
-      },
-      {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 44,
-          "column": 18
-        },
-        "end": {
-          "row": 44,
-          "column": 19
         }
       },
       {
@@ -5461,19 +3186,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         }
       },
       {
-        "kind": ",",
-        "name": "query",
-        "text": ",",
-        "start": {
-          "row": 44,
-          "column": 25
-        },
-        "end": {
-          "row": 44,
-          "column": 26
-        }
-      },
-      {
         "kind": "identifier",
         "name": "query",
         "text": "four",
@@ -5484,19 +3196,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 44,
           "column": 31
-        }
-      },
-      {
-        "kind": ")",
-        "name": "query",
-        "text": ")",
-        "start": {
-          "row": 44,
-          "column": 31
-        },
-        "end": {
-          "row": 44,
-          "column": 32
         }
       },
       {
@@ -5536,19 +3235,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"javascript\", \"(_)\", \"--forma
         "end": {
           "row": 47,
           "column": 48
-        }
-      },
-      {
-        "kind": "}",
-        "name": "query",
-        "text": "}",
-        "start": {
-          "row": 48,
-          "column": 1
-        },
-        "end": {
-          "row": 48,
-          "column": 2
         }
       }
     ]
