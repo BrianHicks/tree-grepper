@@ -49,6 +49,7 @@ This is handy for discovery: if you want to see the node names for your target l
 
 ## Supported Languages
 
+- C++
 - Elm
 - Haskell
 - JavaScript
@@ -72,6 +73,7 @@ After that, you just need to add a tree-sitter grammar to the project.
 4. Add a test like `all_LANG` in [`src/main.rs`](./src/main.rs)
 5. Try to run with insta: `cargo insta test` and then `cargo insta review`.
    If the output looks right, open a PR!
+6. Add the language to the list of supported languages in this readme.
 
 ## License
 
