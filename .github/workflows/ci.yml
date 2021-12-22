@@ -1,31 +1,42 @@
-name: Build/test
+name: CI
+
 on:
-  push:
-    branches:
-      - "**"
   pull_request:
-    branches:
-      - master
+  push:
+
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
+  build-and-test:
+    name: build and test
     strategy:
-      fail-fast: true
       matrix:
-        os: [macos-latest, ubuntu-latest]
+        # note: we're using ubuntu-latest as a stand-in for all Linux
+        # distributions. If we find we need more, we should do Docker stuff.
+        #
+        # We're testing on two versions of macOS because those are the ones
+        # that my coworkers use, and I've added tree-grepper to our main repo's
+        # dependencies. Once most everyone's on Big Sur (11), I'll probably
+        # drop Catalina (10.15) to save on build time and resources.
+        os: [ubuntu-latest, macos-10.15, macos-11]
+    runs-on: "${{ matrix.os }}"
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: cachix/install-nix-action@v16
+      - uses: cachix/cachix-action@v10
         with:
-          node-version: 14
-      - run: npm install
-      - run: npm test
-  test_windows:
-    runs-on: windows-latest
+          name: tree-grepper
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+      - run: nix-build
+
+  rustfmt:
+    name: rustfmt
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: cachix/install-nix-action@v16
+      - uses: cachix/cachix-action@v10
         with:
-          node-version: 14
-      - run: npm install
-      - run: npm run-script test-windows
+          name: tree-grepper
+          skipPush: true
+
+      - run: nix-shell --pure --run 'rustfmt --check $(find . -name "*.rs" -not -ipath "*vendor*" -not -ipath "*target*")'
