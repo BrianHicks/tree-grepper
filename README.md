@@ -56,6 +56,7 @@ This is handy for discovery: if you want to see the node names for your target l
 - Ruby
 - Rust
 - TypeScript
+- Elixir
 
 ... and your favorite?
 We're open to PRs for adding whatever language you'd like!

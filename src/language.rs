@@ -11,6 +11,7 @@ pub enum Language {
     Ruby,
     Rust,
     TypeScript,
+    Elixir,
 }
 
 impl Language {
@@ -23,6 +24,7 @@ impl Language {
             Language::Ruby,
             Language::Rust,
             Language::TypeScript,
+            Language::Elixir,
         ]
     }
 
@@ -36,6 +38,7 @@ impl Language {
                 Language::Ruby => tree_sitter_ruby(),
                 Language::Rust => tree_sitter_rust(),
                 Language::TypeScript => tree_sitter_typescript(),
+                Language::Elixir => tree_sitter_elixir(),
             }
         }
     }
@@ -53,6 +56,7 @@ impl Language {
             Language::Ruby => "ruby",
             Language::Rust => "rust",
             Language::TypeScript => "ts",
+            Language::Elixir => "ex",
         }
     }
 }
@@ -69,6 +73,7 @@ impl FromStr for Language {
             "ruby" => Ok(Language::Ruby),
             "rust" => Ok(Language::Rust),
             "typescript" => Ok(Language::TypeScript),
+            "elixir" => Ok(Language::Elixir),
             _ => bail!(
                 "unknown language {}. Try one of: {}",
                 s,
@@ -92,6 +97,7 @@ impl Display for Language {
             Language::Ruby => f.write_str("ruby"),
             Language::Rust => f.write_str("rust"),
             Language::TypeScript => f.write_str("typescript"),
+            Language::Elixir => f.write_str("elixir"),
         }
     }
 }
@@ -138,4 +144,5 @@ extern "C" {
     fn tree_sitter_ruby() -> tree_sitter::Language;
     fn tree_sitter_rust() -> tree_sitter::Language;
     fn tree_sitter_typescript() -> tree_sitter::Language;
+    fn tree_sitter_elixir() -> tree_sitter::Language;
 }

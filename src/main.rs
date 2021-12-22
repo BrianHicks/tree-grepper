@@ -333,4 +333,18 @@ mod tests {
             "vendor/tree-sitter-typescript/typescript/test.ts",
         ]))
     }
+
+    #[test]
+    fn all_elixir() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "elixir",
+            "(_)",
+            "--format=pretty-json",
+            "--sort",
+            "--no-gitignore",
+            "vendor/tree-sitter-elixir",
+        ]))
+    }
 }

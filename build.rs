@@ -110,6 +110,7 @@ fn main() {
         .warnings(false)
         .file(typescript_dir.join("scanner.c"))
         .compile("tree_sitter_typescript_scanner");
+
     // cpp
     let cpp_dir: PathBuf = ["vendor", "tree-sitter-cpp", "src"].iter().collect();
 
@@ -127,4 +128,22 @@ fn main() {
         .warnings(false)
         .file(cpp_dir.join("scanner.cc"))
         .compile("tree_sitter_cpp_scanner");
+
+    // elixir
+    let elixir_dir: PathBuf = ["vendor", "tree-sitter-elixir", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-elixir/src/parser.c");
+    cc::Build::new()
+        .include(&elixir_dir)
+        .warnings(false)
+        .file(elixir_dir.join("parser.c"))
+        .compile("tree-sitter-elixir");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-elixir/src/scanner.cc");
+    cc::Build::new()
+        .include(&elixir_dir)
+        .warnings(false)
+        .cpp(true)
+        .file(elixir_dir.join("scanner.cc"))
+        .compile("tree_sitter_elixir_scanner");
 }
