@@ -37,26 +37,25 @@ impl Opts {
                 Arg::new("additional-query")
                     .short('q')
                     .long("query")
-                    .about("a language and query to perform")
-                    .long_about(&format!(
-                        "a language and query to perform (at least one is required.) See https://tree-sitter.github.io for information on writing queries. [possible LANGUAGE values: {}]",
-                        Language::all().iter().map(|l| l.to_string()).collect::<Vec<String>>().join(", ")
-                    ))
+                    .help("a language and query to perform")
+                    .long_help(
+                        "a language and query to perform (at least one is required.) See https://tree-sitter.github.io for information on writing queries. Run tree-grepper --languages for a list of languages.",
+                    )
                     .number_of_values(2)
                     .value_names(&["LANGUAGE", "QUERY"])
                     .required(true)
-                    .multiple(true)
+                    .multiple_values(true)
             )
             .arg(
                 Arg::new("no-gitignore")
                     .long("no-gitignore")
-                    .about("don't use git's ignore and exclude files to filter files")
+                    .help("don't use git's ignore and exclude files to filter files")
             )
             .arg(
                 Arg::new("PATHS")
                     .default_value(".")
-                    .about("places to search for matches")
-                    .multiple(true)
+                    .help("places to search for matches")
+                    .multiple_values(true)
             )
             .arg(
                 Arg::new("FORMAT")
@@ -64,13 +63,13 @@ impl Opts {
                 .short('f')
                 .possible_values(&["lines", "json", "json-lines", "pretty-json"])
                 .default_value("lines")
-                .about("what format should we output lines in?")
+                .help("what format should we output lines in?")
             )
             .arg(
                 Arg::new("sort")
                 .long("sort")
-                .about("sort matches stably")
-                .about("sort matches stably. If this is not specified, output ordering will vary because due to parallelism. Caution: this adds a worst-case `O(n * log(n))` overhead, where `n` is the number of files matched. Avoid it if possible if you care about performance.")
+                .help("sort matches stably")
+                .long_help("sort matches stably. If this is not specified, output ordering will vary because due to parallelism. Caution: this adds a worst-case `O(n * log(n))` overhead, where `n` is the number of files matched. Avoid it if possible if you care about performance.")
             )
             .try_get_matches_from(args)
             .context("could not parse args")?;
