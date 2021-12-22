@@ -56,7 +56,7 @@ impl Language {
             Language::Ruby => "ruby",
             Language::Rust => "rust",
             Language::TypeScript => "ts",
-            Language::Elixir => "ex",
+            Language::Elixir => "elixir",
         }
     }
 }
