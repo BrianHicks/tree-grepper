@@ -15,6 +15,7 @@ update_subtree() {
 }
 
 update_subtree tree-sitter-cpp https://github.com/tree-sitter/tree-sitter-cpp
+update_subtree tree-sitter-elixir https://github.com/elixir-lang/tree-sitter-elixir
 update_subtree tree-sitter-elm https://github.com/elm-tooling/tree-sitter-elm main
 update_subtree tree-sitter-haskell https://github.com/tree-sitter/tree-sitter-haskell
 update_subtree tree-sitter-javascript https://github.com/tree-sitter/tree-sitter-javascript

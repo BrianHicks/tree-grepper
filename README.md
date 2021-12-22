@@ -50,6 +50,7 @@ This is handy for discovery: if you want to see the node names for your target l
 ## Supported Languages
 
 - C++
+- Elixir
 - Elm
 - Haskell
 - JavaScript

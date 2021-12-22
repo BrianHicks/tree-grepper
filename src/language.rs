@@ -5,6 +5,7 @@ use std::str::FromStr;
 #[derive(PartialEq, Eq, Hash, Debug)]
 pub enum Language {
     Cpp,
+    Elixir,
     Elm,
     Haskell,
     JavaScript,
@@ -17,6 +18,7 @@ impl Language {
     pub fn all() -> Vec<Language> {
         vec![
             Language::Cpp,
+            Language::Elixir,
             Language::Elm,
             Language::Haskell,
             Language::JavaScript,
@@ -30,6 +32,7 @@ impl Language {
         unsafe {
             match self {
                 Language::Cpp => tree_sitter_cpp(),
+                Language::Elixir => tree_sitter_elixir(),
                 Language::Elm => tree_sitter_elm(),
                 Language::Haskell => tree_sitter_haskell(),
                 Language::JavaScript => tree_sitter_javascript(),
@@ -47,6 +50,7 @@ impl Language {
     pub fn name_for_types_builder(&self) -> &str {
         match self {
             Language::Cpp => "cpp",
+            Language::Elixir => "elixir",
             Language::Elm => "elm",
             Language::Haskell => "haskell",
             Language::JavaScript => "js",
@@ -63,6 +67,7 @@ impl FromStr for Language {
     fn from_str(s: &str) -> Result<Self> {
         match s {
             "cpp" => Ok(Language::Cpp),
+            "elixir" => Ok(Language::Elixir),
             "elm" => Ok(Language::Elm),
             "haskell" => Ok(Language::Haskell),
             "javascript" => Ok(Language::JavaScript),
@@ -86,6 +91,7 @@ impl Display for Language {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
         match self {
             Language::Cpp => f.write_str("cpp"),
+            Language::Elixir => f.write_str("elixir"),
             Language::Elm => f.write_str("elm"),
             Language::Haskell => f.write_str("haskell"),
             Language::JavaScript => f.write_str("javascript"),
@@ -132,6 +138,7 @@ mod tests {
 
 extern "C" {
     fn tree_sitter_cpp() -> tree_sitter::Language;
+    fn tree_sitter_elixir() -> tree_sitter::Language;
     fn tree_sitter_elm() -> tree_sitter::Language;
     fn tree_sitter_haskell() -> tree_sitter::Language;
     fn tree_sitter_javascript() -> tree_sitter::Language;
