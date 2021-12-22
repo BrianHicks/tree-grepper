@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.0
+
+- Elixir support
+- add `--languages`, which will print all possible language values
+- Updated dependencies and grammars
+
 ## 2.1.0
 
 - Added JSON Lines output (`--format json-lines`)
