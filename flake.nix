@@ -40,7 +40,8 @@
               cargo
               cargo-edit
               cargo-insta
-              cargo-watch
+              # https://github.com/NixOS/nixpkgs/issues/146349
+              # cargo-watch
               rustPackages.clippy
               rustc
               rustfmt
