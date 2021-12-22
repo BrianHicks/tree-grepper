@@ -8,17 +8,28 @@ use std::collections::HashMap;
 use std::path::PathBuf;
 use std::str::FromStr;
 
+pub enum Invocation {
+    DoQuery(QueryOpts),
+    ShowLanguages,
+}
+
 #[derive(Debug)]
-pub struct Opts {
+pub struct QueryOpts {
     pub extractors: Vec<Extractor>,
     pub paths: Vec<PathBuf>,
     pub git_ignore: bool,
-    pub format: Format,
+    pub format: QueryFormat,
     pub sort: bool,
 }
 
-impl Opts {
-    pub fn from_args(args: Vec<String>) -> Result<Opts> {
+impl QueryOpts {
+    pub fn extractor_chooser(&self) -> Result<ExtractorChooser> {
+        ExtractorChooser::from_extractors(&self.extractors)
+    }
+}
+
+impl Invocation {
+    pub fn from_args(args: Vec<String>) -> Result<Self> {
         // I'm not super happy with this! I would love for LANGUAGE and QUERY to
         // be taken positionally when there is just one so we don't always have
         // to specify `-q`. However, I also want to get working on the rest of
@@ -37,26 +48,25 @@ impl Opts {
                 Arg::new("additional-query")
                     .short('q')
                     .long("query")
-                    .about("a language and query to perform")
-                    .long_about(&format!(
-                        "a language and query to perform (at least one is required.) See https://tree-sitter.github.io for information on writing queries. [possible LANGUAGE values: {}]",
-                        Language::all().iter().map(|l| l.to_string()).collect::<Vec<String>>().join(", ")
-                    ))
+                    .help("a language and query to perform")
+                    .long_help(
+                        "a language and query to perform (at least one is required.) See https://tree-sitter.github.io for information on writing queries. Run tree-grepper --languages for a list of languages.",
+                    )
                     .number_of_values(2)
                     .value_names(&["LANGUAGE", "QUERY"])
-                    .required(true)
-                    .multiple(true)
+                    .required_unless_present("languages")
+                    .multiple_values(true)
             )
             .arg(
                 Arg::new("no-gitignore")
                     .long("no-gitignore")
-                    .about("don't use git's ignore and exclude files to filter files")
+                    .help("don't use git's ignore and exclude files to filter files")
             )
             .arg(
                 Arg::new("PATHS")
                     .default_value(".")
-                    .about("places to search for matches")
-                    .multiple(true)
+                    .help("places to search for matches")
+                    .multiple_values(true)
             )
             .arg(
                 Arg::new("FORMAT")
@@ -64,25 +74,36 @@ impl Opts {
                 .short('f')
                 .possible_values(&["lines", "json", "json-lines", "pretty-json"])
                 .default_value("lines")
-                .about("what format should we output lines in?")
+                .help("what format should we output lines in?")
             )
             .arg(
                 Arg::new("sort")
                 .long("sort")
-                .about("sort matches stably")
-                .about("sort matches stably. If this is not specified, output ordering will vary because due to parallelism. Caution: this adds a worst-case `O(n * log(n))` overhead, where `n` is the number of files matched. Avoid it if possible if you care about performance.")
+                .help("sort matches stably")
+                .long_help("sort matches stably. If this is not specified, output ordering will vary because due to parallelism. Caution: this adds a worst-case `O(n * log(n))` overhead, where `n` is the number of files matched. Avoid it if possible if you care about performance.")
+            )
+            .arg(
+                Arg::new("languages")
+                .long("languages")
+                .help("print the language names tree-grepper knows about")
             )
             .try_get_matches_from(args)
             .context("could not parse args")?;
 
-        Ok(Opts {
-            extractors: Opts::extractors(&matches)?,
-            paths: Opts::paths(&matches)?,
-            git_ignore: !matches.is_present("no-gitignore"),
-            format: Format::from_str(matches.value_of("FORMAT").context("format not provided")?)
+        if matches.is_present("languages") {
+            Ok(Self::ShowLanguages)
+        } else {
+            Ok(Self::DoQuery(QueryOpts {
+                extractors: Self::extractors(&matches)?,
+                paths: Self::paths(&matches)?,
+                git_ignore: !matches.is_present("no-gitignore"),
+                format: QueryFormat::from_str(
+                    matches.value_of("FORMAT").context("format not provided")?,
+                )
                 .context("could not set format")?,
-            sort: matches.is_present("sort"),
-        })
+                sort: matches.is_present("sort"),
+            }))
+        }
     }
 
     fn extractors(matches: &ArgMatches) -> Result<Vec<Extractor>> {
@@ -146,29 +167,25 @@ impl Opts {
             None => bail!("at least one path was required but not provided. This indicates an internal errors and you should report it!"),
         }
     }
-
-    pub fn extractor_chooser(&self) -> Result<ExtractorChooser> {
-        ExtractorChooser::from_extractors(&self.extractors)
-    }
 }
 
 #[derive(Debug)]
-pub enum Format {
+pub enum QueryFormat {
     Lines,
     Json,
     JsonLines,
     PrettyJson,
 }
 
-impl FromStr for Format {
+impl FromStr for QueryFormat {
     type Err = Error;
 
     fn from_str(s: &str) -> Result<Self> {
         match s {
-            "lines" => Ok(Format::Lines),
-            "json" => Ok(Format::Json),
-            "json-lines" => Ok(Format::JsonLines),
-            "pretty-json" => Ok(Format::PrettyJson),
+            "lines" => Ok(QueryFormat::Lines),
+            "json" => Ok(QueryFormat::Json),
+            "json-lines" => Ok(QueryFormat::JsonLines),
+            "pretty-json" => Ok(QueryFormat::PrettyJson),
             _ => bail!("unknown format. See --help for valid formats."),
         }
     }

@@ -4,8 +4,9 @@ mod extractor_chooser;
 mod language;
 
 use anyhow::{bail, Context, Result};
-use cli::{Format, Opts};
+use cli::{Invocation, QueryFormat, QueryOpts};
 use crossbeam::channel;
+use language::Language;
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use std::env;
 use std::io::{self, BufWriter, Write};
@@ -41,10 +42,29 @@ fn main() {
     buffer.flush().expect("failed to flush buffer!");
 }
 
-fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
-    let opts = Opts::from_args(args)
+fn try_main(args: Vec<String>, out: impl Write) -> Result<()> {
+    let invocation = Invocation::from_args(args)
         .context("couldn't get a valid configuration from the command-line options")?;
 
+    match invocation {
+        Invocation::DoQuery(query_opts) => {
+            do_query(query_opts, out).context("couldn't perform the query")
+        }
+        Invocation::ShowLanguages => {
+            show_languages(out).context("couldn't show the list of languages")
+        }
+    }
+}
+
+fn show_languages(mut out: impl Write) -> Result<()> {
+    for language in Language::all() {
+        writeln!(out, "{}", language.to_string()).context("couldn't print a language")?;
+    }
+
+    Ok(())
+}
+
+fn do_query(opts: QueryOpts, mut out: impl Write) -> Result<()> {
     // You might think "why not use ParallelBridge here?" Well, the quick answer
     // is that I benchmarked it and having things separated here and handling
     // their own errors actually speeds up this part of the code by like 20%!
@@ -82,17 +102,17 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
     }
 
     match opts.format {
-        Format::Lines => {
+        QueryFormat::Lines => {
             for extracted_file in extracted_files {
                 write!(out, "{}", extracted_file).context("could not write lines")?;
             }
         }
 
-        Format::Json => {
+        QueryFormat::Json => {
             serde_json::to_writer(out, &extracted_files).context("could not write JSON output")?;
         }
 
-        Format::JsonLines => {
+        QueryFormat::JsonLines => {
             for extracted_file in extracted_files {
                 writeln!(
                     out,
@@ -104,7 +124,7 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
             }
         }
 
-        Format::PrettyJson => {
+        QueryFormat::PrettyJson => {
             serde_json::to_writer_pretty(out, &extracted_files)
                 .context("could not write JSON output")?;
         }
@@ -113,7 +133,7 @@ fn try_main(args: Vec<String>, mut out: impl Write) -> Result<()> {
     Ok(())
 }
 
-fn find_files(opts: &Opts) -> Result<Vec<ignore::DirEntry>> {
+fn find_files(opts: &QueryOpts) -> Result<Vec<ignore::DirEntry>> {
     let mut builder = match opts.paths.split_first() {
         Some((first, rest)) => {
             let mut builder = ignore::WalkBuilder::new(first);
