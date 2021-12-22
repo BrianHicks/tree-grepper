@@ -122,10 +122,10 @@ module.exports = grammar({
     // WHITESPACE-SENSITIVE RULES
 
     _upper_case_identifier_without_leading_whitespace: ($) =>
-      token.immediate(/\p{Lu}[_\d\p{L}]*/),
+      token.immediate(/[A-Z][a-zA-Z0-9_]*/),
 
     _lower_case_identifier_without_leading_whitespace: ($) =>
-      token.immediate(/\p{Ll}[_\d\p{L}]*/),
+      token.immediate(/[a-z][a-zA-Z0-9_]*/),
 
     _dot_without_leading_whitespace: ($) => token.immediate("."),
 
