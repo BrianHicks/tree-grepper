@@ -7,7 +7,7 @@ edition = "2018"
 [dependencies]
 anyhow = "1.0.52"
 bump_alloc = "0.1.0"
-clap = { version = "3.0.0-rc.9", features = [ "std", "color", "suggestions", "cargo" ] }
+clap = { version = "3.0.0-rc.11", features = [ "std", "color", "suggestions", "cargo" ] }
 crossbeam = "0.8.1"
 ignore = "0.4.18"
 itertools = "0.10.3"
