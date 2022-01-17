@@ -146,4 +146,22 @@ fn main() {
         .cpp(true)
         .file(elixir_dir.join("scanner.cc"))
         .compile("tree_sitter_elixir_scanner");
+
+    // php
+    let php_dir: PathBuf = ["vendor", "tree-sitter-php", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-php/src/parser.c");
+    cc::Build::new()
+        .include(&php_dir)
+        .warnings(false)
+        .file(php_dir.join("parser.c"))
+        .compile("tree-sitter-php");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-php/src/scanner.cc");
+    cc::Build::new()
+        .include(&php_dir)
+        .cpp(true)
+        .warnings(false)
+        .file(php_dir.join("scanner.cc"))
+        .compile("tree_sitter_php_scanner");
 }

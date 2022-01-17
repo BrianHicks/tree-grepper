@@ -22,3 +22,4 @@ update_subtree tree-sitter-javascript https://github.com/tree-sitter/tree-sitter
 update_subtree tree-sitter-ruby https://github.com/tree-sitter/tree-sitter-ruby
 update_subtree tree-sitter-rust https://github.com/tree-sitter/tree-sitter-rust
 update_subtree tree-sitter-typescript https://github.com/tree-sitter/tree-sitter-typescript
+update_subtree tree-sitter-php https://github.com/tree-sitter/tree-sitter-php

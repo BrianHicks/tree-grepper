@@ -367,4 +367,18 @@ mod tests {
             "vendor/tree-sitter-elixir",
         ]))
     }
+
+    #[test]
+    fn all_php() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "php",
+            "(_)",
+            "--format=pretty-json",
+            "--sort",
+            "--no-gitignore",
+            "vendor/tree-sitter-php/test/highlight",
+        ]))
+    }
 }
