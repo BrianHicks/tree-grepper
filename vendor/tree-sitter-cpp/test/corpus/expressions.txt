@@ -90,12 +90,12 @@ int main() {
     (function_declarator (identifier) (parameter_list))
     (compound_statement
       (declaration
-        (placeholder_type_specifier (auto))
+        (auto)
         (init_declarator
           (identifier)
           (new_expression (type_identifier) (argument_list))))
       (declaration
-        (placeholder_type_specifier (auto))
+        (auto)
         (init_declarator
           (identifier)
           (new_expression
@@ -108,14 +108,14 @@ int main() {
                   (type_descriptor (type_identifier)))))
             (initializer_list))))
       (declaration
-        (placeholder_type_specifier (auto))
+        (auto)
         (init_declarator
           (identifier)
           (new_expression
             (argument_list (pointer_expression (identifier)))
             (type_identifier))))
       (declaration
-        (placeholder_type_specifier (auto))
+        (auto)
         (init_declarator
           (identifier)
           (new_expression
@@ -123,7 +123,7 @@ int main() {
             (new_declarator (number_literal) (new_declarator (number_literal)))
             (argument_list))))
       (declaration
-        (placeholder_type_specifier (auto))
+        (auto)
         (init_declarator
           (identifier)
           (new_expression (primitive_type) (new_declarator (number_literal)))))
@@ -174,19 +174,11 @@ auto h = [] {
   return false;
 };
 
-auto i = [] <typename T> () {
-  return T();
-};
-
-auto i = [] <typename T> requires Hashable<T> {
-  return T();
-};
-
 ---
 
 (translation_unit
   (declaration
-    (placeholder_type_specifier (auto))
+    (auto)
     (init_declarator
       (identifier)
       (lambda_expression
@@ -196,7 +188,7 @@ auto i = [] <typename T> requires Hashable<T> {
           (trailing_return_type (primitive_type)))
         (compound_statement (return_statement (true))))))
   (declaration
-    (placeholder_type_specifier (auto))
+    (auto)
     (init_declarator
       (identifier)
       (lambda_expression
@@ -205,43 +197,12 @@ auto i = [] <typename T> requires Hashable<T> {
           (parameter_list (parameter_declaration (primitive_type) (identifier))))
         (compound_statement (return_statement (false))))))
   (declaration
-    (placeholder_type_specifier (auto))
+    (auto)
     (init_declarator
       (identifier)
       (lambda_expression
         (lambda_capture_specifier)
-        (compound_statement (return_statement (false))))))
-  (declaration
-    (placeholder_type_specifier (auto))
-    (init_declarator
-      (identifier)
-      (lambda_expression
-        (lambda_capture_specifier)
-        (template_parameter_list
-          (type_parameter_declaration
-            (type_identifier)))
-        (abstract_function_declarator
-          (parameter_list))
-        (compound_statement
-          (return_statement
-            (call_expression
-              (identifier)
-              (argument_list)))))))
-  (declaration
-    (placeholder_type_specifier (auto))
-    (init_declarator
-      (identifier)
-      (lambda_expression
-        (lambda_capture_specifier)
-        (template_parameter_list
-          (type_parameter_declaration (type_identifier)))
-        (requires_clause
-          (template_type
-            (type_identifier)
-            (template_argument_list (type_descriptor (type_identifier)))))
-        (compound_statement
-          (return_statement
-            (call_expression (identifier) (argument_list))))))))
+        (compound_statement (return_statement (false)))))))
 
 ====================================================
 Nested template calls
@@ -735,7 +696,7 @@ void f(T...) {}
                 right: (identifier))
               right: (number_literal)))))))
   (declaration
-    type: (placeholder_type_specifier (auto))
+    type: (auto)
     declarator: (init_declarator
       declarator: (identifier)
       value: (lambda_expression
@@ -906,31 +867,3 @@ co_await fn() || co_await var;
             (argument_list)))
       (co_await_expression
         (identifier)))))
-
-============================================
- Three-way comparison
-============================================
-
-auto x = a <=> b;
-
-bool y = 0 > a <=> b;
-
----
-
-(translation_unit
-  (declaration
-    (placeholder_type_specifier (auto))
-    (init_declarator
-      (identifier)
-      (binary_expression
-        (identifier)
-        (identifier))))
-  (declaration
-    (primitive_type)
-    (init_declarator
-      (identifier)
-      (binary_expression
-        (number_literal)
-        (binary_expression
-          (identifier)
-          (identifier))))))

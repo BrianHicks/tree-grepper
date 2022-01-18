@@ -956,7 +956,7 @@ int main() {
 
 (translation_unit
   (declaration
-    type: (placeholder_type_specifier (auto))
+    type: (auto)
     declarator: (init_declarator
       declarator: (structured_binding_declarator (identifier))
       value: (compound_literal_expression
@@ -969,7 +969,7 @@ int main() {
       parameters: (parameter_list))
     body: (compound_statement
       (declaration
-        type: (placeholder_type_specifier (auto))
+        type: (auto)
         declarator: (init_declarator
           declarator: (reference_declarator
             (structured_binding_declarator (identifier) (identifier)))
@@ -980,13 +980,13 @@ int main() {
             arguments: (argument_list (identifier)))))
       (declaration
         (type_qualifier)
-        type: (placeholder_type_specifier (auto))
+        type: (auto)
         declarator: (init_declarator
           declarator: (structured_binding_declarator (identifier) (identifier))
           value: (initializer_list (number_literal) (number_literal))))
       (for_range_loop
         (type_qualifier)
-        type: (placeholder_type_specifier (auto))
+        type: (auto)
         declarator: (reference_declarator (structured_binding_declarator
           (identifier)
           (identifier)))
@@ -994,12 +994,10 @@ int main() {
         body: (compound_statement)))))
 
 ==========================
-Constexpr/constinit/consteval declarations
+Constexpr declarations
 ==========================
 
 constexpr double pi = 3.14159;
-consteval int answer();
-constinit int life = answer();
 
 ---
 
@@ -1009,21 +1007,7 @@ constinit int life = answer();
     (primitive_type)
     (init_declarator
       (identifier)
-      (number_literal)))
-  (declaration
-    (type_qualifier)
-    (primitive_type)
-    (function_declarator
-      (identifier)
-      (parameter_list)))
-  (declaration
-    (type_qualifier)
-    (primitive_type)
-    (init_declarator
-      (identifier)
-      (call_expression
-        (identifier)
-        (argument_list)))))
+      (number_literal))))
 
 ============================
 Variadic templates
@@ -1198,7 +1182,7 @@ operator T*();
     (abstract_reference_declarator (abstract_function_declarator (parameter_list)))))
   (declaration
     (operator_cast
-      (placeholder_type_specifier (auto))
+      (auto)
       (abstract_function_declarator (parameter_list) (type_qualifier))))
   (declaration
     (virtual_function_specifier)
@@ -1260,7 +1244,7 @@ class A {
       (abstract_reference_declarator (abstract_function_declarator (parameter_list)))))
     (declaration
       (operator_cast
-        (placeholder_type_specifier (auto))
+        (auto)
         (abstract_function_declarator (parameter_list) (type_qualifier))))
     (declaration
       (virtual_function_specifier)
@@ -1412,45 +1396,3 @@ void C::f() & noexcept {}
       (ref_qualifier)
       (noexcept))
     (compound_statement)))
-
-=========================
-Default comparison declarations
-=========================
-
-struct A {
-    auto operator<=>(A const &) = default;
-    friend auto operator<=>(A const &, A const &) = default;
-};
-
----
-
-(translation_unit
-  (struct_specifier
-    (type_identifier)
-    (field_declaration_list
-      (function_definition
-        (placeholder_type_specifier (auto))
-        (function_declarator
-          (operator_name)
-          (parameter_list
-            (parameter_declaration
-              (type_identifier)
-              (type_qualifier)
-              (abstract_reference_declarator))))
-        (default_method_clause))
-      (friend_declaration
-        (declaration
-          (placeholder_type_specifier (auto))
-          (init_declarator
-            (function_declarator
-              (operator_name)
-              (parameter_list
-                (parameter_declaration
-                  (type_identifier)
-                  (type_qualifier)
-                  (abstract_reference_declarator))
-                (parameter_declaration
-                  (type_identifier)
-                  (type_qualifier)
-                  (abstract_reference_declarator))))
-            (identifier)))))))
