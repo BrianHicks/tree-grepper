@@ -1,23 +1,25 @@
 [package]
-name = "tree-grepper"
-version = "2.2.0"
-authors = ["Brian Hicks <brian@brianthicks.com>"]
+name = "tree-sitter-haskell"
+description = "haskell grammar for the tree-sitter parsing library"
+version = "0.14.0"
+keywords = ["incremental", "parsing", "haskell"]
+categories = ["parsing", "text-editors"]
+repository = "https://github.com/tree-sitter/tree-sitter-haskell"
 edition = "2018"
 
-[dependencies]
-anyhow = "1.0.52"
-bump_alloc = "0.1.0"
-clap = { version = "3.0.9", features = [ "std", "color", "suggestions", "cargo" ] }
-crossbeam = "0.8.1"
-ignore = "0.4.18"
-itertools = "0.10.3"
-rayon = "1.5.1"
-serde = { version = "1.0.133", features = [ "derive" ] }
-serde_json = "1.0.75"
-tree-sitter = "0.20.2"
+build = "bindings/rust/build.rs"
+include = [
+  "bindings/rust/*",
+  "grammar.js",
+  "queries/*",
+  "src/*",
+]
 
-[dev-dependencies]
-insta = "1.10.0"
+[lib]
+path = "bindings/rust/lib.rs"
+
+[dependencies]
+tree-sitter = "0.19.4"
 
 [build-dependencies]
-cc = { version = "1.0.72", features = [ "parallel" ] }
+cc = "1.0"

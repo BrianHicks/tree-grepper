@@ -1,42 +1,46 @@
 name: CI
 
 on:
-  pull_request:
   push:
+    branches:
+      - "**"
+  pull_request:
+    types:
+      - opened
+      - synchronize
 
 jobs:
-  build-and-test:
-    name: build and test
+  test:
+    name: test / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        # note: we're using ubuntu-latest as a stand-in for all Linux
-        # distributions. If we find we need more, we should do Docker stuff.
-        #
-        # We're testing on two versions of macOS because those are the ones
-        # that my coworkers use, and I've added tree-grepper to our main repo's
-        # dependencies. Once most everyone's on Big Sur (11), I'll probably
-        # drop Catalina (10.15) to save on build time and resources.
-        os: [ubuntu-latest, macos-10.15, macos-11]
-    runs-on: "${{ matrix.os }}"
+        os: [macOS-latest, ubuntu-latest]
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@v16
-      - uses: cachix/cachix-action@v10
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Install node
+        uses: actions/setup-node@v2
         with:
-          name: tree-grepper
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          node-version: '14'
 
-      - run: nix-build
+      # - name: Install emscripten
+      #   uses: mymindstorm/setup-emsdk@v10
+      #   with:
+      #     version: '2.0.24'
 
-  rustfmt:
-    name: rustfmt
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@v16
-      - uses: cachix/cachix-action@v10
-        with:
-          name: tree-grepper
-          skipPush: true
+      - name: Build tree-sitter-haskell
+        run: npm install
 
-      - run: nix-shell --pure --run 'rustfmt --check $(find . -name "*.rs" -not -ipath "*vendor*" -not -ipath "*target*")'
+      - name: Run tests
+        run: npm test
+
+      - name: Parse examples
+        run: npm run examples
+
+      # - name: Parse examples with web binding
+      #   run: npm run examples-wasm
+
