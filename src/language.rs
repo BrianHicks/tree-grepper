@@ -9,6 +9,7 @@ pub enum Language {
     Elm,
     Haskell,
     JavaScript,
+    Php,
     Ruby,
     Rust,
     TypeScript,
@@ -22,6 +23,7 @@ impl Language {
             Language::Elm,
             Language::Haskell,
             Language::JavaScript,
+            Language::Php,
             Language::Ruby,
             Language::Rust,
             Language::TypeScript,
@@ -36,6 +38,7 @@ impl Language {
                 Language::Elm => tree_sitter_elm(),
                 Language::Haskell => tree_sitter_haskell(),
                 Language::JavaScript => tree_sitter_javascript(),
+                Language::Php => tree_sitter_php(),
                 Language::Ruby => tree_sitter_ruby(),
                 Language::Rust => tree_sitter_rust(),
                 Language::TypeScript => tree_sitter_typescript(),
@@ -54,6 +57,7 @@ impl Language {
             Language::Elm => "elm",
             Language::Haskell => "haskell",
             Language::JavaScript => "js",
+            Language::Php => "php",
             Language::Ruby => "ruby",
             Language::Rust => "rust",
             Language::TypeScript => "ts",
@@ -71,6 +75,7 @@ impl FromStr for Language {
             "elm" => Ok(Language::Elm),
             "haskell" => Ok(Language::Haskell),
             "javascript" => Ok(Language::JavaScript),
+            "php" => Ok(Language::Php),
             "ruby" => Ok(Language::Ruby),
             "rust" => Ok(Language::Rust),
             "typescript" => Ok(Language::TypeScript),
@@ -95,6 +100,7 @@ impl Display for Language {
             Language::Elm => f.write_str("elm"),
             Language::Haskell => f.write_str("haskell"),
             Language::JavaScript => f.write_str("javascript"),
+            Language::Php => f.write_str("php"),
             Language::Ruby => f.write_str("ruby"),
             Language::Rust => f.write_str("rust"),
             Language::TypeScript => f.write_str("typescript"),
@@ -142,6 +148,7 @@ extern "C" {
     fn tree_sitter_elm() -> tree_sitter::Language;
     fn tree_sitter_haskell() -> tree_sitter::Language;
     fn tree_sitter_javascript() -> tree_sitter::Language;
+    fn tree_sitter_php() -> tree_sitter::Language;
     fn tree_sitter_ruby() -> tree_sitter::Language;
     fn tree_sitter_rust() -> tree_sitter::Language;
     fn tree_sitter_typescript() -> tree_sitter::Language;

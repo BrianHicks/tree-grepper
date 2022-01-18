@@ -15,10 +15,11 @@ update_subtree() {
 }
 
 update_subtree tree-sitter-cpp https://github.com/tree-sitter/tree-sitter-cpp
-update_subtree tree-sitter-elixir https://github.com/elixir-lang/tree-sitter-elixir
+update_subtree tree-sitter-elixir https://github.com/elixir-lang/tree-sitter-elixir main
 update_subtree tree-sitter-elm https://github.com/elm-tooling/tree-sitter-elm main
 update_subtree tree-sitter-haskell https://github.com/tree-sitter/tree-sitter-haskell
 update_subtree tree-sitter-javascript https://github.com/tree-sitter/tree-sitter-javascript
+update_subtree tree-sitter-php https://github.com/tree-sitter/tree-sitter-php
 update_subtree tree-sitter-ruby https://github.com/tree-sitter/tree-sitter-ruby
 update_subtree tree-sitter-rust https://github.com/tree-sitter/tree-sitter-rust
 update_subtree tree-sitter-typescript https://github.com/tree-sitter/tree-sitter-typescript
