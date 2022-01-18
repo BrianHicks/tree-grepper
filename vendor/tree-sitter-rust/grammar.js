@@ -481,6 +481,7 @@ module.exports = grammar({
     associated_type: $ => seq(
       'type',
       field('name', $._type_identifier),
+      field('type_parameters', optional($.type_parameters)),
       field('bounds', optional($.trait_bounds)),
       ';'
     ),
@@ -786,6 +787,7 @@ module.exports = grammar({
 
     type_binding: $ => seq(
       field('name', $._type_identifier),
+      field('type_arguments', optional($.type_arguments)),
       '=',
       field('type', $._type)
     ),
@@ -829,7 +831,7 @@ module.exports = grammar({
 
     // Section - Expressions
 
-    _expression: $ => choice(
+    _expression_except_range: $ => choice(
       $.unary_expression,
       $.reference_expression,
       $.try_expression,
@@ -837,9 +839,9 @@ module.exports = grammar({
       $.assignment_expression,
       $.compound_assignment_expr,
       $.type_cast_expression,
-      $.range_expression,
       $.call_expression,
       $.return_expression,
+      $.yield_expression,
       $._literal,
       prec.left($.identifier),
       alias(choice(...primitive_types), $.identifier),
@@ -853,14 +855,19 @@ module.exports = grammar({
       $.tuple_expression,
       prec(1, $.macro_invocation),
       $.unit_expression,
-      $._expression_ending_with_block,
       $.break_expression,
       $.continue_expression,
       $.index_expression,
       $.metavariable,
       $.closure_expression,
       $.parenthesized_expression,
-      $.struct_expression
+      $.struct_expression,
+      $._expression_ending_with_block,
+    ),
+
+    _expression: $ => choice(
+      $._expression_except_range,
+      $.range_expression,
     ),
 
     _expression_ending_with_block: $ => choice(
@@ -918,10 +925,7 @@ module.exports = grammar({
     ),
 
     range_expression: $ => prec.left(PREC.range, choice(
-      prec.left(
-        PREC.range + 1,
-        seq($._expression, choice('..', '...', '..='), $._expression)
-      ),
+      seq($._expression, choice('..', '...', '..='), $._expression),
       seq($._expression, '..'),
       seq('..', $._expression),
       '..'
@@ -986,8 +990,13 @@ module.exports = grammar({
       prec(-1, 'return'),
     ),
 
+    yield_expression: $ => choice(
+      prec.left(seq('yield', $._expression)),
+      prec(-1, 'yield'),
+    ),
+
     call_expression: $ => prec(PREC.call, seq(
-      field('function', $._expression),
+      field('function', $._expression_except_range),
       field('arguments', $.arguments)
     )),
 
@@ -1450,7 +1459,7 @@ module.exports = grammar({
     self: $ => 'self',
     super: $ => 'super',
     crate: $ => 'crate',
-    
+
     metavariable: $ => /\$[a-zA-Z_]\w*/
   }
 })

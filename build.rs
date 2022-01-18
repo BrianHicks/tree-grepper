@@ -72,8 +72,7 @@ fn main() {
     cc::Build::new()
         .include(&haskell_dir)
         .warnings(false)
-        .cpp(true)
-        .file(haskell_dir.join("scanner.cc"))
+        .file(haskell_dir.join("scanner.c"))
         .compile("tree_sitter_haskell_scanner");
 
     // javascript
