@@ -1,9 +1,185 @@
 ---
 source: src/main.rs
+assertion_line: 278
 expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=pretty-json\",\n       \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-haskell\"])"
 
 ---
 [
+  {
+    "file": "vendor/tree-sitter-haskell/test/Basic.hs",
+    "file_type": "haskell",
+    "matches": [
+      {
+        "kind": "haskell",
+        "name": "query",
+        "text": "a = 1\nb = 2\nc = 3\n",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 4,
+          "column": 1
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "a = 1",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 1,
+          "column": 6
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 1,
+          "column": 2
+        }
+      },
+      {
+        "kind": "exp_literal",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 1,
+          "column": 5
+        },
+        "end": {
+          "row": 1,
+          "column": 6
+        }
+      },
+      {
+        "kind": "integer",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 1,
+          "column": 5
+        },
+        "end": {
+          "row": 1,
+          "column": 6
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "b = 2",
+        "start": {
+          "row": 2,
+          "column": 1
+        },
+        "end": {
+          "row": 2,
+          "column": 6
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "b",
+        "start": {
+          "row": 2,
+          "column": 1
+        },
+        "end": {
+          "row": 2,
+          "column": 2
+        }
+      },
+      {
+        "kind": "exp_literal",
+        "name": "query",
+        "text": "2",
+        "start": {
+          "row": 2,
+          "column": 5
+        },
+        "end": {
+          "row": 2,
+          "column": 6
+        }
+      },
+      {
+        "kind": "integer",
+        "name": "query",
+        "text": "2",
+        "start": {
+          "row": 2,
+          "column": 5
+        },
+        "end": {
+          "row": 2,
+          "column": 6
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "c = 3",
+        "start": {
+          "row": 3,
+          "column": 1
+        },
+        "end": {
+          "row": 3,
+          "column": 6
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "c",
+        "start": {
+          "row": 3,
+          "column": 1
+        },
+        "end": {
+          "row": 3,
+          "column": 2
+        }
+      },
+      {
+        "kind": "exp_literal",
+        "name": "query",
+        "text": "3",
+        "start": {
+          "row": 3,
+          "column": 5
+        },
+        "end": {
+          "row": 3,
+          "column": 6
+        }
+      },
+      {
+        "kind": "integer",
+        "name": "query",
+        "text": "3",
+        "start": {
+          "row": 3,
+          "column": 5
+        },
+        "end": {
+          "row": 3,
+          "column": 6
+        }
+      }
+    ]
+  },
   {
     "file": "vendor/tree-sitter-haskell/test/edit/Test.hs",
     "file_type": "haskell",
