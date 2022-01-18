@@ -1,0 +1,916 @@
+---
+source: src/main.rs
+expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=pretty-json\",\n       \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-haskell\"])"
+
+---
+[
+  {
+    "file": "vendor/tree-sitter-haskell/test/edit/Test.hs",
+    "file_type": "haskell",
+    "matches": [
+      {
+        "kind": "haskell",
+        "name": "query",
+        "text": "module A where\n\ndata Foo a =\n  Foo\n  deriving (Eq)\n  deriving (Show)\n",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 7,
+          "column": 1
+        }
+      },
+      {
+        "kind": "module",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 1,
+          "column": 8
+        },
+        "end": {
+          "row": 1,
+          "column": 9
+        }
+      },
+      {
+        "kind": "where",
+        "name": "query",
+        "text": "where",
+        "start": {
+          "row": 1,
+          "column": 10
+        },
+        "end": {
+          "row": 1,
+          "column": 15
+        }
+      },
+      {
+        "kind": "adt",
+        "name": "query",
+        "text": "data Foo a =\n  Foo\n  deriving (Eq)\n  deriving (Show)",
+        "start": {
+          "row": 3,
+          "column": 1
+        },
+        "end": {
+          "row": 6,
+          "column": 18
+        }
+      },
+      {
+        "kind": "type",
+        "name": "query",
+        "text": "Foo",
+        "start": {
+          "row": 3,
+          "column": 6
+        },
+        "end": {
+          "row": 3,
+          "column": 9
+        }
+      },
+      {
+        "kind": "type_variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 3,
+          "column": 10
+        },
+        "end": {
+          "row": 3,
+          "column": 11
+        }
+      },
+      {
+        "kind": "constructors",
+        "name": "query",
+        "text": "Foo",
+        "start": {
+          "row": 4,
+          "column": 3
+        },
+        "end": {
+          "row": 4,
+          "column": 6
+        }
+      },
+      {
+        "kind": "data_constructor",
+        "name": "query",
+        "text": "Foo",
+        "start": {
+          "row": 4,
+          "column": 3
+        },
+        "end": {
+          "row": 4,
+          "column": 6
+        }
+      },
+      {
+        "kind": "constructor",
+        "name": "query",
+        "text": "Foo",
+        "start": {
+          "row": 4,
+          "column": 3
+        },
+        "end": {
+          "row": 4,
+          "column": 6
+        }
+      },
+      {
+        "kind": "deriving",
+        "name": "query",
+        "text": "deriving (Eq)",
+        "start": {
+          "row": 5,
+          "column": 3
+        },
+        "end": {
+          "row": 5,
+          "column": 16
+        }
+      },
+      {
+        "kind": "constraint",
+        "name": "query",
+        "text": "Eq",
+        "start": {
+          "row": 5,
+          "column": 13
+        },
+        "end": {
+          "row": 5,
+          "column": 15
+        }
+      },
+      {
+        "kind": "class_name",
+        "name": "query",
+        "text": "Eq",
+        "start": {
+          "row": 5,
+          "column": 13
+        },
+        "end": {
+          "row": 5,
+          "column": 15
+        }
+      },
+      {
+        "kind": "type",
+        "name": "query",
+        "text": "Eq",
+        "start": {
+          "row": 5,
+          "column": 13
+        },
+        "end": {
+          "row": 5,
+          "column": 15
+        }
+      },
+      {
+        "kind": "deriving",
+        "name": "query",
+        "text": "deriving (Show)",
+        "start": {
+          "row": 6,
+          "column": 3
+        },
+        "end": {
+          "row": 6,
+          "column": 18
+        }
+      },
+      {
+        "kind": "constraint",
+        "name": "query",
+        "text": "Show",
+        "start": {
+          "row": 6,
+          "column": 13
+        },
+        "end": {
+          "row": 6,
+          "column": 17
+        }
+      },
+      {
+        "kind": "class_name",
+        "name": "query",
+        "text": "Show",
+        "start": {
+          "row": 6,
+          "column": 13
+        },
+        "end": {
+          "row": 6,
+          "column": 17
+        }
+      },
+      {
+        "kind": "type",
+        "name": "query",
+        "text": "Show",
+        "start": {
+          "row": 6,
+          "column": 13
+        },
+        "end": {
+          "row": 6,
+          "column": 17
+        }
+      }
+    ]
+  },
+  {
+    "file": "vendor/tree-sitter-haskell/test/highlight/Basic.hs",
+    "file_type": "haskell",
+    "matches": [
+      {
+        "kind": "haskell",
+        "name": "query",
+        "text": "module A where\n\ndata A a = A a\n\nclass C a where\n\na :: C a => A a -> A a\na (A a) =\n  A a\n",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 10,
+          "column": 1
+        }
+      },
+      {
+        "kind": "module",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 1,
+          "column": 8
+        },
+        "end": {
+          "row": 1,
+          "column": 9
+        }
+      },
+      {
+        "kind": "where",
+        "name": "query",
+        "text": "where",
+        "start": {
+          "row": 1,
+          "column": 10
+        },
+        "end": {
+          "row": 1,
+          "column": 15
+        }
+      },
+      {
+        "kind": "adt",
+        "name": "query",
+        "text": "data A a = A a",
+        "start": {
+          "row": 3,
+          "column": 1
+        },
+        "end": {
+          "row": 3,
+          "column": 15
+        }
+      },
+      {
+        "kind": "type",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 3,
+          "column": 6
+        },
+        "end": {
+          "row": 3,
+          "column": 7
+        }
+      },
+      {
+        "kind": "type_variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 3,
+          "column": 8
+        },
+        "end": {
+          "row": 3,
+          "column": 9
+        }
+      },
+      {
+        "kind": "constructors",
+        "name": "query",
+        "text": "A a",
+        "start": {
+          "row": 3,
+          "column": 12
+        },
+        "end": {
+          "row": 3,
+          "column": 15
+        }
+      },
+      {
+        "kind": "data_constructor",
+        "name": "query",
+        "text": "A a",
+        "start": {
+          "row": 3,
+          "column": 12
+        },
+        "end": {
+          "row": 3,
+          "column": 15
+        }
+      },
+      {
+        "kind": "constructor",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 3,
+          "column": 12
+        },
+        "end": {
+          "row": 3,
+          "column": 13
+        }
+      },
+      {
+        "kind": "type_name",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 3,
+          "column": 14
+        },
+        "end": {
+          "row": 3,
+          "column": 15
+        }
+      },
+      {
+        "kind": "type_variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 3,
+          "column": 14
+        },
+        "end": {
+          "row": 3,
+          "column": 15
+        }
+      },
+      {
+        "kind": "class",
+        "name": "query",
+        "text": "class C a where",
+        "start": {
+          "row": 5,
+          "column": 1
+        },
+        "end": {
+          "row": 5,
+          "column": 16
+        }
+      },
+      {
+        "kind": "class_head",
+        "name": "query",
+        "text": "C a",
+        "start": {
+          "row": 5,
+          "column": 7
+        },
+        "end": {
+          "row": 5,
+          "column": 10
+        }
+      },
+      {
+        "kind": "class_name",
+        "name": "query",
+        "text": "C",
+        "start": {
+          "row": 5,
+          "column": 7
+        },
+        "end": {
+          "row": 5,
+          "column": 8
+        }
+      },
+      {
+        "kind": "type",
+        "name": "query",
+        "text": "C",
+        "start": {
+          "row": 5,
+          "column": 7
+        },
+        "end": {
+          "row": 5,
+          "column": 8
+        }
+      },
+      {
+        "kind": "type_name",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 5,
+          "column": 9
+        },
+        "end": {
+          "row": 5,
+          "column": 10
+        }
+      },
+      {
+        "kind": "type_variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 5,
+          "column": 9
+        },
+        "end": {
+          "row": 5,
+          "column": 10
+        }
+      },
+      {
+        "kind": "class_body",
+        "name": "query",
+        "text": "where",
+        "start": {
+          "row": 5,
+          "column": 11
+        },
+        "end": {
+          "row": 5,
+          "column": 16
+        }
+      },
+      {
+        "kind": "where",
+        "name": "query",
+        "text": "where",
+        "start": {
+          "row": 5,
+          "column": 11
+        },
+        "end": {
+          "row": 5,
+          "column": 16
+        }
+      },
+      {
+        "kind": "signature",
+        "name": "query",
+        "text": "a :: C a => A a -> A a",
+        "start": {
+          "row": 7,
+          "column": 1
+        },
+        "end": {
+          "row": 7,
+          "column": 23
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 7,
+          "column": 1
+        },
+        "end": {
+          "row": 7,
+          "column": 2
+        }
+      },
+      {
+        "kind": "context",
+        "name": "query",
+        "text": "C a => A a -> A a",
+        "start": {
+          "row": 7,
+          "column": 6
+        },
+        "end": {
+          "row": 7,
+          "column": 23
+        }
+      },
+      {
+        "kind": "constraint",
+        "name": "query",
+        "text": "C a",
+        "start": {
+          "row": 7,
+          "column": 6
+        },
+        "end": {
+          "row": 7,
+          "column": 9
+        }
+      },
+      {
+        "kind": "class_name",
+        "name": "query",
+        "text": "C",
+        "start": {
+          "row": 7,
+          "column": 6
+        },
+        "end": {
+          "row": 7,
+          "column": 7
+        }
+      },
+      {
+        "kind": "type",
+        "name": "query",
+        "text": "C",
+        "start": {
+          "row": 7,
+          "column": 6
+        },
+        "end": {
+          "row": 7,
+          "column": 7
+        }
+      },
+      {
+        "kind": "type_name",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 7,
+          "column": 8
+        },
+        "end": {
+          "row": 7,
+          "column": 9
+        }
+      },
+      {
+        "kind": "type_variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 7,
+          "column": 8
+        },
+        "end": {
+          "row": 7,
+          "column": 9
+        }
+      },
+      {
+        "kind": "fun",
+        "name": "query",
+        "text": "A a -> A a",
+        "start": {
+          "row": 7,
+          "column": 13
+        },
+        "end": {
+          "row": 7,
+          "column": 23
+        }
+      },
+      {
+        "kind": "type_apply",
+        "name": "query",
+        "text": "A a",
+        "start": {
+          "row": 7,
+          "column": 13
+        },
+        "end": {
+          "row": 7,
+          "column": 16
+        }
+      },
+      {
+        "kind": "type_name",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 7,
+          "column": 13
+        },
+        "end": {
+          "row": 7,
+          "column": 14
+        }
+      },
+      {
+        "kind": "type",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 7,
+          "column": 13
+        },
+        "end": {
+          "row": 7,
+          "column": 14
+        }
+      },
+      {
+        "kind": "type_name",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 7,
+          "column": 15
+        },
+        "end": {
+          "row": 7,
+          "column": 16
+        }
+      },
+      {
+        "kind": "type_variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 7,
+          "column": 15
+        },
+        "end": {
+          "row": 7,
+          "column": 16
+        }
+      },
+      {
+        "kind": "type_apply",
+        "name": "query",
+        "text": "A a",
+        "start": {
+          "row": 7,
+          "column": 20
+        },
+        "end": {
+          "row": 7,
+          "column": 23
+        }
+      },
+      {
+        "kind": "type_name",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 7,
+          "column": 20
+        },
+        "end": {
+          "row": 7,
+          "column": 21
+        }
+      },
+      {
+        "kind": "type",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 7,
+          "column": 20
+        },
+        "end": {
+          "row": 7,
+          "column": 21
+        }
+      },
+      {
+        "kind": "type_name",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 7,
+          "column": 22
+        },
+        "end": {
+          "row": 7,
+          "column": 23
+        }
+      },
+      {
+        "kind": "type_variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 7,
+          "column": 22
+        },
+        "end": {
+          "row": 7,
+          "column": 23
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "a (A a) =\n  A a",
+        "start": {
+          "row": 8,
+          "column": 1
+        },
+        "end": {
+          "row": 9,
+          "column": 6
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 8,
+          "column": 1
+        },
+        "end": {
+          "row": 8,
+          "column": 2
+        }
+      },
+      {
+        "kind": "patterns",
+        "name": "query",
+        "text": "(A a)",
+        "start": {
+          "row": 8,
+          "column": 3
+        },
+        "end": {
+          "row": 8,
+          "column": 8
+        }
+      },
+      {
+        "kind": "pat_parens",
+        "name": "query",
+        "text": "(A a)",
+        "start": {
+          "row": 8,
+          "column": 3
+        },
+        "end": {
+          "row": 8,
+          "column": 8
+        }
+      },
+      {
+        "kind": "pat_apply",
+        "name": "query",
+        "text": "A a",
+        "start": {
+          "row": 8,
+          "column": 4
+        },
+        "end": {
+          "row": 8,
+          "column": 7
+        }
+      },
+      {
+        "kind": "pat_name",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 8,
+          "column": 4
+        },
+        "end": {
+          "row": 8,
+          "column": 5
+        }
+      },
+      {
+        "kind": "constructor",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 8,
+          "column": 4
+        },
+        "end": {
+          "row": 8,
+          "column": 5
+        }
+      },
+      {
+        "kind": "pat_name",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 8,
+          "column": 6
+        },
+        "end": {
+          "row": 8,
+          "column": 7
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 8,
+          "column": 6
+        },
+        "end": {
+          "row": 8,
+          "column": 7
+        }
+      },
+      {
+        "kind": "exp_apply",
+        "name": "query",
+        "text": "A a",
+        "start": {
+          "row": 9,
+          "column": 3
+        },
+        "end": {
+          "row": 9,
+          "column": 6
+        }
+      },
+      {
+        "kind": "exp_name",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 9,
+          "column": 3
+        },
+        "end": {
+          "row": 9,
+          "column": 4
+        }
+      },
+      {
+        "kind": "constructor",
+        "name": "query",
+        "text": "A",
+        "start": {
+          "row": 9,
+          "column": 3
+        },
+        "end": {
+          "row": 9,
+          "column": 4
+        }
+      },
+      {
+        "kind": "exp_name",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 9,
+          "column": 5
+        },
+        "end": {
+          "row": 9,
+          "column": 6
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 9,
+          "column": 5
+        },
+        "end": {
+          "row": 9,
+          "column": 6
+        }
+      }
+    ]
+  }
+]

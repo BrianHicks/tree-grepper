@@ -1,232 +1,82 @@
-# tree-sitter-haskell
+# tree-grepper
 
-[![Test the grammar](https://github.com/tree-sitter/tree-sitter-haskell/actions/workflows/test.yml/badge.svg)](https://github.com/tree-sitter/tree-sitter-haskell/actions/workflows/test.yml)
+Works like `grep`, but uses `tree-sitter` to search for structure instead of strings.
+[Here's a longer introduction to the tool as a blog post](https://bytes.zone/posts/tree-grepper/).
 
-Haskell grammar for [tree-sitter].
+## Installing
 
-**Note** This grammar needs at least tree-sitter `0.19.4` and C++-14.
+Use [`nix`](https://nixos.org/download.html) to install:
 
-# References
-
-* [Haskell 2010 Language Report – Syntax References](ref)
-* [GHC Language Extensions](ext)
-
-# Building with nvim-treesitter
-
-When installing the grammar from source, be sure to include the scanner in the source files:
-
-```vim
-lua <<EOF
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.haskell = {
-  install_info = {
-    url = "~/path/to/tree-sitter-haskell",
-    files = {"src/parser.c", "src/scanner.cc"}
-  }
-}
-EOF
+```
+cachix use tree-grepper # if you have cachix installed installed
+nix-env -if https://github.com/BrianHicks/tree-grepper/archive/refs/heads/main.tar.gz
 ```
 
-Depending on what compilers are installed in your system, it may be necessary to force `nvim-treesitter` to use a
-specific one to satisfy the C++-14 requirement (see
-[this issue](https://github.com/tree-sitter/tree-sitter-haskell/issues/34) for more info):
+If you have a Rust toolchain set up, you can also clone this repo and run `cargo build`.
 
-```vim
-lua require'nvim-treesitter.install'.compilers = { "clang" }
-" or
-lua require'nvim-treesitter.install'.compilers = { "clang++" }
+## Usage
+
+Use it like `grep` (or really, more like `ack`/`ag`/`pt`/`rg`.)
+
+```sh
+$ tree-grepper -q elm '(import_clause (import) (upper_case_qid)@name)'
+./src/Main.elm:4:7:name:Browser
+./src/Main.elm:6:7:name:Html
+./src/Main.elm:8:7:name:Html.Events
+...
 ```
 
-or
+By default, `tree-grepper` will output one match per (newline-delimited) line.
+The columns here are filename, row, column, match name, and match text.
 
-```vim
-lua require'nvim-treesitter.install'.compilers = { "gcc" }
+Note, however, that if your query includes a match with newlines in the text they will be included in the output!
+If this causes problems for your use case, try asking for JSON output (`-f json`) instead.
+
+`tree-grepper` uses Tree-sitter's s-expressions to find matches.
+See [the tree-sitter docs on queries](https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries) for what all you can do there.
+
+We add one important thing on top of the standard query stuff (including `#eq?` and `#match?`): if you name a pattern starting with an underscore, it will not be returned in the output.
+This is primarily useful for filtering out matches you don't really care about.
+For example, to match JavaScript calls to `require` but not other functions, you could do this:
+
+```
+(call_expression (identifier)@_fn (arguments . (string)@import .) (#eq? @_fn require))
 ```
 
-## Building on MacOS
+In addition to text output, we support JSON output for scripting: just  specify `-f json`.
+You also get more info (the match's end location and node kind) by asking for JSON output.
+This is handy for discovery: if you want to see the node names for your target language, try something like `tree-grepper -q rust '(_)' -f json`, replacing `rust` with the language of your choice.
 
-If you get loads of C++ errors when building the parser, a workaround might be to install GCC with `homebrew`, in
-addition to selecting `gcc` as the compiler used by tree-sitter, as described for Neovim in the previous section.
+## Supported Languages
 
-First, run this command in a terminal:
+- C++
+- Elixir
+- Elm
+- Haskell
+- JavaScript
+- PHP
+- Ruby
+- Rust
+- TypeScript
 
-```shell
-$ brew install gcc
-```
+... and your favorite?
+We're open to PRs for adding whatever language you'd like!
 
-This may not be enough, since `clang` might still be used by default.
-You can find out whether the `gcc` executable is linked to something else with:
+For development, there's a nix-shell setup that'll get you everything you need.
+Set up [nix](https://nixos.org/download.html) (just Nix, not NixOS) and then run `nix-shell` in the root of this repository.
 
-```shell
-$ ls -l $(which gcc)
-```
+After that, you just need to add a tree-sitter grammar to the project.
+[The tree-sitter project keeps an up-to-date list](https://tree-sitter.github.io/tree-sitter/), so you may not even need to write your own!
 
-If this doesn't point to something like `gcc-11`, you can remove it (if it is a symlink) and/or link the real `gcc-N`
-binary to a `bin` directory that's at the head of your `$PATH`, something like:
+1. Add your grammar as a subtree to this repo: `git subtree add --squash --prefix vendor/tree-sitter-LANGUAGE https://github.com/ORG/tree-sitter-LANG BRANCH` (where `BRANCH` is whatever main branch the project uses)
+   Add the update command to [`script/update-subtrees.sh`](./script/update-subtrees.sh) as well!
+2. Set up compilation in [`build.rs`](./build.rs) by following the pattern there.
+3. Set up a new target in [`src/language.rs`](./src/language.rs) by following the patterns there.
+4. Add a test like `all_LANG` in [`src/main.rs`](./src/main.rs)
+5. Try to run with insta: `cargo insta test` and then `cargo insta review`.
+   If the output looks right, open a PR!
+6. Add the language to the list of supported languages in this readme.
 
-```shell
-ln -sf /opt/homebrew/bin/gcc-11 /usr/local/bin/gcc
-```
-or this for earlier versions of homebrew.
-```shell
-ln -sf /usr/local/bin/gcc-11 /usr/local/bin/gcc
-```
+## License
 
-# Supported Language Extensions
-
-These extensions are supported ✅, unsupported ❌ or not applicable because they don't involve parsing ➖️:
-
-* AllowAmbiguousTypes ➖️
-* ApplicativeDo ➖️
-* Arrows ❌
-* BangPatterns ✅
-* BinaryLiterals ✅
-* BlockArguments ✅
-* CApiFFI ✅
-* ConstrainedClassMethods ✅
-* ConstraintKinds ✅
-* CPP ✅
-* CUSKs ✅
-* DataKinds ✅
-* DatatypeContexts ✅
-* DefaultSignatures ✅
-* DeriveAnyClass ➖️
-* DeriveDataTypeable ➖️
-* DeriveFoldable ➖️
-* DeriveFunctor ➖️
-* DeriveGeneric ➖️
-* DeriveLift ➖️
-* DeriveTraversable ➖️
-* DerivingStrategies ✅
-* DerivingVia ✅
-* DisambiguateRecordFields ➖️
-* DuplicateRecordFields ➖️
-* EmptyCase ✅
-* EmptyDataDecls ✅
-* EmptyDataDeriving ✅
-* ExistentialQuantification ✅
-* ExplicitForAll ✅
-* ExplicitNamespaces ✅
-* ExtendedDefaultRules ➖️
-* FlexibleContexts ✅
-* FlexibleInstances ✅
-* ForeignFunctionInterface ✅
-* FunctionalDependencies ✅
-* GADTs ✅
-* GADTSyntax ✅
-* GeneralisedNewtypeDeriving ➖️
-* GHCForeignImportPrim ✅
-* Haskell2010 ➖️
-* Haskell98 ➖️
-* HexFloatLiterals ✅
-* ImplicitParams ✅
-* ImplicitPrelude ➖️
-* ImportQualifiedPost ✅
-* ImpredicativeTypes ➖️
-* IncoherentInstances ➖️
-* InstanceSigs ✅
-* InterruptibleFFI ✅
-* KindSignatures ✅
-* LambdaCase ✅
-* LexicalNegation ❌
-* LiberalTypeSynonyms ✅
-* LinearTypes ✅
-* MagicHash ✅
-* Modifiers ❌
-* MonadComprehensions ➖️
-* MonadFailDesugaring ➖️
-* MonoLocalBinds ➖️
-* MonomorphismRestriction ➖️
-* MultiParamTypeClasses ✅
-* MultiWayIf ✅
-* NamedFieldPuns ✅
-* NamedWildCards ✅
-* NegativeLiterals ➖️
-* NondecreasingIndentation ❌
-* NPlusKPatterns ➖️
-* NullaryTypeClasses ✅
-* NumDecimals ➖️
-* NumericUnderscores ✅
-* OverlappingInstances ➖️
-* OverloadedLabels ✅
-* OverloadedLists ➖️
-* OverloadedStrings ➖️
-* PackageImports ✅
-* ParallelListComp ✅
-* PartialTypeSignatures ✅
-* PatternGuards ✅
-* PatternSynonyms ✅
-* PolyKinds ➖️
-* PostfixOperators ➖️
-* QualifiedDo ✅
-* QuantifiedConstraints ✅
-* QuasiQuotes ✅
-* Rank2Types ✅
-* RankNTypes ✅
-* RebindableSyntax ➖️
-* RecordWildCards ➖️
-* RecursiveDo ✅
-* RoleAnnotations ✅
-* Safe ➖️
-* ScopedTypeVariables ✅
-* StandaloneDeriving ✅
-* StandaloneKindSignatures ✅
-* StarIsType ✅
-* StaticPointers ❌
-* Strict ➖️
-* StrictData ➖️
-* TemplateHaskell ✅
-* TemplateHaskellQuotes ✅
-* TraditionalRecordSyntax ➖️
-* TransformListComp ✅
-* Trustworthy ➖️
-* TupleSections ✅
-* TypeApplications ✅
-* TypeFamilies ✅
-* TypeFamilyDependencies ✅
-* TypeInType ✅
-* TypeOperators ✅
-* TypeSynonymInstances ➖️
-* UnboxedSums ✅
-* UnboxedTuples ✅
-* UndecidableInstances ➖️
-* UndecidableSuperClasses ➖️
-* UnicodeSyntax ✅
-* UnliftedFFITypes ➖️
-* UnliftedNewtypes ✅
-* Unsafe ➖️
-* ViewPatterns ✅
-
-# Bugs
-
-## CPP
-
-Preprocessor `#elif` and `#else` directives cannot be handled correctly, since the parser state would have to be
-manually reset to what it was at the `#if`.
-As a workaround, the code blocks in the alternative branches are parsed as part of the directives.
-
-## Layout
-
-`NondecreasingIndentation` is not supported (yet?).
-
-### Operators on newlines in `do`
-
-A strange edge case is when an infix operator follows an expression statement of a do block with an indent of less or equal the `do`'s layout column:
-
-```haskell
-f = do
-  readSomething
-  >>= doSomething
-```
-
-The `>>=` causes the `do`'s layout to be terminated, resulting in an AST similar to
-
-```haskell
-f = (do readSomething) >>= doSomething
-```
-
-This is checked heuristically, probably unreliably.
-
-[tree-sitter]: https://github.com/tree-sitter/tree-sitter
-[ref]: https://www.haskell.org/onlinereport/haskell2010/haskellch10.html
-[ext]: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/exts/table.html
+See [LICENSE](./LICENSE) in the source.
