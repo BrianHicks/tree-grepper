@@ -8,7 +8,7 @@ Works like `grep`, but uses `tree-sitter` to search for structure instead of str
 Use [`nix`](https://nixos.org/download.html) to install:
 
 ```
-cachix use tree-grepper # if you have cachix installed installed
+cachix use tree-grepper # if you have cachix installed
 nix-env -if https://github.com/BrianHicks/tree-grepper/archive/refs/heads/main.tar.gz
 ```
 
