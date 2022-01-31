@@ -1,6 +1,0 @@
----
-source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"-f\", \"json\", \"--sort\",\n       \"--no-gitignore\", \"vendor/tree-sitter-elm/examples\"])"
-
----
-[{"file":"vendor/tree-sitter-elm/examples/basic.elm","file_type":"elm","matches":[{"kind":"import_clause","name":"query","text":"import Browser","start":{"row":3,"column":1},"end":{"row":3,"column":15}},{"kind":"import_clause","name":"query","text":"import Html exposing (Html, button, div, text)","start":{"row":4,"column":1},"end":{"row":4,"column":47}},{"kind":"import_clause","name":"query","text":"import Html.Events exposing (onClick)","start":{"row":5,"column":1},"end":{"row":5,"column":38}}]}]
