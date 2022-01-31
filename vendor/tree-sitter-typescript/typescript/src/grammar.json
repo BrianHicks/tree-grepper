@@ -207,6 +207,10 @@
             {
               "type": "SYMBOL",
               "name": "export_clause"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_semicolon"
             }
           ]
         },
@@ -223,7 +227,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "identifier"
+              "name": "expression"
             },
             {
               "type": "SYMBOL",
@@ -8345,14 +8349,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "union_type"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "intersection_type"
-        },
-        {
-          "type": "SYMBOL",
           "name": "function_type"
         },
         {
@@ -8609,6 +8605,14 @@
         {
           "type": "SYMBOL",
           "name": "template_literal_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "intersection_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "union_type"
         }
       ]
     },

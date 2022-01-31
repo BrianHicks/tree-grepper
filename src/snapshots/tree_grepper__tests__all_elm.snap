@@ -1,5 +1,6 @@
 ---
 source: src/main.rs
+assertion_line: 264
 expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"--no-gitignore\", \"vendor/tree-sitter-elm/examples\"])"
 
 ---
@@ -5592,25 +5593,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "ERROR",
+        "kind": "upper_case_identifier",
         "name": "query",
-        "text": "N",
+        "text": "Nothing",
         "start": {
           "row": 44,
           "column": 141
-        },
-        "end": {
-          "row": 44,
-          "column": 142
-        }
-      },
-      {
-        "kind": "lower_case_identifier",
-        "name": "query",
-        "text": "othing",
-        "start": {
-          "row": 44,
-          "column": 142
         },
         "end": {
           "row": 44,
@@ -5644,25 +5632,12 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "ERROR",
+        "kind": "upper_case_identifier",
         "name": "query",
-        "text": "N",
+        "text": "Nothing",
         "start": {
           "row": 47,
           "column": 133
-        },
-        "end": {
-          "row": 47,
-          "column": 134
-        }
-      },
-      {
-        "kind": "lower_case_identifier",
-        "name": "query",
-        "text": "othing",
-        "start": {
-          "row": 47,
-          "column": 134
         },
         "end": {
           "row": 47,
