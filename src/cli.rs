@@ -2,7 +2,7 @@ use crate::extractor::Extractor;
 use crate::extractor_chooser::ExtractorChooser;
 use crate::language::Language;
 use anyhow::{bail, Context, Error, Result};
-use clap::{crate_authors, crate_version, App, Arg, ArgMatches};
+use clap::{crate_authors, crate_version, Arg, ArgMatches, Command};
 use itertools::Itertools;
 use std::collections::HashMap;
 use std::path::PathBuf;
@@ -41,7 +41,7 @@ impl Invocation {
         // Check
         // https://users.rust-lang.org/t/grep-like-argument-parsing-with-clap/63392
         // for where I asked about this in public.
-        let matches = App::new("tree-grepper")
+        let matches = Command::new("tree-grepper")
             .version(crate_version!())
             .author(crate_authors!())
             .arg(
