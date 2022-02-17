@@ -20,4 +20,4 @@ tree-sitter = "0.20.4"
 insta = "1.12.0"
 
 [build-dependencies]
-cc = { version = "1.0.72", features = [ "parallel" ] }
+cc = { version = "1.0.73", features = [ "parallel" ] }
