@@ -1,5 +1,6 @@
 ---
 source: src/main.rs
+assertion_line: 339
 expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"--no-gitignore\", \"vendor/tree-sitter-rust/examples\"])"
 
 ---
@@ -5560,6 +5561,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if !self.is_global() {\n            let ident = self.segments[0].identifier;\n            if !::parse::token::Ident(ident).is_path_segment_keyword() ||\n               ident.name == keywords::Crate.name() {\n                self.segments.insert(0, PathSegment::crate_root(self.span));\n            }\n        }",
+        "start": {
+          "row": 102,
+          "column": 9
+        },
+        "end": {
+          "row": 108,
+          "column": 10
+        }
+      },
+      {
         "kind": "if_expression",
         "name": "query",
         "text": "if !self.is_global() {\n            let ident = self.segments[0].identifier;\n            if !::parse::token::Ident(ident).is_path_segment_keyword() ||\n               ident.name == keywords::Crate.name() {\n                self.segments.insert(0, PathSegment::crate_root(self.span));\n            }\n        }",
@@ -5778,6 +5792,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 103,
           "column": 52
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if !::parse::token::Ident(ident).is_path_segment_keyword() ||\n               ident.name == keywords::Crate.name() {\n                self.segments.insert(0, PathSegment::crate_root(self.span));\n            }",
+        "start": {
+          "row": 104,
+          "column": 13
+        },
+        "end": {
+          "row": 107,
+          "column": 14
         }
       },
       {
@@ -6142,6 +6169,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 107,
           "column": 14
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "self.segments.insert(0, PathSegment::crate_root(self.span));",
+        "start": {
+          "row": 106,
+          "column": 17
+        },
+        "end": {
+          "row": 106,
+          "column": 77
         }
       },
       {
@@ -8898,6 +8938,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 166,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            AngleBracketed(ref data) => data.span,\n            Parenthesized(ref data) => data.span,\n        }",
+        "start": {
+          "row": 162,
+          "column": 9
+        },
+        "end": {
+          "row": 165,
+          "column": 10
         }
       },
       {
@@ -12070,6 +12123,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 216,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "assert!(x < (u32::MAX as usize));",
+        "start": {
+          "row": 214,
+          "column": 9
+        },
+        "end": {
+          "row": 214,
+          "column": 42
         }
       },
       {
@@ -17442,6 +17508,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            GenericParam::Lifetime(_) => true,\n            _ => false,\n        }",
+        "start": {
+          "row": 313,
+          "column": 9
+        },
+        "end": {
+          "row": 316,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match *self {\n            GenericParam::Lifetime(_) => true,\n            _ => false,\n        }",
@@ -17725,6 +17804,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 324,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            GenericParam::Type(_) => true,\n            _ => false,\n        }",
+        "start": {
+          "row": 320,
+          "column": 9
+        },
+        "end": {
+          "row": 323,
+          "column": 10
         }
       },
       {
@@ -19561,6 +19653,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "for param in &self.params {\n            if let GenericParam::Type(ref t) = *param {\n                if t.ident.name == name {\n                    return Some(t.span);\n                }\n            }\n        }",
+        "start": {
+          "row": 350,
+          "column": 9
+        },
+        "end": {
+          "row": 356,
+          "column": 10
+        }
+      },
+      {
         "kind": "for_expression",
         "name": "query",
         "text": "for param in &self.params {\n            if let GenericParam::Type(ref t) = *param {\n                if t.ident.name == name {\n                    return Some(t.span);\n                }\n            }\n        }",
@@ -19649,6 +19754,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 356,
           "column": 10
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if let GenericParam::Type(ref t) = *param {\n                if t.ident.name == name {\n                    return Some(t.span);\n                }\n            }",
+        "start": {
+          "row": 351,
+          "column": 13
+        },
+        "end": {
+          "row": 355,
+          "column": 14
         }
       },
       {
@@ -19782,6 +19900,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if t.ident.name == name {\n                    return Some(t.span);\n                }",
+        "start": {
+          "row": 352,
+          "column": 17
+        },
+        "end": {
+          "row": 354,
+          "column": 18
+        }
+      },
+      {
         "kind": "if_expression",
         "name": "query",
         "text": "if t.ident.name == name {\n                    return Some(t.span);\n                }",
@@ -19896,6 +20027,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 354,
           "column": 18
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "return Some(t.span);",
+        "start": {
+          "row": 353,
+          "column": 21
+        },
+        "end": {
+          "row": 353,
+          "column": 41
         }
       },
       {
@@ -29597,6 +29741,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "for pat in pats {\n                    tys.push(pat.to_ty()?);\n                }",
+        "start": {
+          "row": 527,
+          "column": 17
+        },
+        "end": {
+          "row": 529,
+          "column": 18
+        }
+      },
+      {
         "kind": "for_expression",
         "name": "query",
         "text": "for pat in pats {\n                    tys.push(pat.to_ty()?);\n                }",
@@ -29646,6 +29803,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 529,
           "column": 18
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "tys.push(pat.to_ty()?);",
+        "start": {
+          "row": 528,
+          "column": 21
+        },
+        "end": {
+          "row": 528,
+          "column": 44
         }
       },
       {
@@ -30520,6 +30690,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if !it(self) {\n            return false;\n        }",
+        "start": {
+          "row": 541,
+          "column": 9
+        },
+        "end": {
+          "row": 543,
+          "column": 10
+        }
+      },
+      {
         "kind": "if_expression",
         "name": "query",
         "text": "if !it(self) {\n            return false;\n        }",
@@ -30611,6 +30794,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "return false;",
+        "start": {
+          "row": 542,
+          "column": 13
+        },
+        "end": {
+          "row": 542,
+          "column": 26
+        }
+      },
+      {
         "kind": "return_expression",
         "name": "query",
         "text": "return false",
@@ -30634,6 +30830,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 542,
           "column": 25
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match self.node {\n            PatKind::Ident(_, _, Some(ref p)) => p.walk(it),\n            PatKind::Struct(_, ref fields, _) => {\n                fields.iter().all(|field| field.node.pat.walk(it))\n            }\n            PatKind::TupleStruct(_, ref s, _) | PatKind::Tuple(ref s, _) => {\n                s.iter().all(|p| p.walk(it))\n            }\n            PatKind::Box(ref s) | PatKind::Ref(ref s, _) => {\n                s.walk(it)\n            }\n            PatKind::Slice(ref before, ref slice, ref after) => {\n                before.iter().all(|p| p.walk(it)) &&\n                slice.iter().all(|p| p.walk(it)) &&\n                after.iter().all(|p| p.walk(it))\n            }\n            PatKind::Wild |\n            PatKind::Lit(_) |\n            PatKind::Range(..) |\n            PatKind::Ident(..) |\n            PatKind::Path(..) |\n            PatKind::Mac(_) => {\n                true\n            }\n        }",
+        "start": {
+          "row": 545,
+          "column": 9
+        },
+        "end": {
+          "row": 569,
+          "column": 10
         }
       },
       {
@@ -39022,6 +39231,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            Add => \"+\",\n            Sub => \"-\",\n            Mul => \"*\",\n            Div => \"/\",\n            Rem => \"%\",\n            And => \"&&\",\n            Or => \"||\",\n            BitXor => \"^\",\n            BitAnd => \"&\",\n            BitOr => \"|\",\n            Shl => \"<<\",\n            Shr => \">>\",\n            Eq => \"==\",\n            Lt => \"<\",\n            Le => \"<=\",\n            Ne => \"!=\",\n            Ge => \">=\",\n            Gt => \">\",\n        }",
+        "start": {
+          "row": 700,
+          "column": 9
+        },
+        "end": {
+          "row": 719,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match *self {\n            Add => \"+\",\n            Sub => \"-\",\n            Mul => \"*\",\n            Div => \"/\",\n            Rem => \"%\",\n            And => \"&&\",\n            Or => \"||\",\n            BitXor => \"^\",\n            BitAnd => \"&\",\n            BitOr => \"|\",\n            Shl => \"<<\",\n            Shr => \">>\",\n            Eq => \"==\",\n            Lt => \"<\",\n            Le => \"<=\",\n            Ne => \"!=\",\n            Ge => \">=\",\n            Gt => \">\",\n        }",
@@ -40114,6 +40336,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            BinOpKind::And | BinOpKind::Or => true,\n            _ => false\n        }",
+        "start": {
+          "row": 722,
+          "column": 9
+        },
+        "end": {
+          "row": 725,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match *self {\n            BinOpKind::And | BinOpKind::Or => true,\n            _ => false\n        }",
@@ -40436,6 +40671,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 733,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            BinOpKind::Shl | BinOpKind::Shr => true,\n            _ => false\n        }",
+        "start": {
+          "row": 729,
+          "column": 9
+        },
+        "end": {
+          "row": 732,
+          "column": 10
         }
       },
       {
@@ -40826,6 +41074,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 736,
           "column": 28
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            Eq | Lt | Le | Ne | Gt | Ge =>\n            true,\n            And | Or | Add | Sub | Mul | Div | Rem |\n            BitXor | BitAnd | BitOr | Shl | Shr =>\n            false,\n        }",
+        "start": {
+          "row": 737,
+          "column": 9
+        },
+        "end": {
+          "row": 743,
+          "column": 10
         }
       },
       {
@@ -42285,6 +42546,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match u {\n            UnOp::Neg | UnOp::Not => true,\n            _ => false,\n        }",
+        "start": {
+          "row": 767,
+          "column": 9
+        },
+        "end": {
+          "row": 770,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match u {\n            UnOp::Neg | UnOp::Not => true,\n            _ => false,\n        }",
@@ -42646,6 +42920,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 779,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match op {\n            UnOp::Deref => \"*\",\n            UnOp::Not => \"!\",\n            UnOp::Neg => \"-\",\n        }",
+        "start": {
+          "row": 774,
+          "column": 9
+        },
+        "end": {
+          "row": 778,
+          "column": 10
         }
       },
       {
@@ -43507,6 +43794,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "self.node = match self.node {\n            StmtKind::Expr(expr) => StmtKind::Semi(expr),\n            StmtKind::Mac(mac) => StmtKind::Mac(mac.map(|(mac, _style, attrs)| {\n                (mac, MacStmtStyle::Semicolon, attrs)\n            })),\n            node => node,\n        };",
+        "start": {
+          "row": 792,
+          "column": 9
+        },
+        "end": {
+          "row": 798,
+          "column": 11
+        }
+      },
+      {
         "kind": "assignment_expression",
         "name": "query",
         "text": "self.node = match self.node {\n            StmtKind::Expr(expr) => StmtKind::Semi(expr),\n            StmtKind::Mac(mac) => StmtKind::Mac(mac.map(|(mac, _style, attrs)| {\n                (mac, MacStmtStyle::Semicolon, attrs)\n            })),\n            node => node,\n        }",
@@ -44349,6 +44649,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 807,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match self.node {\n            StmtKind::Local(_) => true,\n            _ => false,\n        }",
+        "start": {
+          "row": 803,
+          "column": 9
+        },
+        "end": {
+          "row": 806,
+          "column": 10
         }
       },
       {
@@ -50306,6 +50619,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if let ExprKind::Block(ref block) = self.node {\n            match block.stmts.last().map(|last_stmt| &last_stmt.node) {\n                // implicit return\n                Some(&StmtKind::Expr(_)) => true,\n                Some(&StmtKind::Semi(ref expr)) => {\n                    if let ExprKind::Ret(_) = expr.node {\n                        // last statement is explicit return\n                        true\n                    } else {\n                        false\n                    }\n                }\n                // This is a block that doesn't end in either an implicit or explicit return\n                _ => false,\n            }\n        } else {\n            // This is not a block, it is a value\n            true\n        }",
+        "start": {
+          "row": 913,
+          "column": 9
+        },
+        "end": {
+          "row": 931,
+          "column": 10
+        }
+      },
+      {
         "kind": "if_let_expression",
         "name": "query",
         "text": "if let ExprKind::Block(ref block) = self.node {\n            match block.stmts.last().map(|last_stmt| &last_stmt.node) {\n                // implicit return\n                Some(&StmtKind::Expr(_)) => true,\n                Some(&StmtKind::Semi(ref expr)) => {\n                    if let ExprKind::Ret(_) = expr.node {\n                        // last statement is explicit return\n                        true\n                    } else {\n                        false\n                    }\n                }\n                // This is a block that doesn't end in either an implicit or explicit return\n                _ => false,\n            }\n        } else {\n            // This is not a block, it is a value\n            true\n        }",
@@ -50446,6 +50772,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 928,
           "column": 10
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match block.stmts.last().map(|last_stmt| &last_stmt.node) {\n                // implicit return\n                Some(&StmtKind::Expr(_)) => true,\n                Some(&StmtKind::Semi(ref expr)) => {\n                    if let ExprKind::Ret(_) = expr.node {\n                        // last statement is explicit return\n                        true\n                    } else {\n                        false\n                    }\n                }\n                // This is a block that doesn't end in either an implicit or explicit return\n                _ => false,\n            }",
+        "start": {
+          "row": 914,
+          "column": 13
+        },
+        "end": {
+          "row": 927,
+          "column": 14
         }
       },
       {
@@ -51008,6 +51347,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if let ExprKind::Ret(_) = expr.node {\n                        // last statement is explicit return\n                        true\n                    } else {\n                        false\n                    }",
+        "start": {
+          "row": 918,
+          "column": 21
+        },
+        "end": {
+          "row": 923,
+          "column": 22
+        }
+      },
+      {
         "kind": "if_let_expression",
         "name": "query",
         "text": "if let ExprKind::Ret(_) = expr.node {\n                        // last statement is explicit return\n                        true\n                    } else {\n                        false\n                    }",
@@ -51421,6 +51773,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 941,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match &self.node {\n            ExprKind::Path(None, path) =>\n                Some(TraitTyParamBound(PolyTraitRef::new(Vec::new(), path.clone(), self.span),\n                                       TraitBoundModifier::None)),\n            _ => None,\n        }",
+        "start": {
+          "row": 935,
+          "column": 9
+        },
+        "end": {
+          "row": 940,
+          "column": 10
         }
       },
       {
@@ -54544,6 +54909,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "for expr in exprs {\n                    tys.push(expr.to_ty()?);\n                }",
+        "start": {
+          "row": 956,
+          "column": 17
+        },
+        "end": {
+          "row": 958,
+          "column": 18
+        }
+      },
+      {
         "kind": "for_expression",
         "name": "query",
         "text": "for expr in exprs {\n                    tys.push(expr.to_ty()?);\n                }",
@@ -54593,6 +54971,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 958,
           "column": 18
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "tys.push(expr.to_ty()?);",
+        "start": {
+          "row": 957,
+          "column": 21
+        },
+        "end": {
+          "row": 957,
+          "column": 45
         }
       },
       {
@@ -55480,6 +55871,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "return None;",
+        "start": {
+          "row": 965,
+          "column": 21
+        },
+        "end": {
+          "row": 965,
+          "column": 33
+        }
+      },
+      {
         "kind": "return_expression",
         "name": "query",
         "text": "return None",
@@ -55932,6 +56336,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 1014,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match self.node {\n            ExprKind::Box(_) => ExprPrecedence::Box,\n            ExprKind::InPlace(..) => ExprPrecedence::InPlace,\n            ExprKind::Array(_) => ExprPrecedence::Array,\n            ExprKind::Call(..) => ExprPrecedence::Call,\n            ExprKind::MethodCall(..) => ExprPrecedence::MethodCall,\n            ExprKind::Tup(_) => ExprPrecedence::Tup,\n            ExprKind::Binary(op, ..) => ExprPrecedence::Binary(op.node),\n            ExprKind::Unary(..) => ExprPrecedence::Unary,\n            ExprKind::Lit(_) => ExprPrecedence::Lit,\n            ExprKind::Type(..) | ExprKind::Cast(..) => ExprPrecedence::Cast,\n            ExprKind::If(..) => ExprPrecedence::If,\n            ExprKind::IfLet(..) => ExprPrecedence::IfLet,\n            ExprKind::While(..) => ExprPrecedence::While,\n            ExprKind::WhileLet(..) => ExprPrecedence::WhileLet,\n            ExprKind::ForLoop(..) => ExprPrecedence::ForLoop,\n            ExprKind::Loop(..) => ExprPrecedence::Loop,\n            ExprKind::Match(..) => ExprPrecedence::Match,\n            ExprKind::Closure(..) => ExprPrecedence::Closure,\n            ExprKind::Block(..) => ExprPrecedence::Block,\n            ExprKind::Catch(..) => ExprPrecedence::Catch,\n            ExprKind::Assign(..) => ExprPrecedence::Assign,\n            ExprKind::AssignOp(..) => ExprPrecedence::AssignOp,\n            ExprKind::Field(..) => ExprPrecedence::Field,\n            ExprKind::TupField(..) => ExprPrecedence::TupField,\n            ExprKind::Index(..) => ExprPrecedence::Index,\n            ExprKind::Range(..) => ExprPrecedence::Range,\n            ExprKind::Path(..) => ExprPrecedence::Path,\n            ExprKind::AddrOf(..) => ExprPrecedence::AddrOf,\n            ExprKind::Break(..) => ExprPrecedence::Break,\n            ExprKind::Continue(..) => ExprPrecedence::Continue,\n            ExprKind::Ret(..) => ExprPrecedence::Ret,\n            ExprKind::InlineAsm(..) => ExprPrecedence::InlineAsm,\n            ExprKind::Mac(..) => ExprPrecedence::Mac,\n            ExprKind::Struct(..) => ExprPrecedence::Struct,\n            ExprKind::Repeat(..) => ExprPrecedence::Repeat,\n            ExprKind::Paren(..) => ExprPrecedence::Paren,\n            ExprKind::Try(..) => ExprPrecedence::Try,\n            ExprKind::Yield(..) => ExprPrecedence::Yield,\n        }",
+        "start": {
+          "row": 974,
+          "column": 9
+        },
+        "end": {
+          "row": 1013,
+          "column": 10
         }
       },
       {
@@ -73511,6 +73928,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            LitKind::Str(..) => true,\n            _ => false,\n        }",
+        "start": {
+          "row": 1275,
+          "column": 9
+        },
+        "end": {
+          "row": 1278,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match *self {\n            LitKind::Str(..) => true,\n            _ => false,\n        }",
@@ -73833,6 +74263,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 1298,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            // unsuffixed variants\n            LitKind::Str(..) |\n            LitKind::ByteStr(..) |\n            LitKind::Byte(..) |\n            LitKind::Char(..) |\n            LitKind::Int(_, LitIntType::Unsuffixed) |\n            LitKind::FloatUnsuffixed(..) |\n            LitKind::Bool(..) => true,\n            // suffixed variants\n            LitKind::Int(_, LitIntType::Signed(..)) |\n            LitKind::Int(_, LitIntType::Unsigned(..)) |\n            LitKind::Float(..) => false,\n        }",
+        "start": {
+          "row": 1284,
+          "column": 9
+        },
+        "end": {
+          "row": 1297,
+          "column": 10
         }
       },
       {
@@ -80713,6 +81156,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            IntTy::Isize => \"isize\",\n            IntTy::I8 => \"i8\",\n            IntTy::I16 => \"i16\",\n            IntTy::I32 => \"i32\",\n            IntTy::I64 => \"i64\",\n            IntTy::I128 => \"i128\",\n        }",
+        "start": {
+          "row": 1395,
+          "column": 9
+        },
+        "end": {
+          "row": 1402,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match *self {\n            IntTy::Isize => \"isize\",\n            IntTy::I8 => \"i8\",\n            IntTy::I16 => \"i16\",\n            IntTy::I32 => \"i32\",\n            IntTy::I64 => \"i64\",\n            IntTy::I128 => \"i128\",\n        }",
@@ -82920,6 +83376,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 1445,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            UintTy::Usize => \"usize\",\n            UintTy::U8 => \"u8\",\n            UintTy::U16 => \"u16\",\n            UintTy::U32 => \"u32\",\n            UintTy::U64 => \"u64\",\n            UintTy::U128 => \"u128\",\n        }",
+        "start": {
+          "row": 1437,
+          "column": 9
+        },
+        "end": {
+          "row": 1444,
+          "column": 10
         }
       },
       {
@@ -86563,6 +87032,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            FloatTy::F32 => \"f32\",\n            FloatTy::F64 => \"f64\",\n        }",
+        "start": {
+          "row": 1496,
+          "column": 9
+        },
+        "end": {
+          "row": 1499,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match *self {\n            FloatTy::F32 => \"f32\",\n            FloatTy::F64 => \"f64\",\n        }",
@@ -86872,6 +87354,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 1507,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            FloatTy::F32 => 32,\n            FloatTy::F64 => 64,\n        }",
+        "start": {
+          "row": 1503,
+          "column": 9
+        },
+        "end": {
+          "row": 1506,
+          "column": 10
         }
       },
       {
@@ -94558,6 +95053,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if let PatKind::Ident(BindingMode::ByValue(mutbl), ident, _) = self.pat.node {\n            if ident.node.name == keywords::SelfValue.name() {\n                return match self.ty.node {\n                    TyKind::ImplicitSelf => Some(respan(self.pat.span, SelfKind::Value(mutbl))),\n                    TyKind::Rptr(lt, MutTy{ref ty, mutbl}) if ty.node == TyKind::ImplicitSelf => {\n                        Some(respan(self.pat.span, SelfKind::Region(lt, mutbl)))\n                    }\n                    _ => Some(respan(self.pat.span.to(self.ty.span),\n                                     SelfKind::Explicit(self.ty.clone(), mutbl))),\n                }\n            }\n        }",
+        "start": {
+          "row": 1653,
+          "column": 9
+        },
+        "end": {
+          "row": 1664,
+          "column": 10
+        }
+      },
+      {
         "kind": "if_let_expression",
         "name": "query",
         "text": "if let PatKind::Ident(BindingMode::ByValue(mutbl), ident, _) = self.pat.node {\n            if ident.node.name == keywords::SelfValue.name() {\n                return match self.ty.node {\n                    TyKind::ImplicitSelf => Some(respan(self.pat.span, SelfKind::Value(mutbl))),\n                    TyKind::Rptr(lt, MutTy{ref ty, mutbl}) if ty.node == TyKind::ImplicitSelf => {\n                        Some(respan(self.pat.span, SelfKind::Region(lt, mutbl)))\n                    }\n                    _ => Some(respan(self.pat.span.to(self.ty.span),\n                                     SelfKind::Explicit(self.ty.clone(), mutbl))),\n                }\n            }\n        }",
@@ -94776,6 +95284,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 1664,
           "column": 10
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if ident.node.name == keywords::SelfValue.name() {\n                return match self.ty.node {\n                    TyKind::ImplicitSelf => Some(respan(self.pat.span, SelfKind::Value(mutbl))),\n                    TyKind::Rptr(lt, MutTy{ref ty, mutbl}) if ty.node == TyKind::ImplicitSelf => {\n                        Some(respan(self.pat.span, SelfKind::Region(lt, mutbl)))\n                    }\n                    _ => Some(respan(self.pat.span.to(self.ty.span),\n                                     SelfKind::Explicit(self.ty.clone(), mutbl))),\n                }\n            }",
+        "start": {
+          "row": 1654,
+          "column": 13
+        },
+        "end": {
+          "row": 1663,
+          "column": 14
         }
       },
       {
@@ -96443,6 +96964,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if let PatKind::Ident(_, ident, _) = self.pat.node {\n            ident.node.name == keywords::SelfValue.name()\n        } else {\n            false\n        }",
+        "start": {
+          "row": 1669,
+          "column": 9
+        },
+        "end": {
+          "row": 1673,
+          "column": 10
+        }
+      },
+      {
         "kind": "if_let_expression",
         "name": "query",
         "text": "if let PatKind::Ident(_, ident, _) = self.pat.node {\n            ident.node.name == keywords::SelfValue.name()\n        } else {\n            false\n        }",
@@ -97896,6 +98430,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 1690,
           "column": 30
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match eself.node {\n            SelfKind::Explicit(ty, mutbl) => arg(mutbl, ty),\n            SelfKind::Value(mutbl) => arg(mutbl, infer_ty),\n            SelfKind::Region(lt, mutbl) => arg(Mutability::Immutable, P(Ty {\n                id: DUMMY_NODE_ID,\n                node: TyKind::Rptr(lt, MutTy { ty: infer_ty, mutbl: mutbl }),\n                span,\n            })),\n        }",
+        "start": {
+          "row": 1692,
+          "column": 9
+        },
+        "end": {
+          "row": 1700,
+          "column": 10
         }
       },
       {
@@ -102813,6 +103360,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            ImplPolarity::Positive => \"positive\".fmt(f),\n            ImplPolarity::Negative => \"negative\".fmt(f),\n        }",
+        "start": {
+          "row": 1767,
+          "column": 9
+        },
+        "end": {
+          "row": 1770,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match *self {\n            ImplPolarity::Positive => \"positive\".fmt(f),\n            ImplPolarity::Negative => \"negative\".fmt(f),\n        }",
@@ -103798,6 +104358,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 1793,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            FunctionRetTy::Default(span) => span,\n            FunctionRetTy::Ty(ref ty) => ty.span,\n        }",
+        "start": {
+          "row": 1789,
+          "column": 9
+        },
+        "end": {
+          "row": 1792,
+          "column": 10
         }
       },
       {
@@ -113122,6 +113695,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            VariantData::Struct(ref fields, _) | VariantData::Tuple(ref fields, _) => fields,\n            _ => &[],\n        }",
+        "start": {
+          "row": 1972,
+          "column": 9
+        },
+        "end": {
+          "row": 1975,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match *self {\n            VariantData::Struct(ref fields, _) | VariantData::Tuple(ref fields, _) => fields,\n            _ => &[],\n        }",
@@ -113535,6 +114121,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 1981,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            VariantData::Struct(_, id) | VariantData::Tuple(_, id) | VariantData::Unit(id) => id\n        }",
+        "start": {
+          "row": 1978,
+          "column": 9
+        },
+        "end": {
+          "row": 1980,
+          "column": 10
         }
       },
       {
@@ -113954,6 +114553,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if let VariantData::Struct(..) = *self { true } else { false }",
+        "start": {
+          "row": 1983,
+          "column": 9
+        },
+        "end": {
+          "row": 1983,
+          "column": 71
+        }
+      },
+      {
         "kind": "if_let_expression",
         "name": "query",
         "text": "if let VariantData::Struct(..) = *self { true } else { false }",
@@ -114227,6 +114839,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if let VariantData::Tuple(..) = *self { true } else { false }",
+        "start": {
+          "row": 1986,
+          "column": 9
+        },
+        "end": {
+          "row": 1986,
+          "column": 70
+        }
+      },
+      {
         "kind": "if_let_expression",
         "name": "query",
         "text": "if let VariantData::Tuple(..) = *self { true } else { false }",
@@ -114497,6 +115122,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 1990,
           "column": 6
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "if let VariantData::Unit(..) = *self { true } else { false }",
+        "start": {
+          "row": 1989,
+          "column": 9
+        },
+        "end": {
+          "row": 1989,
+          "column": 69
         }
       },
       {
@@ -118374,6 +119012,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            ItemKind::ExternCrate(..) => \"extern crate\",\n            ItemKind::Use(..) => \"use\",\n            ItemKind::Static(..) => \"static item\",\n            ItemKind::Const(..) => \"constant item\",\n            ItemKind::Fn(..) => \"function\",\n            ItemKind::Mod(..) => \"module\",\n            ItemKind::ForeignMod(..) => \"foreign module\",\n            ItemKind::GlobalAsm(..) => \"global asm\",\n            ItemKind::Ty(..) => \"type alias\",\n            ItemKind::Enum(..) => \"enum\",\n            ItemKind::Struct(..) => \"struct\",\n            ItemKind::Union(..) => \"union\",\n            ItemKind::Trait(..) => \"trait\",\n            ItemKind::TraitAlias(..) => \"trait alias\",\n            ItemKind::Mac(..) |\n            ItemKind::MacroDef(..) |\n            ItemKind::Impl(..) => \"item\"\n        }",
+        "start": {
+          "row": 2092,
+          "column": 9
+        },
+        "end": {
+          "row": 2110,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match *self {\n            ItemKind::ExternCrate(..) => \"extern crate\",\n            ItemKind::Use(..) => \"use\",\n            ItemKind::Static(..) => \"static item\",\n            ItemKind::Const(..) => \"constant item\",\n            ItemKind::Fn(..) => \"function\",\n            ItemKind::Mod(..) => \"module\",\n            ItemKind::ForeignMod(..) => \"foreign module\",\n            ItemKind::GlobalAsm(..) => \"global asm\",\n            ItemKind::Ty(..) => \"type alias\",\n            ItemKind::Enum(..) => \"enum\",\n            ItemKind::Struct(..) => \"struct\",\n            ItemKind::Union(..) => \"union\",\n            ItemKind::Trait(..) => \"trait\",\n            ItemKind::TraitAlias(..) => \"trait alias\",\n            ItemKind::Mac(..) |\n            ItemKind::MacroDef(..) |\n            ItemKind::Impl(..) => \"item\"\n        }",
@@ -121520,6 +122171,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         }
       },
       {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "match *self {\n            ForeignItemKind::Fn(..) => \"foreign function\",\n            ForeignItemKind::Static(..) => \"foreign static item\",\n            ForeignItemKind::Ty => \"foreign type\",\n        }",
+        "start": {
+          "row": 2138,
+          "column": 9
+        },
+        "end": {
+          "row": 2142,
+          "column": 10
+        }
+      },
+      {
         "kind": "match_expression",
         "name": "query",
         "text": "match *self {\n            ForeignItemKind::Fn(..) => \"foreign function\",\n            ForeignItemKind::Static(..) => \"foreign static item\",\n            ForeignItemKind::Ty => \"foreign type\",\n        }",
@@ -122284,6 +122948,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"rust\", \"(_)\", \"--format=pret
         "end": {
           "row": 2154,
           "column": 58
+        }
+      },
+      {
+        "kind": "expression_statement",
+        "name": "query",
+        "text": "assert_encodable::<Crate>();",
+        "start": {
+          "row": 2155,
+          "column": 9
+        },
+        "end": {
+          "row": 2155,
+          "column": 37
         }
       },
       {

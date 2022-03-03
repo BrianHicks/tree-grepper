@@ -1,5 +1,6 @@
 ---
 source: src/main.rs
+assertion_line: 373
 expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pretty-json\",\n       \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-elixir\"])"
 
 ---
@@ -22868,13 +22869,13 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
       {
         "kind": "source",
         "name": "query",
-        "text": "a in b\n# <- variable\n# ^ keyword\n#    ^ variable\n\na not in b\n# <- variable\n# ^ keyword\n#     ^ keyword\n#        ^ variable\n\na not  in b\n# <- variable\n# ^ keyword\n#      ^ keyword\n#         ^ variable\n\na ~>> b = bind(a, b)\n# <- variable\n#  ^ operator\n#     ^ variable\n#       ^ operator\n#         ^ function\n#             ^ punctuation.bracket\n#              ^ variable\n#               ^ punctuation.delimiter\n#                 ^ variable\n#                  ^ punctuation.bracket\n\na ~> b\n# ^ operator\n\na + b\n# ^ operator\n\n... == !x && y || z\n# <- variable\n#   ^ operator\n#      ^ operator\n#       ^ variable\n#         ^ operator\n#            ^ variable\n#              ^ operator\n#                 ^ variable\n\nx = 1 + 2.0 * 3\n# <- variable\n# ^ operator\n#   ^ number\n#     ^ operator\n#       ^ number\n#           ^ operator\n#             ^ number\n\ny = true and false\n# <- variable\n# ^ operator\n#   ^ constant\n#         ^ keyword\n#             ^ constant\n\n{ ^z, a } = {true, x}\n# <- punctuation.bracket\n# ^ operator\n#  ^ variable\n#   ^ punctuation.delimiter\n#     ^ variable\n#         ^ operator\n#           ^ punctuation.bracket\n#            ^ constant\n#                ^ punctuation.delimiter\n#                  ^ variable\n#                   ^ punctuation.bracket\n\n\"hello\" |> String.upcase |> String.downcase()\n# ^ string\n#       ^ operator\n#          ^ module\n#                ^ operator\n#                 ^ function\n#                        ^ operator\n#                           ^ module\n#                                 ^ operator\n#                                  ^ function\n",
+        "text": "a in b\n# <- variable\n# ^ keyword\n#    ^ variable\n\na not in b\n# <- variable\n# ^ keyword\n#     ^ keyword\n#        ^ variable\n\na not  in b\n# <- variable\n# ^ keyword\n#      ^ keyword\n#         ^ variable\n\na ~>> b = bind(a, b)\n# <- variable\n#  ^ operator\n#     ^ variable\n#       ^ operator\n#         ^ function\n#             ^ punctuation.bracket\n#              ^ variable\n#               ^ punctuation.delimiter\n#                 ^ variable\n#                  ^ punctuation.bracket\n\na ~> b\n# ^ operator\n\na + b\n# ^ operator\n\n... == !x && y || z\n# <- variable\n#   ^ operator\n#      ^ operator\n#       ^ variable\n#         ^ operator\n#            ^ variable\n#              ^ operator\n#                 ^ variable\n\nx = 1 + 2.0 * 3\n# <- variable\n# ^ operator\n#   ^ number\n#     ^ operator\n#       ^ number\n#           ^ operator\n#             ^ number\n\ny = true and false\n# <- variable\n# ^ operator\n#   ^ constant\n#         ^ keyword\n#             ^ constant\n\n{ ^z, a } = {true, x}\n# <- punctuation.bracket\n# ^ operator\n#  ^ variable\n#   ^ punctuation.delimiter\n#     ^ variable\n#         ^ operator\n#           ^ punctuation.bracket\n#            ^ constant\n#                ^ punctuation.delimiter\n#                  ^ variable\n#                   ^ punctuation.bracket\n\n\"hello\" |> String.upcase |> String.downcase()\n# ^ string\n#       ^ operator\n#          ^ module\n#                ^ operator\n#                 ^ function\n#                        ^ operator\n#                           ^ module\n#                                 ^ operator\n#                                  ^ function\n\nrange = ..\n# <- variable\n#     ^ operator\n#        ^ operator\n",
         "start": {
           "row": 1,
           "column": 1
         },
         "end": {
-          "row": 85,
+          "row": 90,
           "column": 1
         }
       },
@@ -24540,6 +24541,84 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "end": {
           "row": 84,
           "column": 46
+        }
+      },
+      {
+        "kind": "binary_operator",
+        "name": "query",
+        "text": "range = ..",
+        "start": {
+          "row": 86,
+          "column": 1
+        },
+        "end": {
+          "row": 86,
+          "column": 11
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "range",
+        "start": {
+          "row": 86,
+          "column": 1
+        },
+        "end": {
+          "row": 86,
+          "column": 6
+        }
+      },
+      {
+        "kind": "operator_identifier",
+        "name": "query",
+        "text": "..",
+        "start": {
+          "row": 86,
+          "column": 9
+        },
+        "end": {
+          "row": 86,
+          "column": 11
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# <- variable",
+        "start": {
+          "row": 87,
+          "column": 1
+        },
+        "end": {
+          "row": 87,
+          "column": 14
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#     ^ operator",
+        "start": {
+          "row": 88,
+          "column": 1
+        },
+        "end": {
+          "row": 88,
+          "column": 17
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#        ^ operator",
+        "start": {
+          "row": 89,
+          "column": 1
+        },
+        "end": {
+          "row": 89,
+          "column": 20
         }
       }
     ]

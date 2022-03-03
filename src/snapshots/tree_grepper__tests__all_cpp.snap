@@ -1,5 +1,6 @@
 ---
 source: src/main.rs
+assertion_line: 250
 expression: "call(&[\"tree-grepper\", \"-q\", \"cpp\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"--no-gitignore\", \"vendor/tree-sitter-cpp/examples\"])"
 
 ---
@@ -23493,6 +23494,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"cpp\", \"(_)\", \"--format=prett
         }
       },
       {
+        "kind": "placeholder_type_specifier",
+        "name": "query",
+        "text": "auto",
+        "start": {
+          "row": 147,
+          "column": 12
+        },
+        "end": {
+          "row": 147,
+          "column": 16
+        }
+      },
+      {
         "kind": "auto",
         "name": "query",
         "text": "auto",
@@ -23740,6 +23754,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"cpp\", \"(_)\", \"--format=prett
         }
       },
       {
+        "kind": "placeholder_type_specifier",
+        "name": "query",
+        "text": "auto",
+        "start": {
+          "row": 152,
+          "column": 16
+        },
+        "end": {
+          "row": 152,
+          "column": 20
+        }
+      },
+      {
         "kind": "auto",
         "name": "query",
         "text": "auto",
@@ -23789,6 +23816,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"cpp\", \"(_)\", \"--format=prett
         "end": {
           "row": 155,
           "column": 8
+        }
+      },
+      {
+        "kind": "placeholder_type_specifier",
+        "name": "query",
+        "text": "auto",
+        "start": {
+          "row": 153,
+          "column": 12
+        },
+        "end": {
+          "row": 153,
+          "column": 16
         }
       },
       {
@@ -24361,6 +24401,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"cpp\", \"(_)\", \"--format=prett
         "end": {
           "row": 165,
           "column": 4
+        }
+      },
+      {
+        "kind": "placeholder_type_specifier",
+        "name": "query",
+        "text": "auto",
+        "start": {
+          "row": 163,
+          "column": 8
+        },
+        "end": {
+          "row": 163,
+          "column": 12
         }
       },
       {
@@ -25430,6 +25483,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"cpp\", \"(_)\", \"--format=prett
         }
       },
       {
+        "kind": "placeholder_type_specifier",
+        "name": "query",
+        "text": "auto",
+        "start": {
+          "row": 175,
+          "column": 14
+        },
+        "end": {
+          "row": 175,
+          "column": 18
+        }
+      },
+      {
         "kind": "auto",
         "name": "query",
         "text": "auto",
@@ -26158,6 +26224,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"cpp\", \"(_)\", \"--format=prett
         }
       },
       {
+        "kind": "placeholder_type_specifier",
+        "name": "query",
+        "text": "auto",
+        "start": {
+          "row": 183,
+          "column": 11
+        },
+        "end": {
+          "row": 183,
+          "column": 15
+        }
+      },
+      {
         "kind": "auto",
         "name": "query",
         "text": "auto",
@@ -26844,6 +26923,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"cpp\", \"(_)\", \"--format=prett
         "end": {
           "row": 201,
           "column": 43
+        }
+      },
+      {
+        "kind": "placeholder_type_specifier",
+        "name": "query",
+        "text": "auto",
+        "start": {
+          "row": 201,
+          "column": 3
+        },
+        "end": {
+          "row": 201,
+          "column": 7
         }
       },
       {
@@ -30237,6 +30329,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"cpp\", \"(_)\", \"--format=prett
         "end": {
           "row": 238,
           "column": 13
+        }
+      },
+      {
+        "kind": "placeholder_type_specifier",
+        "name": "query",
+        "text": "auto",
+        "start": {
+          "row": 238,
+          "column": 14
+        },
+        "end": {
+          "row": 238,
+          "column": 18
         }
       },
       {

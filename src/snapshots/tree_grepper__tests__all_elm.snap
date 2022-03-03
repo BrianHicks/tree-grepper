@@ -5593,12 +5593,25 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "upper_case_identifier",
+        "kind": "ERROR",
         "name": "query",
-        "text": "Nothing",
+        "text": "N",
         "start": {
           "row": 44,
           "column": 141
+        },
+        "end": {
+          "row": 44,
+          "column": 142
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "othing",
+        "start": {
+          "row": 44,
+          "column": 142
         },
         "end": {
           "row": 44,
@@ -5632,12 +5645,25 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "upper_case_identifier",
+        "kind": "ERROR",
         "name": "query",
-        "text": "Nothing",
+        "text": "N",
         "start": {
           "row": 47,
           "column": 133
+        },
+        "end": {
+          "row": 47,
+          "column": 134
+        }
+      },
+      {
+        "kind": "lower_case_identifier",
+        "name": "query",
+        "text": "othing",
+        "start": {
+          "row": 47,
+          "column": 134
         },
         "end": {
           "row": 47,
