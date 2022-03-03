@@ -124,7 +124,7 @@ mod tests {
 
     #[test]
     fn parse_query_smoke_test() {
-        assert_eq!(true, Language::Elm.parse_query("(_)").is_ok());
+        assert!(Language::Elm.parse_query("(_)").is_ok());
     }
 
     #[test]

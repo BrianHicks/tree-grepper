@@ -58,7 +58,7 @@ fn try_main(args: Vec<String>, out: impl Write) -> Result<()> {
 
 fn show_languages(mut out: impl Write) -> Result<()> {
     for language in Language::all() {
-        writeln!(out, "{}", language.to_string()).context("couldn't print a language")?;
+        writeln!(out, "{}", language).context("couldn't print a language")?;
     }
 
     Ok(())
