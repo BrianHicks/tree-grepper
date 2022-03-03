@@ -65,6 +65,7 @@
           rm -rf vendor
           mkdir vendor
 
+          set -x
           ln -s ${inputs.tree-sitter-cpp} vendor/tree-sitter-cpp
           ln -s ${inputs.tree-sitter-elixir} vendor/tree-sitter-elixir
           ln -s ${inputs.tree-sitter-elm} vendor/tree-sitter-elm
