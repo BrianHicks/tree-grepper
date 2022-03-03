@@ -58,6 +58,23 @@
         pkgs = import inputs.nixpkgs { inherit system; };
         naersk-lib = inputs.naersk.lib."${system}";
         darwinInputs = if pkgs.stdenv.isDarwin then [ pkgs.xcbuild ] else [ ];
+
+        updateVendor = pkgs.writeShellScriptBin "update-vendor" ''
+          set -euo pipefail
+
+          rm -rf vendor
+          mkdir vendor
+
+          ln -s ${inputs.tree-sitter-cpp} vendor/tree-sitter-cpp
+          ln -s ${inputs.tree-sitter-elixir} vendor/tree-sitter-elixir
+          ln -s ${inputs.tree-sitter-elm} vendor/tree-sitter-elm
+          ln -s ${inputs.tree-sitter-haskell} vendor/tree-sitter-haskell
+          ln -s ${inputs.tree-sitter-javascript} vendor/tree-sitter-javascript
+          ln -s ${inputs.tree-sitter-php} vendor/tree-sitter-php
+          ln -s ${inputs.tree-sitter-ruby} vendor/tree-sitter-ruby
+          ln -s ${inputs.tree-sitter-rust} vendor/tree-sitter-rust
+          ln -s ${inputs.tree-sitter-typescript} vendor/tree-sitter-typescript
+        '';
       in rec {
         # `nix build`
         packages.tree-grepper = naersk-lib.buildPackage {
@@ -86,6 +103,8 @@
               rustPackages.clippy
               rustc
               rustfmt
+
+              updateVendor
 
               # for some reason this seems to be required, especially on macOS
               libiconv
