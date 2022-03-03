@@ -74,11 +74,6 @@
         defaultPackage = packages.tree-grepper;
         overlay = final: prev: { tree-grepper = packages.tree-grepper; };
 
-        # `nix run`
-        apps.tree-grepper =
-          flake-utils.lib.mkApp { drv = packages.tree-grepper; };
-        defaultApp = apps.tree-grepper;
-
         # `nix develop`
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs;
