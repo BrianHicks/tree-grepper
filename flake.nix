@@ -52,11 +52,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, naersk, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs = inputs:
+    inputs.flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages."${system}";
-        naersk-lib = naersk.lib."${system}";
+        pkgs = import inputs.nixpkgs { inherit system; };
+        naersk-lib = inputs.naersk.lib."${system}";
         darwinInputs = if pkgs.stdenv.isDarwin then [ pkgs.xcbuild ] else [ ];
       in rec {
         # `nix build`
