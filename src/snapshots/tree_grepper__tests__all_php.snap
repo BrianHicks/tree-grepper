@@ -816,7 +816,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "type_list",
+        "kind": "union_type",
         "name": "query",
         "text": "int",
         "start": {
@@ -894,7 +894,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "type_list",
+        "kind": "union_type",
         "name": "query",
         "text": "string",
         "start": {
@@ -972,7 +972,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "type_list",
+        "kind": "union_type",
         "name": "query",
         "text": "Person",
         "start": {
@@ -1050,7 +1050,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "type_list",
+        "kind": "union_type",
         "name": "query",
         "text": "Dog",
         "start": {
@@ -1582,7 +1582,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "type_list",
+        "kind": "union_type",
         "name": "query",
         "text": "array",
         "start": {
@@ -1647,7 +1647,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "type_list",
+        "kind": "union_type",
         "name": "query",
         "text": "Something",
         "start": {

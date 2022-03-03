@@ -68,14 +68,18 @@ Set up [nix](https://nixos.org/download.html) (just Nix, not NixOS) and then run
 After that, you just need to add a tree-sitter grammar to the project.
 [The tree-sitter project keeps an up-to-date list](https://tree-sitter.github.io/tree-sitter/), so you may not even need to write your own!
 
-1. Add your grammar as a subtree to this repo: `git subtree add --squash --prefix vendor/tree-sitter-LANGUAGE https://github.com/ORG/tree-sitter-LANG BRANCH` (where `BRANCH` is whatever main branch the project uses)
-   Add the update command to [`script/update-subtrees.sh`](./script/update-subtrees.sh) as well!
-2. Set up compilation in [`build.rs`](./build.rs) by following the pattern there.
-3. Set up a new target in [`src/language.rs`](./src/language.rs) by following the patterns there.
-4. Add a test like `all_LANG` in [`src/main.rs`](./src/main.rs)
-5. Try to run with insta: `cargo insta test` and then `cargo insta review`.
+Note: when you're adding grammars, please keep things in alphabetical order.
+
+1. Add your grammar as an input in `flakes.nix`, following the template of the ones already there.
+   You'll need to add an entry in `inputs` and another in the `updateVendor` script.
+2. Run `direnv reload` to make sure you have the latest changes, then `update-vendor` to get your grammar in the right place.
+   Make sure the repo content under `vendor/YOUR-GRAMMAR` looks how you expect.
+3. Set up compilation in [`build.rs`](./build.rs) by following the pattern there.
+4. Set up a new target in [`src/language.rs`](./src/language.rs) by following the patterns there.
+5. Add a test like `all_LANG` in [`src/main.rs`](./src/main.rs)
+6. Try to run with insta: `cargo insta test` and then `cargo insta review`.
    If the output looks right, open a PR!
-6. Add the language to the list of supported languages in this readme.
+7. Add the language to the list of supported languages in this readme.
 
 ## License
 
