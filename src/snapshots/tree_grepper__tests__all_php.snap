@@ -1,6 +1,6 @@
 ---
 source: src/main.rs
-assertion_line: 373
+assertion_line: 311
 expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"--no-gitignore\", \"vendor/tree-sitter-php/test/highlight\"])"
 
 ---
@@ -1318,14 +1318,14 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
       {
         "kind": "sequence_expression",
         "name": "query",
-        "text": "TRUE, false, FALSE",
+        "text": "TRUE, false, FALSE\n//    ^ constant.builtin\n//          ^ constant.builtin\n//               ^ constant.builtin\n//                      ^ constant.builtin\n\necho PI_314",
         "start": {
           "row": 9,
           "column": 12
         },
         "end": {
-          "row": 9,
-          "column": 30
+          "row": 15,
+          "column": 12
         }
       },
       {
@@ -1344,14 +1344,14 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
       {
         "kind": "sequence_expression",
         "name": "query",
-        "text": "false, FALSE",
+        "text": "false, FALSE\n//    ^ constant.builtin\n//          ^ constant.builtin\n//               ^ constant.builtin\n//                      ^ constant.builtin\n\necho PI_314",
         "start": {
           "row": 9,
           "column": 18
         },
         "end": {
-          "row": 9,
-          "column": 30
+          "row": 15,
+          "column": 12
         }
       },
       {
@@ -1365,6 +1365,19 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         "end": {
           "row": 9,
           "column": 23
+        }
+      },
+      {
+        "kind": "ERROR",
+        "name": "query",
+        "text": "FALSE",
+        "start": {
+          "row": 9,
+          "column": 25
+        },
+        "end": {
+          "row": 9,
+          "column": 30
         }
       },
       {
@@ -1430,6 +1443,32 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         "end": {
           "row": 13,
           "column": 43
+        }
+      },
+      {
+        "kind": "ERROR",
+        "name": "query",
+        "text": "echo",
+        "start": {
+          "row": 15,
+          "column": 1
+        },
+        "end": {
+          "row": 15,
+          "column": 5
+        }
+      },
+      {
+        "kind": "name",
+        "name": "query",
+        "text": "echo",
+        "start": {
+          "row": 15,
+          "column": 1
+        },
+        "end": {
+          "row": 15,
+          "column": 5
         }
       },
       {
