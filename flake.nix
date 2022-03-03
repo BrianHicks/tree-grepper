@@ -83,6 +83,9 @@
           buildInputs = [ pkgs.libiconv pkgs.rustPackages.clippy ]
             ++ darwinInputs;
 
+          preBuildPhases = [ "vendorPhase" ];
+          vendorPhase = "${updateVendor}/bin/update-vendor";
+
           doCheck = true;
           checkPhase = ''
             cargo test
