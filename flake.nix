@@ -4,9 +4,55 @@
     naersk.inputs.nixpkgs.follows = "nixpkgs";
     naersk.url = "github:nmattia/naersk";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    # tree-sitter grammars
+    tree-sitter-cpp = {
+      url = "github:tree-sitter/tree-sitter-cpp";
+      flake = false;
+    };
+
+    tree-sitter-elixir = {
+      url = "github:elixir-lang/tree-sitter-elixir/main";
+      flake = false;
+    };
+
+    tree-sitter-elm = {
+      url = "github:elm-tooling/tree-sitter-elm/main";
+      flake = false;
+    };
+
+    tree-sitter-haskell = {
+      url = "github:tree-sitter/tree-sitter-haskell";
+      flake = false;
+    };
+
+    tree-sitter-javascript = {
+      url = "github:tree-sitter/tree-sitter-javascript";
+      flake = false;
+    };
+
+    tree-sitter-php = {
+      url = "github:tree-sitter/tree-sitter-php";
+      flake = false;
+    };
+
+    tree-sitter-ruby = {
+      url = "github:tree-sitter/tree-sitter-ruby";
+      flake = false;
+    };
+
+    tree-sitter-rust = {
+      url = "github:tree-sitter/tree-sitter-rust";
+      flake = false;
+    };
+
+    tree-sitter-typescript = {
+      url = "github:tree-sitter/tree-sitter-typescript";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, naersk }:
+  outputs = { self, nixpkgs, flake-utils, naersk, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages."${system}";
