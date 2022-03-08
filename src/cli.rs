@@ -31,8 +31,8 @@ impl QueryOpts {
 
 #[derive(Debug)]
 pub struct TreeOpts {
-    language: Language,
-    path: PathBuf,
+    pub language: Language,
+    pub path: PathBuf,
 }
 
 impl Invocation {
