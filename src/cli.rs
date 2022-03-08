@@ -11,6 +11,7 @@ use std::str::FromStr;
 pub enum Invocation {
     DoQuery(QueryOpts),
     ShowLanguages,
+    ShowTree(TreeOpts),
 }
 
 #[derive(Debug)]
@@ -26,6 +27,12 @@ impl QueryOpts {
     pub fn extractor_chooser(&self) -> Result<ExtractorChooser> {
         ExtractorChooser::from_extractors(&self.extractors)
     }
+}
+
+#[derive(Debug)]
+pub struct TreeOpts {
+    language: Language,
+    path: PathBuf,
 }
 
 impl Invocation {
@@ -55,6 +62,7 @@ impl Invocation {
                     .number_of_values(2)
                     .value_names(&["LANGUAGE", "QUERY"])
                     .required_unless_present("languages")
+                    .required_unless_present("show-tree")
                     .multiple_values(true)
             )
             .arg(
@@ -87,11 +95,29 @@ impl Invocation {
                 .long("languages")
                 .help("print the language names tree-grepper knows about")
             )
+            .arg(
+                Arg::new("show-tree")
+                .long("show-tree")
+                .help("Show the node names and associated text of the specified files")
+                .value_names(&["LANGUAGE"])
+            )
             .try_get_matches_from(args)
             .context("could not parse args")?;
 
         if matches.is_present("languages") {
             Ok(Self::ShowLanguages)
+        } else if let Some(raw_lang) = matches.value_of("show-tree") {
+            let lang = Language::from_str(raw_lang).context("could not parse language")?;
+
+            let paths = Self::paths(&matches)?;
+            if paths.len() != 1 {
+                anyhow::bail!("need exactly one path to print a tree")
+            }
+
+            Ok(Self::ShowTree(TreeOpts {
+                language: lang,
+                path: paths[0].to_owned(),
+            }))
         } else {
             Ok(Self::DoQuery(QueryOpts {
                 extractors: Self::extractors(&matches)?,

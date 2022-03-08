@@ -4,7 +4,7 @@ mod extractor_chooser;
 mod language;
 
 use anyhow::{bail, Context, Result};
-use cli::{Invocation, QueryFormat, QueryOpts};
+use cli::{Invocation, QueryFormat, QueryOpts, TreeOpts};
 use crossbeam::channel;
 use language::Language;
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
@@ -53,6 +53,9 @@ fn try_main(args: Vec<String>, out: impl Write) -> Result<()> {
         Invocation::ShowLanguages => {
             show_languages(out).context("couldn't show the list of languages")
         }
+        Invocation::ShowTree(tree_opts) => {
+            show_tree(tree_opts, out).context("couldn't show the tree")
+        }
     }
 }
 
@@ -60,6 +63,12 @@ fn show_languages(mut out: impl Write) -> Result<()> {
     for language in Language::all() {
         writeln!(out, "{}", language).context("couldn't print a language")?;
     }
+
+    Ok(())
+}
+
+fn show_tree(opts: TreeOpts, mut out: impl Write) -> Result<()> {
+    write!(out, "{:#?}", opts)?;
 
     Ok(())
 }
