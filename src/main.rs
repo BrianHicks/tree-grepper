@@ -2,13 +2,15 @@ mod cli;
 mod extractor;
 mod extractor_chooser;
 mod language;
+mod tree_view;
 
 use anyhow::{bail, Context, Result};
-use cli::{Invocation, QueryFormat, QueryOpts};
+use cli::{Invocation, QueryFormat, QueryOpts, TreeOpts};
 use crossbeam::channel;
 use language::Language;
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use std::env;
+use std::fs;
 use std::io::{self, BufWriter, Write};
 use tree_sitter::Parser;
 
@@ -53,6 +55,9 @@ fn try_main(args: Vec<String>, out: impl Write) -> Result<()> {
         Invocation::ShowLanguages => {
             show_languages(out).context("couldn't show the list of languages")
         }
+        Invocation::ShowTree(tree_opts) => {
+            show_tree(tree_opts, out).context("couldn't show the tree")
+        }
     }
 }
 
@@ -62,6 +67,21 @@ fn show_languages(mut out: impl Write) -> Result<()> {
     }
 
     Ok(())
+}
+
+fn show_tree(opts: TreeOpts, out: impl Write) -> Result<()> {
+    let source = fs::read_to_string(opts.path).context("could not read target file")?;
+
+    let mut parser = Parser::new();
+    parser
+        .set_language(opts.language.language())
+        .context("could not set language")?;
+
+    let tree = parser
+        .parse(&source, None)
+        .context("could not parse tree")?;
+
+    tree_view::tree_view(&tree, source.as_bytes(), out)
 }
 
 fn do_query(opts: QueryOpts, mut out: impl Write) -> Result<()> {

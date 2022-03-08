@@ -11,6 +11,7 @@ use std::str::FromStr;
 pub enum Invocation {
     DoQuery(QueryOpts),
     ShowLanguages,
+    ShowTree(TreeOpts),
 }
 
 #[derive(Debug)]
@@ -26,6 +27,12 @@ impl QueryOpts {
     pub fn extractor_chooser(&self) -> Result<ExtractorChooser> {
         ExtractorChooser::from_extractors(&self.extractors)
     }
+}
+
+#[derive(Debug)]
+pub struct TreeOpts {
+    pub language: Language,
+    pub path: PathBuf,
 }
 
 impl Invocation {
@@ -55,12 +62,17 @@ impl Invocation {
                     .number_of_values(2)
                     .value_names(&["LANGUAGE", "QUERY"])
                     .required_unless_present("languages")
+                    .required_unless_present("show-tree")
+                    .conflicts_with("languages")
+                    .conflicts_with("show-tree")
                     .multiple_values(true)
             )
             .arg(
                 Arg::new("no-gitignore")
                     .long("no-gitignore")
                     .help("don't use git's ignore and exclude files to filter files")
+                    .conflicts_with("languages")
+                    .conflicts_with("show-tree")
             )
             .arg(
                 Arg::new("PATHS")
@@ -70,28 +82,54 @@ impl Invocation {
             )
             .arg(
                 Arg::new("FORMAT")
-                .long("format")
-                .short('f')
-                .possible_values(&["lines", "json", "json-lines", "pretty-json"])
-                .default_value("lines")
-                .help("what format should we output lines in?")
+                    .long("format")
+                    .short('f')
+                    .possible_values(&["lines", "json", "json-lines", "pretty-json"])
+                    .default_value("lines")
+                    .help("what format should we output lines in?")
+                    .conflicts_with("languages")
+                    .conflicts_with("show-tree")
             )
             .arg(
                 Arg::new("sort")
-                .long("sort")
-                .help("sort matches stably")
-                .long_help("sort matches stably. If this is not specified, output ordering will vary because due to parallelism. Caution: this adds a worst-case `O(n * log(n))` overhead, where `n` is the number of files matched. Avoid it if possible if you care about performance.")
+                    .long("sort")
+                    .help("sort matches stably")
+                    .long_help("sort matches stably. If this is not specified, output ordering will vary because due to parallelism. Caution: this adds a worst-case `O(n * log(n))` overhead, where `n` is the number of files matched. Avoid it if possible if you care about performance.")
+                    .conflicts_with("languages")
+                    .conflicts_with("show-tree")
             )
             .arg(
                 Arg::new("languages")
-                .long("languages")
-                .help("print the language names tree-grepper knows about")
+                    .long("languages")
+                    .help("print the language names tree-grepper knows about")
+                    .conflicts_with("additional-query")
+                    .conflicts_with("show-tree")
+            )
+            .arg(
+                Arg::new("show-tree")
+                    .long("show-tree")
+                    .help("Show the node names and associated text of the specified files")
+                    .value_names(&["LANGUAGE"])
+                    .conflicts_with("languages")
+                    .conflicts_with("additional-query")
             )
             .try_get_matches_from(args)
             .context("could not parse args")?;
 
         if matches.is_present("languages") {
             Ok(Self::ShowLanguages)
+        } else if let Some(raw_lang) = matches.value_of("show-tree") {
+            let lang = Language::from_str(raw_lang).context("could not parse language")?;
+
+            let paths = Self::paths(&matches)?;
+            if paths.len() != 1 {
+                anyhow::bail!("need exactly one path to print a tree")
+            }
+
+            Ok(Self::ShowTree(TreeOpts {
+                language: lang,
+                path: paths[0].to_owned(),
+            }))
         } else {
             Ok(Self::DoQuery(QueryOpts {
                 extractors: Self::extractors(&matches)?,
