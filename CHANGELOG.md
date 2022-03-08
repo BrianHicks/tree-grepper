@@ -1,9 +1,14 @@
 # Changelog
 
+## 2.4.0
+
+- New parsed tree view (try `tree-grepper --show-tree languagename path/to/source.ext`) to help writing queries
+- Updated dependencies and grammars
+
 ## 2.3.0
 
 - PHP support
-- Update dependencies and grammars
+- Updated dependencies and grammars
 
 ## 2.1.0
 

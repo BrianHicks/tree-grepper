@@ -45,7 +45,39 @@ For example, to match JavaScript calls to `require` but not other functions, you
 
 In addition to text output, we support JSON output for scripting: just  specify `-f json`.
 You also get more info (the match's end location and node kind) by asking for JSON output.
-This is handy for discovery: if you want to see the node names for your target language, try something like `tree-grepper -q rust '(_)' -f json`, replacing `rust` with the language of your choice.
+
+### Tree View
+
+You can discover the node names your language uses by using `--show-tree languagename path/to/file`.
+When you do this, `tree-grepper` will parse the file and print out an indented tree view.
+The format like this:
+
+```
+file 1:1
+  module_declaration 1:1
+    module 1:1: module
+    upper_case_qid 1:8
+      upper_case_identifier 1:8: Math
+    exposing_list 1:13
+      exposing 1:13: exposing
+      ( 1:22: (
+      exposed_value 1:23
+        lower_case_identifier 1:23: average
+      , 1:30: ,
+      exposed_value 1:32
+        lower_case_identifier 1:32: percentOf
+      ) 1:41: )
+```
+
+Each line takes the format `{node name} {location} {source, if present}`.
+Source is only shown for the leaf-most nodes on the tree to avoid printing a huge block.
+However, tree-grepper can extract text from any of these nodes.
+
+You can use the node names in queries.
+For example:
+
+- `tree-grepper -q elm (exposed_value)` would have matches on `average` and `percentOf`.
+- `tree-grepper -q elm (module_declration)` would match on the whole declaration, `module Math exposing (average, percentOf)`
 
 ## Supported Languages
 

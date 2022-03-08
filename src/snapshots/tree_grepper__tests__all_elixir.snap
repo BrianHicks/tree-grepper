@@ -1,8 +1,7 @@
 ---
 source: src/main.rs
-assertion_line: 373
+assertion_line: 393
 expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pretty-json\",\n       \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-elixir\"])"
-
 ---
 [
   {
@@ -24619,6 +24618,2280 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "end": {
           "row": 89,
           "column": 20
+        }
+      }
+    ]
+  },
+  {
+    "file": "vendor/tree-sitter-elixir/test/tags/module.ex",
+    "file_type": "elixir",
+    "matches": [
+      {
+        "kind": "source",
+        "name": "query",
+        "text": "defmodule Foo.Bar.Baz do\n  #        ^ definition.module\n  #            ^ definition.module\n  #                ^ definition.module\n\n  def init(arg) do\n    #  ^ definition.function\n    state =\n      arg\n      |> map(&(&1 * 2))\n      #   ^ reference.call\n      |> map(&(&1 + 1))\n      #   ^ reference.call\n\n    {:ok, arg}\n  end\n\n  def map(list, fun, acc \\\\ [])\n  #    ^ definition.function\n\n  def map([head | rest], fun, acc) do\n    #  ^ definition.function\n    map(rest, fun, [fun.(head) | acc])\n    # <- reference.call\n  end\n\n  def map([], _fun, acc), do: Enum.reverse(acc)\n  #    ^ definition.function\n  #                             ^ reference.module\n  #                                    ^ reference.call\nend\n",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 32,
+          "column": 1
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "defmodule Foo.Bar.Baz do\n  #        ^ definition.module\n  #            ^ definition.module\n  #                ^ definition.module\n\n  def init(arg) do\n    #  ^ definition.function\n    state =\n      arg\n      |> map(&(&1 * 2))\n      #   ^ reference.call\n      |> map(&(&1 + 1))\n      #   ^ reference.call\n\n    {:ok, arg}\n  end\n\n  def map(list, fun, acc \\\\ [])\n  #    ^ definition.function\n\n  def map([head | rest], fun, acc) do\n    #  ^ definition.function\n    map(rest, fun, [fun.(head) | acc])\n    # <- reference.call\n  end\n\n  def map([], _fun, acc), do: Enum.reverse(acc)\n  #    ^ definition.function\n  #                             ^ reference.module\n  #                                    ^ reference.call\nend",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 31,
+          "column": 4
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "defmodule",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 1,
+          "column": 10
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "Foo.Bar.Baz",
+        "start": {
+          "row": 1,
+          "column": 11
+        },
+        "end": {
+          "row": 1,
+          "column": 22
+        }
+      },
+      {
+        "kind": "alias",
+        "name": "query",
+        "text": "Foo.Bar.Baz",
+        "start": {
+          "row": 1,
+          "column": 11
+        },
+        "end": {
+          "row": 1,
+          "column": 22
+        }
+      },
+      {
+        "kind": "do_block",
+        "name": "query",
+        "text": "do\n  #        ^ definition.module\n  #            ^ definition.module\n  #                ^ definition.module\n\n  def init(arg) do\n    #  ^ definition.function\n    state =\n      arg\n      |> map(&(&1 * 2))\n      #   ^ reference.call\n      |> map(&(&1 + 1))\n      #   ^ reference.call\n\n    {:ok, arg}\n  end\n\n  def map(list, fun, acc \\\\ [])\n  #    ^ definition.function\n\n  def map([head | rest], fun, acc) do\n    #  ^ definition.function\n    map(rest, fun, [fun.(head) | acc])\n    # <- reference.call\n  end\n\n  def map([], _fun, acc), do: Enum.reverse(acc)\n  #    ^ definition.function\n  #                             ^ reference.module\n  #                                    ^ reference.call\nend",
+        "start": {
+          "row": 1,
+          "column": 23
+        },
+        "end": {
+          "row": 31,
+          "column": 4
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#        ^ definition.module",
+        "start": {
+          "row": 2,
+          "column": 3
+        },
+        "end": {
+          "row": 2,
+          "column": 31
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#            ^ definition.module",
+        "start": {
+          "row": 3,
+          "column": 3
+        },
+        "end": {
+          "row": 3,
+          "column": 35
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                ^ definition.module",
+        "start": {
+          "row": 4,
+          "column": 3
+        },
+        "end": {
+          "row": 4,
+          "column": 39
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "def init(arg) do\n    #  ^ definition.function\n    state =\n      arg\n      |> map(&(&1 * 2))\n      #   ^ reference.call\n      |> map(&(&1 + 1))\n      #   ^ reference.call\n\n    {:ok, arg}\n  end",
+        "start": {
+          "row": 6,
+          "column": 3
+        },
+        "end": {
+          "row": 16,
+          "column": 6
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "def",
+        "start": {
+          "row": 6,
+          "column": 3
+        },
+        "end": {
+          "row": 6,
+          "column": 6
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "init(arg)",
+        "start": {
+          "row": 6,
+          "column": 7
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "init(arg)",
+        "start": {
+          "row": 6,
+          "column": 7
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "init",
+        "start": {
+          "row": 6,
+          "column": 7
+        },
+        "end": {
+          "row": 6,
+          "column": 11
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(arg)",
+        "start": {
+          "row": 6,
+          "column": 11
+        },
+        "end": {
+          "row": 6,
+          "column": 16
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "arg",
+        "start": {
+          "row": 6,
+          "column": 12
+        },
+        "end": {
+          "row": 6,
+          "column": 15
+        }
+      },
+      {
+        "kind": "do_block",
+        "name": "query",
+        "text": "do\n    #  ^ definition.function\n    state =\n      arg\n      |> map(&(&1 * 2))\n      #   ^ reference.call\n      |> map(&(&1 + 1))\n      #   ^ reference.call\n\n    {:ok, arg}\n  end",
+        "start": {
+          "row": 6,
+          "column": 17
+        },
+        "end": {
+          "row": 16,
+          "column": 6
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#  ^ definition.function",
+        "start": {
+          "row": 7,
+          "column": 5
+        },
+        "end": {
+          "row": 7,
+          "column": 29
+        }
+      },
+      {
+        "kind": "binary_operator",
+        "name": "query",
+        "text": "state =\n      arg\n      |> map(&(&1 * 2))\n      #   ^ reference.call\n      |> map(&(&1 + 1))",
+        "start": {
+          "row": 8,
+          "column": 5
+        },
+        "end": {
+          "row": 12,
+          "column": 24
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "state",
+        "start": {
+          "row": 8,
+          "column": 5
+        },
+        "end": {
+          "row": 8,
+          "column": 10
+        }
+      },
+      {
+        "kind": "binary_operator",
+        "name": "query",
+        "text": "arg\n      |> map(&(&1 * 2))\n      #   ^ reference.call\n      |> map(&(&1 + 1))",
+        "start": {
+          "row": 9,
+          "column": 7
+        },
+        "end": {
+          "row": 12,
+          "column": 24
+        }
+      },
+      {
+        "kind": "binary_operator",
+        "name": "query",
+        "text": "arg\n      |> map(&(&1 * 2))",
+        "start": {
+          "row": 9,
+          "column": 7
+        },
+        "end": {
+          "row": 10,
+          "column": 24
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "arg",
+        "start": {
+          "row": 9,
+          "column": 7
+        },
+        "end": {
+          "row": 9,
+          "column": 10
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "map(&(&1 * 2))",
+        "start": {
+          "row": 10,
+          "column": 10
+        },
+        "end": {
+          "row": 10,
+          "column": 24
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "map",
+        "start": {
+          "row": 10,
+          "column": 10
+        },
+        "end": {
+          "row": 10,
+          "column": 13
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(&(&1 * 2))",
+        "start": {
+          "row": 10,
+          "column": 13
+        },
+        "end": {
+          "row": 10,
+          "column": 24
+        }
+      },
+      {
+        "kind": "unary_operator",
+        "name": "query",
+        "text": "&(&1 * 2)",
+        "start": {
+          "row": 10,
+          "column": 14
+        },
+        "end": {
+          "row": 10,
+          "column": 23
+        }
+      },
+      {
+        "kind": "binary_operator",
+        "name": "query",
+        "text": "&1 * 2",
+        "start": {
+          "row": 10,
+          "column": 16
+        },
+        "end": {
+          "row": 10,
+          "column": 22
+        }
+      },
+      {
+        "kind": "unary_operator",
+        "name": "query",
+        "text": "&1",
+        "start": {
+          "row": 10,
+          "column": 16
+        },
+        "end": {
+          "row": 10,
+          "column": 18
+        }
+      },
+      {
+        "kind": "integer",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 10,
+          "column": 17
+        },
+        "end": {
+          "row": 10,
+          "column": 18
+        }
+      },
+      {
+        "kind": "integer",
+        "name": "query",
+        "text": "2",
+        "start": {
+          "row": 10,
+          "column": 21
+        },
+        "end": {
+          "row": 10,
+          "column": 22
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#   ^ reference.call",
+        "start": {
+          "row": 11,
+          "column": 7
+        },
+        "end": {
+          "row": 11,
+          "column": 27
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "map(&(&1 + 1))",
+        "start": {
+          "row": 12,
+          "column": 10
+        },
+        "end": {
+          "row": 12,
+          "column": 24
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "map",
+        "start": {
+          "row": 12,
+          "column": 10
+        },
+        "end": {
+          "row": 12,
+          "column": 13
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(&(&1 + 1))",
+        "start": {
+          "row": 12,
+          "column": 13
+        },
+        "end": {
+          "row": 12,
+          "column": 24
+        }
+      },
+      {
+        "kind": "unary_operator",
+        "name": "query",
+        "text": "&(&1 + 1)",
+        "start": {
+          "row": 12,
+          "column": 14
+        },
+        "end": {
+          "row": 12,
+          "column": 23
+        }
+      },
+      {
+        "kind": "binary_operator",
+        "name": "query",
+        "text": "&1 + 1",
+        "start": {
+          "row": 12,
+          "column": 16
+        },
+        "end": {
+          "row": 12,
+          "column": 22
+        }
+      },
+      {
+        "kind": "unary_operator",
+        "name": "query",
+        "text": "&1",
+        "start": {
+          "row": 12,
+          "column": 16
+        },
+        "end": {
+          "row": 12,
+          "column": 18
+        }
+      },
+      {
+        "kind": "integer",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 12,
+          "column": 17
+        },
+        "end": {
+          "row": 12,
+          "column": 18
+        }
+      },
+      {
+        "kind": "integer",
+        "name": "query",
+        "text": "1",
+        "start": {
+          "row": 12,
+          "column": 21
+        },
+        "end": {
+          "row": 12,
+          "column": 22
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#   ^ reference.call",
+        "start": {
+          "row": 13,
+          "column": 7
+        },
+        "end": {
+          "row": 13,
+          "column": 27
+        }
+      },
+      {
+        "kind": "tuple",
+        "name": "query",
+        "text": "{:ok, arg}",
+        "start": {
+          "row": 15,
+          "column": 5
+        },
+        "end": {
+          "row": 15,
+          "column": 15
+        }
+      },
+      {
+        "kind": "atom",
+        "name": "query",
+        "text": ":ok",
+        "start": {
+          "row": 15,
+          "column": 6
+        },
+        "end": {
+          "row": 15,
+          "column": 9
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "arg",
+        "start": {
+          "row": 15,
+          "column": 11
+        },
+        "end": {
+          "row": 15,
+          "column": 14
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "def map(list, fun, acc \\\\ [])",
+        "start": {
+          "row": 18,
+          "column": 3
+        },
+        "end": {
+          "row": 18,
+          "column": 32
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "def",
+        "start": {
+          "row": 18,
+          "column": 3
+        },
+        "end": {
+          "row": 18,
+          "column": 6
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "map(list, fun, acc \\\\ [])",
+        "start": {
+          "row": 18,
+          "column": 7
+        },
+        "end": {
+          "row": 18,
+          "column": 32
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "map(list, fun, acc \\\\ [])",
+        "start": {
+          "row": 18,
+          "column": 7
+        },
+        "end": {
+          "row": 18,
+          "column": 32
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "map",
+        "start": {
+          "row": 18,
+          "column": 7
+        },
+        "end": {
+          "row": 18,
+          "column": 10
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(list, fun, acc \\\\ [])",
+        "start": {
+          "row": 18,
+          "column": 10
+        },
+        "end": {
+          "row": 18,
+          "column": 32
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "list",
+        "start": {
+          "row": 18,
+          "column": 11
+        },
+        "end": {
+          "row": 18,
+          "column": 15
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "fun",
+        "start": {
+          "row": 18,
+          "column": 17
+        },
+        "end": {
+          "row": 18,
+          "column": 20
+        }
+      },
+      {
+        "kind": "binary_operator",
+        "name": "query",
+        "text": "acc \\\\ []",
+        "start": {
+          "row": 18,
+          "column": 22
+        },
+        "end": {
+          "row": 18,
+          "column": 31
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "acc",
+        "start": {
+          "row": 18,
+          "column": 22
+        },
+        "end": {
+          "row": 18,
+          "column": 25
+        }
+      },
+      {
+        "kind": "list",
+        "name": "query",
+        "text": "[]",
+        "start": {
+          "row": 18,
+          "column": 29
+        },
+        "end": {
+          "row": 18,
+          "column": 31
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#    ^ definition.function",
+        "start": {
+          "row": 19,
+          "column": 3
+        },
+        "end": {
+          "row": 19,
+          "column": 29
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "def map([head | rest], fun, acc) do\n    #  ^ definition.function\n    map(rest, fun, [fun.(head) | acc])\n    # <- reference.call\n  end",
+        "start": {
+          "row": 21,
+          "column": 3
+        },
+        "end": {
+          "row": 25,
+          "column": 6
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "def",
+        "start": {
+          "row": 21,
+          "column": 3
+        },
+        "end": {
+          "row": 21,
+          "column": 6
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "map([head | rest], fun, acc)",
+        "start": {
+          "row": 21,
+          "column": 7
+        },
+        "end": {
+          "row": 21,
+          "column": 35
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "map([head | rest], fun, acc)",
+        "start": {
+          "row": 21,
+          "column": 7
+        },
+        "end": {
+          "row": 21,
+          "column": 35
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "map",
+        "start": {
+          "row": 21,
+          "column": 7
+        },
+        "end": {
+          "row": 21,
+          "column": 10
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "([head | rest], fun, acc)",
+        "start": {
+          "row": 21,
+          "column": 10
+        },
+        "end": {
+          "row": 21,
+          "column": 35
+        }
+      },
+      {
+        "kind": "list",
+        "name": "query",
+        "text": "[head | rest]",
+        "start": {
+          "row": 21,
+          "column": 11
+        },
+        "end": {
+          "row": 21,
+          "column": 24
+        }
+      },
+      {
+        "kind": "binary_operator",
+        "name": "query",
+        "text": "head | rest",
+        "start": {
+          "row": 21,
+          "column": 12
+        },
+        "end": {
+          "row": 21,
+          "column": 23
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "head",
+        "start": {
+          "row": 21,
+          "column": 12
+        },
+        "end": {
+          "row": 21,
+          "column": 16
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "rest",
+        "start": {
+          "row": 21,
+          "column": 19
+        },
+        "end": {
+          "row": 21,
+          "column": 23
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "fun",
+        "start": {
+          "row": 21,
+          "column": 26
+        },
+        "end": {
+          "row": 21,
+          "column": 29
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "acc",
+        "start": {
+          "row": 21,
+          "column": 31
+        },
+        "end": {
+          "row": 21,
+          "column": 34
+        }
+      },
+      {
+        "kind": "do_block",
+        "name": "query",
+        "text": "do\n    #  ^ definition.function\n    map(rest, fun, [fun.(head) | acc])\n    # <- reference.call\n  end",
+        "start": {
+          "row": 21,
+          "column": 36
+        },
+        "end": {
+          "row": 25,
+          "column": 6
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#  ^ definition.function",
+        "start": {
+          "row": 22,
+          "column": 5
+        },
+        "end": {
+          "row": 22,
+          "column": 29
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "map(rest, fun, [fun.(head) | acc])",
+        "start": {
+          "row": 23,
+          "column": 5
+        },
+        "end": {
+          "row": 23,
+          "column": 39
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "map",
+        "start": {
+          "row": 23,
+          "column": 5
+        },
+        "end": {
+          "row": 23,
+          "column": 8
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(rest, fun, [fun.(head) | acc])",
+        "start": {
+          "row": 23,
+          "column": 8
+        },
+        "end": {
+          "row": 23,
+          "column": 39
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "rest",
+        "start": {
+          "row": 23,
+          "column": 9
+        },
+        "end": {
+          "row": 23,
+          "column": 13
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "fun",
+        "start": {
+          "row": 23,
+          "column": 15
+        },
+        "end": {
+          "row": 23,
+          "column": 18
+        }
+      },
+      {
+        "kind": "list",
+        "name": "query",
+        "text": "[fun.(head) | acc]",
+        "start": {
+          "row": 23,
+          "column": 20
+        },
+        "end": {
+          "row": 23,
+          "column": 38
+        }
+      },
+      {
+        "kind": "binary_operator",
+        "name": "query",
+        "text": "fun.(head) | acc",
+        "start": {
+          "row": 23,
+          "column": 21
+        },
+        "end": {
+          "row": 23,
+          "column": 37
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "fun.(head)",
+        "start": {
+          "row": 23,
+          "column": 21
+        },
+        "end": {
+          "row": 23,
+          "column": 31
+        }
+      },
+      {
+        "kind": "dot",
+        "name": "query",
+        "text": "fun.",
+        "start": {
+          "row": 23,
+          "column": 21
+        },
+        "end": {
+          "row": 23,
+          "column": 25
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "fun",
+        "start": {
+          "row": 23,
+          "column": 21
+        },
+        "end": {
+          "row": 23,
+          "column": 24
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(head)",
+        "start": {
+          "row": 23,
+          "column": 25
+        },
+        "end": {
+          "row": 23,
+          "column": 31
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "head",
+        "start": {
+          "row": 23,
+          "column": 26
+        },
+        "end": {
+          "row": 23,
+          "column": 30
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "acc",
+        "start": {
+          "row": 23,
+          "column": 34
+        },
+        "end": {
+          "row": 23,
+          "column": 37
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# <- reference.call",
+        "start": {
+          "row": 24,
+          "column": 5
+        },
+        "end": {
+          "row": 24,
+          "column": 24
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "def map([], _fun, acc), do: Enum.reverse(acc)",
+        "start": {
+          "row": 27,
+          "column": 3
+        },
+        "end": {
+          "row": 27,
+          "column": 48
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "def",
+        "start": {
+          "row": 27,
+          "column": 3
+        },
+        "end": {
+          "row": 27,
+          "column": 6
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "map([], _fun, acc), do: Enum.reverse(acc)",
+        "start": {
+          "row": 27,
+          "column": 7
+        },
+        "end": {
+          "row": 27,
+          "column": 48
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "map([], _fun, acc)",
+        "start": {
+          "row": 27,
+          "column": 7
+        },
+        "end": {
+          "row": 27,
+          "column": 25
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "map",
+        "start": {
+          "row": 27,
+          "column": 7
+        },
+        "end": {
+          "row": 27,
+          "column": 10
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "([], _fun, acc)",
+        "start": {
+          "row": 27,
+          "column": 10
+        },
+        "end": {
+          "row": 27,
+          "column": 25
+        }
+      },
+      {
+        "kind": "list",
+        "name": "query",
+        "text": "[]",
+        "start": {
+          "row": 27,
+          "column": 11
+        },
+        "end": {
+          "row": 27,
+          "column": 13
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "_fun",
+        "start": {
+          "row": 27,
+          "column": 15
+        },
+        "end": {
+          "row": 27,
+          "column": 19
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "acc",
+        "start": {
+          "row": 27,
+          "column": 21
+        },
+        "end": {
+          "row": 27,
+          "column": 24
+        }
+      },
+      {
+        "kind": "keywords",
+        "name": "query",
+        "text": "do: Enum.reverse(acc)",
+        "start": {
+          "row": 27,
+          "column": 27
+        },
+        "end": {
+          "row": 27,
+          "column": 48
+        }
+      },
+      {
+        "kind": "pair",
+        "name": "query",
+        "text": "do: Enum.reverse(acc)",
+        "start": {
+          "row": 27,
+          "column": 27
+        },
+        "end": {
+          "row": 27,
+          "column": 48
+        }
+      },
+      {
+        "kind": "keyword",
+        "name": "query",
+        "text": "do: ",
+        "start": {
+          "row": 27,
+          "column": 27
+        },
+        "end": {
+          "row": 27,
+          "column": 31
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "Enum.reverse(acc)",
+        "start": {
+          "row": 27,
+          "column": 31
+        },
+        "end": {
+          "row": 27,
+          "column": 48
+        }
+      },
+      {
+        "kind": "dot",
+        "name": "query",
+        "text": "Enum.reverse",
+        "start": {
+          "row": 27,
+          "column": 31
+        },
+        "end": {
+          "row": 27,
+          "column": 43
+        }
+      },
+      {
+        "kind": "alias",
+        "name": "query",
+        "text": "Enum",
+        "start": {
+          "row": 27,
+          "column": 31
+        },
+        "end": {
+          "row": 27,
+          "column": 35
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "reverse",
+        "start": {
+          "row": 27,
+          "column": 36
+        },
+        "end": {
+          "row": 27,
+          "column": 43
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(acc)",
+        "start": {
+          "row": 27,
+          "column": 43
+        },
+        "end": {
+          "row": 27,
+          "column": 48
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "acc",
+        "start": {
+          "row": 27,
+          "column": 44
+        },
+        "end": {
+          "row": 27,
+          "column": 47
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#    ^ definition.function",
+        "start": {
+          "row": 28,
+          "column": 3
+        },
+        "end": {
+          "row": 28,
+          "column": 29
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                             ^ reference.module",
+        "start": {
+          "row": 29,
+          "column": 3
+        },
+        "end": {
+          "row": 29,
+          "column": 51
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                                    ^ reference.call",
+        "start": {
+          "row": 30,
+          "column": 3
+        },
+        "end": {
+          "row": 30,
+          "column": 56
+        }
+      }
+    ]
+  },
+  {
+    "file": "vendor/tree-sitter-elixir/test/tags/protocol.ex",
+    "file_type": "elixir",
+    "matches": [
+      {
+        "kind": "source",
+        "name": "query",
+        "text": "defprotocol Countable do\n  #          ^ definition.module\n  def count(data)\n  #    ^ definition.function\nend\n\ndefimpl Countable, for: Binary do\n  #      ^ reference.module\n  #                      ^ reference.module\n  def count(binary), do: byte_size(binary)\n  #    ^ definition.function\n  #                       ^ reference.call\nend\n\ndefimpl Countable, for: List do\n  #      ^ reference.module\n  #                      ^ reference.module\n  def count(list), do: length(list)\n  #    ^ definition.function\n  #                     ^ reference.call\nend\n",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 22,
+          "column": 1
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "defprotocol Countable do\n  #          ^ definition.module\n  def count(data)\n  #    ^ definition.function\nend",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 5,
+          "column": 4
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "defprotocol",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 1,
+          "column": 12
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "Countable",
+        "start": {
+          "row": 1,
+          "column": 13
+        },
+        "end": {
+          "row": 1,
+          "column": 22
+        }
+      },
+      {
+        "kind": "alias",
+        "name": "query",
+        "text": "Countable",
+        "start": {
+          "row": 1,
+          "column": 13
+        },
+        "end": {
+          "row": 1,
+          "column": 22
+        }
+      },
+      {
+        "kind": "do_block",
+        "name": "query",
+        "text": "do\n  #          ^ definition.module\n  def count(data)\n  #    ^ definition.function\nend",
+        "start": {
+          "row": 1,
+          "column": 23
+        },
+        "end": {
+          "row": 5,
+          "column": 4
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#          ^ definition.module",
+        "start": {
+          "row": 2,
+          "column": 3
+        },
+        "end": {
+          "row": 2,
+          "column": 33
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "def count(data)",
+        "start": {
+          "row": 3,
+          "column": 3
+        },
+        "end": {
+          "row": 3,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "def",
+        "start": {
+          "row": 3,
+          "column": 3
+        },
+        "end": {
+          "row": 3,
+          "column": 6
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "count(data)",
+        "start": {
+          "row": 3,
+          "column": 7
+        },
+        "end": {
+          "row": 3,
+          "column": 18
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "count(data)",
+        "start": {
+          "row": 3,
+          "column": 7
+        },
+        "end": {
+          "row": 3,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "count",
+        "start": {
+          "row": 3,
+          "column": 7
+        },
+        "end": {
+          "row": 3,
+          "column": 12
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(data)",
+        "start": {
+          "row": 3,
+          "column": 12
+        },
+        "end": {
+          "row": 3,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "data",
+        "start": {
+          "row": 3,
+          "column": 13
+        },
+        "end": {
+          "row": 3,
+          "column": 17
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#    ^ definition.function",
+        "start": {
+          "row": 4,
+          "column": 3
+        },
+        "end": {
+          "row": 4,
+          "column": 29
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "defimpl Countable, for: Binary do\n  #      ^ reference.module\n  #                      ^ reference.module\n  def count(binary), do: byte_size(binary)\n  #    ^ definition.function\n  #                       ^ reference.call\nend",
+        "start": {
+          "row": 7,
+          "column": 1
+        },
+        "end": {
+          "row": 13,
+          "column": 4
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "defimpl",
+        "start": {
+          "row": 7,
+          "column": 1
+        },
+        "end": {
+          "row": 7,
+          "column": 8
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "Countable, for: Binary",
+        "start": {
+          "row": 7,
+          "column": 9
+        },
+        "end": {
+          "row": 7,
+          "column": 31
+        }
+      },
+      {
+        "kind": "alias",
+        "name": "query",
+        "text": "Countable",
+        "start": {
+          "row": 7,
+          "column": 9
+        },
+        "end": {
+          "row": 7,
+          "column": 18
+        }
+      },
+      {
+        "kind": "keywords",
+        "name": "query",
+        "text": "for: Binary",
+        "start": {
+          "row": 7,
+          "column": 20
+        },
+        "end": {
+          "row": 7,
+          "column": 31
+        }
+      },
+      {
+        "kind": "pair",
+        "name": "query",
+        "text": "for: Binary",
+        "start": {
+          "row": 7,
+          "column": 20
+        },
+        "end": {
+          "row": 7,
+          "column": 31
+        }
+      },
+      {
+        "kind": "keyword",
+        "name": "query",
+        "text": "for: ",
+        "start": {
+          "row": 7,
+          "column": 20
+        },
+        "end": {
+          "row": 7,
+          "column": 25
+        }
+      },
+      {
+        "kind": "alias",
+        "name": "query",
+        "text": "Binary",
+        "start": {
+          "row": 7,
+          "column": 25
+        },
+        "end": {
+          "row": 7,
+          "column": 31
+        }
+      },
+      {
+        "kind": "do_block",
+        "name": "query",
+        "text": "do\n  #      ^ reference.module\n  #                      ^ reference.module\n  def count(binary), do: byte_size(binary)\n  #    ^ definition.function\n  #                       ^ reference.call\nend",
+        "start": {
+          "row": 7,
+          "column": 32
+        },
+        "end": {
+          "row": 13,
+          "column": 4
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#      ^ reference.module",
+        "start": {
+          "row": 8,
+          "column": 3
+        },
+        "end": {
+          "row": 8,
+          "column": 28
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                      ^ reference.module",
+        "start": {
+          "row": 9,
+          "column": 3
+        },
+        "end": {
+          "row": 9,
+          "column": 44
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "def count(binary), do: byte_size(binary)",
+        "start": {
+          "row": 10,
+          "column": 3
+        },
+        "end": {
+          "row": 10,
+          "column": 43
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "def",
+        "start": {
+          "row": 10,
+          "column": 3
+        },
+        "end": {
+          "row": 10,
+          "column": 6
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "count(binary), do: byte_size(binary)",
+        "start": {
+          "row": 10,
+          "column": 7
+        },
+        "end": {
+          "row": 10,
+          "column": 43
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "count(binary)",
+        "start": {
+          "row": 10,
+          "column": 7
+        },
+        "end": {
+          "row": 10,
+          "column": 20
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "count",
+        "start": {
+          "row": 10,
+          "column": 7
+        },
+        "end": {
+          "row": 10,
+          "column": 12
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(binary)",
+        "start": {
+          "row": 10,
+          "column": 12
+        },
+        "end": {
+          "row": 10,
+          "column": 20
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "binary",
+        "start": {
+          "row": 10,
+          "column": 13
+        },
+        "end": {
+          "row": 10,
+          "column": 19
+        }
+      },
+      {
+        "kind": "keywords",
+        "name": "query",
+        "text": "do: byte_size(binary)",
+        "start": {
+          "row": 10,
+          "column": 22
+        },
+        "end": {
+          "row": 10,
+          "column": 43
+        }
+      },
+      {
+        "kind": "pair",
+        "name": "query",
+        "text": "do: byte_size(binary)",
+        "start": {
+          "row": 10,
+          "column": 22
+        },
+        "end": {
+          "row": 10,
+          "column": 43
+        }
+      },
+      {
+        "kind": "keyword",
+        "name": "query",
+        "text": "do: ",
+        "start": {
+          "row": 10,
+          "column": 22
+        },
+        "end": {
+          "row": 10,
+          "column": 26
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "byte_size(binary)",
+        "start": {
+          "row": 10,
+          "column": 26
+        },
+        "end": {
+          "row": 10,
+          "column": 43
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "byte_size",
+        "start": {
+          "row": 10,
+          "column": 26
+        },
+        "end": {
+          "row": 10,
+          "column": 35
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(binary)",
+        "start": {
+          "row": 10,
+          "column": 35
+        },
+        "end": {
+          "row": 10,
+          "column": 43
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "binary",
+        "start": {
+          "row": 10,
+          "column": 36
+        },
+        "end": {
+          "row": 10,
+          "column": 42
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#    ^ definition.function",
+        "start": {
+          "row": 11,
+          "column": 3
+        },
+        "end": {
+          "row": 11,
+          "column": 29
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                       ^ reference.call",
+        "start": {
+          "row": 12,
+          "column": 3
+        },
+        "end": {
+          "row": 12,
+          "column": 43
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "defimpl Countable, for: List do\n  #      ^ reference.module\n  #                      ^ reference.module\n  def count(list), do: length(list)\n  #    ^ definition.function\n  #                     ^ reference.call\nend",
+        "start": {
+          "row": 15,
+          "column": 1
+        },
+        "end": {
+          "row": 21,
+          "column": 4
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "defimpl",
+        "start": {
+          "row": 15,
+          "column": 1
+        },
+        "end": {
+          "row": 15,
+          "column": 8
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "Countable, for: List",
+        "start": {
+          "row": 15,
+          "column": 9
+        },
+        "end": {
+          "row": 15,
+          "column": 29
+        }
+      },
+      {
+        "kind": "alias",
+        "name": "query",
+        "text": "Countable",
+        "start": {
+          "row": 15,
+          "column": 9
+        },
+        "end": {
+          "row": 15,
+          "column": 18
+        }
+      },
+      {
+        "kind": "keywords",
+        "name": "query",
+        "text": "for: List",
+        "start": {
+          "row": 15,
+          "column": 20
+        },
+        "end": {
+          "row": 15,
+          "column": 29
+        }
+      },
+      {
+        "kind": "pair",
+        "name": "query",
+        "text": "for: List",
+        "start": {
+          "row": 15,
+          "column": 20
+        },
+        "end": {
+          "row": 15,
+          "column": 29
+        }
+      },
+      {
+        "kind": "keyword",
+        "name": "query",
+        "text": "for: ",
+        "start": {
+          "row": 15,
+          "column": 20
+        },
+        "end": {
+          "row": 15,
+          "column": 25
+        }
+      },
+      {
+        "kind": "alias",
+        "name": "query",
+        "text": "List",
+        "start": {
+          "row": 15,
+          "column": 25
+        },
+        "end": {
+          "row": 15,
+          "column": 29
+        }
+      },
+      {
+        "kind": "do_block",
+        "name": "query",
+        "text": "do\n  #      ^ reference.module\n  #                      ^ reference.module\n  def count(list), do: length(list)\n  #    ^ definition.function\n  #                     ^ reference.call\nend",
+        "start": {
+          "row": 15,
+          "column": 30
+        },
+        "end": {
+          "row": 21,
+          "column": 4
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#      ^ reference.module",
+        "start": {
+          "row": 16,
+          "column": 3
+        },
+        "end": {
+          "row": 16,
+          "column": 28
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                      ^ reference.module",
+        "start": {
+          "row": 17,
+          "column": 3
+        },
+        "end": {
+          "row": 17,
+          "column": 44
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "def count(list), do: length(list)",
+        "start": {
+          "row": 18,
+          "column": 3
+        },
+        "end": {
+          "row": 18,
+          "column": 36
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "def",
+        "start": {
+          "row": 18,
+          "column": 3
+        },
+        "end": {
+          "row": 18,
+          "column": 6
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "count(list), do: length(list)",
+        "start": {
+          "row": 18,
+          "column": 7
+        },
+        "end": {
+          "row": 18,
+          "column": 36
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "count(list)",
+        "start": {
+          "row": 18,
+          "column": 7
+        },
+        "end": {
+          "row": 18,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "count",
+        "start": {
+          "row": 18,
+          "column": 7
+        },
+        "end": {
+          "row": 18,
+          "column": 12
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(list)",
+        "start": {
+          "row": 18,
+          "column": 12
+        },
+        "end": {
+          "row": 18,
+          "column": 18
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "list",
+        "start": {
+          "row": 18,
+          "column": 13
+        },
+        "end": {
+          "row": 18,
+          "column": 17
+        }
+      },
+      {
+        "kind": "keywords",
+        "name": "query",
+        "text": "do: length(list)",
+        "start": {
+          "row": 18,
+          "column": 20
+        },
+        "end": {
+          "row": 18,
+          "column": 36
+        }
+      },
+      {
+        "kind": "pair",
+        "name": "query",
+        "text": "do: length(list)",
+        "start": {
+          "row": 18,
+          "column": 20
+        },
+        "end": {
+          "row": 18,
+          "column": 36
+        }
+      },
+      {
+        "kind": "keyword",
+        "name": "query",
+        "text": "do: ",
+        "start": {
+          "row": 18,
+          "column": 20
+        },
+        "end": {
+          "row": 18,
+          "column": 24
+        }
+      },
+      {
+        "kind": "call",
+        "name": "query",
+        "text": "length(list)",
+        "start": {
+          "row": 18,
+          "column": 24
+        },
+        "end": {
+          "row": 18,
+          "column": 36
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "length",
+        "start": {
+          "row": 18,
+          "column": 24
+        },
+        "end": {
+          "row": 18,
+          "column": 30
+        }
+      },
+      {
+        "kind": "arguments",
+        "name": "query",
+        "text": "(list)",
+        "start": {
+          "row": 18,
+          "column": 30
+        },
+        "end": {
+          "row": 18,
+          "column": 36
+        }
+      },
+      {
+        "kind": "identifier",
+        "name": "query",
+        "text": "list",
+        "start": {
+          "row": 18,
+          "column": 31
+        },
+        "end": {
+          "row": 18,
+          "column": 35
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#    ^ definition.function",
+        "start": {
+          "row": 19,
+          "column": 3
+        },
+        "end": {
+          "row": 19,
+          "column": 29
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#                     ^ reference.call",
+        "start": {
+          "row": 20,
+          "column": 3
+        },
+        "end": {
+          "row": 20,
+          "column": 41
         }
       }
     ]
