@@ -81,7 +81,7 @@ fn show_tree(opts: TreeOpts, out: impl Write) -> Result<()> {
         .parse(&source, None)
         .context("could not parse tree")?;
 
-    tree_view::tree_view(&tree, &source.as_bytes(), out)
+    tree_view::tree_view(&tree, source.as_bytes(), out)
 }
 
 fn do_query(opts: QueryOpts, mut out: impl Write) -> Result<()> {

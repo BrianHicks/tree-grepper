@@ -33,7 +33,7 @@ pub fn tree_view(tree: &Tree, source: &[u8], mut out: impl Write) -> Result<()> 
                         .context("could not get node source")?
                 )?;
             } else {
-                write!(out, "\n")?;
+                writeln!(out)?;
             }
         }
 
