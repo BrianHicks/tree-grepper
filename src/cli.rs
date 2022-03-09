@@ -66,6 +66,7 @@ impl Invocation {
                     .conflicts_with("languages")
                     .conflicts_with("show-tree")
                     .multiple_values(true)
+                    .multiple_occurrences(true)
             )
             .arg(
                 Arg::new("no-gitignore")
