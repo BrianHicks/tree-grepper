@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.1
+
+- Fix a bug in 2.4.0 that disallowed multiple queries in an invocation
+
 ## 2.4.0
 
 - New parsed tree view (try `tree-grepper --show-tree languagename path/to/source.ext`) to help writing queries
