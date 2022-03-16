@@ -327,6 +327,20 @@ mod tests {
     }
 
     #[test]
+    fn all_markdown() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "markdown",
+            "(_)",
+            "--format=pretty-json",
+            "--sort",
+            "--no-gitignore",
+            "vendor/tree-sitter-markdown/README.md",
+        ]))
+    }
+
+    #[test]
     fn all_php() {
         insta::assert_snapshot!(call(&[
             "tree-grepper",

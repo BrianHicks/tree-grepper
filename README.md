@@ -86,6 +86,7 @@ For example:
 - Elm
 - Haskell
 - JavaScript
+- Markdown
 - PHP
 - Ruby
 - Rust
