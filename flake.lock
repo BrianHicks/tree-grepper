@@ -71,11 +71,11 @@
     "tree-sitter-cpp": {
       "flake": false,
       "locked": {
-        "lastModified": 1645365282,
-        "narHash": "sha256-+xIU26rCDoc2Bns8AZLF5AQRtiyyOnCJEOLkC2t4hI4=",
+        "lastModified": 1647290061,
+        "narHash": "sha256-Jg63snrZgoXTV18rhxiJFq5T+OXF85O0hRO9HwQfEfg=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-cpp",
-        "rev": "a403969cbb82e53a703ca4fe4a3586ad39817348",
+        "rev": "a832195eb3685a279856bb480ce19cff19554b6d",
         "type": "github"
       },
       "original": {
