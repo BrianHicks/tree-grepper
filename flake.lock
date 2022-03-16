@@ -61,6 +61,7 @@
         "tree-sitter-elm": "tree-sitter-elm",
         "tree-sitter-haskell": "tree-sitter-haskell",
         "tree-sitter-javascript": "tree-sitter-javascript",
+        "tree-sitter-markdown": "tree-sitter-markdown",
         "tree-sitter-php": "tree-sitter-php",
         "tree-sitter-ruby": "tree-sitter-ruby",
         "tree-sitter-rust": "tree-sitter-rust",
@@ -146,6 +147,22 @@
       "original": {
         "owner": "tree-sitter",
         "repo": "tree-sitter-javascript",
+        "type": "github"
+      }
+    },
+    "tree-sitter-markdown": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1618750161,
+        "narHash": "sha256-86sDA+8xROfuWiNrWTfN7sExAqwfj+CyXq+ZeHpKSKg=",
+        "owner": "ikatyang",
+        "repo": "tree-sitter-markdown",
+        "rev": "8b8b77af0493e26d378135a3e7f5ae25b555b375",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ikatyang",
+        "repo": "tree-sitter-markdown",
         "type": "github"
       }
     },

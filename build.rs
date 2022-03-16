@@ -92,6 +92,24 @@ fn main() {
         .file(javascript_dir.join("scanner.c"))
         .compile("tree_sitter_javascript_scanner");
 
+    // markdown
+    let markdown_dir: PathBuf = ["vendor", "tree-sitter-markdown", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-markdown/src/parser.c");
+    cc::Build::new()
+        .include(&markdown_dir)
+        .warnings(false)
+        .file(markdown_dir.join("parser.c"))
+        .compile("tree-sitter-markdown");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-markdown/src/scanner.cc");
+    cc::Build::new()
+        .include(&markdown_dir)
+        .cpp(true)
+        .warnings(false)
+        .file(markdown_dir.join("scanner.cc"))
+        .compile("tree_sitter_markdown_scanner");
+
     // php
     let php_dir: PathBuf = ["vendor", "tree-sitter-php", "src"].iter().collect();
 
