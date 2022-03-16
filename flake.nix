@@ -31,6 +31,11 @@
       flake = false;
     };
 
+    tree-sitter-markdown = {
+      url = "github:ikatyang/tree-sitter-markdown";
+      flake = false;
+    };
+
     tree-sitter-php = {
       url = "github:tree-sitter/tree-sitter-php";
       flake = false;
@@ -71,6 +76,7 @@
           ln -s ${inputs.tree-sitter-elm} vendor/tree-sitter-elm
           ln -s ${inputs.tree-sitter-haskell} vendor/tree-sitter-haskell
           ln -s ${inputs.tree-sitter-javascript} vendor/tree-sitter-javascript
+          ln -s ${inputs.tree-sitter-markdown} vendor/tree-sitter-markdown
           ln -s ${inputs.tree-sitter-php} vendor/tree-sitter-php
           ln -s ${inputs.tree-sitter-ruby} vendor/tree-sitter-ruby
           ln -s ${inputs.tree-sitter-rust} vendor/tree-sitter-rust
