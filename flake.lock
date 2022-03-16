@@ -201,11 +201,11 @@
     "tree-sitter-rust": {
       "flake": false,
       "locked": {
-        "lastModified": 1646728379,
-        "narHash": "sha256-x+YC0jSUdhtE2X+Gd/nvLMCBpAi1tzL1p5ZuDXOoRbg=",
+        "lastModified": 1646824307,
+        "narHash": "sha256-/xJueRxyWMAhqh3f7q4iv6rh/eGdwE9/vHehFQhBFuU=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-rust",
-        "rev": "9cede24ef89daa4f5cf6e07b7a90940e7c802666",
+        "rev": "0509e440ae042db6483984b3a56b3c5f24b5d9b9",
         "type": "github"
       },
       "original": {
