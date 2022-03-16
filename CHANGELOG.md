@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.0
+
+- Add Markdown support
+
 ## 2.4.1
 
 - Fix a bug in 2.4.0 that disallowed multiple queries in an invocation
