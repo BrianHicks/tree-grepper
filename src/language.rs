@@ -10,6 +10,7 @@ pub enum Language {
     Haskell,
     JavaScript,
     Markdown,
+    Nix,
     Php,
     Ruby,
     Rust,
@@ -25,6 +26,7 @@ impl Language {
             Language::Haskell,
             Language::JavaScript,
             Language::Markdown,
+            Language::Nix,
             Language::Php,
             Language::Ruby,
             Language::Rust,
@@ -41,6 +43,7 @@ impl Language {
                 Language::Haskell => tree_sitter_haskell(),
                 Language::JavaScript => tree_sitter_javascript(),
                 Language::Markdown => tree_sitter_markdown(),
+                Language::Nix => tree_sitter_nix(),
                 Language::Php => tree_sitter_php(),
                 Language::Ruby => tree_sitter_ruby(),
                 Language::Rust => tree_sitter_rust(),
@@ -61,6 +64,7 @@ impl Language {
             Language::Haskell => "haskell",
             Language::JavaScript => "js",
             Language::Markdown => "markdown",
+            Language::Nix => "nix",
             Language::Php => "php",
             Language::Ruby => "ruby",
             Language::Rust => "rust",
@@ -80,6 +84,7 @@ impl FromStr for Language {
             "haskell" => Ok(Language::Haskell),
             "javascript" => Ok(Language::JavaScript),
             "markdown" => Ok(Language::Markdown),
+            "nix" => Ok(Language::Nix),
             "php" => Ok(Language::Php),
             "ruby" => Ok(Language::Ruby),
             "rust" => Ok(Language::Rust),
@@ -106,6 +111,7 @@ impl Display for Language {
             Language::Haskell => f.write_str("haskell"),
             Language::JavaScript => f.write_str("javascript"),
             Language::Markdown => f.write_str("markdown"),
+            Language::Nix => f.write_str("nix"),
             Language::Php => f.write_str("php"),
             Language::Ruby => f.write_str("ruby"),
             Language::Rust => f.write_str("rust"),
@@ -155,6 +161,7 @@ extern "C" {
     fn tree_sitter_haskell() -> tree_sitter::Language;
     fn tree_sitter_javascript() -> tree_sitter::Language;
     fn tree_sitter_markdown() -> tree_sitter::Language;
+    fn tree_sitter_nix() -> tree_sitter::Language;
     fn tree_sitter_php() -> tree_sitter::Language;
     fn tree_sitter_ruby() -> tree_sitter::Language;
     fn tree_sitter_rust() -> tree_sitter::Language;

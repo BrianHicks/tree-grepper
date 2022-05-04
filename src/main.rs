@@ -341,6 +341,20 @@ mod tests {
     }
 
     #[test]
+    fn all_nix() {
+        insta::assert_snapshot!(call(&[
+            "tree-grepper",
+            "-q",
+            "nix",
+            "(_)",
+            "--format=pretty-json",
+            "--sort",
+            "--no-gitignore",
+            "vendor/tree-sitter-nix/test/highlight/basic.nix",
+        ]))
+    }
+
+    #[test]
     fn all_php() {
         insta::assert_snapshot!(call(&[
             "tree-grepper",

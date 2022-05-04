@@ -11,6 +11,11 @@
       flake = false;
     };
 
+    tree-sitter-nix = {
+      url = "github:cstrahan/tree-sitter-nix";
+      flake = false;
+    };
+
     tree-sitter-elixir = {
       url = "github:elixir-lang/tree-sitter-elixir/main";
       flake = false;
@@ -81,6 +86,7 @@
           ln -s ${inputs.tree-sitter-ruby} vendor/tree-sitter-ruby
           ln -s ${inputs.tree-sitter-rust} vendor/tree-sitter-rust
           ln -s ${inputs.tree-sitter-typescript} vendor/tree-sitter-typescript
+          ln -s ${inputs.tree-sitter-nix} vendor/tree-sitter-nix
         '';
       in rec {
         # `nix build`

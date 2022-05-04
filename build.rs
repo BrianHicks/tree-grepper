@@ -110,6 +110,23 @@ fn main() {
         .file(markdown_dir.join("scanner.cc"))
         .compile("tree_sitter_markdown_scanner");
 
+    // nix
+    let nix_dir: PathBuf = ["vendor", "tree-sitter-nix", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-nix/src/parser.c");
+    cc::Build::new()
+        .include(&nix_dir)
+        .warnings(false)
+        .file(nix_dir.join("parser.c"))
+        .compile("tree-sitter-nix");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-nix/src/scanner.c");
+    cc::Build::new()
+        .include(&nix_dir)
+        .warnings(false)
+        .file(nix_dir.join("scanner.c"))
+        .compile("tree_sitter_nix_scanner");
+
     // php
     let php_dir: PathBuf = ["vendor", "tree-sitter-php", "src"].iter().collect();
 
