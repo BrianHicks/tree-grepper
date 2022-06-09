@@ -1,8 +1,6 @@
 ---
 source: src/main.rs
-assertion_line: 278
-expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=pretty-json\",\n       \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-haskell\"])"
-
+expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=pretty-json\",\n                \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-haskell\"])"
 ---
 [
   {
@@ -175,6 +173,194 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"haskell\", \"(_)\", \"--format=p
         },
         "end": {
           "row": 3,
+          "column": 6
+        }
+      }
+    ]
+  },
+  {
+    "file": "vendor/tree-sitter-haskell/test/edit/LambdaCaseEnd.hs",
+    "file_type": "haskell",
+    "matches": [
+      {
+        "kind": "haskell",
+        "name": "query",
+        "text": "a = \\case\n  b -> c\n\nd = e\n",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 5,
+          "column": 1
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "a = \\case\n  b -> c",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 2,
+          "column": 9
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "a",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 1,
+          "column": 2
+        }
+      },
+      {
+        "kind": "exp_lambda_case",
+        "name": "query",
+        "text": "\\case\n  b -> c",
+        "start": {
+          "row": 1,
+          "column": 5
+        },
+        "end": {
+          "row": 2,
+          "column": 9
+        }
+      },
+      {
+        "kind": "alts",
+        "name": "query",
+        "text": "b -> c",
+        "start": {
+          "row": 2,
+          "column": 3
+        },
+        "end": {
+          "row": 2,
+          "column": 9
+        }
+      },
+      {
+        "kind": "alt",
+        "name": "query",
+        "text": "b -> c",
+        "start": {
+          "row": 2,
+          "column": 3
+        },
+        "end": {
+          "row": 2,
+          "column": 9
+        }
+      },
+      {
+        "kind": "pat_name",
+        "name": "query",
+        "text": "b",
+        "start": {
+          "row": 2,
+          "column": 3
+        },
+        "end": {
+          "row": 2,
+          "column": 4
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "b",
+        "start": {
+          "row": 2,
+          "column": 3
+        },
+        "end": {
+          "row": 2,
+          "column": 4
+        }
+      },
+      {
+        "kind": "exp_name",
+        "name": "query",
+        "text": "c",
+        "start": {
+          "row": 2,
+          "column": 8
+        },
+        "end": {
+          "row": 2,
+          "column": 9
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "c",
+        "start": {
+          "row": 2,
+          "column": 8
+        },
+        "end": {
+          "row": 2,
+          "column": 9
+        }
+      },
+      {
+        "kind": "function",
+        "name": "query",
+        "text": "d = e",
+        "start": {
+          "row": 4,
+          "column": 1
+        },
+        "end": {
+          "row": 4,
+          "column": 6
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "d",
+        "start": {
+          "row": 4,
+          "column": 1
+        },
+        "end": {
+          "row": 4,
+          "column": 2
+        }
+      },
+      {
+        "kind": "exp_name",
+        "name": "query",
+        "text": "e",
+        "start": {
+          "row": 4,
+          "column": 5
+        },
+        "end": {
+          "row": 4,
+          "column": 6
+        }
+      },
+      {
+        "kind": "variable",
+        "name": "query",
+        "text": "e",
+        "start": {
+          "row": 4,
+          "column": 5
+        },
+        "end": {
+          "row": 4,
           "column": 6
         }
       }

@@ -1,7 +1,6 @@
 ---
 source: src/main.rs
-assertion_line: 393
-expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pretty-json\",\n       \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-elixir\"])"
+expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pretty-json\",\n                \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-elixir\"])"
 ---
 [
   {
@@ -11,13 +10,13 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
       {
         "kind": "source",
         "name": "query",
-        "text": "fn x, y, z ->\n# <- keyword\n#  ^ variable\n#   ^ punctuation.delimiter\n#     ^ variable\n#      ^ punctuation.delimiter\n#        ^ variable\n#          ^ operator\n  fn(a, b, c) ->\n  # <- keyword\n  # ^ punctuation.bracket\n  #  ^ variable\n  #   ^ punctuation.delimiter\n  #     ^ variable\n  #      ^ punctuation.delimiter\n  #        ^ variable\n  #         ^ punctuation.bracket\n  #           ^ operator\n    &(x + y - z * a / &1 + b + div(&2, c))\n    #<- operator\n    #^ punctuation.bracket\n    # ^ variable\n    #   ^ operator\n    #     ^ variable\n    #       ^ operator\n    #         ^ variable\n    #           ^ operator\n    #             ^ variable\n    #               ^ operator\n    #                 ^ operator\n    #                    ^ operator\n    #                      ^ variable\n    #                        ^ operator\n    #                          ^ function\n    #                             ^ punctuation.bracket\n    #                              ^ operator\n    #                                ^ punctuation.delimiter\n    #                                  ^ variable\n    #                                   ^ punctuation.bracket\n    #                                    ^ punctuation.bracket\n  end\nend\n\n&Set.put(&1, &2)\n# <- operator\n# ^ module\n#   ^ operator\n#    ^ function\n#       ^ punctuation.bracket\n#        ^ operator\n#          ^ punctuation.delimiter\n#            ^ operator\n#              ^ punctuation.bracket\n\n&( Set.put(&1, &1) )\n#<- operator\n#^ punctuation.bracket\n#  ^ module\n#     ^ operator\n#      ^ function\n#         ^ punctuation.bracket\n#          ^ operator\n#            ^ punctuation.delimiter\n#              ^ operator\n#                ^ punctuation.bracket\n#                  ^ punctuation.bracket\n",
+        "text": "fn x, y, z ->\n# <- keyword\n#  ^ variable\n#   ^ punctuation.delimiter\n#     ^ variable\n#      ^ punctuation.delimiter\n#        ^ variable\n#          ^ operator\n  fn(a, b, c) ->\n  # <- keyword\n  # ^ punctuation.bracket\n  #  ^ variable\n  #   ^ punctuation.delimiter\n  #     ^ variable\n  #      ^ punctuation.delimiter\n  #        ^ variable\n  #         ^ punctuation.bracket\n  #           ^ operator\n    &(x + y - z * a / &1 + b + div(&2, c))\n    #<- operator\n    #^ punctuation.bracket\n    # ^ variable\n    #   ^ operator\n    #     ^ variable\n    #       ^ operator\n    #         ^ variable\n    #           ^ operator\n    #             ^ variable\n    #               ^ operator\n    #                 ^ operator\n    #                    ^ operator\n    #                      ^ variable\n    #                        ^ operator\n    #                          ^ function\n    #                             ^ punctuation.bracket\n    #                              ^ operator\n    #                                ^ punctuation.delimiter\n    #                                  ^ variable\n    #                                   ^ punctuation.bracket\n    #                                    ^ punctuation.bracket\n  end\nend\n\nfn ->\n# <- keyword\n#   ^ operator\nend\n# <- keyword\n\n&Set.put(&1, &2)\n# <- operator\n# ^ module\n#   ^ operator\n#    ^ function\n#       ^ punctuation.bracket\n#        ^ operator\n#          ^ punctuation.delimiter\n#            ^ operator\n#              ^ punctuation.bracket\n\n&( Set.put(&1, &1) )\n#<- operator\n#^ punctuation.bracket\n#  ^ module\n#     ^ operator\n#      ^ function\n#         ^ punctuation.bracket\n#          ^ operator\n#            ^ punctuation.delimiter\n#              ^ operator\n#                ^ punctuation.bracket\n#                  ^ punctuation.bracket\n",
         "start": {
           "row": 1,
           "column": 1
         },
         "end": {
-          "row": 67,
+          "row": 73,
           "column": 1
         }
       },
@@ -945,15 +944,93 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         }
       },
       {
-        "kind": "unary_operator",
+        "kind": "anonymous_function",
         "name": "query",
-        "text": "&Set.put(&1, &2)",
+        "text": "fn ->\n# <- keyword\n#   ^ operator\nend",
         "start": {
           "row": 44,
           "column": 1
         },
         "end": {
+          "row": 47,
+          "column": 4
+        }
+      },
+      {
+        "kind": "stab_clause",
+        "name": "query",
+        "text": "->\n# <- keyword\n#   ^ operator\n",
+        "start": {
           "row": 44,
+          "column": 4
+        },
+        "end": {
+          "row": 47,
+          "column": 1
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# <- keyword",
+        "start": {
+          "row": 45,
+          "column": 1
+        },
+        "end": {
+          "row": 45,
+          "column": 13
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "#   ^ operator",
+        "start": {
+          "row": 46,
+          "column": 1
+        },
+        "end": {
+          "row": 46,
+          "column": 15
+        }
+      },
+      {
+        "kind": "body",
+        "name": "query",
+        "text": "\n",
+        "start": {
+          "row": 46,
+          "column": 15
+        },
+        "end": {
+          "row": 47,
+          "column": 1
+        }
+      },
+      {
+        "kind": "comment",
+        "name": "query",
+        "text": "# <- keyword",
+        "start": {
+          "row": 48,
+          "column": 1
+        },
+        "end": {
+          "row": 48,
+          "column": 13
+        }
+      },
+      {
+        "kind": "unary_operator",
+        "name": "query",
+        "text": "&Set.put(&1, &2)",
+        "start": {
+          "row": 50,
+          "column": 1
+        },
+        "end": {
+          "row": 50,
           "column": 17
         }
       },
@@ -962,11 +1039,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "Set.put(&1, &2)",
         "start": {
-          "row": 44,
+          "row": 50,
           "column": 2
         },
         "end": {
-          "row": 44,
+          "row": 50,
           "column": 17
         }
       },
@@ -975,11 +1052,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "Set.put",
         "start": {
-          "row": 44,
+          "row": 50,
           "column": 2
         },
         "end": {
-          "row": 44,
+          "row": 50,
           "column": 9
         }
       },
@@ -988,11 +1065,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "Set",
         "start": {
-          "row": 44,
+          "row": 50,
           "column": 2
         },
         "end": {
-          "row": 44,
+          "row": 50,
           "column": 5
         }
       },
@@ -1001,11 +1078,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "put",
         "start": {
-          "row": 44,
+          "row": 50,
           "column": 6
         },
         "end": {
-          "row": 44,
+          "row": 50,
           "column": 9
         }
       },
@@ -1014,11 +1091,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "(&1, &2)",
         "start": {
-          "row": 44,
+          "row": 50,
           "column": 9
         },
         "end": {
-          "row": 44,
+          "row": 50,
           "column": 17
         }
       },
@@ -1027,11 +1104,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "&1",
         "start": {
-          "row": 44,
+          "row": 50,
           "column": 10
         },
         "end": {
-          "row": 44,
+          "row": 50,
           "column": 12
         }
       },
@@ -1040,11 +1117,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "1",
         "start": {
-          "row": 44,
+          "row": 50,
           "column": 11
         },
         "end": {
-          "row": 44,
+          "row": 50,
           "column": 12
         }
       },
@@ -1053,11 +1130,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "&2",
         "start": {
-          "row": 44,
+          "row": 50,
           "column": 14
         },
         "end": {
-          "row": 44,
+          "row": 50,
           "column": 16
         }
       },
@@ -1066,11 +1143,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "2",
         "start": {
-          "row": 44,
+          "row": 50,
           "column": 15
         },
         "end": {
-          "row": 44,
+          "row": 50,
           "column": 16
         }
       },
@@ -1079,11 +1156,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "# <- operator",
         "start": {
-          "row": 45,
+          "row": 51,
           "column": 1
         },
         "end": {
-          "row": 45,
+          "row": 51,
           "column": 14
         }
       },
@@ -1092,11 +1169,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "# ^ module",
         "start": {
-          "row": 46,
+          "row": 52,
           "column": 1
         },
         "end": {
-          "row": 46,
+          "row": 52,
           "column": 11
         }
       },
@@ -1105,11 +1182,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#   ^ operator",
         "start": {
-          "row": 47,
+          "row": 53,
           "column": 1
         },
         "end": {
-          "row": 47,
+          "row": 53,
           "column": 15
         }
       },
@@ -1118,11 +1195,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#    ^ function",
         "start": {
-          "row": 48,
+          "row": 54,
           "column": 1
         },
         "end": {
-          "row": 48,
+          "row": 54,
           "column": 16
         }
       },
@@ -1131,11 +1208,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#       ^ punctuation.bracket",
         "start": {
-          "row": 49,
+          "row": 55,
           "column": 1
         },
         "end": {
-          "row": 49,
+          "row": 55,
           "column": 30
         }
       },
@@ -1144,11 +1221,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#        ^ operator",
         "start": {
-          "row": 50,
+          "row": 56,
           "column": 1
         },
         "end": {
-          "row": 50,
+          "row": 56,
           "column": 20
         }
       },
@@ -1157,11 +1234,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#          ^ punctuation.delimiter",
         "start": {
-          "row": 51,
+          "row": 57,
           "column": 1
         },
         "end": {
-          "row": 51,
+          "row": 57,
           "column": 35
         }
       },
@@ -1170,11 +1247,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#            ^ operator",
         "start": {
-          "row": 52,
+          "row": 58,
           "column": 1
         },
         "end": {
-          "row": 52,
+          "row": 58,
           "column": 24
         }
       },
@@ -1183,11 +1260,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#              ^ punctuation.bracket",
         "start": {
-          "row": 53,
+          "row": 59,
           "column": 1
         },
         "end": {
-          "row": 53,
+          "row": 59,
           "column": 37
         }
       },
@@ -1196,11 +1273,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "&( Set.put(&1, &1) )",
         "start": {
-          "row": 55,
+          "row": 61,
           "column": 1
         },
         "end": {
-          "row": 55,
+          "row": 61,
           "column": 21
         }
       },
@@ -1209,11 +1286,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "Set.put(&1, &1)",
         "start": {
-          "row": 55,
+          "row": 61,
           "column": 4
         },
         "end": {
-          "row": 55,
+          "row": 61,
           "column": 19
         }
       },
@@ -1222,11 +1299,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "Set.put",
         "start": {
-          "row": 55,
+          "row": 61,
           "column": 4
         },
         "end": {
-          "row": 55,
+          "row": 61,
           "column": 11
         }
       },
@@ -1235,11 +1312,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "Set",
         "start": {
-          "row": 55,
+          "row": 61,
           "column": 4
         },
         "end": {
-          "row": 55,
+          "row": 61,
           "column": 7
         }
       },
@@ -1248,11 +1325,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "put",
         "start": {
-          "row": 55,
+          "row": 61,
           "column": 8
         },
         "end": {
-          "row": 55,
+          "row": 61,
           "column": 11
         }
       },
@@ -1261,11 +1338,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "(&1, &1)",
         "start": {
-          "row": 55,
+          "row": 61,
           "column": 11
         },
         "end": {
-          "row": 55,
+          "row": 61,
           "column": 19
         }
       },
@@ -1274,11 +1351,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "&1",
         "start": {
-          "row": 55,
+          "row": 61,
           "column": 12
         },
         "end": {
-          "row": 55,
+          "row": 61,
           "column": 14
         }
       },
@@ -1287,11 +1364,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "1",
         "start": {
-          "row": 55,
+          "row": 61,
           "column": 13
         },
         "end": {
-          "row": 55,
+          "row": 61,
           "column": 14
         }
       },
@@ -1300,11 +1377,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "&1",
         "start": {
-          "row": 55,
+          "row": 61,
           "column": 16
         },
         "end": {
-          "row": 55,
+          "row": 61,
           "column": 18
         }
       },
@@ -1313,11 +1390,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "1",
         "start": {
-          "row": 55,
+          "row": 61,
           "column": 17
         },
         "end": {
-          "row": 55,
+          "row": 61,
           "column": 18
         }
       },
@@ -1326,11 +1403,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#<- operator",
         "start": {
-          "row": 56,
+          "row": 62,
           "column": 1
         },
         "end": {
-          "row": 56,
+          "row": 62,
           "column": 13
         }
       },
@@ -1339,11 +1416,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#^ punctuation.bracket",
         "start": {
-          "row": 57,
+          "row": 63,
           "column": 1
         },
         "end": {
-          "row": 57,
+          "row": 63,
           "column": 23
         }
       },
@@ -1352,11 +1429,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#  ^ module",
         "start": {
-          "row": 58,
+          "row": 64,
           "column": 1
         },
         "end": {
-          "row": 58,
+          "row": 64,
           "column": 12
         }
       },
@@ -1365,11 +1442,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#     ^ operator",
         "start": {
-          "row": 59,
+          "row": 65,
           "column": 1
         },
         "end": {
-          "row": 59,
+          "row": 65,
           "column": 17
         }
       },
@@ -1378,11 +1455,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#      ^ function",
         "start": {
-          "row": 60,
+          "row": 66,
           "column": 1
         },
         "end": {
-          "row": 60,
+          "row": 66,
           "column": 18
         }
       },
@@ -1391,11 +1468,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#         ^ punctuation.bracket",
         "start": {
-          "row": 61,
+          "row": 67,
           "column": 1
         },
         "end": {
-          "row": 61,
+          "row": 67,
           "column": 32
         }
       },
@@ -1404,11 +1481,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#          ^ operator",
         "start": {
-          "row": 62,
+          "row": 68,
           "column": 1
         },
         "end": {
-          "row": 62,
+          "row": 68,
           "column": 22
         }
       },
@@ -1417,11 +1494,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#            ^ punctuation.delimiter",
         "start": {
-          "row": 63,
+          "row": 69,
           "column": 1
         },
         "end": {
-          "row": 63,
+          "row": 69,
           "column": 37
         }
       },
@@ -1430,11 +1507,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#              ^ operator",
         "start": {
-          "row": 64,
+          "row": 70,
           "column": 1
         },
         "end": {
-          "row": 64,
+          "row": 70,
           "column": 26
         }
       },
@@ -1443,11 +1520,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#                ^ punctuation.bracket",
         "start": {
-          "row": 65,
+          "row": 71,
           "column": 1
         },
         "end": {
-          "row": 65,
+          "row": 71,
           "column": 39
         }
       },
@@ -1456,11 +1533,11 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         "name": "query",
         "text": "#                  ^ punctuation.bracket",
         "start": {
-          "row": 66,
+          "row": 72,
           "column": 1
         },
         "end": {
-          "row": 66,
+          "row": 72,
           "column": 41
         }
       }

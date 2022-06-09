@@ -1,7 +1,6 @@
 ---
 source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"--no-gitignore\", \"vendor/tree-sitter-ruby\"])"
-
+expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n                \"--no-gitignore\", \"vendor/tree-sitter-ruby\"])"
 ---
 [
   {
@@ -1537,7 +1536,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
       {
         "kind": "program",
         "name": "query",
-        "text": "\"hello\"\n# ^ string\n%(hello)\n# ^ string\n%w(hello goodbye)\n#   ^ string\n#         ^ string\n\n:hello\n# ^ string.special.symbol\n%s(hello)\n# ^ string.special.symbol\n%I(hello goodbye)\n#  ^ string.special.symbol\n#         ^ string.special.symbol\n\n/hello/\n# ^ string.special.regex\n%r(hello)\n# ^ string.special.regex\n\n12345\n# ^ number\n12.345\n# ^ number\n\nnil\n# ^ constant.builtin\ntrue\n# ^ constant.builtin\nTRUE\n# ^ constant.builtin\nfalse\n# ^ constant.builtin\nFALSE\n# ^ constant.builtin\n",
+        "text": "\"hello\"\n# ^ string\n%(hello)\n# ^ string\n%w(hello goodbye)\n#   ^ string\n#         ^ string\n\n:hello\n# ^ string.special.symbol\n%s(hello)\n# ^ string.special.symbol\n%I(hello goodbye)\n#  ^ string.special.symbol\n#         ^ string.special.symbol\n\n/hello/\n# ^ string.special.regex\n%r(hello)\n# ^ string.special.regex\n\n12345\n# ^ number\n12.345\n# ^ number\n\nnil\n# ^ constant.builtin\ntrue\n# ^ constant.builtin\nTRUE\n# ^ constant\nfalse\n# ^ constant.builtin\nFALSE\n# ^ constant\n",
         "start": {
           "row": 1,
           "column": 1
@@ -2055,7 +2054,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         }
       },
       {
-        "kind": "true",
+        "kind": "constant",
         "name": "query",
         "text": "TRUE",
         "start": {
@@ -2070,14 +2069,14 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
       {
         "kind": "comment",
         "name": "query",
-        "text": "# ^ constant.builtin",
+        "text": "# ^ constant",
         "start": {
           "row": 32,
           "column": 1
         },
         "end": {
           "row": 32,
-          "column": 21
+          "column": 13
         }
       },
       {
@@ -2107,7 +2106,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         }
       },
       {
-        "kind": "false",
+        "kind": "constant",
         "name": "query",
         "text": "FALSE",
         "start": {
@@ -2122,14 +2121,14 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
       {
         "kind": "comment",
         "name": "query",
-        "text": "# ^ constant.builtin",
+        "text": "# ^ constant",
         "start": {
           "row": 36,
           "column": 1
         },
         "end": {
           "row": 36,
-          "column": 21
+          "column": 13
         }
       }
     ]
