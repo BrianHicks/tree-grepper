@@ -1,8 +1,6 @@
 ---
 source: src/main.rs
-assertion_line: 311
-expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n       \"--no-gitignore\", \"vendor/tree-sitter-php/test/highlight\"])"
-
+expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=pretty-json\", \"--sort\",\n                \"--no-gitignore\", \"vendor/tree-sitter-php/test/highlight\"])"
 ---
 [
   {
@@ -725,7 +723,7 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "string",
+        "kind": "string_value",
         "name": "query",
         "text": "oh",
         "start": {
@@ -1266,10 +1264,62 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
       {
         "kind": "heredoc",
         "name": "query",
-        "text": " <<<OMG\n  something\nOMG",
+        "text": "<<<OMG\n  something\nOMG",
         "start": {
           "row": 4,
-          "column": 5
+          "column": 6
+        },
+        "end": {
+          "row": 6,
+          "column": 4
+        }
+      },
+      {
+        "kind": "heredoc_start",
+        "name": "query",
+        "text": "OMG",
+        "start": {
+          "row": 4,
+          "column": 9
+        },
+        "end": {
+          "row": 4,
+          "column": 12
+        }
+      },
+      {
+        "kind": "heredoc_body",
+        "name": "query",
+        "text": "\n  something",
+        "start": {
+          "row": 4,
+          "column": 12
+        },
+        "end": {
+          "row": 5,
+          "column": 12
+        }
+      },
+      {
+        "kind": "string_value",
+        "name": "query",
+        "text": "  something",
+        "start": {
+          "row": 5,
+          "column": 1
+        },
+        "end": {
+          "row": 5,
+          "column": 12
+        }
+      },
+      {
+        "kind": "heredoc_end",
+        "name": "query",
+        "text": "\nOMG",
+        "start": {
+          "row": 5,
+          "column": 12
         },
         "end": {
           "row": 6,
