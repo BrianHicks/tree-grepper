@@ -1,124 +1,78 @@
 use anyhow::{anyhow, bail, Error, Result};
 use std::fmt::{Display, Formatter};
 use std::str::FromStr;
+use paste::paste;
 
-#[derive(PartialEq, Eq, Hash, Debug)]
-pub enum Language {
-    Cpp,
-    Elixir,
-    Elm,
-    Haskell,
-    JavaScript,
-    Markdown,
-    Nix,
-    Php,
-    Ruby,
-    Rust,
-    TypeScript,
-}
+macro_rules! include_langs {
+    ($($lang:ident $nametb:literal),+) => {
+        
+        #[derive(PartialEq, Eq, Hash, Debug)]
+        pub enum Language {
+            $($lang),+
+        }
 
-impl Language {
-    pub fn all() -> Vec<Language> {
-        vec![
-            Language::Cpp,
-            Language::Elixir,
-            Language::Elm,
-            Language::Haskell,
-            Language::JavaScript,
-            Language::Markdown,
-            Language::Nix,
-            Language::Php,
-            Language::Ruby,
-            Language::Rust,
-            Language::TypeScript,
-        ]
-    }
+        impl Language {
+            pub fn all() -> Vec<Language> {
+                vec![
+                    $(Language::$lang),+
+                ]
+            }
 
-    pub fn language(&self) -> tree_sitter::Language {
-        unsafe {
-            match self {
-                Language::Cpp => tree_sitter_cpp(),
-                Language::Elixir => tree_sitter_elixir(),
-                Language::Elm => tree_sitter_elm(),
-                Language::Haskell => tree_sitter_haskell(),
-                Language::JavaScript => tree_sitter_javascript(),
-                Language::Markdown => tree_sitter_markdown(),
-                Language::Nix => tree_sitter_nix(),
-                Language::Php => tree_sitter_php(),
-                Language::Ruby => tree_sitter_ruby(),
-                Language::Rust => tree_sitter_rust(),
-                Language::TypeScript => tree_sitter_typescript(),
+            pub fn language(&self) -> tree_sitter::Language {
+                unsafe {
+                    match self {
+                        $(Language::$lang => paste!([<tree_sitter_ $lang:lower>])(),)+
+                    }
+                }
+            }
+
+            pub fn parse_query(&self, raw: &str) -> Result<tree_sitter::Query> {
+                tree_sitter::Query::new(self.language(), raw).map_err(|err| anyhow!("{}", err))
+            }
+
+            pub fn name_for_types_builder(&self) -> &str {
+                match self {
+                    $(Language::$lang => $nametb),+
+                }
             }
         }
-    }
 
-    pub fn parse_query(&self, raw: &str) -> Result<tree_sitter::Query> {
-        tree_sitter::Query::new(self.language(), raw).map_err(|err| anyhow!("{}", err))
-    }
+        impl FromStr for Language {
+            type Err = Error;
 
-    pub fn name_for_types_builder(&self) -> &str {
-        match self {
-            Language::Cpp => "cpp",
-            Language::Elixir => "elixir",
-            Language::Elm => "elm",
-            Language::Haskell => "haskell",
-            Language::JavaScript => "js",
-            Language::Markdown => "markdown",
-            Language::Nix => "nix",
-            Language::Php => "php",
-            Language::Ruby => "ruby",
-            Language::Rust => "rust",
-            Language::TypeScript => "ts",
+            fn from_str(s: &str) -> Result<Self> {
+                match s {
+                    $(stringify!(paste!($lang:lower)) => Ok(Language::$lang),)+
+                    _ => bail!(
+                        "unknown language {}. Try one of: {}",
+                        s,
+                        Language::all()
+                            .into_iter()
+                            .map(|l| l.to_string())
+                            .collect::<Vec<String>>()
+                            .join(", ")
+                    ),
+                }
+            }
         }
-    }
+
+        impl Display for Language {
+            fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
+                match self {
+                    $(Language::$lang => f.write_str(stringify!(paste!($lang:lower)))),+
+                }
+            }
+        }
+
+        extern "C" {
+            paste! {
+                $(fn [<tree_sitter_ $lang:lower>]() -> tree_sitter::Language;)+
+            }
+        }
+    };
 }
 
-impl FromStr for Language {
-    type Err = Error;
-
-    fn from_str(s: &str) -> Result<Self> {
-        match s {
-            "cpp" => Ok(Language::Cpp),
-            "elixir" => Ok(Language::Elixir),
-            "elm" => Ok(Language::Elm),
-            "haskell" => Ok(Language::Haskell),
-            "javascript" => Ok(Language::JavaScript),
-            "markdown" => Ok(Language::Markdown),
-            "nix" => Ok(Language::Nix),
-            "php" => Ok(Language::Php),
-            "ruby" => Ok(Language::Ruby),
-            "rust" => Ok(Language::Rust),
-            "typescript" => Ok(Language::TypeScript),
-            _ => bail!(
-                "unknown language {}. Try one of: {}",
-                s,
-                Language::all()
-                    .into_iter()
-                    .map(|l| l.to_string())
-                    .collect::<Vec<String>>()
-                    .join(", ")
-            ),
-        }
-    }
-}
-
-impl Display for Language {
-    fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
-        match self {
-            Language::Cpp => f.write_str("cpp"),
-            Language::Elixir => f.write_str("elixir"),
-            Language::Elm => f.write_str("elm"),
-            Language::Haskell => f.write_str("haskell"),
-            Language::JavaScript => f.write_str("javascript"),
-            Language::Markdown => f.write_str("markdown"),
-            Language::Nix => f.write_str("nix"),
-            Language::Php => f.write_str("php"),
-            Language::Ruby => f.write_str("ruby"),
-            Language::Rust => f.write_str("rust"),
-            Language::TypeScript => f.write_str("typescript"),
-        }
-    }
-}
+include_langs!(Cpp "cpp", Elixir "elixir", Elm "elm", Haskell "haskell", JavaScript "js", Markdown "markdown", Nix "nix", Php "php", Ruby "ruby", Rust "rust", TypeScript "ts");
 
 #[cfg(test)]
 mod tests {
@@ -152,18 +106,4 @@ mod tests {
                 .to_string(),
         )
     }
-}
-
-extern "C" {
-    fn tree_sitter_cpp() -> tree_sitter::Language;
-    fn tree_sitter_elixir() -> tree_sitter::Language;
-    fn tree_sitter_elm() -> tree_sitter::Language;
-    fn tree_sitter_haskell() -> tree_sitter::Language;
-    fn tree_sitter_javascript() -> tree_sitter::Language;
-    fn tree_sitter_markdown() -> tree_sitter::Language;
-    fn tree_sitter_nix() -> tree_sitter::Language;
-    fn tree_sitter_php() -> tree_sitter::Language;
-    fn tree_sitter_ruby() -> tree_sitter::Language;
-    fn tree_sitter_rust() -> tree_sitter::Language;
-    fn tree_sitter_typescript() -> tree_sitter::Language;
 }
