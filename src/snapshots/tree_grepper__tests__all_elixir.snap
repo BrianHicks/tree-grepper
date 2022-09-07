@@ -19089,19 +19089,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elixir\", \"(_)\", \"--format=pr
         }
       },
       {
-        "kind": "ERROR",
-        "name": "query",
-        "text": ": ",
-        "start": {
-          "row": 150,
-          "column": 35
-        },
-        "end": {
-          "row": 150,
-          "column": 37
-        }
-      },
-      {
         "kind": "nil",
         "name": "query",
         "text": "nil",

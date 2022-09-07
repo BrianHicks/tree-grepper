@@ -1340,19 +1340,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "echo true, TRUE, false, FALSE\n//    ^ constant.builtin\n//          ^ constant.builtin\n//               ^ constant.builtin\n//                      ^ constant.builtin\n\necho PI_314",
-        "start": {
-          "row": 9,
-          "column": 1
-        },
-        "end": {
-          "row": 15,
-          "column": 12
-        }
-      },
-      {
         "kind": "boolean",
         "name": "query",
         "text": "true",
@@ -1418,19 +1405,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "FALSE",
-        "start": {
-          "row": 9,
-          "column": 25
-        },
-        "end": {
-          "row": 9,
-          "column": 30
-        }
-      },
-      {
         "kind": "boolean",
         "name": "query",
         "text": "FALSE",
@@ -1493,19 +1467,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"php\", \"(_)\", \"--format=prett
         "end": {
           "row": 13,
           "column": 43
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "echo",
-        "start": {
-          "row": 15,
-          "column": 1
-        },
-        "end": {
-          "row": 15,
-          "column": 5
         }
       },
       {
