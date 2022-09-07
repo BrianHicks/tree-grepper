@@ -4395,19 +4395,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "\n                                                                                        True ->\n                                                                                            case ab of\n                                                                                                True ->\n                                                                                                    case ab of\n                                                                                                        True ->\n                                                                                                            case ab of\n                                                                                                                True ->\n                                                                                                                    case ab of\n                                                                                                                        True ->\n                                                                                                                            case ab of\n                                                                                                                                True ->\n                                                                                                                                    case ab of\n                                                                                                                                        True ->\n                                                                                                                                            Just\n                                                                                                                                                { s = 5\n                                                                                                                                                }\n\n                                                                                                                                        _ ->\n                                                                                                                                            Nothing\n\n                                                                                                                                _ ->\n                                                                                                                                    Nothing",
-        "start": {
-          "row": 25,
-          "column": 95
-        },
-        "end": {
-          "row": 47,
-          "column": 140
-        }
-      },
-      {
         "kind": "case_of_branch",
         "name": "query",
         "text": "True ->\n                                                                                            case ab of\n                                                                                                True ->\n                                                                                                    case ab of\n                                                                                                        True ->\n                                                                                                            case ab of\n                                                                                                                True ->\n                                                                                                                    case ab of\n                                                                                                                        True ->\n                                                                                                                            case ab of\n                                                                                                                                True ->\n                                                                                                                                    case ab of\n                                                                                                                                        True ->\n                                                                                                                                            Just\n                                                                                                                                                { s = 5\n                                                                                                                                                }\n\n                                                                                                                                        _ ->\n                                                                                                                                            Nothing\n\n                                                                                                                                _ ->\n                                                                                                                                    Nothing",
@@ -4561,19 +4548,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 27,
           "column": 103
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "\n                                                                                                True ->\n                                                                                                    case ab of\n                                                                                                        True ->\n                                                                                                            case ab of\n                                                                                                                True ->\n                                                                                                                    case ab of\n                                                                                                                        True ->\n                                                                                                                            case ab of\n                                                                                                                                True ->\n                                                                                                                                    case ab of\n                                                                                                                                        True ->\n                                                                                                                                            Just\n                                                                                                                                                { s = 5\n                                                                                                                                                }\n\n                                                                                                                                        _ ->\n                                                                                                                                            Nothing",
-        "start": {
-          "row": 27,
-          "column": 103
-        },
-        "end": {
-          "row": 44,
-          "column": 148
         }
       },
       {
@@ -5042,19 +5016,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 33,
           "column": 127
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "\n                                                                                                                        True ->\n                                                                                                                            case ab of\n                                                                                                                                True ->\n                                                                                                                                    case ab of\n                                                                                                                                        True ->\n                                                                                                                                            Just\n                                                                                                                                                { s = 5\n                                                                                                                                                }",
-        "start": {
-          "row": 33,
-          "column": 127
-        },
-        "end": {
-          "row": 41,
-          "column": 146
         }
       },
       {
@@ -6787,19 +6748,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "_ ->\n                                            Nothing\n\n                                _ ->\n                                    Nothing\n\n                        _ ->\n                            Nothing\n\n                _ ->\n                    Nothing\n\n        _ ->\n            Nothing",
-        "start": {
-          "row": 79,
-          "column": 41
-        },
-        "end": {
-          "row": 92,
-          "column": 20
-        }
-      },
-      {
         "kind": "pattern",
         "name": "query",
         "text": "_",
@@ -6849,19 +6797,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 79,
           "column": 45
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "N",
-        "start": {
-          "row": 80,
-          "column": 45
-        },
-        "end": {
-          "row": 80,
-          "column": 46
         }
       },
       {
@@ -6917,19 +6852,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "->\n                                    N",
-        "start": {
-          "row": 82,
-          "column": 35
-        },
-        "end": {
-          "row": 83,
-          "column": 38
-        }
-      },
-      {
         "kind": "arrow",
         "name": "query",
         "text": "->",
@@ -6940,19 +6862,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 82,
           "column": 37
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "N",
-        "start": {
-          "row": 83,
-          "column": 37
-        },
-        "end": {
-          "row": 83,
-          "column": 38
         }
       },
       {
@@ -7008,19 +6917,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "->\n                            N",
-        "start": {
-          "row": 85,
-          "column": 27
-        },
-        "end": {
-          "row": 86,
-          "column": 30
-        }
-      },
-      {
         "kind": "arrow",
         "name": "query",
         "text": "->",
@@ -7031,19 +6927,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 85,
           "column": 29
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "N",
-        "start": {
-          "row": 86,
-          "column": 29
-        },
-        "end": {
-          "row": 86,
-          "column": 30
         }
       },
       {
@@ -7099,19 +6982,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "->\n                    N",
-        "start": {
-          "row": 88,
-          "column": 19
-        },
-        "end": {
-          "row": 89,
-          "column": 22
-        }
-      },
-      {
         "kind": "arrow",
         "name": "query",
         "text": "->",
@@ -7122,19 +6992,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 88,
           "column": 21
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "N",
-        "start": {
-          "row": 89,
-          "column": 21
-        },
-        "end": {
-          "row": 89,
-          "column": 22
         }
       },
       {
@@ -7190,19 +7047,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         }
       },
       {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "->\n            N",
-        "start": {
-          "row": 91,
-          "column": 11
-        },
-        "end": {
-          "row": 92,
-          "column": 14
-        }
-      },
-      {
         "kind": "arrow",
         "name": "query",
         "text": "->",
@@ -7213,19 +7057,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(_)\", \"--format=prett
         "end": {
           "row": 91,
           "column": 13
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "N",
-        "start": {
-          "row": 92,
-          "column": 13
-        },
-        "end": {
-          "row": 92,
-          "column": 14
         }
       },
       {

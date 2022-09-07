@@ -21,19 +21,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         }
       },
       {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "==================================",
-        "start": {
-          "row": 1,
-          "column": 1
-        },
-        "end": {
-          "row": 1,
-          "column": 35
-        }
-      },
-      {
         "kind": "call",
         "name": "query",
         "text": "Single CR characters as whitespace",
@@ -199,19 +186,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         },
         "end": {
           "row": 2,
-          "column": 35
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "==================================",
-        "start": {
-          "row": 3,
-          "column": 1
-        },
-        "end": {
-          "row": 3,
           "column": 35
         }
       },
@@ -408,19 +382,6 @@ expression: "call(&[\"tree-grepper\", \"-q\", \"ruby\", \"(_)\", \"--format=pret
         "end": {
           "row": 9,
           "column": 15
-        }
-      },
-      {
-        "kind": "ERROR",
-        "name": "query",
-        "text": "(identifier)",
-        "start": {
-          "row": 9,
-          "column": 16
-        },
-        "end": {
-          "row": 9,
-          "column": 28
         }
       },
       {
