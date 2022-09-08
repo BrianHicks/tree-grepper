@@ -113,7 +113,6 @@
             [
               cargo
               cargo-edit
-              cargo-insta
               # https://github.com/NixOS/nixpkgs/issues/146349
               # cargo-watch
               rustPackages.clippy
