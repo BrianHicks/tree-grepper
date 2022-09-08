@@ -1,9 +1,0 @@
----
-source: src/main.rs
-expression: "call(&[\"tree-grepper\", \"-q\", \"elm\", \"(import_clause)\", \"-f\", \"lines\",\n       \"--sort\", \"--no-gitignore\", \"vendor/tree-sitter-elm/examples\"])"
-
----
-vendor/tree-sitter-elm/examples/basic.elm:3:1:query:import Browser
-vendor/tree-sitter-elm/examples/basic.elm:4:1:query:import Html exposing (Html, button, div, text)
-vendor/tree-sitter-elm/examples/basic.elm:5:1:query:import Html.Events exposing (onClick)
-
