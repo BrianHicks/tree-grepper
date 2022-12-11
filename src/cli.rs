@@ -85,7 +85,7 @@ impl Invocation {
                 Arg::new("FORMAT")
                     .long("format")
                     .short('f')
-                    .possible_values(&["lines", "json", "json-lines", "pretty-json"])
+                    .possible_values(["lines", "json", "json-lines", "pretty-json"])
                     .default_value("lines")
                     .help("what format should we output lines in?")
                     .conflicts_with("languages")

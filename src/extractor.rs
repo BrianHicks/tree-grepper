@@ -29,7 +29,7 @@ impl Extractor {
         });
 
         Extractor {
-            ts_language: (&language).language(),
+            ts_language: language.language(),
             language,
             query,
             captures,
@@ -46,7 +46,7 @@ impl Extractor {
         path: &Path,
         parser: &mut Parser,
     ) -> Result<Option<ExtractedFile>> {
-        let source = fs::read(&path).context("could not read file")?;
+        let source = fs::read(path).context("could not read file")?;
 
         self.extract_from_text(Some(path), &source, parser)
     }
@@ -62,7 +62,7 @@ impl Extractor {
             .context("could not set language")?;
 
         let tree = parser
-            .parse(&source, None)
+            .parse(source, None)
             // note: this could be a timeout or cancellation, but we don't set
             // that so we know it's always a language error. Buuuut we also
             // always set the language above so if this happens we also know
