@@ -34,8 +34,8 @@ fn main() {
             // Clap errors (--help or misuse) are already well-formatted,
             // so we don't have to do any additional work.
             eprint!("{}", clap_error);
-            if clap_error.kind == clap::ErrorKind::DisplayHelp
-                || clap_error.kind == clap::ErrorKind::DisplayVersion
+            if clap_error.kind() == clap::error::ErrorKind::DisplayHelp
+                || clap_error.kind() == clap::error::ErrorKind::DisplayVersion
             {
                 std::process::exit(0);
             }
