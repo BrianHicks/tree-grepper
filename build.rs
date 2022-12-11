@@ -4,6 +4,16 @@ use std::path::PathBuf;
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
 
+    // c
+    let c_dir: PathBuf = ["vendor", "tree-sitter-c", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-c/src/parser.c");
+    cc::Build::new()
+        .include(&c_dir)
+        .warnings(false)
+        .file(c_dir.join("parser.c"))
+        .compile("tree-sitter-c");
+
     // cpp
     let cpp_dir: PathBuf = ["vendor", "tree-sitter-cpp", "src"].iter().collect();
 
