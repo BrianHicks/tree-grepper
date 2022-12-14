@@ -2,7 +2,7 @@ use crate::extractor::Extractor;
 use crate::extractor_chooser::ExtractorChooser;
 use crate::language::Language;
 use anyhow::{bail, Context, Error, Result};
-use clap::{crate_authors, crate_version, Arg, ArgMatches, Command};
+use clap::{crate_authors, crate_version, Arg, ArgAction, ArgMatches, Command};
 use itertools::Itertools;
 use std::collections::HashMap;
 use std::path::PathBuf;
@@ -60,13 +60,13 @@ impl Invocation {
                         "a language and query to perform (at least one is required.) See https://tree-sitter.github.io for information on writing queries. Run tree-grepper --languages for a list of languages.",
                     )
                     .number_of_values(2)
-                    .value_names(&["LANGUAGE", "QUERY"])
+                    .value_names(["LANGUAGE", "QUERY"])
                     .required_unless_present("languages")
                     .required_unless_present("show-tree")
                     .conflicts_with("languages")
                     .conflicts_with("show-tree")
-                    .multiple_values(true)
-                    .multiple_occurrences(true)
+                    .num_args(1..)
+                    .action(ArgAction::Append)
             )
             .arg(
                 Arg::new("no-gitignore")
@@ -79,13 +79,13 @@ impl Invocation {
                 Arg::new("PATHS")
                     .default_value(".")
                     .help("places to search for matches")
-                    .multiple_values(true)
+                    .num_args(1..)
             )
             .arg(
                 Arg::new("FORMAT")
                     .long("format")
                     .short('f')
-                    .possible_values(&["lines", "json", "json-lines", "pretty-json"])
+                    .value_parser(["lines", "json", "json-lines", "pretty-json"])
                     .default_value("lines")
                     .help("what format should we output lines in?")
                     .conflicts_with("languages")
@@ -110,16 +110,17 @@ impl Invocation {
                 Arg::new("show-tree")
                     .long("show-tree")
                     .help("Show the node names and associated text of the specified files")
-                    .value_names(&["LANGUAGE"])
+                    .value_names(["LANGUAGE"])
+                    .action(ArgAction::Append)
                     .conflicts_with("languages")
                     .conflicts_with("additional-query")
             )
             .try_get_matches_from(args)
             .context("could not parse args")?;
 
-        if matches.is_present("languages") {
+        if matches.contains_id("languages") {
             Ok(Self::ShowLanguages)
-        } else if let Some(raw_lang) = matches.value_of("show-tree") {
+        } else if let Some(raw_lang) = matches.get_one::<String>("show-tree") {
             let lang = Language::from_str(raw_lang).context("could not parse language")?;
 
             let paths = Self::paths(&matches)?;
@@ -135,18 +136,20 @@ impl Invocation {
             Ok(Self::DoQuery(QueryOpts {
                 extractors: Self::extractors(&matches)?,
                 paths: Self::paths(&matches)?,
-                git_ignore: !matches.is_present("no-gitignore"),
+                git_ignore: !matches.contains_id("no-gitignore"),
                 format: QueryFormat::from_str(
-                    matches.value_of("FORMAT").context("format not provided")?,
+                    matches
+                        .get_one::<String>("FORMAT")
+                        .context("format not provided")?,
                 )
                 .context("could not set format")?,
-                sort: matches.is_present("sort"),
+                sort: matches.contains_id("sort"),
             }))
         }
     }
 
     fn extractors(matches: &ArgMatches) -> Result<Vec<Extractor>> {
-        let values = match matches.values_of("additional-query") {
+        let values = match matches.get_many::<String>("additional-query") {
             Some(values) => values,
             None => bail!("queries were required but not provided. This indicates an internal error and you should report it!"),
         };
@@ -197,7 +200,7 @@ impl Invocation {
     }
 
     fn paths(matches: &ArgMatches) -> Result<Vec<PathBuf>> {
-        match matches.values_of("PATHS") {
+        match matches.get_many::<String>("PATHS") {
             Some(values) =>
                 values
                     .map(|raw_path| PathBuf::from_str(raw_path).with_context(|| format!("could not parse a path from {}", raw_path)))

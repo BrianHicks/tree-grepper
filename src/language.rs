@@ -1,9 +1,12 @@
-use anyhow::{anyhow, bail, Error, Result};
-use std::fmt::{Display, Formatter};
+use anyhow::{anyhow, Error, Result};
 use std::str::FromStr;
+use strum::{IntoEnumIterator, VariantNames};
+use strum_macros::{Display, EnumIter, EnumVariantNames, FromRepr};
 
-#[derive(PartialEq, Eq, Hash, Debug)]
+#[derive(Display, FromRepr, EnumIter, EnumVariantNames, PartialEq, Eq, Hash, Debug)]
+#[strum(serialize_all = "lowercase")]
 pub enum Language {
+    C,
     Cpp,
     Elixir,
     Elm,
@@ -19,24 +22,13 @@ pub enum Language {
 
 impl Language {
     pub fn all() -> Vec<Language> {
-        vec![
-            Language::Cpp,
-            Language::Elixir,
-            Language::Elm,
-            Language::Haskell,
-            Language::JavaScript,
-            Language::Markdown,
-            Language::Nix,
-            Language::Php,
-            Language::Ruby,
-            Language::Rust,
-            Language::TypeScript,
-        ]
+        Language::iter().collect()
     }
 
     pub fn language(&self) -> tree_sitter::Language {
         unsafe {
             match self {
+                Language::C => tree_sitter_c(),
                 Language::Cpp => tree_sitter_cpp(),
                 Language::Elixir => tree_sitter_elixir(),
                 Language::Elm => tree_sitter_elm(),
@@ -58,6 +50,7 @@ impl Language {
 
     pub fn name_for_types_builder(&self) -> &str {
         match self {
+            Language::C => "c",
             Language::Cpp => "cpp",
             Language::Elixir => "elixir",
             Language::Elm => "elm",
@@ -77,46 +70,17 @@ impl FromStr for Language {
     type Err = Error;
 
     fn from_str(s: &str) -> Result<Self> {
-        match s {
-            "cpp" => Ok(Language::Cpp),
-            "elixir" => Ok(Language::Elixir),
-            "elm" => Ok(Language::Elm),
-            "haskell" => Ok(Language::Haskell),
-            "javascript" => Ok(Language::JavaScript),
-            "markdown" => Ok(Language::Markdown),
-            "nix" => Ok(Language::Nix),
-            "php" => Ok(Language::Php),
-            "ruby" => Ok(Language::Ruby),
-            "rust" => Ok(Language::Rust),
-            "typescript" => Ok(Language::TypeScript),
-            _ => bail!(
-                "unknown language {}. Try one of: {}",
-                s,
-                Language::all()
-                    .into_iter()
-                    .map(|l| l.to_string())
-                    .collect::<Vec<String>>()
-                    .join(", ")
-            ),
-        }
-    }
-}
-
-impl Display for Language {
-    fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
-        match self {
-            Language::Cpp => f.write_str("cpp"),
-            Language::Elixir => f.write_str("elixir"),
-            Language::Elm => f.write_str("elm"),
-            Language::Haskell => f.write_str("haskell"),
-            Language::JavaScript => f.write_str("javascript"),
-            Language::Markdown => f.write_str("markdown"),
-            Language::Nix => f.write_str("nix"),
-            Language::Php => f.write_str("php"),
-            Language::Ruby => f.write_str("ruby"),
-            Language::Rust => f.write_str("rust"),
-            Language::TypeScript => f.write_str("typescript"),
-        }
+        let languages = Language::VARIANTS;
+        languages
+            .binary_search(&s)
+            .map(|idx| Language::from_repr(idx).unwrap())
+            .map_err(|_| {
+                anyhow!(
+                    "unknown language {}. Try one of: {}",
+                    s,
+                    languages.join(", ")
+                )
+            })
     }
 }
 
@@ -129,14 +93,24 @@ mod tests {
         // Note: this will hide results if there are multiple failures. It's
         // something that could be worked around but I don't think it is right
         // now. If it bothers you in the future, feel free to take a stab at it!
-        Language::all()
-            .into_iter()
+        Language::iter()
             .for_each(|lang| assert_eq!(Language::from_str(&lang.to_string()).unwrap(), lang))
     }
 
     #[test]
     fn parse_query_smoke_test() {
-        assert!(Language::Elm.parse_query("(_)").is_ok());
+        Language::iter().for_each(|lang| assert!(lang.parse_query("(_)").is_ok()));
+    }
+
+    #[test]
+    fn language_list_should_be_sorted() {
+        use itertools::Itertools;
+        // sorted elements needed by binary_search in FromStr
+        // TODO: use is_sorted: https://github.com/rust-lang/rust/issues/53485
+        assert!(Language::VARIANTS
+            .iter()
+            .tuple_windows()
+            .all(|(a, b)| a <= b));
     }
 
     #[test]
@@ -155,6 +129,7 @@ mod tests {
 }
 
 extern "C" {
+    fn tree_sitter_c() -> tree_sitter::Language;
     fn tree_sitter_cpp() -> tree_sitter::Language;
     fn tree_sitter_elixir() -> tree_sitter::Language;
     fn tree_sitter_elm() -> tree_sitter::Language;
