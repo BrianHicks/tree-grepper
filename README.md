@@ -81,6 +81,7 @@ For example:
 
 ## Supported Languages
 
+- C
 - C++
 - Elixir
 - Elm
