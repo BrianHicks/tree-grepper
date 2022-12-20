@@ -51,6 +51,11 @@
       flake = false;
     };
 
+    tree-sitter-python = {
+      url = "github:tree-sitter/tree-sitter-python";
+      flake = false;
+    };
+
     tree-sitter-ruby = {
       url = "github:tree-sitter/tree-sitter-ruby";
       flake = false;
@@ -89,6 +94,7 @@
           ln -s ${inputs.tree-sitter-javascript} vendor/tree-sitter-javascript
           ln -s ${inputs.tree-sitter-markdown} vendor/tree-sitter-markdown
           ln -s ${inputs.tree-sitter-php} vendor/tree-sitter-php
+          ln -s ${inputs.tree-sitter-python} vendor/tree-sitter-python
           ln -s ${inputs.tree-sitter-ruby} vendor/tree-sitter-ruby
           ln -s ${inputs.tree-sitter-rust} vendor/tree-sitter-rust
           ln -s ${inputs.tree-sitter-typescript} vendor/tree-sitter-typescript

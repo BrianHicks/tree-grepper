@@ -65,6 +65,7 @@
         "tree-sitter-markdown": "tree-sitter-markdown",
         "tree-sitter-nix": "tree-sitter-nix",
         "tree-sitter-php": "tree-sitter-php",
+        "tree-sitter-python": "tree-sitter-python",
         "tree-sitter-ruby": "tree-sitter-ruby",
         "tree-sitter-rust": "tree-sitter-rust",
         "tree-sitter-typescript": "tree-sitter-typescript"
@@ -213,6 +214,22 @@
       "original": {
         "owner": "tree-sitter",
         "repo": "tree-sitter-php",
+        "type": "github"
+      }
+    },
+    "tree-sitter-python": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670432603,
+        "narHash": "sha256-D2++Xg7dRfjGM2r4cxaXGQnBOAX5JBREcEAJeNa7Y9M=",
+        "owner": "tree-sitter",
+        "repo": "tree-sitter-python",
+        "rev": "9e53981ec31b789ee26162ea335de71f02186003",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tree-sitter",
+        "repo": "tree-sitter-python",
         "type": "github"
       }
     },

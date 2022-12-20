@@ -155,6 +155,24 @@ fn main() {
         .file(php_dir.join("scanner.cc"))
         .compile("tree_sitter_php_scanner");
 
+    // python
+    let python_dir: PathBuf = ["vendor", "tree-sitter-python", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-python/src/parser.c");
+    cc::Build::new()
+        .include(&python_dir)
+        .warnings(false)
+        .file(python_dir.join("parser.c"))
+        .compile("tree-sitter-python");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-python/src/scanner.cc");
+    cc::Build::new()
+        .include(&python_dir)
+        .cpp(true)
+        .warnings(false)
+        .file(python_dir.join("scanner.cc"))
+        .compile("tree_sitter_python_scanner");
+
     // ruby
     let ruby_dir: PathBuf = ["vendor", "tree-sitter-ruby", "src"].iter().collect();
 

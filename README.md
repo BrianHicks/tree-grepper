@@ -89,6 +89,7 @@ For example:
 - JavaScript
 - Markdown
 - PHP
+- Python
 - Ruby
 - Rust
 - TypeScript
