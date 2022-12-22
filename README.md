@@ -111,8 +111,7 @@ Note: when you're adding grammars, please keep things in alphabetical order.
    Make sure the repo content under `vendor/YOUR-GRAMMAR` looks how you expect.
 3. Set up compilation in [`build.rs`](./build.rs) by following the pattern there.
 4. Set up a new target in [`src/language.rs`](./src/language.rs) by following the patterns there.
-5. Add a test like `all_LANG` in [`src/main.rs`](./src/main.rs)
-6. Add the language to the list of supported languages in this readme.
+5. Add the language to the list of supported languages in this readme.
 
 ## License
 
