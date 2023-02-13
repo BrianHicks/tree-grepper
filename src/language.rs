@@ -10,6 +10,7 @@ pub enum Language {
     Cpp,
     Elixir,
     Elm,
+    Go,
     Haskell,
     Java,
     JavaScript,
@@ -34,6 +35,7 @@ impl Language {
                 Language::Cpp => tree_sitter_cpp(),
                 Language::Elixir => tree_sitter_elixir(),
                 Language::Elm => tree_sitter_elm(),
+                Language::Go => tree_sitter_go(),
                 Language::Haskell => tree_sitter_haskell(),
                 Language::Java => tree_sitter_java(),
                 Language::JavaScript => tree_sitter_javascript(),
@@ -58,6 +60,7 @@ impl Language {
             Language::Cpp => "cpp",
             Language::Elixir => "elixir",
             Language::Elm => "elm",
+            Language::Go => "go",
             Language::Haskell => "haskell",
             Language::Java => "java",
             Language::JavaScript => "js",
@@ -139,6 +142,7 @@ extern "C" {
     fn tree_sitter_cpp() -> tree_sitter::Language;
     fn tree_sitter_elixir() -> tree_sitter::Language;
     fn tree_sitter_elm() -> tree_sitter::Language;
+    fn tree_sitter_go() -> tree_sitter::Language;
     fn tree_sitter_haskell() -> tree_sitter::Language;
     fn tree_sitter_java() -> tree_sitter::Language;
     fn tree_sitter_javascript() -> tree_sitter::Language;

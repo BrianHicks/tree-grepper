@@ -68,6 +68,16 @@ fn main() {
         .file(elm_dir.join("scanner.cc"))
         .compile("tree_sitter_elm_scanner");
 
+    // go
+    let go_dir: PathBuf = ["vendor", "tree-sitter-go", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-go/src/parser.c");
+    cc::Build::new()
+        .include(&go_dir)
+        .warnings(false)
+        .file(go_dir.join("parser.c"))
+        .compile("tree-sitter-go");
+
     // haskell
     let haskell_dir: PathBuf = ["vendor", "tree-sitter-haskell", "src"].iter().collect();
 

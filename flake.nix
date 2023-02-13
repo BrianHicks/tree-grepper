@@ -31,6 +31,11 @@
       flake = false;
     };
 
+    tree-sitter-go = {
+      url = "github:tree-sitter/tree-sitter-go";
+      flake = false;
+    };
+
     tree-sitter-haskell = {
       url = "github:tree-sitter/tree-sitter-haskell";
       flake = false;
@@ -95,6 +100,7 @@
           ln -s ${inputs.tree-sitter-cpp} vendor/tree-sitter-cpp
           ln -s ${inputs.tree-sitter-elixir} vendor/tree-sitter-elixir
           ln -s ${inputs.tree-sitter-elm} vendor/tree-sitter-elm
+          ln -s ${inputs.tree-sitter-go} vendor/tree-sitter-go
           ln -s ${inputs.tree-sitter-haskell} vendor/tree-sitter-haskell
           ln -s ${inputs.tree-sitter-java} vendor/tree-sitter-java
           ln -s ${inputs.tree-sitter-javascript} vendor/tree-sitter-javascript

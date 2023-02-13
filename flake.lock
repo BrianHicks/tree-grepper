@@ -60,6 +60,7 @@
         "tree-sitter-cpp": "tree-sitter-cpp",
         "tree-sitter-elixir": "tree-sitter-elixir",
         "tree-sitter-elm": "tree-sitter-elm",
+        "tree-sitter-go": "tree-sitter-go",
         "tree-sitter-haskell": "tree-sitter-haskell",
         "tree-sitter-java": "tree-sitter-java",
         "tree-sitter-javascript": "tree-sitter-javascript",
@@ -135,6 +136,22 @@
         "owner": "elm-tooling",
         "ref": "main",
         "repo": "tree-sitter-elm",
+        "type": "github"
+      }
+    },
+    "tree-sitter-go": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670492714,
+        "narHash": "sha256-38pkqR9iEIEf9r3IHJPIYgKfWBlb9aQWi1kij04Vo5k=",
+        "owner": "tree-sitter",
+        "repo": "tree-sitter-go",
+        "rev": "64457ea6b73ef5422ed1687178d4545c3e91334a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tree-sitter",
+        "repo": "tree-sitter-go",
         "type": "github"
       }
     },
