@@ -61,6 +61,7 @@
         "tree-sitter-elixir": "tree-sitter-elixir",
         "tree-sitter-elm": "tree-sitter-elm",
         "tree-sitter-haskell": "tree-sitter-haskell",
+        "tree-sitter-java": "tree-sitter-java",
         "tree-sitter-javascript": "tree-sitter-javascript",
         "tree-sitter-markdown": "tree-sitter-markdown",
         "tree-sitter-nix": "tree-sitter-nix",
@@ -150,6 +151,22 @@
       "original": {
         "owner": "tree-sitter",
         "repo": "tree-sitter-haskell",
+        "type": "github"
+      }
+    },
+    "tree-sitter-java": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1674849453,
+        "narHash": "sha256-JeQZ4TMpt6Lfbcfc6m/PzhFZEgTdouasJ3b1sPISy2s=",
+        "owner": "tree-sitter",
+        "repo": "tree-sitter-java",
+        "rev": "dd597f13eb9bab0c1bccc9aec390e8e6ebf9e0a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tree-sitter",
+        "repo": "tree-sitter-java",
         "type": "github"
       }
     },
