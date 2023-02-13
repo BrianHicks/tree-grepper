@@ -85,6 +85,7 @@ For example:
 - C++
 - Elixir
 - Elm
+- Go
 - Haskell
 - Java
 - JavaScript
