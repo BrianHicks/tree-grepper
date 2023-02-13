@@ -85,6 +85,16 @@ fn main() {
         .file(haskell_dir.join("scanner.c"))
         .compile("tree_sitter_haskell_scanner");
 
+    // java
+    let java_dir: PathBuf = ["vendor", "tree-sitter-java", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-java/src/parser.c");
+    cc::Build::new()
+        .include(&java_dir)
+        .warnings(false)
+        .file(java_dir.join("parser.c"))
+        .compile("tree-sitter-java");
+
     // javascript
     let javascript_dir: PathBuf = ["vendor", "tree-sitter-javascript", "src"].iter().collect();
 

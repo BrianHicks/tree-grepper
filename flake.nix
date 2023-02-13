@@ -70,6 +70,11 @@
       url = "github:tree-sitter/tree-sitter-typescript";
       flake = false;
     };
+
+    tree-sitter-java = {
+      url = "github:tree-sitter/tree-sitter-java";
+      flake = false;
+    };
   };
 
   outputs = inputs:
@@ -91,6 +96,7 @@
           ln -s ${inputs.tree-sitter-elixir} vendor/tree-sitter-elixir
           ln -s ${inputs.tree-sitter-elm} vendor/tree-sitter-elm
           ln -s ${inputs.tree-sitter-haskell} vendor/tree-sitter-haskell
+          ln -s ${inputs.tree-sitter-java} vendor/tree-sitter-java
           ln -s ${inputs.tree-sitter-javascript} vendor/tree-sitter-javascript
           ln -s ${inputs.tree-sitter-markdown} vendor/tree-sitter-markdown
           ln -s ${inputs.tree-sitter-php} vendor/tree-sitter-php

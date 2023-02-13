@@ -11,6 +11,7 @@ pub enum Language {
     Elixir,
     Elm,
     Haskell,
+    Java,
     JavaScript,
     Markdown,
     Nix,
@@ -34,6 +35,7 @@ impl Language {
                 Language::Elixir => tree_sitter_elixir(),
                 Language::Elm => tree_sitter_elm(),
                 Language::Haskell => tree_sitter_haskell(),
+                Language::Java => tree_sitter_java(),
                 Language::JavaScript => tree_sitter_javascript(),
                 Language::Markdown => tree_sitter_markdown(),
                 Language::Nix => tree_sitter_nix(),
@@ -57,6 +59,7 @@ impl Language {
             Language::Elixir => "elixir",
             Language::Elm => "elm",
             Language::Haskell => "haskell",
+            Language::Java => "java",
             Language::JavaScript => "js",
             Language::Markdown => "markdown",
             Language::Nix => "nix",
@@ -137,6 +140,7 @@ extern "C" {
     fn tree_sitter_elixir() -> tree_sitter::Language;
     fn tree_sitter_elm() -> tree_sitter::Language;
     fn tree_sitter_haskell() -> tree_sitter::Language;
+    fn tree_sitter_java() -> tree_sitter::Language;
     fn tree_sitter_javascript() -> tree_sitter::Language;
     fn tree_sitter_markdown() -> tree_sitter::Language;
     fn tree_sitter_nix() -> tree_sitter::Language;

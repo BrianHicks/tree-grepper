@@ -86,6 +86,7 @@ For example:
 - Elixir
 - Elm
 - Haskell
+- Java
 - JavaScript
 - Markdown
 - PHP
