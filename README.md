@@ -12,8 +12,6 @@ cachix use tree-grepper # if you have cachix installed
 nix-env -if https://github.com/BrianHicks/tree-grepper/archive/refs/heads/main.tar.gz
 ```
 
-If you have a Rust toolchain set up, you can also clone this repo and run `cargo build`.
-
 ## Usage
 
 Use it like `grep` (or really, more like `ack`/`ag`/`pt`/`rg`.)
