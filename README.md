@@ -75,7 +75,7 @@ You can use the node names in queries.
 For example:
 
 - `tree-grepper -q elm (exposed_value)` would have matches on `average` and `percentOf`.
-- `tree-grepper -q elm (module_declration)` would match on the whole declaration, `module Math exposing (average, percentOf)`
+- `tree-grepper -q elm (module_declaration)` would match on the whole declaration, `module Math exposing (average, percentOf)`
 
 ## Supported Languages
 
