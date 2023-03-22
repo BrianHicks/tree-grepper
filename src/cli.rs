@@ -102,6 +102,7 @@ impl Invocation {
             .arg(
                 Arg::new("languages")
                     .long("languages")
+                    .action(ArgAction::SetTrue)
                     .help("print the language names tree-grepper knows about")
                     .conflicts_with("additional-query")
                     .conflicts_with("show-tree")
