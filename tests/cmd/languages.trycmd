@@ -1,0 +1,19 @@
+```
+$ tree-grepper --languages
+c
+cpp
+elixir
+elm
+go
+haskell
+java
+javascript
+markdown
+nix
+php
+python
+ruby
+rust
+typescript
+
+```

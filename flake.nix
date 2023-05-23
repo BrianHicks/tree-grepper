@@ -142,6 +142,7 @@
               rustPackages.clippy
               rustc
               rustfmt
+              rust-analyzer
 
               updateVendor
 

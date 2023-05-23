@@ -1,0 +1,21 @@
+In order to find the structure in your target language, `tree-grepper` lets you call it with `--show-tree LANGUAGE` on a single file:
+
+```
+$ tree-grepper --show-tree javascript tests/cmd/hello-world.js
+program 1:1
+  expression_statement 1:1
+    call_expression 1:1
+      member_expression 1:1
+        identifier 1:1: console
+        . 1:8: .
+        property_identifier 1:9: log
+      arguments 1:12
+        ( 1:12: (
+        string 1:13
+          " 1:13: "
+          string_fragment 1:14: Hello, World!
+          " 1:27: "
+        ) 1:28: )
+    ; 1:29: ;
+
+```

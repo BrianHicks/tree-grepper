@@ -119,7 +119,7 @@ impl Invocation {
             .try_get_matches_from(args)
             .context("could not parse args")?;
 
-        if matches.contains_id("languages") {
+        if matches.get_flag("languages") {
             Ok(Self::ShowLanguages)
         } else if let Some(raw_lang) = matches.get_one::<String>("show-tree") {
             let lang = Language::from_str(raw_lang).context("could not parse language")?;
