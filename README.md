@@ -44,7 +44,14 @@ You also get more info (the match's end location and node kind) by asking for JS
 
 You can discover the node names your language uses by using `--show-tree languagename path/to/file`.
 When you do this, `tree-grepper` will parse the file and print out an indented tree view.
-The format like this:
+
+For a file like this:
+
+```javascript
+console.log("Hello, World!");
+```
+
+You'll get a tree like this:
 
 ```console
 $ tree-grepper --show-tree javascript tests/cmd/hello-world.js
@@ -78,7 +85,9 @@ For example:
 
 ## Supported Languages
 
-You can find all the languages by running `tree-grepper --languages`:
+You can find all the languages in your installed version of `tree-grepper` by running `tree-grepper --languages`.
+The output is the literal language strings you can use in queries or `--show-tree`.
+For example, here's the list for the current version of `tree-grepper`:
 
 ```console
 $ tree-grepper --languages
