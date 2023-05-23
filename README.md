@@ -7,21 +7,17 @@ Works like `grep`, but uses `tree-sitter` to search for structure instead of str
 
 Use [`nix`](https://nixos.org/download.html) to install:
 
-```
-cachix use tree-grepper # if you have cachix installed
-nix-env -if https://github.com/BrianHicks/tree-grepper/archive/refs/heads/main.tar.gz
-```
+1. if you have `cachix` installed, `cachix use tree-grepper`.
+2. `nix-env -if https://github.com/BrianHicks/tree-grepper/archive/refs/heads/main.tar.gz`
 
 ## Usage
 
 Use it like `grep` (or really, more like `ack`/`ag`/`pt`/`rg`.)
 
-```sh
-$ tree-grepper -q elm '(import_clause (import) (upper_case_qid)@name)'
-./src/Main.elm:4:7:name:Browser
-./src/Main.elm:6:7:name:Html
-./src/Main.elm:8:7:name:Html.Events
-...
+```console
+$ tree-grepper -q javascript '(call_expression)'
+./tests/cmd/hello-world.js:1:1:query:console.log("Hello, World!")
+
 ```
 
 By default, `tree-grepper` will output one match per (newline-delimited) line.
@@ -37,7 +33,7 @@ We add one important thing on top of the standard query stuff (including `#eq?` 
 This is primarily useful for filtering out matches you don't really care about.
 For example, to match JavaScript calls to `require` but not other functions, you could do this:
 
-```
+```scheme
 (call_expression (identifier)@_fn (arguments . (string)@import .) (#eq? @_fn require))
 ```
 
@@ -50,21 +46,24 @@ You can discover the node names your language uses by using `--show-tree languag
 When you do this, `tree-grepper` will parse the file and print out an indented tree view.
 The format like this:
 
-```
-file 1:1
-  module_declaration 1:1
-    module 1:1: module
-    upper_case_qid 1:8
-      upper_case_identifier 1:8: Math
-    exposing_list 1:13
-      exposing 1:13: exposing
-      ( 1:22: (
-      exposed_value 1:23
-        lower_case_identifier 1:23: average
-      , 1:30: ,
-      exposed_value 1:32
-        lower_case_identifier 1:32: percentOf
-      ) 1:41: )
+```console
+$ tree-grepper --show-tree javascript tests/cmd/hello-world.js
+program 1:1
+  expression_statement 1:1
+    call_expression 1:1
+      member_expression 1:1
+        identifier 1:1: console
+        . 1:8: .
+        property_identifier 1:9: log
+      arguments 1:12
+        ( 1:12: (
+        string 1:13
+          " 1:13: "
+          string_fragment 1:14: Hello, World!
+          " 1:27: "
+        ) 1:28: )
+    ; 1:29: ;
+
 ```
 
 Each line takes the format `{node name} {location} {source, if present}`.
@@ -79,22 +78,29 @@ For example:
 
 ## Supported Languages
 
-- C
-- C++
-- Elixir
-- Elm
-- Go
-- Haskell
-- Java
-- JavaScript
-- Markdown
-- PHP
-- Python
-- Ruby
-- Rust
-- TypeScript
+You can find all the languages by running `tree-grepper --languages`:
 
-... and your favorite?
+```console
+$ tree-grepper --languages
+c
+cpp
+elixir
+elm
+go
+haskell
+java
+javascript
+markdown
+nix
+php
+python
+ruby
+rust
+typescript
+
+````
+
+Don't see your favorite?
 We're open to PRs for adding whatever language you'd like!
 
 For development, there's a nix-shell setup that'll get you everything you need.
