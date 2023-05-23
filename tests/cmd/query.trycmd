@@ -1,0 +1,42 @@
+You can do a bunch of different things to query. For example, you can get just the inner string part from `console.log("Hello, World!");`:
+
+```
+$ tree-grepper -q javascript '(string_fragment)' tests/cmd/hello-world.js
+./tests/cmd/hello-world.js:1:14:query:Hello, World!
+
+```
+
+You can also get all the call expressions, which would get the whole statement:
+
+```
+$ tree-grepper -q javascript '(call_expression)' tests/cmd/hello-world.js
+./tests/cmd/hello-world.js:1:1:query:console.log("Hello, World!")
+
+```
+
+If you need these results in a more structured format, you can get JSON or prettified JSON:
+
+```
+$ tree-grepper --format pretty-json -q javascript '(call_expression)' tests/cmd/hello-world.js
+[
+  {
+    "file": "./tests/cmd/hello-world.js",
+    "file_type": "javascript",
+    "matches": [
+      {
+        "kind": "call_expression",
+        "name": "query",
+        "text": "console.log(/"Hello, World!/")",
+        "start": {
+          "row": 1,
+          "column": 1
+        },
+        "end": {
+          "row": 1,
+          "column": 29
+        }
+      }
+    ]
+  }
+]
+```
