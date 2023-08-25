@@ -208,11 +208,11 @@
     "tree-sitter-javascript": {
       "flake": false,
       "locked": {
-        "lastModified": 1660825759,
-        "narHash": "sha256-uZW1L9ZE1YSZbwxiqSDiKycWv5mSRG4k4MlWFYoWRbw=",
+        "lastModified": 1692941092,
+        "narHash": "sha256-VbK2asd1CavcBYGia30MomQh+KOgKgz5ax10V6nEVEs=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-javascript",
-        "rev": "936d976a782e75395d9b1c8c7c7bf4ba6fe0d86b",
+        "rev": "f1e5a09b8d02f8209a68249c93f0ad647b228e6e",
         "type": "github"
       },
       "original": {
