@@ -240,11 +240,11 @@
     "tree-sitter-nix": {
       "flake": false,
       "locked": {
-        "lastModified": 1652985475,
-        "narHash": "sha256-uTgSj4zz8WvzwIr7UO78F45nzVSjjitdtKY8GV4iL+w=",
+        "lastModified": 1689222204,
+        "narHash": "sha256-+o+f1TlhcrcCB3TNw1RyCjVZ+37e11nL+GWBPo0Mxxg=",
         "owner": "cstrahan",
         "repo": "tree-sitter-nix",
-        "rev": "6b71a810c0acd49b980c50fc79092561f7cee307",
+        "rev": "66e3e9ce9180ae08fc57372061006ef83f0abde7",
         "type": "github"
       },
       "original": {
