@@ -176,11 +176,11 @@
     "tree-sitter-haskell": {
       "flake": false,
       "locked": {
-        "lastModified": 1662169786,
-        "narHash": "sha256-94zxdt3JjC3iki639taHYmRwQIzOlOM6H9C3sKnRj/o=",
+        "lastModified": 1690487499,
+        "narHash": "sha256-JJvXkunDFRjWoXipxl1o2P+lRIDa4kw/Ys3LUu3piIY=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-haskell",
-        "rev": "e30bdfd53eb28c73f26a68b77d436fd2140af167",
+        "rev": "99706824b92f162d4e0f47c7e930bbccb367276e",
         "type": "github"
       },
       "original": {
