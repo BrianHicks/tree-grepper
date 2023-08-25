@@ -192,11 +192,11 @@
     "tree-sitter-java": {
       "flake": false,
       "locked": {
-        "lastModified": 1674849453,
-        "narHash": "sha256-JeQZ4TMpt6Lfbcfc6m/PzhFZEgTdouasJ3b1sPISy2s=",
+        "lastModified": 1692857861,
+        "narHash": "sha256-0kOLAVsrCUfpU8sZGRVrr+D3bGWj8bH2qce/ygrIw2w=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-java",
-        "rev": "dd597f13eb9bab0c1bccc9aec390e8e6ebf9e0a6",
+        "rev": "38be6eccc1b86d6ec5dca0976659e807fd4dc28d",
         "type": "github"
       },
       "original": {
