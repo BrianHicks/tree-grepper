@@ -126,11 +126,11 @@
     "tree-sitter-elixir": {
       "flake": false,
       "locked": {
-        "lastModified": 1659637723,
-        "narHash": "sha256-5nopPahI6VDxu9z2lKaXWMPZ+1EWYRM2S9k3cfRrxGM=",
+        "lastModified": 1690442748,
+        "narHash": "sha256-hBHqQ3eBjknRPJjP+lQJU6NPFhUMtiv4FbKsTw28Bog=",
         "owner": "elixir-lang",
         "repo": "tree-sitter-elixir",
-        "rev": "05e3631c6a0701c1fa518b0fee7be95a2ceef5e2",
+        "rev": "a2861e88a730287a60c11ea9299c033c7d076e30",
         "type": "github"
       },
       "original": {
