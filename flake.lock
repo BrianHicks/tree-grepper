@@ -256,11 +256,11 @@
     "tree-sitter-php": {
       "flake": false,
       "locked": {
-        "lastModified": 1657967105,
-        "narHash": "sha256-wGGKAf8ZcYWEznkdSfKMwqcvXrMaE09WR4swZY1ucwY=",
+        "lastModified": 1692289393,
+        "narHash": "sha256-HZOIz9KiZ13aqeQtCeQln56RRRPUSgT7ulPJs54fzJc=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-php",
-        "rev": "670d1eb6822d8c7ade1c71232e0bef42757b9da7",
+        "rev": "ce2c73a8d84b5648e8792698dc9fd955e5f6a906",
         "type": "github"
       },
       "original": {
