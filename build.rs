@@ -24,12 +24,11 @@ fn main() {
         .file(cpp_dir.join("parser.c"))
         .compile("tree-sitter-cpp");
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-cpp/src/scanner.cc");
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-cpp/src/scanner.c");
     cc::Build::new()
         .include(&cpp_dir)
-        .cpp(true)
         .warnings(false)
-        .file(cpp_dir.join("scanner.cc"))
+        .file(cpp_dir.join("scanner.c"))
         .compile("tree_sitter_cpp_scanner");
 
     // elixir
@@ -42,12 +41,11 @@ fn main() {
         .file(elixir_dir.join("parser.c"))
         .compile("tree-sitter-elixir");
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-elixir/src/scanner.cc");
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-elixir/src/scanner.c");
     cc::Build::new()
         .include(&elixir_dir)
         .warnings(false)
-        .cpp(true)
-        .file(elixir_dir.join("scanner.cc"))
+        .file(elixir_dir.join("scanner.c"))
         .compile("tree_sitter_elixir_scanner");
 
     // elm
@@ -60,12 +58,11 @@ fn main() {
         .file(elm_dir.join("parser.c"))
         .compile("tree-sitter-elm");
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-elm/src/scanner.cc");
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-elm/src/scanner.c");
     cc::Build::new()
         .include(&elm_dir)
-        .cpp(true)
         .warnings(false)
-        .file(elm_dir.join("scanner.cc"))
+        .file(elm_dir.join("scanner.c"))
         .compile("tree_sitter_elm_scanner");
 
     // go
@@ -167,12 +164,11 @@ fn main() {
         .file(php_dir.join("parser.c"))
         .compile("tree-sitter-php");
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-php/src/scanner.cc");
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-php/src/scanner.c");
     cc::Build::new()
         .include(&php_dir)
-        .cpp(true)
         .warnings(false)
-        .file(php_dir.join("scanner.cc"))
+        .file(php_dir.join("scanner.c"))
         .compile("tree_sitter_php_scanner");
 
     // python
@@ -185,12 +181,11 @@ fn main() {
         .file(python_dir.join("parser.c"))
         .compile("tree-sitter-python");
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-python/src/scanner.cc");
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-python/src/scanner.c");
     cc::Build::new()
         .include(&python_dir)
-        .cpp(true)
         .warnings(false)
-        .file(python_dir.join("scanner.cc"))
+        .file(python_dir.join("scanner.c"))
         .compile("tree_sitter_python_scanner");
 
     // ruby
