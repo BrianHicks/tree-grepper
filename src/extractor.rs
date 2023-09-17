@@ -28,6 +28,10 @@ impl Extractor {
             }
         });
 
+        if captures.len() == ignores.len() {
+            eprintln!("Warning: query only has ignored captures. No results will be printed.");
+        }
+
         Extractor {
             ts_language: language.language(),
             language,
