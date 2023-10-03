@@ -22,4 +22,4 @@ tree-sitter = "0.20.10"
 cc = { version = "1.0.83", features = [ "parallel" ] }
 
 [dev-dependencies]
-trycmd = "0.14.18"
+trycmd = "0.14.19"
