@@ -14,7 +14,7 @@ jobs:
         with:
           ref: main
           ssh-key: ${{ secrets.UPDATE_SSH_KEY }}
-      - uses: cachix/install-nix-action@v24
+      - uses: cachix/install-nix-action@v25
       - run: nix flake update
       - name: Create PR
         env:
