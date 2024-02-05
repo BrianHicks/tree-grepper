@@ -80,6 +80,11 @@
       url = "github:tree-sitter/tree-sitter-java";
       flake = false;
     };
+    
+    tree-sitter-cuda = {
+      url = "github:theHamsta/tree-sitter-cuda/v0.20.3";
+      flake = false;
+    };
   };
 
   outputs = inputs:
@@ -111,6 +116,7 @@
           ln -s ${inputs.tree-sitter-rust} vendor/tree-sitter-rust
           ln -s ${inputs.tree-sitter-typescript} vendor/tree-sitter-typescript
           ln -s ${inputs.tree-sitter-nix} vendor/tree-sitter-nix
+          ln -s ${inputs.tree-sitter-cuda} vendor/tree-sitter-cuda
         '';
       in rec {
         # `nix build`

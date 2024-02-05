@@ -93,6 +93,7 @@ For example, here's the list for the current version of `tree-grepper`:
 $ tree-grepper --languages
 c
 cpp
+cuda
 elixir
 elm
 go

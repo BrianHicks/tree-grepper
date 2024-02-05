@@ -2,6 +2,7 @@
 $ tree-grepper --languages
 c
 cpp
+cuda
 elixir
 elm
 go

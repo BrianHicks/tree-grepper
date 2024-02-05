@@ -31,6 +31,23 @@ fn main() {
         .file(cpp_dir.join("scanner.c"))
         .compile("tree_sitter_cpp_scanner");
 
+    // cuda
+    let cuda_dir: PathBuf = ["vendor", "tree-sitter-cuda", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-cuda/src/parser.c");
+    cc::Build::new()
+        .include(&cuda_dir)
+        .warnings(false)
+        .file(cuda_dir.join("parser.c"))
+        .compile("tree-sitter-cuda");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-cuda/src/scanner.c");
+    cc::Build::new()
+        .include(&cuda_dir)
+        .warnings(false)
+        .file(cuda_dir.join("scanner.c"))
+        .compile("tree_sitter_cuda_scanner");
+
     // elixir
     let elixir_dir: PathBuf = ["vendor", "tree-sitter-elixir", "src"].iter().collect();
 
@@ -85,7 +102,7 @@ fn main() {
         .file(haskell_dir.join("parser.c"))
         .compile("tree-sitter-haskell");
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-haskell/src/scanner.cc");
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-haskell/src/scanner.c");
     cc::Build::new()
         .include(&haskell_dir)
         .warnings(false)
