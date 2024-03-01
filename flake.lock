@@ -94,11 +94,11 @@
     "tree-sitter-c": {
       "flake": false,
       "locked": {
-        "lastModified": 1691959600,
-        "narHash": "sha256-39i06oXMQemfq3Y4TTXai6HFXvURVOif1v2i9LP4sAI=",
+        "lastModified": 1708724354,
+        "narHash": "sha256-Ld8ufwdOVqRYb9YpOa6z6fWoA+gj0w0nlq3dqhFCap8=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-c",
-        "rev": "a2b7bac3b313efbaa683d9a276ff63cdc544d960",
+        "rev": "652433fce487d8c3943207da38e3e65e4550e288",
         "type": "github"
       },
       "original": {
