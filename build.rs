@@ -120,21 +120,31 @@ fn main() {
         .compile("tree_sitter_javascript_scanner");
 
     // markdown
-    let markdown_dir: PathBuf = ["vendor", "tree-sitter-markdown", "src"].iter().collect();
+    let markdown_dir: PathBuf = [
+        "vendor",
+        "tree-sitter-markdown",
+        "tree-sitter-markdown",
+        "src",
+    ]
+    .iter()
+    .collect();
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-markdown/src/parser.c");
+    println!(
+        "cargo:rerun-if-changed=vendor/tree-sitter-markdown/tree-sitter-markdown/src/parser.c"
+    );
     cc::Build::new()
         .include(&markdown_dir)
         .warnings(false)
         .file(markdown_dir.join("parser.c"))
         .compile("tree-sitter-markdown");
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-markdown/src/scanner.cc");
+    println!(
+        "cargo:rerun-if-changed=vendor/tree-sitter-markdown/tree-sitter-markdown/src/scanner.c"
+    );
     cc::Build::new()
         .include(&markdown_dir)
-        .cpp(true)
         .warnings(false)
-        .file(markdown_dir.join("scanner.cc"))
+        .file(markdown_dir.join("scanner.c"))
         .compile("tree_sitter_markdown_scanner");
 
     // nix
@@ -155,9 +165,7 @@ fn main() {
         .compile("tree_sitter_nix_scanner");
 
     // php
-    let php_dir: PathBuf = ["vendor", "tree-sitter-php", "php", "src"]
-        .iter()
-        .collect();
+    let php_dir: PathBuf = ["vendor", "tree-sitter-php", "php", "src"].iter().collect();
 
     println!("cargo:rerun-if-changed=vendor/tree-sitter-php/php/src/parser.c");
     cc::Build::new()

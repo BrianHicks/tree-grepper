@@ -224,15 +224,15 @@
     "tree-sitter-markdown": {
       "flake": false,
       "locked": {
-        "lastModified": 1618750161,
-        "narHash": "sha256-86sDA+8xROfuWiNrWTfN7sExAqwfj+CyXq+ZeHpKSKg=",
-        "owner": "ikatyang",
+        "lastModified": 1708269928,
+        "narHash": "sha256-JoZ/CKIMHVowwqTMFdys+Qu1CHMsP+8Wr2LJo5h30B4=",
+        "owner": "tree-sitter-grammars",
         "repo": "tree-sitter-markdown",
-        "rev": "8b8b77af0493e26d378135a3e7f5ae25b555b375",
+        "rev": "2821521a4e6eab37b63dff6a8e169cd88554047d",
         "type": "github"
       },
       "original": {
-        "owner": "ikatyang",
+        "owner": "tree-sitter-grammars",
         "repo": "tree-sitter-markdown",
         "type": "github"
       }
