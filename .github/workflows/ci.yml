@@ -2,6 +2,9 @@ name: CI
 
 on:
   push:
+    branches:
+      - main
+      - 'nix-update-*'
   pull_request:
 
 jobs:
