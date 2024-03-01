@@ -14,7 +14,7 @@ jobs:
       matrix:
         # note: we're using ubuntu-latest as a stand-in for all Linux
         # distributions. If we find we need more, we should do Docker stuff.
-        os: [ubuntu-latest, macos-11]
+        os: [ubuntu-latest, macos-13]
     runs-on: "${{ matrix.os }}"
     steps:
       - uses: actions/checkout@v4
