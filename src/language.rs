@@ -1,9 +1,9 @@
 use anyhow::{anyhow, Error, Result};
 use std::str::FromStr;
 use strum::{IntoEnumIterator, VariantNames};
-use strum_macros::{Display, EnumIter, EnumVariantNames, FromRepr};
+use strum_macros::{Display, EnumIter, FromRepr, VariantNames};
 
-#[derive(Display, FromRepr, EnumIter, EnumVariantNames, PartialEq, Eq, Hash, Debug)]
+#[derive(Display, FromRepr, EnumIter, VariantNames, PartialEq, Eq, Hash, Debug)]
 #[strum(serialize_all = "lowercase")]
 pub enum Language {
     C,
