@@ -93,6 +93,24 @@ impl FromStr for Language {
     }
 }
 
+extern "C" {
+    fn tree_sitter_c() -> tree_sitter::Language;
+    fn tree_sitter_cpp() -> tree_sitter::Language;
+    fn tree_sitter_elixir() -> tree_sitter::Language;
+    fn tree_sitter_elm() -> tree_sitter::Language;
+    fn tree_sitter_go() -> tree_sitter::Language;
+    fn tree_sitter_haskell() -> tree_sitter::Language;
+    fn tree_sitter_java() -> tree_sitter::Language;
+    fn tree_sitter_javascript() -> tree_sitter::Language;
+    fn tree_sitter_markdown() -> tree_sitter::Language;
+    fn tree_sitter_nix() -> tree_sitter::Language;
+    fn tree_sitter_php() -> tree_sitter::Language;
+    fn tree_sitter_python() -> tree_sitter::Language;
+    fn tree_sitter_ruby() -> tree_sitter::Language;
+    fn tree_sitter_rust() -> tree_sitter::Language;
+    fn tree_sitter_typescript() -> tree_sitter::Language;
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -135,22 +153,4 @@ mod tests {
                 .to_string(),
         )
     }
-}
-
-extern "C" {
-    fn tree_sitter_c() -> tree_sitter::Language;
-    fn tree_sitter_cpp() -> tree_sitter::Language;
-    fn tree_sitter_elixir() -> tree_sitter::Language;
-    fn tree_sitter_elm() -> tree_sitter::Language;
-    fn tree_sitter_go() -> tree_sitter::Language;
-    fn tree_sitter_haskell() -> tree_sitter::Language;
-    fn tree_sitter_java() -> tree_sitter::Language;
-    fn tree_sitter_javascript() -> tree_sitter::Language;
-    fn tree_sitter_markdown() -> tree_sitter::Language;
-    fn tree_sitter_nix() -> tree_sitter::Language;
-    fn tree_sitter_php() -> tree_sitter::Language;
-    fn tree_sitter_python() -> tree_sitter::Language;
-    fn tree_sitter_ruby() -> tree_sitter::Language;
-    fn tree_sitter_rust() -> tree_sitter::Language;
-    fn tree_sitter_typescript() -> tree_sitter::Language;
 }

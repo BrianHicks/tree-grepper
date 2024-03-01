@@ -21,7 +21,7 @@ impl Extractor {
     pub fn new(language: Language, query: Query) -> Extractor {
         let captures: Vec<String> = query
             .capture_names()
-            .into_iter()
+            .iter()
             .map(|s| s.to_string())
             .collect();
 
