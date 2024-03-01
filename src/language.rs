@@ -51,7 +51,7 @@ impl Language {
     }
 
     pub fn parse_query(&self, raw: &str) -> Result<tree_sitter::Query> {
-        tree_sitter::Query::new(self.language(), raw).map_err(|err| anyhow!("{}", err))
+        tree_sitter::Query::new(&self.language(), raw).map_err(|err| anyhow!("{}", err))
     }
 
     pub fn name_for_types_builder(&self) -> &str {

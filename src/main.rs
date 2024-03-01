@@ -79,7 +79,7 @@ fn show_tree(opts: TreeOpts, out: impl Write) -> Result<()> {
 
     let mut parser = Parser::new();
     parser
-        .set_language(opts.language.language())
+        .set_language(&opts.language.language())
         .context("could not set language")?;
 
     let tree = parser
