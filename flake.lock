@@ -143,11 +143,11 @@
     "tree-sitter-elm": {
       "flake": false,
       "locked": {
-        "lastModified": 1690715507,
-        "narHash": "sha256-KtijU8ZODsqcNZc4Roh0AILaBWFs+D1cnSUfwQlEx84=",
+        "lastModified": 1708283668,
+        "narHash": "sha256-Bq2oWtqEAsKyV0iHNKC+hXW4fh4yUwbfUhPtZWg5pug=",
         "owner": "elm-tooling",
         "repo": "tree-sitter-elm",
-        "rev": "b075803c445191af3cf7dbfdc84efef5f5bbc0f5",
+        "rev": "09dbf221d7491dc8d8839616b27c21b9c025c457",
         "type": "github"
       },
       "original": {
