@@ -288,11 +288,11 @@
     "tree-sitter-ruby": {
       "flake": false,
       "locked": {
-        "lastModified": 1686602119,
-        "narHash": "sha256-0EaU9O67faGwtO1GIxjK4Uv1etd0p1vtfrVB3d6TDF8=",
+        "lastModified": 1707953917,
+        "narHash": "sha256-lD3pRbQZDyqIkiknuXAkXd+6aHqKUY/8SNwQgfnrbBw=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-ruby",
-        "rev": "f257f3f57833d584050336921773738a3fd8ca22",
+        "rev": "22a0bb2678755a3714e194609862ea7f4516e807",
         "type": "github"
       },
       "original": {

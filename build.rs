@@ -200,12 +200,11 @@ fn main() {
         .file(ruby_dir.join("parser.c"))
         .compile("tree-sitter-ruby");
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-ruby/src/scanner.cc");
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-ruby/src/scanner.c");
     cc::Build::new()
         .include(&ruby_dir)
-        .cpp(true)
         .warnings(false)
-        .file(ruby_dir.join("scanner.cc"))
+        .file(ruby_dir.join("scanner.c"))
         .compile("tree_sitter_ruby_scanner");
 
     // rust
