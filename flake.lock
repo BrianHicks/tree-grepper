@@ -61,6 +61,7 @@
         "nixpkgs": "nixpkgs",
         "tree-sitter-c": "tree-sitter-c",
         "tree-sitter-cpp": "tree-sitter-cpp",
+        "tree-sitter-cuda": "tree-sitter-cuda",
         "tree-sitter-elixir": "tree-sitter-elixir",
         "tree-sitter-elm": "tree-sitter-elm",
         "tree-sitter-go": "tree-sitter-go",
@@ -120,6 +121,23 @@
       "original": {
         "owner": "tree-sitter",
         "repo": "tree-sitter-cpp",
+        "type": "github"
+      }
+    },
+    "tree-sitter-cuda": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690137001,
+        "narHash": "sha256-oKuHUI27gsWuP+8reOPE01/z7us84/7tPzzAB5n3024=",
+        "owner": "theHamsta",
+        "repo": "tree-sitter-cuda",
+        "rev": "a07b5ccb2c1e328ef424d4d1ab94c881e2aed2c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "theHamsta",
+        "ref": "v0.20.3",
+        "repo": "tree-sitter-cuda",
         "type": "github"
       }
     },

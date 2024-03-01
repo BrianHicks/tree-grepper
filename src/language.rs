@@ -8,6 +8,7 @@ use strum_macros::{Display, EnumIter, FromRepr, VariantNames};
 pub enum Language {
     C,
     Cpp,
+    Cuda,
     Elixir,
     Elm,
     Go,
@@ -33,6 +34,7 @@ impl Language {
             match self {
                 Language::C => tree_sitter_c(),
                 Language::Cpp => tree_sitter_cpp(),
+                Language::Cuda => tree_sitter_cuda(),
                 Language::Elixir => tree_sitter_elixir(),
                 Language::Elm => tree_sitter_elm(),
                 Language::Go => tree_sitter_go(),
@@ -58,6 +60,7 @@ impl Language {
         match self {
             Language::C => "c",
             Language::Cpp => "cpp",
+            Language::Cuda => "cuda",
             Language::Elixir => "elixir",
             Language::Elm => "elm",
             Language::Go => "go",
@@ -96,6 +99,7 @@ impl FromStr for Language {
 extern "C" {
     fn tree_sitter_c() -> tree_sitter::Language;
     fn tree_sitter_cpp() -> tree_sitter::Language;
+    fn tree_sitter_cuda() -> tree_sitter::Language;
     fn tree_sitter_elixir() -> tree_sitter::Language;
     fn tree_sitter_elm() -> tree_sitter::Language;
     fn tree_sitter_go() -> tree_sitter::Language;
