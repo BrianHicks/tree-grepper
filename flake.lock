@@ -320,11 +320,11 @@
     "tree-sitter-typescript": {
       "flake": false,
       "locked": {
-        "lastModified": 1689751053,
-        "narHash": "sha256-oZKit8kScXcOptmT2ckywL5JlAVe+wuwhuj6ThEI5OQ=",
+        "lastModified": 1707953004,
+        "narHash": "sha256-WnVqoshymxZgGC/p5nFX08ypB1VDLIAMjjWN5YC4UT8=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-typescript",
-        "rev": "b1bf4825d9eaa0f3bdeb1e52f099533328acfbdf",
+        "rev": "198e2ea43d1c4ddd76ee883f4eae15f4201cd241",
         "type": "github"
       },
       "original": {
