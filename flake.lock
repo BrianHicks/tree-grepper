@@ -272,11 +272,11 @@
     "tree-sitter-python": {
       "flake": false,
       "locked": {
-        "lastModified": 1692219578,
-        "narHash": "sha256-cV/QwvEQkIQcgo0Pm+3pUH2LhpYOPsuWMgjXMa8dv+s=",
+        "lastModified": 1709056352,
+        "narHash": "sha256-tyEawslx00ZwohMZo4HBa/INfbS7q6Ob2LO7pvowobk=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-python",
-        "rev": "c01fb4e38587e959b9058b8cd34b9e6a3068c827",
+        "rev": "22d3f87bdafac2782e907330babe4af574f5d0b4",
         "type": "github"
       },
       "original": {
