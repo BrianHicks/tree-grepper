@@ -1,9 +1,9 @@
 use anyhow::{anyhow, Error, Result};
 use std::str::FromStr;
 use strum::{IntoEnumIterator, VariantNames};
-use strum_macros::{Display, EnumIter, EnumVariantNames, FromRepr};
+use strum_macros::{Display, EnumIter, FromRepr, VariantNames};
 
-#[derive(Display, FromRepr, EnumIter, EnumVariantNames, PartialEq, Eq, Hash, Debug)]
+#[derive(Display, FromRepr, EnumIter, VariantNames, PartialEq, Eq, Hash, Debug)]
 #[strum(serialize_all = "lowercase")]
 pub enum Language {
     C,
@@ -51,7 +51,7 @@ impl Language {
     }
 
     pub fn parse_query(&self, raw: &str) -> Result<tree_sitter::Query> {
-        tree_sitter::Query::new(self.language(), raw).map_err(|err| anyhow!("{}", err))
+        tree_sitter::Query::new(&self.language(), raw).map_err(|err| anyhow!("{}", err))
     }
 
     pub fn name_for_types_builder(&self) -> &str {
@@ -91,6 +91,24 @@ impl FromStr for Language {
                 )
             })
     }
+}
+
+extern "C" {
+    fn tree_sitter_c() -> tree_sitter::Language;
+    fn tree_sitter_cpp() -> tree_sitter::Language;
+    fn tree_sitter_elixir() -> tree_sitter::Language;
+    fn tree_sitter_elm() -> tree_sitter::Language;
+    fn tree_sitter_go() -> tree_sitter::Language;
+    fn tree_sitter_haskell() -> tree_sitter::Language;
+    fn tree_sitter_java() -> tree_sitter::Language;
+    fn tree_sitter_javascript() -> tree_sitter::Language;
+    fn tree_sitter_markdown() -> tree_sitter::Language;
+    fn tree_sitter_nix() -> tree_sitter::Language;
+    fn tree_sitter_php() -> tree_sitter::Language;
+    fn tree_sitter_python() -> tree_sitter::Language;
+    fn tree_sitter_ruby() -> tree_sitter::Language;
+    fn tree_sitter_rust() -> tree_sitter::Language;
+    fn tree_sitter_typescript() -> tree_sitter::Language;
 }
 
 #[cfg(test)]
@@ -135,22 +153,4 @@ mod tests {
                 .to_string(),
         )
     }
-}
-
-extern "C" {
-    fn tree_sitter_c() -> tree_sitter::Language;
-    fn tree_sitter_cpp() -> tree_sitter::Language;
-    fn tree_sitter_elixir() -> tree_sitter::Language;
-    fn tree_sitter_elm() -> tree_sitter::Language;
-    fn tree_sitter_go() -> tree_sitter::Language;
-    fn tree_sitter_haskell() -> tree_sitter::Language;
-    fn tree_sitter_java() -> tree_sitter::Language;
-    fn tree_sitter_javascript() -> tree_sitter::Language;
-    fn tree_sitter_markdown() -> tree_sitter::Language;
-    fn tree_sitter_nix() -> tree_sitter::Language;
-    fn tree_sitter_php() -> tree_sitter::Language;
-    fn tree_sitter_python() -> tree_sitter::Language;
-    fn tree_sitter_ruby() -> tree_sitter::Language;
-    fn tree_sitter_rust() -> tree_sitter::Language;
-    fn tree_sitter_typescript() -> tree_sitter::Language;
 }

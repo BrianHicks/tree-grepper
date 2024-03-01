@@ -47,7 +47,7 @@
     };
 
     tree-sitter-markdown = {
-      url = "github:ikatyang/tree-sitter-markdown";
+      url = "github:tree-sitter-grammars/tree-sitter-markdown";
       flake = false;
     };
 

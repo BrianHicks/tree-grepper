@@ -19,7 +19,11 @@ pub struct Extractor {
 
 impl Extractor {
     pub fn new(language: Language, query: Query) -> Extractor {
-        let captures = query.capture_names().to_vec();
+        let captures: Vec<String> = query
+            .capture_names()
+            .iter()
+            .map(|s| s.to_string())
+            .collect();
 
         let mut ignores = HashSet::default();
         captures.iter().enumerate().for_each(|(i, name)| {
@@ -62,7 +66,7 @@ impl Extractor {
         parser: &mut Parser,
     ) -> Result<Option<ExtractedFile>> {
         parser
-            .set_language(self.ts_language)
+            .set_language(&self.ts_language)
             .context("could not set language")?;
 
         let tree = parser
