@@ -155,16 +155,18 @@ fn main() {
         .compile("tree_sitter_nix_scanner");
 
     // php
-    let php_dir: PathBuf = ["vendor", "tree-sitter-php", "src"].iter().collect();
+    let php_dir: PathBuf = ["vendor", "tree-sitter-php", "php", "src"]
+        .iter()
+        .collect();
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-php/src/parser.c");
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-php/php/src/parser.c");
     cc::Build::new()
         .include(&php_dir)
         .warnings(false)
         .file(php_dir.join("parser.c"))
         .compile("tree-sitter-php");
 
-    println!("cargo:rerun-if-changed=vendor/tree-sitter-php/src/scanner.c");
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-php/php/src/scanner.c");
     cc::Build::new()
         .include(&php_dir)
         .warnings(false)
