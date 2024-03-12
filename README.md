@@ -106,7 +106,7 @@ php
 python
 ruby
 rust
-scss
+sass
 typescript
 
 ```
