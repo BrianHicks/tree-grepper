@@ -74,6 +74,7 @@
         "tree-sitter-python": "tree-sitter-python",
         "tree-sitter-ruby": "tree-sitter-ruby",
         "tree-sitter-rust": "tree-sitter-rust",
+        "tree-sitter-scss": "tree-sitter-scss",
         "tree-sitter-typescript": "tree-sitter-typescript"
       }
     },
@@ -332,6 +333,22 @@
       "original": {
         "owner": "tree-sitter",
         "repo": "tree-sitter-rust",
+        "type": "github"
+      }
+    },
+    "tree-sitter-scss": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1643924901,
+        "narHash": "sha256-BFtMT6eccBWUyq6b8UXRAbB1R1XD3CrrFf1DM3aUI5c=",
+        "owner": "serenadeai",
+        "repo": "tree-sitter-scss",
+        "rev": "c478c6868648eff49eb04a4df90d703dc45b312a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "serenadeai",
+        "repo": "tree-sitter-scss",
         "type": "github"
       }
     },
