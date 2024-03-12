@@ -71,6 +71,11 @@
       flake = false;
     };
 
+    tree-sitter-scss = {
+      url = "github:serenadeai/tree-sitter-scss";
+      flake = false;
+    };
+
     tree-sitter-typescript = {
       url = "github:tree-sitter/tree-sitter-typescript";
       flake = false;
@@ -114,6 +119,7 @@
           ln -s ${inputs.tree-sitter-python} vendor/tree-sitter-python
           ln -s ${inputs.tree-sitter-ruby} vendor/tree-sitter-ruby
           ln -s ${inputs.tree-sitter-rust} vendor/tree-sitter-rust
+          ln -s ${inputs.tree-sitter-scss} vendor/tree-sitter-scss
           ln -s ${inputs.tree-sitter-typescript} vendor/tree-sitter-typescript
           ln -s ${inputs.tree-sitter-nix} vendor/tree-sitter-nix
           ln -s ${inputs.tree-sitter-cuda} vendor/tree-sitter-cuda
