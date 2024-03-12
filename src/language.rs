@@ -21,7 +21,7 @@ pub enum Language {
     Python,
     Ruby,
     Rust,
-    Scss,
+    Sass,
     TypeScript,
 }
 
@@ -48,7 +48,7 @@ impl Language {
                 Language::Python => tree_sitter_python(),
                 Language::Ruby => tree_sitter_ruby(),
                 Language::Rust => tree_sitter_rust(),
-                Language::Scss => tree_sitter_scss(),
+                Language::Sass => tree_sitter_scss(),
                 Language::TypeScript => tree_sitter_typescript(),
             }
         }
@@ -75,7 +75,7 @@ impl Language {
             Language::Python => "py",
             Language::Ruby => "ruby",
             Language::Rust => "rust",
-            Language::Scss => "scss",
+            Language::Sass => "sass",
             Language::TypeScript => "ts",
         }
     }
