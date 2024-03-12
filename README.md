@@ -106,9 +106,10 @@ php
 python
 ruby
 rust
+scss
 typescript
 
-````
+```
 
 Don't see your favorite?
 We're open to PRs for adding whatever language you'd like!
