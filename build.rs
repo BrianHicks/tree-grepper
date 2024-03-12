@@ -249,6 +249,23 @@ fn main() {
         .file(rust_dir.join("scanner.c"))
         .compile("tree_sitter_rust_scanner");
 
+    // scss
+    let scss_dir: PathBuf = ["vendor", "tree-sitter-scss", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-scss/src/parser.c");
+    cc::Build::new()
+        .include(&scss_dir)
+        .warnings(false)
+        .file(scss_dir.join("parser.c"))
+        .compile("tree-sitter-scss");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-scss/src/scanner.c");
+    cc::Build::new()
+        .include(&scss_dir)
+        .warnings(false)
+        .file(scss_dir.join("scanner.c"))
+        .compile("tree_sitter_scss_scanner");
+
     // typescript
     let typescript_dir: PathBuf = ["vendor", "tree-sitter-typescript", "typescript", "src"]
         .iter()
