@@ -16,7 +16,7 @@ serde = { version = "1.0.197", features = [ "derive" ] }
 serde_json = "1.0.115"
 strum = "0.26.2"
 strum_macros = "0.26.2"
-tree-sitter = "0.22.2"
+tree-sitter = "0.22.5"
 
 [build-dependencies]
 cc = { version = "1.0.91", features = [ "parallel" ] }
