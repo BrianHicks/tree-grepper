@@ -19,7 +19,7 @@ strum_macros = "0.26.2"
 tree-sitter = "0.22.5"
 
 [build-dependencies]
-cc = { version = "1.0.94", features = [ "parallel" ] }
+cc = { version = "1.0.95", features = [ "parallel" ] }
 
 [dev-dependencies]
 trycmd = "0.15.1"
