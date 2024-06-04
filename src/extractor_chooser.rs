@@ -15,6 +15,7 @@ impl<'extractor> ExtractorChooser<'extractor> {
         types_builder.add_defaults();
         types_builder.add_def("cuda:*.cu,*.cuh,*.hpp")?;
         types_builder.add_def("cuda:include:cpp")?;
+        types_builder.add_def("powershell:*.ps1")?;
 
         let mut names_to_extractors = HashMap::with_capacity(extractors.len());
 
