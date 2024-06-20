@@ -1,8 +1,52 @@
+extern crate git2;
+
+use git2::Repository;
+use std::path::Path;
 use std::path::PathBuf;
 
 // https://doc.rust-lang.org/cargo/reference/build-scripts.html
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
+
+    let repos = vec![
+        ("tree-sitter-c", "https://github.com/tree-sitter/tree-sitter-c"),
+        ("tree-sitter-cpp", "https://github.com/tree-sitter/tree-sitter-cpp"),
+        ("tree-sitter-cuda", "https://github.com/theHamsta/tree-sitter-cuda"),
+        ("tree-sitter-elixir", "https://github.com/elixir-lang/tree-sitter-elixir"),
+        ("tree-sitter-elm", "https://github.com/elm-tooling/tree-sitter-elm"),
+        ("tree-sitter-go", "https://github.com/tree-sitter/tree-sitter-go"),
+        ("tree-sitter-haskell", "https://github.com/tree-sitter/tree-sitter-haskell"),
+        ("tree-sitter-java", "https://github.com/tree-sitter/tree-sitter-java"),
+        ("tree-sitter-javascript", "https://github.com/tree-sitter/tree-sitter-javascript"),
+        ("tree-sitter-markdown", "https://github.com/tree-sitter-grammars/tree-sitter-markdown"),
+        ("tree-sitter-nix", "https://github.com/cstrahan/tree-sitter-nix"),
+        ("tree-sitter-php", "https://github.com/tree-sitter/tree-sitter-php"),
+        ("tree-sitter-python", "https://github.com/tree-sitter/tree-sitter-python"),
+        ("tree-sitter-ruby", "https://github.com/tree-sitter/tree-sitter-ruby"),
+        ("tree-sitter-rust", "https://github.com/tree-sitter/tree-sitter-rust"),
+        ("tree-sitter-scss", "https://github.com/serenadeai/tree-sitter-scss"),
+        ("tree-sitter-typescript", "https://github.com/tree-sitter/tree-sitter-typescript"),
+    ];
+
+
+    let vendor_dir = Path::new("vendor");
+
+    if !vendor_dir.exists() {
+        std::fs::create_dir(vendor_dir).unwrap();
+    }
+
+    for (name, url) in repos {
+        let repo_path = vendor_dir.join(name);
+        if !repo_path.exists() {
+            println!("Cloning {} into {:?}", url, repo_path);
+            match Repository::clone(url, &repo_path) {
+                Ok(_) => println!("Successfully cloned {}", url),
+                Err(e) => eprintln!("Failed to clone {}: {}", url, e),
+            }
+        } else {
+            println!("{} already exists, skipping", repo_path.display());
+        }
+    }
 
     // c
     let c_dir: PathBuf = ["vendor", "tree-sitter-c", "src"].iter().collect();

@@ -20,6 +20,7 @@ tree-sitter = "0.22.6"
 
 [build-dependencies]
 cc = { version = "1.0.99", features = [ "parallel" ] }
+git2 = "0.14"
 
 [dev-dependencies]
 trycmd = "0.15.4"
