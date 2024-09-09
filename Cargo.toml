@@ -9,7 +9,7 @@ anyhow = "1.0.86"
 bump_alloc = "0.1.0"
 clap = { version = "4.5.16", features = [ "std", "color", "suggestions", "cargo" ] }
 crossbeam = "0.8.4"
-ignore = "0.4.22"
+ignore = "0.4.23"
 itertools = "0.13.0"
 rayon = "1.10.0"
 serde = { version = "1.0.209", features = [ "derive" ] }
