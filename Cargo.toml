@@ -5,7 +5,7 @@ authors = ["Brian Hicks <brian@brianthicks.com>"]
 edition = "2018"
 
 [dependencies]
-anyhow = "1.0.92"
+anyhow = "1.0.93"
 bump_alloc = "0.1.0"
 clap = { version = "4.5.20", features = [ "std", "color", "suggestions", "cargo" ] }
 crossbeam = "0.8.4"
