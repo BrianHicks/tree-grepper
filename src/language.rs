@@ -18,6 +18,7 @@ pub enum Language {
     Markdown,
     Nix,
     Php,
+    PowerShell,
     Python,
     Ruby,
     Rust,
@@ -45,6 +46,7 @@ impl Language {
                 Language::Markdown => tree_sitter_markdown(),
                 Language::Nix => tree_sitter_nix(),
                 Language::Php => tree_sitter_php(),
+                Language::PowerShell => tree_sitter_powershell(),
                 Language::Python => tree_sitter_python(),
                 Language::Ruby => tree_sitter_ruby(),
                 Language::Rust => tree_sitter_rust(),
@@ -77,6 +79,7 @@ impl Language {
             Language::Rust => "rust",
             Language::Sass => "sass",
             Language::TypeScript => "ts",
+            Language::PowerShell => "powershell",
         }
     }
 }
@@ -112,6 +115,7 @@ extern "C" {
     fn tree_sitter_markdown() -> tree_sitter::Language;
     fn tree_sitter_nix() -> tree_sitter::Language;
     fn tree_sitter_php() -> tree_sitter::Language;
+    fn tree_sitter_powershell() -> tree_sitter::Language;
     fn tree_sitter_python() -> tree_sitter::Language;
     fn tree_sitter_ruby() -> tree_sitter::Language;
     fn tree_sitter_rust() -> tree_sitter::Language;
