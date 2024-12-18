@@ -284,4 +284,21 @@ fn main() {
         .warnings(false)
         .file(typescript_dir.join("scanner.c"))
         .compile("tree_sitter_typescript_scanner");
+
+    // powershell
+    let powershell_dir: PathBuf = ["vendor", "tree-sitter-powershell", "src"].iter().collect();
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-powershell/src/parser.c");
+    cc::Build::new()
+        .include(&powershell_dir)
+        .warnings(false)
+        .file(&powershell_dir.join("parser.c"))
+        .compile("tree-sitter-powershell");
+
+    println!("cargo:rerun-if-changed=vendor/tree-sitter-powershell/src/scanner.c");
+    cc::Build::new()
+        .include(&powershell_dir)
+        .warnings(false)
+        .file(&powershell_dir.join("scanner.c"))
+        .compile("tree_sitter_powershell_scanner");
 }

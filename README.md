@@ -103,6 +103,7 @@ javascript
 markdown
 nix
 php
+powershell
 python
 ruby
 rust
