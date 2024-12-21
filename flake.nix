@@ -90,6 +90,11 @@
       url = "github:theHamsta/tree-sitter-cuda/v0.20.3";
       flake = false;
     };
+    
+    tree-sitter-powershell = {
+      url = "github:airbus-cert/tree-sitter-powershell";
+      flake = false;
+    };
   };
 
   outputs = inputs:
@@ -123,6 +128,7 @@
           ln -s ${inputs.tree-sitter-typescript} vendor/tree-sitter-typescript
           ln -s ${inputs.tree-sitter-nix} vendor/tree-sitter-nix
           ln -s ${inputs.tree-sitter-cuda} vendor/tree-sitter-cuda
+          ln -s ${inputs.tree-sitter-powershell} vendor/tree-sitter-powershell
         '';
       in rec {
         # `nix build`

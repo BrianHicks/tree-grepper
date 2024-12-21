@@ -71,6 +71,7 @@
         "tree-sitter-markdown": "tree-sitter-markdown",
         "tree-sitter-nix": "tree-sitter-nix",
         "tree-sitter-php": "tree-sitter-php",
+        "tree-sitter-powershell": "tree-sitter-powershell",
         "tree-sitter-python": "tree-sitter-python",
         "tree-sitter-ruby": "tree-sitter-ruby",
         "tree-sitter-rust": "tree-sitter-rust",
@@ -285,6 +286,22 @@
       "original": {
         "owner": "tree-sitter",
         "repo": "tree-sitter-php",
+        "type": "github"
+      }
+    },
+    "tree-sitter-powershell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1717078129,
+        "narHash": "sha256-bkLdC3pedo228UDiO7ZZ2E1r3WP2aq2Ud6Ni88ulsNc=",
+        "owner": "airbus-cert",
+        "repo": "tree-sitter-powershell",
+        "rev": "6de5d48649aa7086e2a7ba72660bcabe01c8b258",
+        "type": "github"
+      },
+      "original": {
+        "owner": "airbus-cert",
+        "repo": "tree-sitter-powershell",
         "type": "github"
       }
     },
