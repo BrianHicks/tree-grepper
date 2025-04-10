@@ -6,7 +6,7 @@ use std::collections::HashSet;
 use std::fmt::{self, Display};
 use std::fs;
 use std::path::{Path, PathBuf};
-use tree_sitter::{Parser, Point, Query, QueryCursor};
+use tree_sitter::{Parser, Point, Query, QueryCursor, StreamingIterator};
 
 #[derive(Debug)]
 pub struct Extractor {
@@ -80,36 +80,31 @@ impl Extractor {
             )?;
 
         let mut cursor = QueryCursor::new();
+        let mut matches = cursor.matches(&self.query, tree.root_node(), source);
 
-        let extracted_matches = cursor
-            .matches(&self.query, tree.root_node(), source)
-            .flat_map(|query_match| query_match.captures)
-            // note: the casts here could potentially break if run on a 16-bit
-            // microcontroller. I don't think this is a huge problem, though,
-            // since even the gnarliest queries I've written have something on
-            // the order of 20 matches. Nowhere close to 2^16!
-            .filter(|capture| !self.ignores.contains(&(capture.index as usize)))
-            .map(|capture| {
+        let mut extracted_matches = Vec::new();
+        while let Some(match_) = matches.next() {
+            for capture in match_.captures {
+                if self.ignores.contains(&(capture.index as usize)) {
+                    continue;
+                }
+
                 let name = &self.captures[capture.index as usize];
                 let node = capture.node;
-                let text = match node
+                let text = node
                     .utf8_text(source)
                     .map(|unowned| unowned.to_string())
-                    .context("could not extract text from capture")
-                {
-                    Ok(text) => text,
-                    Err(problem) => return Err(problem),
-                };
+                    .context("could not extract text from capture")?;
 
-                Ok(ExtractedMatch {
+                extracted_matches.push(ExtractedMatch {
                     kind: node.kind(),
                     name,
                     text,
                     start: node.start_position(),
                     end: node.end_position(),
                 })
-            })
-            .collect::<Result<Vec<ExtractedMatch>>>()?;
+            }
+        }
 
         if extracted_matches.is_empty() {
             Ok(None)
