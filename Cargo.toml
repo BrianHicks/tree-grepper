@@ -5,21 +5,21 @@ authors = ["Brian Hicks <brian@brianthicks.com>"]
 edition = "2018"
 
 [dependencies]
-anyhow = "1.0.94"
+anyhow = "1.0.97"
 bump_alloc = "0.1.0"
-clap = { version = "4.5.23", features = [ "std", "color", "suggestions", "cargo" ] }
+clap = { version = "4.5.35", features = [ "std", "color", "suggestions", "cargo" ] }
 crossbeam = "0.8.4"
 ignore = "0.4.23"
-itertools = "0.13.0"
+itertools = "0.14.0"
 rayon = "1.10.0"
-serde = { version = "1.0.216", features = [ "derive" ] }
-serde_json = "1.0.133"
-strum = "0.26.3"
-strum_macros = "0.26.4"
-tree-sitter = "0.23.0"
+serde = { version = "1.0.219", features = [ "derive" ] }
+serde_json = "1.0.140"
+strum = "0.27.1"
+strum_macros = "0.27.1"
+tree-sitter = "0.25.3"
 
 [build-dependencies]
-cc = { version = "1.2.4", features = [ "parallel" ] }
+cc = { version = "1.2.18", features = [ "parallel" ] }
 
 [dev-dependencies]
-trycmd = "0.15.8"
+trycmd = "0.15.9"
