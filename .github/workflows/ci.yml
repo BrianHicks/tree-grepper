@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - 'nix-update-*'
+      - "nix-update-*"
   pull_request:
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
       - uses: cachix/cachix-action@v15
         with:
           name: tree-grepper
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - run: nix-build
 
@@ -37,4 +37,4 @@ jobs:
           name: tree-grepper
           skipPush: true
 
-      - run: nix-shell --pure --run 'rustfmt --check $(find . -name "*.rs" -not -ipath "*vendor*" -not -ipath "*target*")'
+      - run: nix-shell --pure --run 'cargo fmt --check'

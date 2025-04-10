@@ -138,7 +138,9 @@ mod tests {
 
     #[test]
     fn parse_query_smoke_test() {
-        Language::iter().for_each(|lang| assert!(lang.parse_query("(_)").is_ok()));
+        Language::iter().for_each(|lang| {
+            lang.parse_query("(_)").unwrap();
+        });
     }
 
     #[test]
