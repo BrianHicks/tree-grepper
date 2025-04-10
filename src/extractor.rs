@@ -125,7 +125,7 @@ pub struct ExtractedFile<'query> {
     matches: Vec<ExtractedMatch<'query>>,
 }
 
-impl<'query> Display for ExtractedFile<'query> {
+impl Display for ExtractedFile<'_> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // TODO: is there a better way to do this unwrapping? This implementation
         // turns non-UTF-8 paths into "NON-UTF8 FILENAME". I don't know exactly

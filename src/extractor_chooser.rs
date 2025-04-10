@@ -9,7 +9,7 @@ pub struct ExtractorChooser<'extractor> {
     extractors: HashMap<&'extractor str, &'extractor Extractor>,
 }
 
-impl<'extractor> ExtractorChooser<'extractor> {
+impl ExtractorChooser<'_> {
     pub fn from_extractors(extractors: &[Extractor]) -> Result<ExtractorChooser> {
         let mut types_builder = TypesBuilder::new();
         types_builder.add_defaults();
