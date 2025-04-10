@@ -292,13 +292,13 @@ fn main() {
     cc::Build::new()
         .include(&powershell_dir)
         .warnings(false)
-        .file(&powershell_dir.join("parser.c"))
+        .file(powershell_dir.join("parser.c"))
         .compile("tree-sitter-powershell");
 
     println!("cargo:rerun-if-changed=vendor/tree-sitter-powershell/src/scanner.c");
     cc::Build::new()
         .include(&powershell_dir)
         .warnings(false)
-        .file(&powershell_dir.join("scanner.c"))
+        .file(powershell_dir.join("scanner.c"))
         .compile("tree_sitter_powershell_scanner");
 }
