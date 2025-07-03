@@ -40,11 +40,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1750836778,
-        "narHash": "sha256-sRLyRiC7TezRbbjGJwUFOgb2xMbSr3wQ0oJKfYlQ6s0=",
+        "lastModified": 1751382304,
+        "narHash": "sha256-p+UruOjULI5lV16FkBqkzqgFasLqfx0bihLBeFHiZAs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d7bb1922f0bb3d0c990f56f9cdb767fdb20a5f22",
+        "rev": "d31a91c9b3bee464d054633d5f8b84e17a637862",
         "type": "github"
       },
       "original": {
@@ -292,11 +292,11 @@
     "tree-sitter-powershell": {
       "flake": false,
       "locked": {
-        "lastModified": 1750254464,
-        "narHash": "sha256-cu3p9TEKoXtIBrjg4s//AarBEIPIGP5Yg4sKTqdvGbk=",
+        "lastModified": 1751375487,
+        "narHash": "sha256-A42DoIOoEpH8lFvr8V/9r4zwozPWJ9pJMwB/i8Rw45k=",
         "owner": "airbus-cert",
         "repo": "tree-sitter-powershell",
-        "rev": "01b67e81917482fb714409a40a8fea8fe21c42f6",
+        "rev": "103a700af551ba8d3402fd68e6f3cd4bf45cbe80",
         "type": "github"
       },
       "original": {
