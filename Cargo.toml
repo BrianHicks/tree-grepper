@@ -13,7 +13,7 @@ ignore = "0.4.23"
 itertools = "0.14.0"
 rayon = "1.10.0"
 serde = { version = "1.0.219", features = [ "derive" ] }
-serde_json = "1.0.140"
+serde_json = "1.0.142"
 strum = "0.27.1"
 strum_macros = "0.27.1"
 tree-sitter = "0.25.8"
